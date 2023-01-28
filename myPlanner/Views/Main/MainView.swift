@@ -2,11 +2,17 @@ import UIKit
 
 final class MainView: UICollectionView {
     
+    enum LocalConstants {
+        
+        static let minimumLineSpacing: CGFloat = 0.0
+        
+    }
+    
     // MARK: - Init
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = Constants.Layout.minimumLineSpacing
+        layout.minimumLineSpacing = LocalConstants.minimumLineSpacing
         super.init(frame: .zero, collectionViewLayout: layout)
         
         backgroundColor = .white
