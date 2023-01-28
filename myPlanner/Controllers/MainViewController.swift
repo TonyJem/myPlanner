@@ -2,7 +2,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    enum LocalConstants {
+    enum Constants {
         
         static private let headerHeightMultiplier: CGFloat = 0.075
         static let headerViewHeight = UIScreen.main.bounds.height * headerHeightMultiplier
@@ -41,14 +41,14 @@ extension MainViewController {
             headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: LocalConstants.headerViewHeight)
+            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight)
         ])
         
         NSLayoutConstraint.activate([
             footerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             footerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             footerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: LocalConstants.footerViewHeight)
+            footerView.heightAnchor.constraint(equalToConstant: Constants.footerViewHeight)
         ])
         
         NSLayoutConstraint.activate([

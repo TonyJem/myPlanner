@@ -1,19 +1,8 @@
 import UIKit
 
 class FooterView: UIView {
-  /*
-   enum LocalConstants {
-       
-       static let height: CGFloat = 30.0
-       static let width = UIScreen.main.bounds.width - (2 * horizontalInset)
-       
-       static let defaultTabWidth: CGFloat = 100.0
-       static let tabApposition: CGFloat = 7.0
-       
-   }
-   */
 
-    enum LocalConstants {
+    enum Constants {
         
         static let bottomTabPanelHeight: CGFloat = 30.0
         static let bottomTabPanelHorizontalInset: CGFloat = 130.0
@@ -80,25 +69,25 @@ extension FooterView {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             todayButton.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                 constant: LocalConstants.horizontalInset),
+                                                 constant: Constants.horizontalInset),
             todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            todayButton.heightAnchor.constraint(equalToConstant: LocalConstants.buttonHeight)
+            todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
         
         NSLayoutConstraint.activate([
             tabPanelView.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                  constant: LocalConstants.bottomTabPanelHorizontalInset),
+                                                  constant: Constants.bottomTabPanelHorizontalInset),
             tabPanelView.topAnchor.constraint(equalTo: topAnchor),
             tabPanelView.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                   constant: -1 * LocalConstants.bottomTabPanelHorizontalInset),
-            tabPanelView.heightAnchor.constraint(equalToConstant: LocalConstants.bottomTabPanelHeight)
+                                                   constant: -1 * Constants.bottomTabPanelHorizontalInset),
+            tabPanelView.heightAnchor.constraint(equalToConstant: Constants.bottomTabPanelHeight)
         ])
         
         NSLayoutConstraint.activate([
             showCalendarsButton.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                          constant: -1.5 * LocalConstants.horizontalInset),
+                                                          constant: -1.5 * Constants.horizontalInset),
             showCalendarsButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            showCalendarsButton.heightAnchor.constraint(equalToConstant: LocalConstants.buttonHeight)
+            showCalendarsButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
 }

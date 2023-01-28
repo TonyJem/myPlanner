@@ -2,7 +2,7 @@ import UIKit
 
 class TopTabPanelView: UIStackView {
     
-    enum LocalConstants {
+    enum Constants {
         
         static let tabApposition: CGFloat = 7.0
         
@@ -17,7 +17,7 @@ class TopTabPanelView: UIStackView {
         super.init(frame: frame)
         
         axis  = NSLayoutConstraint.Axis.horizontal
-        spacing = -1 * LocalConstants.tabApposition
+        spacing = -1 * Constants.tabApposition
         distribution = UIStackView.Distribution.fillEqually
         translatesAutoresizingMaskIntoConstraints = false
         

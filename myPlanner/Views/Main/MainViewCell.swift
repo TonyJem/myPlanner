@@ -2,7 +2,7 @@ import UIKit
 
 final class MainViewCell: UICollectionViewCell {
     
-    enum LocalConstants {
+    enum Constants {
         
         static let dateViewWidthMultiplier: CGFloat = 0.25
         static let dateViewHeightMultiplier: CGFloat = 6/7
@@ -81,9 +81,9 @@ extension MainViewCell {
             dateView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dateView.topAnchor.constraint(equalTo: topAnchor),
             dateView.widthAnchor.constraint(equalTo: widthAnchor,
-                                            multiplier: LocalConstants.dateViewWidthMultiplier),
+                                            multiplier: Constants.dateViewWidthMultiplier),
             dateView.heightAnchor.constraint(equalTo: dateView.widthAnchor,
-                                             multiplier: LocalConstants.dateViewHeightMultiplier)
+                                             multiplier: Constants.dateViewHeightMultiplier)
         ])
         
         NSLayoutConstraint.activate([
