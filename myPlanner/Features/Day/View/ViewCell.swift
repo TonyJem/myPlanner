@@ -19,9 +19,8 @@ extension Day {
             return view
         }()
         
-        private let calendarView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .systemPink
+        private let calendarView: Calendar.View = {
+            let view = Calendar.View().autolayout()
             return view
         }()
         
