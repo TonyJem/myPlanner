@@ -11,8 +11,11 @@ final class MainViewCell: UICollectionViewCell {
     
     static let identifier = "MainViewCellIdentifier"
     
-    // MARK: - Views
-    private let dateView = DateModul.View().autolayout()
+    // MARK: - SubViews
+    private lazy var dateView: UIView = {
+        let view = DateModul.View().autolayout()
+        return view
+    }()
     
     private let calendarView: UIView = {
         let view = UIView().autolayout()

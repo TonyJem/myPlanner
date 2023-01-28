@@ -1,37 +1,41 @@
 import UIKit
 
-class MainViewController: UIViewController {
+extension Day {
     
-    enum Constants {
+    class ViewController: UIViewController {
         
-        static let headerViewHeight: CGFloat = 63.0
-        static let footerViewHeight: CGFloat = 36.0
+        enum Constants {
+            
+            static let headerViewHeight: CGFloat = 63.0
+            static let footerViewHeight: CGFloat = 36.0
+            
+        }
         
-    }
-    
-    // MARK: - Views
-    private let headerView = HeaderView().autolayout()
-    private let mainView = MainView().autolayout()
-    private let footerView = FooterView().autolayout()
-    
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        setConstraints()
-    }
-    
-    // MARK: - Private Methods
-    private func setupViews() {
-        view.addSubview(headerView)
-        view.addSubview(mainView)
-        view.addSubview(footerView)
+        // MARK: - Views
+        private let headerView = HeaderView().autolayout()
+        private let mainView = MainView().autolayout()
+        private let footerView = FooterView().autolayout()
+        
+        // MARK: - LifeCycle
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setupViews()
+            setConstraints()
+        }
+        
+        // MARK: - Private Methods
+        private func setupViews() {
+            view.addSubview(headerView)
+            view.addSubview(mainView)
+            view.addSubview(footerView)
+        }
+        
     }
     
 }
 
 // MARK: - SetConstraints
-extension MainViewController {
+extension Day.ViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
