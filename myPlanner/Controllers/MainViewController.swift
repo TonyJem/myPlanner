@@ -4,11 +4,8 @@ class MainViewController: UIViewController {
     
     enum Constants {
         
-        static private let headerHeightMultiplier: CGFloat = 0.075
-        static let headerViewHeight = UIScreen.main.bounds.height * headerHeightMultiplier
-        
-        static private let footerHeightMultiplier: CGFloat = 0.04375
-        static let footerViewHeight = UIScreen.main.bounds.height * footerHeightMultiplier
+        static let headerViewHeight: CGFloat = 63.0
+        static let footerViewHeight: CGFloat = 36.0
         
     }
     
@@ -20,7 +17,6 @@ class MainViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         setConstraints()
     }
@@ -31,12 +27,13 @@ class MainViewController: UIViewController {
         view.addSubview(mainView)
         view.addSubview(footerView)
     }
+    
 }
 
 // MARK: - SetConstraints
 extension MainViewController {
+    
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
             headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -58,4 +55,5 @@ extension MainViewController {
             mainView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
         ])
     }
+    
 }
