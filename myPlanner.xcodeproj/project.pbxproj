@@ -38,6 +38,7 @@
 		3A2D66BF29859856007AD3F6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66BE29859856007AD3F6 /* Day.swift */; };
 		3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C32985B132007AD3F6 /* Calendar.swift */; };
 		3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C62985B209007AD3F6 /* Calendar.View.swift */; };
+		3A2D66C92985BCA5007AD3F6 /* Calendar.GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		3A2D66BE29859856007AD3F6 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3A2D66C32985B132007AD3F6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		3A2D66C62985B209007AD3F6 /* Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.View.swift; sourceTree = "<group>"; };
+		3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.GridCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2D66C62985B209007AD3F6 /* Calendar.View.swift */,
+				3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
+				3A2D66C92985BCA5007AD3F6 /* Calendar.GridCell.swift in Sources */,
 				3A2D66AD29856481007AD3F6 /* String.swift in Sources */,
 				3A2D66B429856EB5007AD3F6 /* DateModul.swift in Sources */,
 				3A2D66B7298584DC007AD3F6 /* Spacing.swift in Sources */,

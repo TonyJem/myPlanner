@@ -54,6 +54,7 @@ extension Day {
             fatalError("init(coder:) has not been implemented")
         }
         
+        // MARK: - Public Methods
         func renderDate(viewState: DateModul.ViewState) {
             dateView.renderDate(viewState: viewState)
         }
