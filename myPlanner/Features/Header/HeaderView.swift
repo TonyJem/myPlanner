@@ -35,16 +35,18 @@ class HeaderView: UIView {
 
 // MARK: - SetConstraints
 extension HeaderView {
+    
     private func setConstraints() {
-        
         NSLayoutConstraint.activate([
+            
             tabPanelView.leadingAnchor.constraint(equalTo: leadingAnchor,
                                                   constant: Constants.horizontalInset),
             tabPanelView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tabPanelView.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                    constant: -1 * Constants.horizontalInset),
             tabPanelView.heightAnchor.constraint(equalToConstant: Constants.height)
+            
         ])
-        
     }
+    
 }

@@ -39,24 +39,22 @@ extension Day.ViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            
             headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
+            headerView.heightAnchor.constraint(equalToConstant: Constants.headerViewHeight),
+
             footerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             footerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             footerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            footerView.heightAnchor.constraint(equalToConstant: Constants.footerViewHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
+            footerView.heightAnchor.constraint(equalToConstant: Constants.footerViewHeight),
+
             mainView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             mainView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             mainView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mainView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
+            
         ])
     }
     

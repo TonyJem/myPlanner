@@ -63,28 +63,28 @@ class FooterView: UIView {
 
 // MARK: - SetConstraints
 extension FooterView {
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            
             todayButton.leadingAnchor.constraint(equalTo: leadingAnchor,
                                                  constant: Constants.horizontalInset),
             todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
+            todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
+            
             tabPanelView.leadingAnchor.constraint(equalTo: leadingAnchor,
                                                   constant: Constants.bottomTabPanelHorizontalInset),
             tabPanelView.topAnchor.constraint(equalTo: topAnchor),
             tabPanelView.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                    constant: -1 * Constants.bottomTabPanelHorizontalInset),
-            tabPanelView.heightAnchor.constraint(equalToConstant: Constants.bottomTabPanelHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
+            tabPanelView.heightAnchor.constraint(equalToConstant: Constants.bottomTabPanelHeight),
+
             showCalendarsButton.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                           constant: -1.5 * Constants.horizontalInset),
             showCalendarsButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             showCalendarsButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+            
         ])
     }
+    
 }
