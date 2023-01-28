@@ -12,7 +12,7 @@ final class MainViewCell: UICollectionViewCell {
     static let identifier = "MainViewCellIdentifier"
     
     // MARK: - SubViews
-    private lazy var dateView: UIView = {
+    private lazy var dateView: DateModul.View = {
         let view = DateModul.View().autolayout()
         return view
     }()
@@ -51,6 +51,10 @@ final class MainViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func renderDate(viewState: DateModul.ViewState) {
+        dateView.renderDate(viewState: viewState)
     }
     
     // MARK: - Private Methods

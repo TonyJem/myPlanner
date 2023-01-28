@@ -42,6 +42,18 @@ extension MainView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainViewCell.identifier, for: indexPath) as! MainViewCell
         
+        let title = "Day: \(indexPath.row)"
+        let date = "\(indexPath.row)"
+        let subtitle = "\(indexPath.row)TH DAY, 337 LEFT, WEEK 4"
+        
+        let viewState = DateModul.ViewState(
+            title: title,
+            date: date,
+            subtitle: subtitle
+        )
+        
+        cell.renderDate(viewState: viewState)
+        
         return cell
     }
 }

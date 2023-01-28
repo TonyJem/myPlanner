@@ -7,7 +7,6 @@ extension DateModul {
         // MARK: - Sub Views
         private lazy var title: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "Saturday"
             label.numberOfLines = 1
             label.textColor = .systemGray
             label.textAlignment = .center
@@ -17,7 +16,6 @@ extension DateModul {
         
         private lazy var date: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "28"
             label.numberOfLines = 1
             label.textColor = .systemOrange
             label.textAlignment = .center
@@ -27,7 +25,6 @@ extension DateModul {
         
         private lazy var subtitle: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "28TH DAY, 337 LEFT, WEEK 4"
             label.numberOfLines = 1
             label.textColor = .systemGray
             label.textAlignment = .center
@@ -52,6 +49,12 @@ extension DateModul {
             addSubview(title)
             addSubview(date)
             addSubview(subtitle)
+        }
+        
+        func renderDate(viewState: DateModul.ViewState) {
+            title.text = viewState.title
+            date.text = viewState.date
+            subtitle.text = viewState.subtitle
         }
         
     }
