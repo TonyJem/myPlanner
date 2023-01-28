@@ -1,38 +1,42 @@
 import UIKit
 
-final class MainView: UICollectionView {
+extension Day {
     
-    enum Constants {
+    final class MainView: UICollectionView {
         
-        static let minimumLineSpacing: CGFloat = 0.0
+        enum Constants {
+            
+            static let minimumLineSpacing: CGFloat = 0.0
+            
+        }
         
+        // MARK: - Init
+        init() {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumLineSpacing = Constants.minimumLineSpacing
+            super.init(frame: .zero, collectionViewLayout: layout)
+            
+            backgroundColor = .white
+            isPagingEnabled = true
+            showsVerticalScrollIndicator = false
+            showsHorizontalScrollIndicator = false
+            
+            dataSource = self
+            delegate = self
+            
+            register(MainViewCell.self, forCellWithReuseIdentifier: MainViewCell.identifier)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
     
-    // MARK: - Init
-    init() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = Constants.minimumLineSpacing
-        super.init(frame: .zero, collectionViewLayout: layout)
-        
-        backgroundColor = .white
-        isPagingEnabled = true
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
-        
-        dataSource = self
-        delegate = self
-        
-        register(MainViewCell.self, forCellWithReuseIdentifier: MainViewCell.identifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
 // MARK: - CollectionView DataSource
-extension MainView: UICollectionViewDataSource {
+extension Day.MainView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 888
@@ -40,7 +44,7 @@ extension MainView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainViewCell.identifier, for: indexPath) as! MainViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Day.MainViewCell.identifier, for: indexPath) as! Day.MainViewCell
         
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
@@ -59,12 +63,12 @@ extension MainView: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension MainView: UICollectionViewDelegate {
+extension Day.MainView: UICollectionViewDelegate {
     
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension MainView: UICollectionViewDelegateFlowLayout {
+extension Day.MainView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: frame.height)

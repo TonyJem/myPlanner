@@ -1,74 +1,80 @@
 import UIKit
 
-final class MainViewCell: UICollectionViewCell {
+extension Day {
     
-    enum Constants {
+    final class MainViewCell: UICollectionViewCell {
         
-        static let dateViewWidthMultiplier: CGFloat = 0.25
-        static let dateViewHeightMultiplier: CGFloat = 6/7
+        enum Constants {
+            
+            static let dateViewWidthMultiplier: CGFloat = 0.25
+            static let dateViewHeightMultiplier: CGFloat = 6/7
+            
+        }
+        
+        static let identifier = "MainViewCellIdentifier"
+        
+        // MARK: - SubViews
+        private lazy var dateView: DateModul.View = {
+            let view = DateModul.View().autolayout()
+            return view
+        }()
+        
+        private let calendarView: UIView = {
+            let view = UIView().autolayout()
+            view.backgroundColor = .systemPink
+            return view
+        }()
+        
+        private let tableView: UIView = {
+            let view = UIView().autolayout()
+            view.backgroundColor = .systemCyan
+            return view
+        }()
+        
+        private let quoteView: UIView = {
+            let view = UIView().autolayout()
+            view.backgroundColor = .systemMint
+            return view
+        }()
+        
+        private let eventsView: UIView = {
+            let view = UIView().autolayout()
+            view.backgroundColor = .systemPurple
+            return view
+        }()
+        
+        // MARK: - Init
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+            setupViews()
+            setConstraints()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        func renderDate(viewState: DateModul.ViewState) {
+            dateView.renderDate(viewState: viewState)
+        }
+        
+        // MARK: - Private Methods
+        private func setupViews() {
+            addSubview(dateView)
+            addSubview(calendarView)
+            addSubview(tableView)
+            addSubview(quoteView)
+            addSubview(eventsView)
+        }
         
     }
     
-    static let identifier = "MainViewCellIdentifier"
-    
-    // MARK: - SubViews
-    private lazy var dateView: DateModul.View = {
-        let view = DateModul.View().autolayout()
-        return view
-    }()
-    
-    private let calendarView: UIView = {
-        let view = UIView().autolayout()
-        view.backgroundColor = .systemPink
-        return view
-    }()
-    
-    private let tableView: UIView = {
-        let view = UIView().autolayout()
-        view.backgroundColor = .systemCyan
-        return view
-    }()
-    
-    private let quoteView: UIView = {
-        let view = UIView().autolayout()
-        view.backgroundColor = .systemMint
-        return view
-    }()
-    
-    private let eventsView: UIView = {
-        let view = UIView().autolayout()
-        view.backgroundColor = .systemPurple
-        return view
-    }()
-    
-    // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupViews()
-        setConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func renderDate(viewState: DateModul.ViewState) {
-        dateView.renderDate(viewState: viewState)
-    }
-    
-    // MARK: - Private Methods
-    private func setupViews() {
-        addSubview(dateView)
-        addSubview(calendarView)
-        addSubview(tableView)
-        addSubview(quoteView)
-        addSubview(eventsView)
-    }
 }
 
 // MARK: - SetConstraints
-extension MainViewCell {
+extension Day.MainViewCell {
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             dateView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -107,4 +113,5 @@ extension MainViewCell {
             eventsView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
 }
