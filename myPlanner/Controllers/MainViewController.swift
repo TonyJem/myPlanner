@@ -10,9 +10,9 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Views
-    private let headerView = HeaderView()
-    private let mainView = MainView()
-    private let footerView = FooterView()
+    private let headerView = HeaderView().autolayout()
+    private let mainView = MainView().autolayout()
+    private let footerView = FooterView().autolayout()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

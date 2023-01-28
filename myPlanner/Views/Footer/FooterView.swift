@@ -21,7 +21,7 @@ class FooterView: UIView {
         return button
     }()
     
-    private let tabPanelView = BottomTabPanelView()
+    private let tabPanelView = BottomTabPanelView().autolayout()
     
     private lazy var showCalendarsButton: UIButton = {
         let button = UIButton().autolayout()
@@ -35,7 +35,6 @@ class FooterView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .gray
-        translatesAutoresizingMaskIntoConstraints = false
         
         setupViews()
         setConstraints()

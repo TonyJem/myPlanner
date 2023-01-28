@@ -19,7 +19,6 @@ final class MainView: UICollectionView {
         isPagingEnabled = true
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        translatesAutoresizingMaskIntoConstraints = false
         
         dataSource = self
         delegate = self

@@ -19,7 +19,6 @@ class TopTabPanelView: UIStackView {
         axis  = NSLayoutConstraint.Axis.horizontal
         spacing = -1 * Constants.tabApposition
         distribution = UIStackView.Distribution.fillEqually
-        translatesAutoresizingMaskIntoConstraints = false
         
         setupTabs()
     }

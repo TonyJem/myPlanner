@@ -28,7 +28,6 @@ class BottomTabPanelView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        translatesAutoresizingMaskIntoConstraints = false
         setupTabs()
     }
     

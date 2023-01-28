@@ -11,14 +11,13 @@ class HeaderView: UIView {
     }
     
     // MARK: - Views
-    private let tabPanelView = TopTabPanelView()
+    private let tabPanelView = TopTabPanelView().autolayout()
     
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .gray
-        translatesAutoresizingMaskIntoConstraints = false
         
         setupViews()
         setConstraints()
