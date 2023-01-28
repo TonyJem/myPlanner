@@ -2,6 +2,13 @@ import UIKit
 
 final class MainViewCell: UICollectionViewCell {
     
+    enum LocalConstants {
+        
+        static let dateViewWidthMultiplier: CGFloat = 0.25
+        static let dateViewHeightMultiplier: CGFloat = 6/7
+        
+    }
+    
     static let identifier = "MainViewCellIdentifier"
     
     // MARK: - Views
@@ -74,9 +81,9 @@ extension MainViewCell {
             dateView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dateView.topAnchor.constraint(equalTo: topAnchor),
             dateView.widthAnchor.constraint(equalTo: widthAnchor,
-                                            multiplier: Constants.Layout.dateViewWidthMultiplier),
+                                            multiplier: LocalConstants.dateViewWidthMultiplier),
             dateView.heightAnchor.constraint(equalTo: dateView.widthAnchor,
-                                             multiplier: Constants.Layout.dateViewHeightMultiplier)
+                                             multiplier: LocalConstants.dateViewHeightMultiplier)
         ])
         
         NSLayoutConstraint.activate([

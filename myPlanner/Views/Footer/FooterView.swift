@@ -2,6 +2,13 @@ import UIKit
 
 class FooterView: UIView {
     
+    enum LocalConstants {
+        
+        static let horizontalInset: CGFloat = 20.0
+        static let buttonHeight: CGFloat = 40.0
+        
+    }
+    
     // MARK: - Views
     private lazy var todayButton: UIButton = {
         let button = UIButton()
@@ -59,9 +66,9 @@ extension FooterView {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             todayButton.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                 constant: Constants.Layout.horizontalInset),
+                                                 constant: LocalConstants.horizontalInset),
             todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            todayButton.heightAnchor.constraint(equalToConstant: Constants.Layout.buttonHeight)
+            todayButton.heightAnchor.constraint(equalToConstant: LocalConstants.buttonHeight)
         ])
         
         NSLayoutConstraint.activate([
@@ -75,9 +82,9 @@ extension FooterView {
         
         NSLayoutConstraint.activate([
             showCalendarsButton.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                          constant: -1.5 * Constants.Layout.horizontalInset),
+                                                          constant: -1.5 * LocalConstants.horizontalInset),
             showCalendarsButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            showCalendarsButton.heightAnchor.constraint(equalToConstant: Constants.Layout.buttonHeight)
+            showCalendarsButton.heightAnchor.constraint(equalToConstant: LocalConstants.buttonHeight)
         ])
     }
 }

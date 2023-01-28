@@ -6,6 +6,14 @@ protocol BottomTabDelegate: AnyObject {
 
 class BottomTab: UIButton {
     
+    enum LocalConstants {
+        
+        /// Descrbes trapezium side alignment angle. Posible ranges: from 0.0 to 1.0. Here 0.0 means that trapezium side will be fully vertical, so trapezium will get just regular rectangle's shape. And with 1.0 trapezium side will be aligned by 45 degree.
+        static let sideAlignmentProportion: CGFloat = 0.25
+        static let tabCornerRadius: CGFloat = 10.0
+        
+    }
+    
     let index: Int
     
     var tab: Tab {
@@ -53,8 +61,8 @@ extension BottomTab {
         let W = size.width
         let H = tab.isActive ? size.height : size.height - 3
         
-        let k: CGFloat = Constants.TabShape.sideAlignmentProportion
-        let R: CGFloat = Constants.TabShape.tabCornerRadius
+        let k: CGFloat = LocalConstants.sideAlignmentProportion
+        let R: CGFloat = LocalConstants.tabCornerRadius
         let Pi = CGFloat.pi
         
         let Ax: CGFloat = .zero
