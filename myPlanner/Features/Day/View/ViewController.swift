@@ -12,9 +12,9 @@ extension Day {
         }
         
         // MARK: - Views
-        private let headerView = HeaderView().autolayout()
-        private let mainView = View().autolayout()
-        private let footerView = FooterView().autolayout()
+        private lazy var headerView = HeaderView().autolayout()
+        private lazy var mainView = View().autolayout()
+        private lazy var footerView = FooterView().autolayout()
         
         // MARK: - LifeCycle
         override func viewDidLoad() {

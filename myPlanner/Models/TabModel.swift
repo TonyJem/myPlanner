@@ -3,13 +3,14 @@ import UIKit
 struct Tab {
     let title: String
     let inactiveColor: UIColor
-    private let activeColor: UIColor = .activeTabBackround
     
     var isActive: Bool = false
     
     var backgroundColor: UIColor {
         isActive ? activeColor : inactiveColor
     }
+    
+    private let activeColor: UIColor = .activeTabBackround
 }
 
 class TabModel {

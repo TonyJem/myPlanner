@@ -19,24 +19,24 @@ extension Day {
             return view
         }()
         
-        private let calendarView: Calendar.View = {
+        private lazy var calendarView: Calendar.View = {
             let view = Calendar.View().autolayout()
             return view
         }()
         
-        private let tableView: UIView = {
+        private lazy var tableView: UIView = {
             let view = UIView().autolayout()
             view.backgroundColor = .systemCyan
             return view
         }()
         
-        private let quoteView: UIView = {
+        private lazy var quoteView: UIView = {
             let view = UIView().autolayout()
             view.backgroundColor = .systemMint
             return view
         }()
         
-        private let eventsView: UIView = {
+        private lazy var eventsView: UIView = {
             let view = UIView().autolayout()
             view.backgroundColor = .systemPurple
             return view

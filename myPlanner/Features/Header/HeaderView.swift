@@ -11,7 +11,7 @@ class HeaderView: UIView {
     }
     
     // MARK: - Views
-    private let tabPanelView = TopTabPanelView().autolayout()
+    private lazy var tabPanelView = TopTabPanelView().autolayout()
     
     // MARK: - Init
     override init(frame: CGRect) {
