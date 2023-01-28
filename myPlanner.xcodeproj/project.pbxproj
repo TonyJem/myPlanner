@@ -102,9 +102,7 @@
 				3A2D664C298515FE007AD3F6 /* AppDelegate.swift */,
 				3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */,
 				3A2D6650298515FE007AD3F6 /* ViewController.swift */,
-				3A2D665829851600007AD3F6 /* Assets.xcassets */,
-				3A2D665A29851600007AD3F6 /* LaunchScreen.storyboard */,
-				3A2D665D29851600007AD3F6 /* Info.plist */,
+				3A2D667F29851F6D007AD3F6 /* Resources */,
 				3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */,
 			);
 			path = myPlanner;
@@ -125,6 +123,16 @@
 				3A2D667229851601007AD3F6 /* myPlannerUITestsLaunchTests.swift */,
 			);
 			path = myPlannerUITests;
+			sourceTree = "<group>";
+		};
+		3A2D667F29851F6D007AD3F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D665D29851600007AD3F6 /* Info.plist */,
+				3A2D665829851600007AD3F6 /* Assets.xcassets */,
+				3A2D665A29851600007AD3F6 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +439,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8J73Q43L2S;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = myPlanner/Info.plist;
+				INFOPLIST_FILE = myPlanner/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -459,7 +467,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8J73Q43L2S;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = myPlanner/Info.plist;
+				INFOPLIST_FILE = myPlanner/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
