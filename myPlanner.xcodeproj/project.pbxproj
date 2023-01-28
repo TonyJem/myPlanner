@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D664C298515FE007AD3F6 /* AppDelegate.swift */; };
 		3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */; };
-		3A2D6651298515FE007AD3F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6650298515FE007AD3F6 /* ViewController.swift */; };
 		3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */; };
 		3A2D665929851600007AD3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D665829851600007AD3F6 /* Assets.xcassets */; };
 		3A2D665C29851600007AD3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D665A29851600007AD3F6 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,19 @@
 		3A2D667129851600007AD3F6 /* myPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D667029851600007AD3F6 /* myPlannerUITests.swift */; };
 		3A2D667329851601007AD3F6 /* myPlannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D667229851601007AD3F6 /* myPlannerUITestsLaunchTests.swift */; };
 		3A2D668129852029007AD3F6 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */; };
+		3A2D6684298522FF007AD3F6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6683298522FF007AD3F6 /* MainViewController.swift */; };
+		3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6688298523D2007AD3F6 /* TopTab.swift */; };
+		3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6689298523D2007AD3F6 /* HeaderView.swift */; };
+		3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668A298523D2007AD3F6 /* TopTabPanelView.swift */; };
+		3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668F298523DD007AD3F6 /* FooterView.swift */; };
+		3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6690298523DD007AD3F6 /* BottomTab.swift */; };
+		3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */; };
+		3A2D6697298523FF007AD3F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6696298523FF007AD3F6 /* MainView.swift */; };
+		3A2D669929852407007AD3F6 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669829852407007AD3F6 /* MainViewCell.swift */; };
+		3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */; };
+		3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669D2985244D007AD3F6 /* TopTabModel.swift */; };
+		3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669E2985244D007AD3F6 /* TabModel.swift */; };
+		3A2D66A329852482007AD3F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66A229852482007AD3F6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +52,6 @@
 		3A2D6649298515FE007AD3F6 /* myPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2D664C298515FE007AD3F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3A2D6650298515FE007AD3F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A2D6656298515FE007AD3F6 /* myPlanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myPlanner.xcdatamodel; sourceTree = "<group>"; };
 		3A2D665829851600007AD3F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A2D665B29851600007AD3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +62,19 @@
 		3A2D667029851600007AD3F6 /* myPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPlannerUITests.swift; sourceTree = "<group>"; };
 		3A2D667229851601007AD3F6 /* myPlannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPlannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		3A2D6683298522FF007AD3F6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3A2D6688298523D2007AD3F6 /* TopTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTab.swift; sourceTree = "<group>"; };
+		3A2D6689298523D2007AD3F6 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		3A2D668A298523D2007AD3F6 /* TopTabPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabPanelView.swift; sourceTree = "<group>"; };
+		3A2D668F298523DD007AD3F6 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		3A2D6690298523DD007AD3F6 /* BottomTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
+		3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabPanelView.swift; sourceTree = "<group>"; };
+		3A2D6696298523FF007AD3F6 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3A2D669829852407007AD3F6 /* MainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabModel.swift; sourceTree = "<group>"; };
+		3A2D669D2985244D007AD3F6 /* TopTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabModel.swift; sourceTree = "<group>"; };
+		3A2D669E2985244D007AD3F6 /* TabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
+		3A2D66A229852482007AD3F6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +125,10 @@
 		3A2D664B298515FE007AD3F6 /* myPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D664C298515FE007AD3F6 /* AppDelegate.swift */,
-				3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */,
-				3A2D6650298515FE007AD3F6 /* ViewController.swift */,
+				3A2D66A42985251A007AD3F6 /* Application */,
+				3A2D669A2985244D007AD3F6 /* Models */,
+				3A2D6686298523BD007AD3F6 /* Views */,
+				3A2D668529852316007AD3F6 /* Controllers */,
 				3A2D66822985203B007AD3F6 /* Extensions */,
 				3A2D667F29851F6D007AD3F6 /* Resources */,
 				3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */,
@@ -131,8 +156,8 @@
 		3A2D667F29851F6D007AD3F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D665D29851600007AD3F6 /* Info.plist */,
 				3A2D665829851600007AD3F6 /* Assets.xcassets */,
+				3A2D665D29851600007AD3F6 /* Info.plist */,
 				3A2D665A29851600007AD3F6 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -144,6 +169,81 @@
 				3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3A2D668529852316007AD3F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D6683298522FF007AD3F6 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A2D6686298523BD007AD3F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D6687298523D2007AD3F6 /* Header */,
+				3A2D6695298523ED007AD3F6 /* Main */,
+				3A2D668E298523DD007AD3F6 /* Footer */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A2D6687298523D2007AD3F6 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D6689298523D2007AD3F6 /* HeaderView.swift */,
+				3A2D668A298523D2007AD3F6 /* TopTabPanelView.swift */,
+				3A2D6688298523D2007AD3F6 /* TopTab.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		3A2D668E298523DD007AD3F6 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D668F298523DD007AD3F6 /* FooterView.swift */,
+				3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */,
+				3A2D6690298523DD007AD3F6 /* BottomTab.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		3A2D6695298523ED007AD3F6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D6696298523FF007AD3F6 /* MainView.swift */,
+				3A2D669829852407007AD3F6 /* MainViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3A2D669A2985244D007AD3F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D669B2985244D007AD3F6 /* Tab */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A2D669B2985244D007AD3F6 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D669E2985244D007AD3F6 /* TabModel.swift */,
+				3A2D669D2985244D007AD3F6 /* TopTabModel.swift */,
+				3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		3A2D66A42985251A007AD3F6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D664C298515FE007AD3F6 /* AppDelegate.swift */,
+				3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */,
+				3A2D66A229852482007AD3F6 /* Constants.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +377,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
+				3A2D6697298523FF007AD3F6 /* MainView.swift in Sources */,
+				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,
 				3A2D668129852029007AD3F6 /* UIColor + Extensions.swift in Sources */,
-				3A2D6651298515FE007AD3F6 /* ViewController.swift in Sources */,
+				3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */,
+				3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */,
+				3A2D669929852407007AD3F6 /* MainViewCell.swift in Sources */,
+				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
+				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,
+				3A2D6684298522FF007AD3F6 /* MainViewController.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
+				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
+				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
+				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
+				3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */,
+				3A2D66A329852482007AD3F6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

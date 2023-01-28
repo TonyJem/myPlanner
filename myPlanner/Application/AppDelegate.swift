@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  myPlanner
-//
-//  Created by Office-iMac on 2023-01-28.
-//
-
 import UIKit
 import CoreData
 
