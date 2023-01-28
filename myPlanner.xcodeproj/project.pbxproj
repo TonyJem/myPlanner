@@ -132,9 +132,8 @@
 				3A2D66A42985251A007AD3F6 /* Application */,
 				3A2D66AF29856634007AD3F6 /* Core */,
 				3A2D66A629855E9B007AD3F6 /* DesignSystem */,
+				3A2D6686298523BD007AD3F6 /* Features */,
 				3A2D669A2985244D007AD3F6 /* Models */,
-				3A2D6686298523BD007AD3F6 /* Views */,
-				3A2D668529852316007AD3F6 /* Controllers */,
 				3A2D66AB2985636D007AD3F6 /* Localizations */,
 				3A2D667F29851F6D007AD3F6 /* Resources */,
 				3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */,
@@ -177,22 +176,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3A2D668529852316007AD3F6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3A2D6683298522FF007AD3F6 /* MainViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		3A2D6686298523BD007AD3F6 /* Views */ = {
+		3A2D6686298523BD007AD3F6 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				3A2D6687298523D2007AD3F6 /* Header */,
 				3A2D6695298523ED007AD3F6 /* Main */,
 				3A2D668E298523DD007AD3F6 /* Footer */,
 			);
-			path = Views;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		3A2D6687298523D2007AD3F6 /* Header */ = {
@@ -201,6 +192,7 @@
 				3A2D6689298523D2007AD3F6 /* HeaderView.swift */,
 				3A2D668A298523D2007AD3F6 /* TopTabPanelView.swift */,
 				3A2D6688298523D2007AD3F6 /* TopTab.swift */,
+				3A2D669D2985244D007AD3F6 /* TopTabModel.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -211,6 +203,7 @@
 				3A2D668F298523DD007AD3F6 /* FooterView.swift */,
 				3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */,
 				3A2D6690298523DD007AD3F6 /* BottomTab.swift */,
+				3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */,
 			);
 			path = Footer;
 			sourceTree = "<group>";
@@ -218,6 +211,7 @@
 		3A2D6695298523ED007AD3F6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3A2D6683298522FF007AD3F6 /* MainViewController.swift */,
 				3A2D6696298523FF007AD3F6 /* MainView.swift */,
 				3A2D669829852407007AD3F6 /* MainViewCell.swift */,
 			);
@@ -227,19 +221,9 @@
 		3A2D669A2985244D007AD3F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D669B2985244D007AD3F6 /* Tab */,
+				3A2D669E2985244D007AD3F6 /* TabModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		3A2D669B2985244D007AD3F6 /* Tab */ = {
-			isa = PBXGroup;
-			children = (
-				3A2D669E2985244D007AD3F6 /* TabModel.swift */,
-				3A2D669D2985244D007AD3F6 /* TopTabModel.swift */,
-				3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */,
-			);
-			path = Tab;
 			sourceTree = "<group>";
 		};
 		3A2D66A42985251A007AD3F6 /* Application */ = {
