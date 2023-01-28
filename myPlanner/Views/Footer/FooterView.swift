@@ -14,21 +14,19 @@ class FooterView: UIView {
     
     // MARK: - Views
     private lazy var todayButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton().autolayout()
         button.setTitle("Today", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(todayButtonDidTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private let tabPanelView = BottomTabPanelView()
     
     private lazy var showCalendarsButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton().autolayout()
         button.setImage(UIImage(named: "show_calendars_18"), for: .normal)
         button.addTarget(self, action: #selector(showCalendarsButtonDidTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     

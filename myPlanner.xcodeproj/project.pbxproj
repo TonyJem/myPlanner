@@ -15,7 +15,7 @@
 		3A2D666729851600007AD3F6 /* myPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D666629851600007AD3F6 /* myPlannerTests.swift */; };
 		3A2D667129851600007AD3F6 /* myPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D667029851600007AD3F6 /* myPlannerUITests.swift */; };
 		3A2D667329851601007AD3F6 /* myPlannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D667229851601007AD3F6 /* myPlannerUITestsLaunchTests.swift */; };
-		3A2D668129852029007AD3F6 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */; };
+		3A2D668129852029007AD3F6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668029852029007AD3F6 /* UIColor.swift */; };
 		3A2D6684298522FF007AD3F6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6683298522FF007AD3F6 /* MainViewController.swift */; };
 		3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6688298523D2007AD3F6 /* TopTab.swift */; };
 		3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6689298523D2007AD3F6 /* HeaderView.swift */; };
@@ -28,6 +28,7 @@
 		3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */; };
 		3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669D2985244D007AD3F6 /* TopTabModel.swift */; };
 		3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669E2985244D007AD3F6 /* TabModel.swift */; };
+		3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66A729855ED9007AD3F6 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,7 @@
 		3A2D666C29851600007AD3F6 /* myPlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2D667029851600007AD3F6 /* myPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPlannerUITests.swift; sourceTree = "<group>"; };
 		3A2D667229851601007AD3F6 /* myPlannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPlannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		3A2D668029852029007AD3F6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3A2D6683298522FF007AD3F6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3A2D6688298523D2007AD3F6 /* TopTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTab.swift; sourceTree = "<group>"; };
 		3A2D6689298523D2007AD3F6 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabModel.swift; sourceTree = "<group>"; };
 		3A2D669D2985244D007AD3F6 /* TopTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabModel.swift; sourceTree = "<group>"; };
 		3A2D669E2985244D007AD3F6 /* TabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
+		3A2D66A729855ED9007AD3F6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				3A2D66A42985251A007AD3F6 /* Application */,
+				3A2D66A629855E9B007AD3F6 /* DesignSystem */,
 				3A2D669A2985244D007AD3F6 /* Models */,
 				3A2D6686298523BD007AD3F6 /* Views */,
 				3A2D668529852316007AD3F6 /* Controllers */,
-				3A2D66822985203B007AD3F6 /* Extensions */,
 				3A2D667F29851F6D007AD3F6 /* Resources */,
 				3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */,
 			);
@@ -164,7 +166,8 @@
 		3A2D66822985203B007AD3F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D668029852029007AD3F6 /* UIColor + Extensions.swift */,
+				3A2D668029852029007AD3F6 /* UIColor.swift */,
+				3A2D66A729855ED9007AD3F6 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +244,14 @@
 				3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		3A2D66A629855E9B007AD3F6 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66822985203B007AD3F6 /* Extensions */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,7 +387,7 @@
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3A2D6697298523FF007AD3F6 /* MainView.swift in Sources */,
 				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,
-				3A2D668129852029007AD3F6 /* UIColor + Extensions.swift in Sources */,
+				3A2D668129852029007AD3F6 /* UIColor.swift in Sources */,
 				3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */,
 				3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */,
 				3A2D669929852407007AD3F6 /* MainViewCell.swift in Sources */,
@@ -386,6 +397,7 @@
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
+				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
 				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
 				3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */,

@@ -13,42 +13,32 @@ final class MainViewCell: UICollectionViewCell {
     
     // MARK: - Views
     private let dateView: UIView = {
-        let view = UIView()
+        let view = UIView().autolayout()
         view.backgroundColor = .systemBlue
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let calendarView: UIView = {
-        let view = UIView()
+        let view = UIView().autolayout()
         view.backgroundColor = .systemPink
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let tableView: UIView = {
-        let view = UIView()
+        let view = UIView().autolayout()
         view.backgroundColor = .systemCyan
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let quoteView: UIView = {
-        let view = UIView()
+        let view = UIView().autolayout()
         view.backgroundColor = .systemMint
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let eventsView: UIView = {
-        let view = UIView()
+        let view = UIView().autolayout()
         view.backgroundColor = .systemPurple
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
