@@ -2,13 +2,13 @@ import UIKit
 
 struct Tab {
     let title: String
-    let defaultColor: UIColor
+    let inactiveColor: UIColor
     private let activeColor: UIColor = .activeTabBackround
     
     var isActive: Bool = false
     
     var backgroundColor: UIColor {
-        isActive ? activeColor : defaultColor
+        isActive ? activeColor : inactiveColor
     }
 }
 
