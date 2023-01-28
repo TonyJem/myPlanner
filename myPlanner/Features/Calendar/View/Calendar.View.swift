@@ -4,14 +4,18 @@ extension Calendar {
     
     class View: UIView {
         
-        // MARK: - Sub Views
+        // MARK: - SubViews
         private lazy var title: UILabel = {
             let label = UILabel().autolayout()
             label.text = "Calendar"
             return label
         }()
         
-
+        private lazy var collectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).autolayout()
+            return collectionView
+        }()
         
         // MARK: - Init
         override init(frame: CGRect) {
@@ -27,6 +31,9 @@ extension Calendar {
         // MARK: - Private Methods
         private func setupViews() {
             backgroundColor = .white
+            
+            addSubview(collectionView)
+            
             addSubview(title)
         }
         
@@ -42,7 +49,12 @@ extension Calendar.View {
             
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
             title.topAnchor.constraint(equalTo: topAnchor, constant: .spacingS),
-            title.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor)
+            title.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
+            
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
     }
