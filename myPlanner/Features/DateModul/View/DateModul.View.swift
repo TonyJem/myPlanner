@@ -1,12 +1,10 @@
 import UIKit
 
-
 extension DateModul {
     
     class View: UIView {
         
         // MARK: - Sub Views
-        
         private lazy var title: UILabel = {
             let label = UILabel().autolayout()
             label.text = "Saturday"
@@ -40,7 +38,6 @@ extension DateModul {
         // MARK: - Init
         override init(frame: CGRect) {
             super.init(frame: frame)
-            backgroundColor = .white
             setupViews()
             setConstraints()
         }
@@ -51,6 +48,7 @@ extension DateModul {
         
         // MARK: - Private Methods
         private func setupViews() {
+            backgroundColor = .white
             addSubview(title)
             addSubview(date)
             addSubview(subtitle)
@@ -62,21 +60,22 @@ extension DateModul {
 
 // MARK: - SetConstraints
 extension DateModul.View {
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
-            title.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            title.topAnchor.constraint(equalTo: topAnchor, constant: .spacingS),
             title.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
             
             date.centerXAnchor.constraint(equalTo: centerXAnchor),
             date.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             subtitle.centerXAnchor.constraint(equalTo: centerXAnchor),
-            subtitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
+            subtitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL),
             subtitle.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor)
             
         ])
     }
+    
 }
-
