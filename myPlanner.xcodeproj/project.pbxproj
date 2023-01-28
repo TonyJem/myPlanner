@@ -31,6 +31,8 @@
 		3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66A729855ED9007AD3F6 /* UIView.swift */; };
 		3A2D66AA29856369007AD3F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D66A929856369007AD3F6 /* Localizable.strings */; };
 		3A2D66AD29856481007AD3F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66AC29856481007AD3F6 /* String.swift */; };
+		3A2D66B229856C48007AD3F6 /* DateModul.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66B129856C48007AD3F6 /* DateModul.View.swift */; };
+		3A2D66B429856EB5007AD3F6 /* DateModul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66B329856EB5007AD3F6 /* DateModul.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		3A2D66A729855ED9007AD3F6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3A2D66A929856369007AD3F6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3A2D66AC29856481007AD3F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3A2D66B129856C48007AD3F6 /* DateModul.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModul.View.swift; sourceTree = "<group>"; };
+		3A2D66B329856EB5007AD3F6 /* DateModul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModul.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 				3A2D6687298523D2007AD3F6 /* Header */,
 				3A2D6695298523ED007AD3F6 /* Main */,
 				3A2D668E298523DD007AD3F6 /* Footer */,
+				3A2D66B029856C0E007AD3F6 /* DateModul */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -266,6 +271,23 @@
 				3A2D66AE29856618007AD3F6 /* Foundation */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		3A2D66B029856C0E007AD3F6 /* DateModul */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66B529856FA4007AD3F6 /* View */,
+				3A2D66B329856EB5007AD3F6 /* DateModul.swift */,
+			);
+			path = DateModul;
+			sourceTree = "<group>";
+		};
+		3A2D66B529856FA4007AD3F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66B129856C48007AD3F6 /* DateModul.View.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,10 +434,12 @@
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D66AD29856481007AD3F6 /* String.swift in Sources */,
+				3A2D66B429856EB5007AD3F6 /* DateModul.swift in Sources */,
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
 				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
 				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
+				3A2D66B229856C48007AD3F6 /* DateModul.View.swift in Sources */,
 				3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

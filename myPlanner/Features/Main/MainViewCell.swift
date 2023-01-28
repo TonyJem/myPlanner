@@ -12,11 +12,7 @@ final class MainViewCell: UICollectionViewCell {
     static let identifier = "MainViewCellIdentifier"
     
     // MARK: - Views
-    private let dateView: UIView = {
-        let view = UIView().autolayout()
-        view.backgroundColor = .systemBlue
-        return view
-    }()
+    private let dateView = DateModul.View().autolayout()
     
     private let calendarView: UIView = {
         let view = UIView().autolayout()
