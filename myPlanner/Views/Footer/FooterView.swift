@@ -1,8 +1,22 @@
 import UIKit
 
 class FooterView: UIView {
-    
+  /*
+   enum LocalConstants {
+       
+       static let height: CGFloat = 30.0
+       static let width = UIScreen.main.bounds.width - (2 * horizontalInset)
+       
+       static let defaultTabWidth: CGFloat = 100.0
+       static let tabApposition: CGFloat = 7.0
+       
+   }
+   */
+
     enum LocalConstants {
+        
+        static let bottomTabPanelHeight: CGFloat = 30.0
+        static let bottomTabPanelHorizontalInset: CGFloat = 130.0
         
         static let horizontalInset: CGFloat = 20.0
         static let buttonHeight: CGFloat = 40.0
@@ -73,11 +87,11 @@ extension FooterView {
         
         NSLayoutConstraint.activate([
             tabPanelView.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                  constant: Constants.BottomTabPanel.horizontalInset),
+                                                  constant: LocalConstants.bottomTabPanelHorizontalInset),
             tabPanelView.topAnchor.constraint(equalTo: topAnchor),
             tabPanelView.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                   constant: -1 * Constants.BottomTabPanel.horizontalInset),
-            tabPanelView.heightAnchor.constraint(equalToConstant: Constants.BottomTabPanel.height)
+                                                   constant: -1 * LocalConstants.bottomTabPanelHorizontalInset),
+            tabPanelView.heightAnchor.constraint(equalToConstant: LocalConstants.bottomTabPanelHeight)
         ])
         
         NSLayoutConstraint.activate([

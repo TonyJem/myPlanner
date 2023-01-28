@@ -2,15 +2,25 @@ import UIKit
 
 class BottomTabPanelView: UIView {
     
+    enum LocalConstants {
+        
+        static let height: CGFloat = 30.0
+        static let width = UIScreen.main.bounds.width - (2 * horizontalInset)
+        static let horizontalInset: CGFloat = 130.0
+        static let defaultTabWidth: CGFloat = 100.0
+        static let tabApposition: CGFloat = 7.0
+        
+    }
+    
     private let model = BottomTabModel()
-    private let tabApposition = Constants.BottomTabPanel.tabApposition
+    private let tabApposition = LocalConstants.tabApposition
     
     private var tabViews: [BottomTab] = []
     
     private var tabWidth: CGFloat {
-        let panelWidth = Constants.BottomTabPanel.width
+        let panelWidth = LocalConstants.width
         let averageTabWidth = (panelWidth - tabApposition) / CGFloat(model.tabs.count) + tabApposition
-        let defaultTabWidth = Constants.BottomTabPanel.defaultTabWidth
+        let defaultTabWidth = LocalConstants.defaultTabWidth
         let tabWidth = min(averageTabWidth, defaultTabWidth)
         return tabWidth
     }
@@ -34,7 +44,7 @@ class BottomTabPanelView: UIView {
             let frame: CGRect = CGRect(x: x,
                                        y: .zero,
                                        width: tabWidth,
-                                       height: Constants.BottomTabPanel.height)
+                                       height: LocalConstants.height)
             let tabView = BottomTab(frame: frame, tab: tab, index: index)
             tabView.bottomTabDelegate = self
             x = x + tabWidth - tabApposition

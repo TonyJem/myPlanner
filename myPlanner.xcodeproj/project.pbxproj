@@ -28,7 +28,6 @@
 		3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */; };
 		3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669D2985244D007AD3F6 /* TopTabModel.swift */; };
 		3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669E2985244D007AD3F6 /* TabModel.swift */; };
-		3A2D66A329852482007AD3F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66A229852482007AD3F6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabModel.swift; sourceTree = "<group>"; };
 		3A2D669D2985244D007AD3F6 /* TopTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabModel.swift; sourceTree = "<group>"; };
 		3A2D669E2985244D007AD3F6 /* TabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
-		3A2D66A229852482007AD3F6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +239,6 @@
 			children = (
 				3A2D664C298515FE007AD3F6 /* AppDelegate.swift */,
 				3A2D664E298515FE007AD3F6 /* SceneDelegate.swift */,
-				3A2D66A229852482007AD3F6 /* Constants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -392,7 +389,6 @@
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
 				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
 				3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */,
-				3A2D66A329852482007AD3F6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

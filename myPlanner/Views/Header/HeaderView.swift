@@ -2,6 +2,14 @@ import UIKit
 
 class HeaderView: UIView {
     
+    enum LocalConstants {
+        
+        static let height: CGFloat = 30.0
+        static let horizontalInset: CGFloat = 315.0
+        static let tabApposition: CGFloat = 7.0
+        
+    }
+    
     // MARK: - Views
     private let tabPanelView = TopTabPanelView()
     
@@ -32,11 +40,11 @@ extension HeaderView {
         
         NSLayoutConstraint.activate([
             tabPanelView.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                  constant: Constants.TopTabPanel.horizontalInset),
+                                                  constant: LocalConstants.horizontalInset),
             tabPanelView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tabPanelView.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                   constant: -1 * Constants.TopTabPanel.horizontalInset),
-            tabPanelView.heightAnchor.constraint(equalToConstant: Constants.TopTabPanel.height)
+                                                   constant: -1 * LocalConstants.horizontalInset),
+            tabPanelView.heightAnchor.constraint(equalToConstant: LocalConstants.height)
         ])
         
     }
