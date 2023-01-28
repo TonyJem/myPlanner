@@ -5,7 +5,6 @@ class BottomTabPanelView: UIView {
     enum Constants {
         
         static let height: CGFloat = 30.0
-        static let width = UIScreen.main.bounds.width - (2 * horizontalInset)
         static let horizontalInset: CGFloat = 130.0
         static let defaultTabWidth: CGFloat = 100.0
         static let tabApposition: CGFloat = 7.0
@@ -18,7 +17,7 @@ class BottomTabPanelView: UIView {
     private var tabViews: [BottomTab] = []
     
     private var tabWidth: CGFloat {
-        let panelWidth = Constants.width
+        let panelWidth = UIScreen.main.bounds.width - (2 * Constants.horizontalInset)
         let averageTabWidth = (panelWidth - tabApposition) / CGFloat(model.tabs.count) + tabApposition
         let defaultTabWidth = Constants.defaultTabWidth
         let tabWidth = min(averageTabWidth, defaultTabWidth)
