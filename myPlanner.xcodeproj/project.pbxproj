@@ -29,6 +29,8 @@
 		3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669D2985244D007AD3F6 /* TopTabModel.swift */; };
 		3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669E2985244D007AD3F6 /* TabModel.swift */; };
 		3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66A729855ED9007AD3F6 /* UIView.swift */; };
+		3A2D66AA29856369007AD3F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D66A929856369007AD3F6 /* Localizable.strings */; };
+		3A2D66AD29856481007AD3F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66AC29856481007AD3F6 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		3A2D669D2985244D007AD3F6 /* TopTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabModel.swift; sourceTree = "<group>"; };
 		3A2D669E2985244D007AD3F6 /* TabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		3A2D66A729855ED9007AD3F6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3A2D66A929856369007AD3F6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3A2D66AC29856481007AD3F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +130,12 @@
 			isa = PBXGroup;
 			children = (
 				3A2D66A42985251A007AD3F6 /* Application */,
+				3A2D66AF29856634007AD3F6 /* Core */,
 				3A2D66A629855E9B007AD3F6 /* DesignSystem */,
 				3A2D669A2985244D007AD3F6 /* Models */,
 				3A2D6686298523BD007AD3F6 /* Views */,
 				3A2D668529852316007AD3F6 /* Controllers */,
+				3A2D66AB2985636D007AD3F6 /* Localizations */,
 				3A2D667F29851F6D007AD3F6 /* Resources */,
 				3A2D6655298515FE007AD3F6 /* myPlanner.xcdatamodeld */,
 			);
@@ -156,7 +162,6 @@
 		3A2D667F29851F6D007AD3F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D665829851600007AD3F6 /* Assets.xcassets */,
 				3A2D665D29851600007AD3F6 /* Info.plist */,
 				3A2D665A29851600007AD3F6 /* LaunchScreen.storyboard */,
 			);
@@ -250,8 +255,33 @@
 			isa = PBXGroup;
 			children = (
 				3A2D66822985203B007AD3F6 /* Extensions */,
+				3A2D665829851600007AD3F6 /* Assets.xcassets */,
 			);
 			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		3A2D66AB2985636D007AD3F6 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66A929856369007AD3F6 /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+		3A2D66AE29856618007AD3F6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66AC29856481007AD3F6 /* String.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		3A2D66AF29856634007AD3F6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66AE29856618007AD3F6 /* Foundation */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2D665C29851600007AD3F6 /* LaunchScreen.storyboard in Resources */,
+				3A2D66AA29856369007AD3F6 /* Localizable.strings in Resources */,
 				3A2D665929851600007AD3F6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +427,7 @@
 				3A2D6684298522FF007AD3F6 /* MainViewController.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
+				3A2D66AD29856481007AD3F6 /* String.swift in Sources */,
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
 				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,

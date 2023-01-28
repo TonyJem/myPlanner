@@ -15,7 +15,7 @@ class FooterView: UIView {
     // MARK: - Views
     private lazy var todayButton: UIButton = {
         let button = UIButton().autolayout()
-        button.setTitle("Today", for: .normal)
+        button.setTitle("BottomPanel.TodayButton.Title".localized, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(todayButtonDidTap), for: .touchUpInside)
         return button
