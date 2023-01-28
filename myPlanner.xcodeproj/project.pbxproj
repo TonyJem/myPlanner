@@ -23,8 +23,8 @@
 		3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D668F298523DD007AD3F6 /* FooterView.swift */; };
 		3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6690298523DD007AD3F6 /* BottomTab.swift */; };
 		3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */; };
-		3A2D6697298523FF007AD3F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6696298523FF007AD3F6 /* MainView.swift */; };
-		3A2D669929852407007AD3F6 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669829852407007AD3F6 /* MainViewCell.swift */; };
+		3A2D6697298523FF007AD3F6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D6696298523FF007AD3F6 /* View.swift */; };
+		3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669829852407007AD3F6 /* ViewCell.swift */; };
 		3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */; };
 		3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669D2985244D007AD3F6 /* TopTabModel.swift */; };
 		3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D669E2985244D007AD3F6 /* TabModel.swift */; };
@@ -76,8 +76,8 @@
 		3A2D668F298523DD007AD3F6 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		3A2D6690298523DD007AD3F6 /* BottomTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
 		3A2D6691298523DD007AD3F6 /* BottomTabPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabPanelView.swift; sourceTree = "<group>"; };
-		3A2D6696298523FF007AD3F6 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		3A2D669829852407007AD3F6 /* MainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		3A2D6696298523FF007AD3F6 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		3A2D669829852407007AD3F6 /* ViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
 		3A2D669C2985244D007AD3F6 /* BottomTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabModel.swift; sourceTree = "<group>"; };
 		3A2D669D2985244D007AD3F6 /* TopTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabModel.swift; sourceTree = "<group>"; };
 		3A2D669E2985244D007AD3F6 /* TabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
@@ -301,8 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				3A2D6683298522FF007AD3F6 /* ViewController.swift */,
-				3A2D6696298523FF007AD3F6 /* MainView.swift */,
-				3A2D669829852407007AD3F6 /* MainViewCell.swift */,
+				3A2D6696298523FF007AD3F6 /* View.swift */,
+				3A2D669829852407007AD3F6 /* ViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,13 +439,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
-				3A2D6697298523FF007AD3F6 /* MainView.swift in Sources */,
+				3A2D6697298523FF007AD3F6 /* View.swift in Sources */,
 				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,
 				3A2D668129852029007AD3F6 /* Colors.swift in Sources */,
 				3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */,
 				3A2D66B92985882E007AD3F6 /* DateModul.ViewState.swift in Sources */,
 				3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */,
-				3A2D669929852407007AD3F6 /* MainViewCell.swift in Sources */,
+				3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */,
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
 				3A2D66BF29859856007AD3F6 /* Day.swift in Sources */,
 				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,

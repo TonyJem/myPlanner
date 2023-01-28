@@ -2,7 +2,7 @@ import UIKit
 
 extension Day {
     
-    final class MainViewCell: UICollectionViewCell {
+    final class ViewCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -11,7 +11,7 @@ extension Day {
             
         }
         
-        static let identifier = "MainViewCellIdentifier"
+        static let identifier = "ViewCellIdentifier"
         
         // MARK: - SubViews
         private lazy var dateView: DateModul.View = {
@@ -73,7 +73,7 @@ extension Day {
 }
 
 // MARK: - SetConstraints
-extension Day.MainViewCell {
+extension Day.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

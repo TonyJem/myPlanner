@@ -13,7 +13,7 @@ extension Day {
         
         // MARK: - Views
         private let headerView = HeaderView().autolayout()
-        private let mainView = MainView().autolayout()
+        private let mainView = View().autolayout()
         private let footerView = FooterView().autolayout()
         
         // MARK: - LifeCycle

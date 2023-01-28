@@ -2,7 +2,7 @@ import UIKit
 
 extension Day {
     
-    final class MainView: UICollectionView {
+    final class View: UICollectionView {
         
         enum Constants {
             
@@ -25,7 +25,7 @@ extension Day {
             dataSource = self
             delegate = self
             
-            register(MainViewCell.self, forCellWithReuseIdentifier: MainViewCell.identifier)
+            register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
         }
         
         required init?(coder: NSCoder) {
@@ -36,7 +36,7 @@ extension Day {
 }
 
 // MARK: - CollectionView DataSource
-extension Day.MainView: UICollectionViewDataSource {
+extension Day.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 888
@@ -44,7 +44,7 @@ extension Day.MainView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Day.MainViewCell.identifier, for: indexPath) as! Day.MainViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Day.ViewCell.identifier, for: indexPath) as! Day.ViewCell
         
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
@@ -63,12 +63,12 @@ extension Day.MainView: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension Day.MainView: UICollectionViewDelegate {
+extension Day.View: UICollectionViewDelegate {
     
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension Day.MainView: UICollectionViewDelegateFlowLayout {
+extension Day.View: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: frame.height)
