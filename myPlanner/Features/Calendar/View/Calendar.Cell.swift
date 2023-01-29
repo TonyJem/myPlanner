@@ -2,14 +2,13 @@ import UIKit
 
 extension Calendar {
     
-    class GridCell: UICollectionViewCell {
+    class Cell: UICollectionViewCell {
         
-        static let identifier = String(describing: GridCell.self)
+        static let identifier = String(describing: Cell.self)
         
         // MARK: - SubViews
-        private lazy var label: UILabel = {
+        var label: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "88"
             return label
         }()
         
@@ -36,7 +35,7 @@ extension Calendar {
 }
 
 // MARK: - SetConstraints
-extension Calendar.GridCell {
+extension Calendar.Cell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
