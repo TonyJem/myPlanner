@@ -16,32 +16,8 @@ extension Calendar {
         
         // MARK: - SubViews
         
-        private lazy var days: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = .zero
-            layout.minimumInteritemSpacing = .zero
-            
-            var collectionView = UICollectionView(frame: frame, collectionViewLayout: layout).autolayout()
-            collectionView.backgroundColor = .white
-            collectionView.showsVerticalScrollIndicator = false
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.isScrollEnabled = false
-            return collectionView
-        }()
-        
-        
-        private lazy var numbers: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = .zero
-            layout.minimumInteritemSpacing = .zero
-            
-            var collectionView = UICollectionView(frame: frame, collectionViewLayout: layout).autolayout()
-            collectionView.backgroundColor = .white
-            collectionView.showsVerticalScrollIndicator = false
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.isScrollEnabled = false
-            return collectionView
-        }()
+        private lazy var weekDays = createCollectionView()
+        private lazy var monthDates = createCollectionView()
         
         // MARK: - Init
         override init(frame: CGRect) {
@@ -49,13 +25,13 @@ extension Calendar {
             setupViews()
             setConstraints()
             
-            days.dataSource = self
-            days.delegate = self
-            days.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+            weekDays.dataSource = self
+            weekDays.delegate = self
+            weekDays.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
             
-            numbers.dataSource = self
-            numbers.delegate = self
-            numbers.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+            monthDates.dataSource = self
+            monthDates.delegate = self
+            monthDates.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
             
         }
         
@@ -66,8 +42,22 @@ extension Calendar {
         // MARK: - Private Methods
         private func setupViews() {
             backgroundColor = .white
-            addSubview(days)
-            addSubview(numbers)
+            addSubview(weekDays)
+            addSubview(monthDates)
+        }
+        
+        /// Creates default CollectionView.
+        private func createCollectionView() -> UICollectionView {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = .zero
+            layout.minimumInteritemSpacing = .zero
+            
+            let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout).autolayout()
+            collectionView.backgroundColor = .white
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.showsHorizontalScrollIndicator = false
+            collectionView.isScrollEnabled = false
+            return collectionView
         }
         
     }
@@ -80,15 +70,15 @@ extension Calendar.View {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             
-            days.leadingAnchor.constraint(equalTo: leadingAnchor),
-            days.topAnchor.constraint(equalTo: topAnchor),
-            days.trailingAnchor.constraint(equalTo: trailingAnchor),
-            days.heightAnchor.constraint(equalToConstant: 30),
+            weekDays.leadingAnchor.constraint(equalTo: leadingAnchor),
+            weekDays.topAnchor.constraint(equalTo: topAnchor),
+            weekDays.trailingAnchor.constraint(equalTo: trailingAnchor),
+            weekDays.heightAnchor.constraint(equalToConstant: 30),
             
-            numbers.leadingAnchor.constraint(equalTo: leadingAnchor),
-            numbers.topAnchor.constraint(equalTo: days.bottomAnchor),
-            numbers.trailingAnchor.constraint(equalTo: trailingAnchor),
-            numbers.bottomAnchor.constraint(equalTo: bottomAnchor)
+            monthDates.leadingAnchor.constraint(equalTo: leadingAnchor),
+            monthDates.topAnchor.constraint(equalTo: weekDays.bottomAnchor),
+            monthDates.trailingAnchor.constraint(equalTo: trailingAnchor),
+            monthDates.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
     }
@@ -99,11 +89,10 @@ extension Calendar.View {
 extension Calendar.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         switch collectionView {
-        case self.days:
+        case self.weekDays:
             return dayNames.count
-        case self.numbers:
+        case self.monthDates:
             return 42
         default:
             return 0
@@ -113,7 +102,7 @@ extension Calendar.View: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Calendar.Cell.identifier, for: indexPath) as! Calendar.Cell
         
-        if collectionView == self.days {
+        if collectionView == self.weekDays {
             cell.label.text = dayNames[indexPath.row]
         } else {
             cell.label.text = "\(indexPath.row)"
