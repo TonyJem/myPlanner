@@ -13,13 +13,13 @@ extension Calendar {
         }
         
         private let weekDayViewStates: [CollectionViewCell.ViewState] = [
-            CollectionViewCell.ViewState(text: "Mon"),
-            CollectionViewCell.ViewState(text: "Tue"),
-            CollectionViewCell.ViewState(text: "Wed"),
-            CollectionViewCell.ViewState(text: "Thu"),
-            CollectionViewCell.ViewState(text: "Fri"),
-            CollectionViewCell.ViewState(text: "Sat"),
-            CollectionViewCell.ViewState(text: "Sun")
+            CollectionViewCell.ViewState(text: "Mon", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Tue", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Wed", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Thu", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Fri", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Sat", type: .weekDay),
+            CollectionViewCell.ViewState(text: "Sun", type: .weekDay)
         ]
         
         private let dateViewStates: [CollectionViewCell.ViewState] = [
@@ -132,7 +132,7 @@ extension Calendar.View {
             ),
             
             dates.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dates.topAnchor.constraint(equalTo: weekDays.bottomAnchor),
+            dates.topAnchor.constraint(equalTo: weekDays.bottomAnchor, constant: -.spacingXS),
             dates.trailingAnchor.constraint(equalTo: trailingAnchor),
             dates.bottomAnchor.constraint(equalTo: bottomAnchor)
             

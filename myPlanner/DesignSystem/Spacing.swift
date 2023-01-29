@@ -11,6 +11,10 @@ import Foundation
  */
 extension ExpressibleByIntegerLiteral {
     
+    public static var spacingXXS: Self { 4 }
+    
+    public static var spacingXS: Self { 8 }
+    
     public static var spacingS: Self { 12 }
     
     public static var spacingM: Self { 16 }

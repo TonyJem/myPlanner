@@ -15,6 +15,8 @@ extension Calendar {
         // MARK: - SubViews
         private lazy var label: UILabel = {
             let label = UILabel().autolayout()
+            label.numberOfLines = 1
+            label.textAlignment = .center
             return label
         }()
         
@@ -38,6 +40,15 @@ extension Calendar {
         private func render(viewState: CollectionViewCell.ViewState?) {
             guard let viewState = viewState else { return }
             label.text = viewState.text
+            
+            switch viewState.type {
+            case .weekDay:
+                label.textColor = .systemGray
+                label.font = UIFont.systemFont(ofSize: 13, weight: .light)
+            case .date:
+                label.textColor = .black
+                label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+            }
         }
         
     }
