@@ -8,11 +8,13 @@ extension Calendar {
         private lazy var collectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+            
             var collectionView = UICollectionView(frame: frame, collectionViewLayout: layout).autolayout()
             collectionView.backgroundColor = .white
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
-//            collectionView.isScrollEnabled = false
+            collectionView.isScrollEnabled = false
             return collectionView
         }()
         
