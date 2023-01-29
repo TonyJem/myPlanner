@@ -10,25 +10,67 @@ extension Calendar {
             static let numberOfRows: CGFloat = 7
             static let numberOfCollumns: CGFloat = 7
             
-//        TODO: need to remove monthDatesItemsCount and replace it with count of viewStates
-            static let monthDatesItemsCount = 42
-            
         }
         
-        private let dayNames = [
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun"
+        private let weekDayViewStates: [CollectionViewCell.ViewState] = [
+            CollectionViewCell.ViewState(text: "Mon"),
+            CollectionViewCell.ViewState(text: "Tue"),
+            CollectionViewCell.ViewState(text: "Wed"),
+            CollectionViewCell.ViewState(text: "Thu"),
+            CollectionViewCell.ViewState(text: "Fri"),
+            CollectionViewCell.ViewState(text: "Sat"),
+            CollectionViewCell.ViewState(text: "Sun")
+        ]
+        
+        private let dateViewStates: [CollectionViewCell.ViewState] = [
+            CollectionViewCell.ViewState(text: "1"),
+            CollectionViewCell.ViewState(text: "2"),
+            CollectionViewCell.ViewState(text: "3"),
+            CollectionViewCell.ViewState(text: "4"),
+            CollectionViewCell.ViewState(text: "5"),
+            CollectionViewCell.ViewState(text: "6"),
+            CollectionViewCell.ViewState(text: "7"),
+            CollectionViewCell.ViewState(text: "8"),
+            CollectionViewCell.ViewState(text: "9"),
+            CollectionViewCell.ViewState(text: "10"),
+            CollectionViewCell.ViewState(text: "11"),
+            CollectionViewCell.ViewState(text: "12"),
+            CollectionViewCell.ViewState(text: "13"),
+            CollectionViewCell.ViewState(text: "14"),
+            CollectionViewCell.ViewState(text: "15"),
+            CollectionViewCell.ViewState(text: "16"),
+            CollectionViewCell.ViewState(text: "17"),
+            CollectionViewCell.ViewState(text: "18"),
+            CollectionViewCell.ViewState(text: "19"),
+            CollectionViewCell.ViewState(text: "20"),
+            CollectionViewCell.ViewState(text: "21"),
+            CollectionViewCell.ViewState(text: "22"),
+            CollectionViewCell.ViewState(text: "23"),
+            CollectionViewCell.ViewState(text: "24"),
+            CollectionViewCell.ViewState(text: "25"),
+            CollectionViewCell.ViewState(text: "26"),
+            CollectionViewCell.ViewState(text: "27"),
+            CollectionViewCell.ViewState(text: "28"),
+            CollectionViewCell.ViewState(text: "29"),
+            CollectionViewCell.ViewState(text: "30"),
+            CollectionViewCell.ViewState(text: "31"),
+            CollectionViewCell.ViewState(text: "32"),
+            CollectionViewCell.ViewState(text: "33"),
+            CollectionViewCell.ViewState(text: "34"),
+            CollectionViewCell.ViewState(text: "35"),
+            CollectionViewCell.ViewState(text: "36"),
+            CollectionViewCell.ViewState(text: "37"),
+            CollectionViewCell.ViewState(text: "38"),
+            CollectionViewCell.ViewState(text: "39"),
+            CollectionViewCell.ViewState(text: "40"),
+            CollectionViewCell.ViewState(text: "41"),
+            CollectionViewCell.ViewState(text: "42")
         ]
         
         // MARK: - SubViews
         
         private lazy var weekDays = createCollectionView()
-        private lazy var monthDates = createCollectionView()
+        private lazy var dates = createCollectionView()
         
         // MARK: - Init
         override init(frame: CGRect) {
@@ -40,9 +82,9 @@ extension Calendar {
             weekDays.delegate = self
             weekDays.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
             
-            monthDates.dataSource = self
-            monthDates.delegate = self
-            monthDates.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+            dates.dataSource = self
+            dates.delegate = self
+            dates.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
             
         }
         
@@ -54,7 +96,7 @@ extension Calendar {
         private func setupViews() {
             backgroundColor = .white
             addSubview(weekDays)
-            addSubview(monthDates)
+            addSubview(dates)
         }
         
         /// Creates default CollectionView.
@@ -89,10 +131,10 @@ extension Calendar.View {
                 multiplier: Constants.weekDaysRowHeightMultiplier
             ),
             
-            monthDates.leadingAnchor.constraint(equalTo: leadingAnchor),
-            monthDates.topAnchor.constraint(equalTo: weekDays.bottomAnchor),
-            monthDates.trailingAnchor.constraint(equalTo: trailingAnchor),
-            monthDates.bottomAnchor.constraint(equalTo: bottomAnchor)
+            dates.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dates.topAnchor.constraint(equalTo: weekDays.bottomAnchor),
+            dates.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dates.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
     }
@@ -104,9 +146,9 @@ extension Calendar.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.weekDays {
-            return dayNames.count
+            return weekDayViewStates.count
         } else {
-            return Constants.monthDatesItemsCount
+            return dateViewStates.count
         }
     }
     
@@ -114,9 +156,9 @@ extension Calendar.View: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Calendar.Cell.identifier, for: indexPath) as! Calendar.Cell
         
         if collectionView == self.weekDays {
-            cell.label.text = dayNames[indexPath.row]
+            cell.viewState = weekDayViewStates[indexPath.row]
         } else {
-            cell.label.text = "\(indexPath.row)"
+            cell.viewState = dateViewStates[indexPath.row]
         }
         
         return cell

@@ -6,8 +6,14 @@ extension Calendar {
         
         static let identifier = String(describing: Cell.self)
         
+        var viewState: CollectionViewCell.ViewState? {
+            didSet {
+                render(viewState: viewState)
+            }
+        }
+        
         // MARK: - SubViews
-        var label: UILabel = {
+        private lazy var label: UILabel = {
             let label = UILabel().autolayout()
             return label
         }()
@@ -15,8 +21,7 @@ extension Calendar {
         // MARK: - Init
         override init(frame: CGRect) {
             super.init(frame: frame)
-            
-            setupViews()
+            setup()
             setConstraints()
         }
         
@@ -25,9 +30,14 @@ extension Calendar {
         }
         
         // MARK: - Private Methods
-        private func setupViews() {
+        private func setup() {
             contentView.backgroundColor = .white
             addSubview(label)
+        }
+        
+        private func render(viewState: CollectionViewCell.ViewState?) {
+            guard let viewState = viewState else { return }
+            label.text = viewState.text
         }
         
     }
