@@ -15,6 +15,9 @@ extension Calendar {
             collectionView.showsVerticalScrollIndicator = false
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.isScrollEnabled = false
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
             return collectionView
         }()
         
@@ -23,11 +26,6 @@ extension Calendar {
             super.init(frame: frame)
             setupViews()
             setConstraints()
-            
-            collectionView.dataSource = self
-            collectionView.delegate = self
-            
-            collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
         }
         
         required init?(coder: NSCoder) {
@@ -84,10 +82,7 @@ extension Calendar.View: UICollectionViewDelegate {
 extension Calendar.View: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        print("🟢 frame width: \(frame.width)")
-        print("🟢🟢 frame width/ 7: \(frame.width / 7)")
-        
         return CGSize(width: frame.width / 7, height: frame.height / 7)
     }
+    
 }
