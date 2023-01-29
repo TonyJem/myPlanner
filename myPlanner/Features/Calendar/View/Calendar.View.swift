@@ -4,7 +4,18 @@ extension Calendar {
     
     class View: UIView {
         
-        let dayNames = [
+        enum Constants {
+            
+            static let weekDaysRowHeightMultiplier: CGFloat = 1/7
+            static let numberOfRows: CGFloat = 7
+            static let numberOfCollumns: CGFloat = 7
+            
+//        TODO: need to remove monthDatesItemsCount and replace it with count of viewStates
+            static let monthDatesItemsCount = 42
+            
+        }
+        
+        private let dayNames = [
             "Mon",
             "Tue",
             "Wed",
@@ -73,7 +84,10 @@ extension Calendar.View {
             weekDays.leadingAnchor.constraint(equalTo: leadingAnchor),
             weekDays.topAnchor.constraint(equalTo: topAnchor),
             weekDays.trailingAnchor.constraint(equalTo: trailingAnchor),
-            weekDays.heightAnchor.constraint(equalToConstant: 30),
+            weekDays.heightAnchor.constraint(
+                equalTo: heightAnchor,
+                multiplier: Constants.weekDaysRowHeightMultiplier
+            ),
             
             monthDates.leadingAnchor.constraint(equalTo: leadingAnchor),
             monthDates.topAnchor.constraint(equalTo: weekDays.bottomAnchor),
@@ -89,13 +103,10 @@ extension Calendar.View {
 extension Calendar.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView {
-        case self.weekDays:
+        if collectionView == self.weekDays {
             return dayNames.count
-        case self.monthDates:
-            return 42
-        default:
-            return 0
+        } else {
+            return Constants.monthDatesItemsCount
         }
     }
     
@@ -123,7 +134,10 @@ extension Calendar.View: UICollectionViewDelegateFlowLayout {
     
     // Returns Item size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 7, height: frame.height / 7)
+        return CGSize(
+            width: frame.width / Constants.numberOfCollumns,
+            height: frame.height / Constants.numberOfRows
+        )
     }
     
 }
