@@ -11,6 +11,8 @@ extension Day {
             
         }
         
+        let dataSource = Calendar.CollectionViewDatasource()
+        
         static let identifier = "ViewCellIdentifier"
         
         // MARK: - SubViews
@@ -20,7 +22,7 @@ extension Day {
         }()
         
         private lazy var calendarView: Calendar.View = {
-            let view = Calendar.View().autolayout()
+            let view = Calendar.View.create(dataSource: self.dataSource).autolayout()
             return view
         }()
         
