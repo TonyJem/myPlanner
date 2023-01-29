@@ -39,8 +39,6 @@
 		3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C32985B132007AD3F6 /* Calendar.swift */; };
 		3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C62985B209007AD3F6 /* Calendar.View.swift */; };
 		3A2D66C92985BCA5007AD3F6 /* Calendar.GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */; };
-		3A2D66CB2985BF6D007AD3F6 /* Calendar.CollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66CA2985BF6D007AD3F6 /* Calendar.CollectionViewDatasource.swift */; };
-		3A2D66CD2985C062007AD3F6 /* Calendar.ItemViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66CC2985C062007AD3F6 /* Calendar.ItemViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +95,6 @@
 		3A2D66C32985B132007AD3F6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		3A2D66C62985B209007AD3F6 /* Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.View.swift; sourceTree = "<group>"; };
 		3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.GridCell.swift; sourceTree = "<group>"; };
-		3A2D66CA2985BF6D007AD3F6 /* Calendar.CollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.CollectionViewDatasource.swift; sourceTree = "<group>"; };
-		3A2D66CC2985C062007AD3F6 /* Calendar.ItemViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.ItemViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,8 +328,6 @@
 			children = (
 				3A2D66C62985B209007AD3F6 /* Calendar.View.swift */,
 				3A2D66C82985BCA5007AD3F6 /* Calendar.GridCell.swift */,
-				3A2D66CA2985BF6D007AD3F6 /* Calendar.CollectionViewDatasource.swift */,
-				3A2D66CC2985C062007AD3F6 /* Calendar.ItemViewState.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,9 +475,7 @@
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
 				3A2D66BF29859856007AD3F6 /* Day.swift in Sources */,
 				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,
-				3A2D66CB2985BF6D007AD3F6 /* Calendar.CollectionViewDatasource.swift in Sources */,
 				3A2D6684298522FF007AD3F6 /* ViewController.swift in Sources */,
-				3A2D66CD2985C062007AD3F6 /* Calendar.ItemViewState.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
