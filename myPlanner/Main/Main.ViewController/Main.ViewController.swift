@@ -11,7 +11,7 @@ extension Main {
             
         }
         
-        // MARK: - Views
+        // MARK: - SubViews
         
         private lazy var headerView = Header.View().autolayout()
         private lazy var bodyView = Body.View().autolayout()
@@ -21,19 +21,23 @@ extension Main {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            setupViews()
-            setConstraints()
+            setupView()
+            addSubViews()
+            setupLayout()
         }
         
         // MARK: - Private Methods
         
-        private func setupViews() {
+        private func setupView() {
+        }
+        
+        private func addSubViews() {
             view.addSubview(headerView)
             view.addSubview(bodyView)
             view.addSubview(footerView)
         }
         
-        private func setConstraints() {
+        private func setupLayout() {
             NSLayoutConstraint.activate([
                 
                 headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
