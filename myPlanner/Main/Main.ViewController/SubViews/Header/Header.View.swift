@@ -9,7 +9,7 @@ extension Header {
             static let dateViewWidth: CGFloat = 120.0
             static let dateViewHeight: CGFloat = 30.0
             
-            static let tabBarViewWidth: CGFloat = 400.0
+            static let tabBarViewWidth: CGFloat = 500.0
             static let tabBarViewHeight: CGFloat = 30.0
             
             static let buttonSize = CGSize(width: 40, height: 40)
