@@ -13,22 +13,22 @@ extension Calendar {
         }
         
         private let weekDayViewStates: [CollectionViewCell.ViewState] = [
-            CollectionViewCell.ViewState(text: "Mon", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Tue", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Wed", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Thu", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Fri", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Sat", type: .weekDay),
-            CollectionViewCell.ViewState(text: "Sun", type: .weekDay)
+            CollectionViewCell.ViewState(text: "Mon", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Tue", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Wed", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Thu", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Fri", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Sat", cellType: .weekDay),
+            CollectionViewCell.ViewState(text: "Sun", cellType: .weekDay)
         ]
         
         private let dateViewStates: [CollectionViewCell.ViewState] = [
-            CollectionViewCell.ViewState(text: "26"),
-            CollectionViewCell.ViewState(text: "27"),
-            CollectionViewCell.ViewState(text: "28"),
-            CollectionViewCell.ViewState(text: "29"),
-            CollectionViewCell.ViewState(text: "30"),
-            CollectionViewCell.ViewState(text: "31"),
+            CollectionViewCell.ViewState(text: "26", monthType: .previousMonth),
+            CollectionViewCell.ViewState(text: "27", monthType: .previousMonth),
+            CollectionViewCell.ViewState(text: "28", monthType: .previousMonth),
+            CollectionViewCell.ViewState(text: "29", monthType: .previousMonth),
+            CollectionViewCell.ViewState(text: "30", monthType: .previousMonth),
+            CollectionViewCell.ViewState(text: "31", monthType: .previousMonth),
             CollectionViewCell.ViewState(text: "1"),
             CollectionViewCell.ViewState(text: "2"),
             CollectionViewCell.ViewState(text: "3"),
@@ -60,11 +60,11 @@ extension Calendar {
             CollectionViewCell.ViewState(text: "29"),
             CollectionViewCell.ViewState(text: "30"),
             CollectionViewCell.ViewState(text: "31"),
-            CollectionViewCell.ViewState(text: "1"),
-            CollectionViewCell.ViewState(text: "2"),
-            CollectionViewCell.ViewState(text: "3"),
-            CollectionViewCell.ViewState(text: "4"),
-            CollectionViewCell.ViewState(text: "5")
+            CollectionViewCell.ViewState(text: "1", monthType: .nextMonth),
+            CollectionViewCell.ViewState(text: "2", monthType: .nextMonth),
+            CollectionViewCell.ViewState(text: "3", monthType: .nextMonth),
+            CollectionViewCell.ViewState(text: "4", monthType: .nextMonth),
+            CollectionViewCell.ViewState(text: "5", monthType: .nextMonth)
         ]
         
         // MARK: - SubViews

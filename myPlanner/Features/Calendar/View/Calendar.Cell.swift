@@ -53,6 +53,7 @@ extension Calendar {
         }
         
         private func render(viewState: CollectionViewCell.ViewState?) {
+            
             guard let viewState = viewState else { return }
             
             if viewState.isToday {
@@ -65,7 +66,7 @@ extension Calendar {
             
             label.text = viewState.text
             
-            switch viewState.type {
+            switch viewState.cellType {
             case .weekDay:
                 label.textColor = .systemGray
                 label.font = UIFont.systemFont(ofSize: 13, weight: .light)
@@ -84,6 +85,14 @@ extension Calendar {
                     label.textColor = .white
                 }
             }
+            
+            switch viewState.monthType {
+            case .previousMonth, .nextMonth:
+                label.textColor = .systemGray
+            case .currentMonth:
+                break
+            }
+            
         }
         
     }

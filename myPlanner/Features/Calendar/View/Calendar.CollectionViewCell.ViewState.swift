@@ -1,29 +1,38 @@
 import Foundation
 
 extension Calendar {
-  
+    
     enum CollectionViewCell {
         
         struct ViewState {
             
-            enum cellType {
+            enum CellType {
                 case weekDay
                 case date
             }
             
+            enum MonthType {
+                case previousMonth
+                case currentMonth
+                case nextMonth
+            }
+            
             let text: String
-            let type: cellType
+            let cellType: CellType
+            let monthType: MonthType
             let isSelected: Bool
             let isToday: Bool
             
             init(
                 text: String,
-                type: cellType = .date,
+                cellType: CellType = .date,
+                monthType: MonthType = .currentMonth,
                 isSelected: Bool = false,
                 isToday:Bool = false
             ) {
                 self.text = text
-                self.type = type
+                self.cellType = cellType
+                self.monthType = monthType
                 self.isSelected = isSelected
                 self.isToday = isToday
             }
