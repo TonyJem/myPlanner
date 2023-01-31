@@ -13,7 +13,7 @@ extension Main {
         
         // MARK: - Views
         private lazy var headerView = HeaderView().autolayout()
-        private lazy var mainView = View().autolayout()
+        private lazy var bodyView = Body.View().autolayout()
         private lazy var footerView = FooterView().autolayout()
         
         // MARK: - LifeCycle
@@ -26,7 +26,7 @@ extension Main {
         // MARK: - Private Methods
         private func setupViews() {
             view.addSubview(headerView)
-            view.addSubview(mainView)
+            view.addSubview(bodyView)
             view.addSubview(footerView)
         }
         
@@ -43,10 +43,10 @@ extension Main {
                 footerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                 footerView.heightAnchor.constraint(equalToConstant: Constants.footerViewHeight),
 
-                mainView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-                mainView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-                mainView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                mainView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
+                bodyView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+                bodyView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+                bodyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                bodyView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
                 
             ])
         }

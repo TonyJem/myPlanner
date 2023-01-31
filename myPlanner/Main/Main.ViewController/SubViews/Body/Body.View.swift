@@ -27,7 +27,7 @@ extension Body {
         
         // MARK: - Private Methods
         private func setupView() {
-            backgroundColor = .gray
+            backgroundColor = .green
         }
         
         private func addSubViews() {
