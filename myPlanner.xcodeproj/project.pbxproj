@@ -192,7 +192,7 @@
 				3A2D66A42985251A007AD3F6 /* Application */,
 				3A2D66AF29856634007AD3F6 /* Core */,
 				3A2D66A629855E9B007AD3F6 /* DesignSystem */,
-				3A2D6686298523BD007AD3F6 /* Features */,
+				3A2D6686298523BD007AD3F6 /* OLD_Features */,
 				3A2D66AB2985636D007AD3F6 /* Localizations */,
 				3A5D206D2989969B0029408A /* Main */,
 				3A5D208B29899B930029408A /* Templates */,
@@ -228,7 +228,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3A2D6686298523BD007AD3F6 /* Features */ = {
+		3A2D6686298523BD007AD3F6 /* OLD_Features */ = {
 			isa = PBXGroup;
 			children = (
 				3A2D669E2985244D007AD3F6 /* TabModel.swift */,
@@ -238,7 +238,7 @@
 				3A2D66B029856C0E007AD3F6 /* DateModul */,
 				3A2D66C12985B0F4007AD3F6 /* Calendar */,
 			);
-			path = Features;
+			path = OLD_Features;
 			sourceTree = "<group>";
 		};
 		3A2D6687298523D2007AD3F6 /* Header */ = {
