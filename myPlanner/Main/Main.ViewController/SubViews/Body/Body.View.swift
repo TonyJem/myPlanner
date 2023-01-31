@@ -6,7 +6,7 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var subView = UIView().autolayout()
+        private lazy var subView = DayPage.View().autolayout()
         
         // MARK: - Init
         
@@ -34,10 +34,10 @@ extension Body {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                subView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
+                subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
+                subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
                 
             ])
         }

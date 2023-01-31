@@ -1,6 +1,6 @@
 import UIKit
 
-extension Template {
+extension NotesPage {
     
     class View: UIView {
         
@@ -45,3 +45,4 @@ extension Template {
     }
     
 }
+

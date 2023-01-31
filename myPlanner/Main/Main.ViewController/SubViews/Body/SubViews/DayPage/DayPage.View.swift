@@ -1,6 +1,6 @@
 import UIKit
 
-extension Template {
+extension DayPage {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension Template {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .red
         }
         
         private func addSubViews() {
@@ -34,10 +34,10 @@ extension Template {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                subView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
+                subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
+                subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
                 
             ])
         }
@@ -45,3 +45,4 @@ extension Template {
     }
     
 }
+

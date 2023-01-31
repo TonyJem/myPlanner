@@ -1,6 +1,6 @@
 import UIKit
 
-extension Template {
+extension TasksPage {
     
     class View: UIView {
         
@@ -45,3 +45,4 @@ extension Template {
     }
     
 }
+
