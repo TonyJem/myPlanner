@@ -60,6 +60,7 @@
 		3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20A72989A7120029408A /* MonthPage.View.swift */; };
 		3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20A92989A7290029408A /* TasksPage.View.swift */; };
 		3A5D20AC2989A73A0029408A /* NotesPage.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20AB2989A73A0029408A /* NotesPage.View.swift */; };
+		3A5D20AE2989AB520029408A /* Template.Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20AD2989AB520029408A /* Template.Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		3A5D20A72989A7120029408A /* MonthPage.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPage.View.swift; sourceTree = "<group>"; };
 		3A5D20A92989A7290029408A /* TasksPage.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPage.View.swift; sourceTree = "<group>"; };
 		3A5D20AB2989A73A0029408A /* NotesPage.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesPage.View.swift; sourceTree = "<group>"; };
+		3A5D20AD2989AB520029408A /* Template.Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +534,7 @@
 		3A5D208B29899B930029408A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20AD2989AB520029408A /* Template.Constants.swift */,
 				3A5D208E29899DFD0029408A /* Template.View.swift */,
 				3A5D20902989A0610029408A /* Template.swift */,
 			);
@@ -704,6 +707,7 @@
 				3A2D66B92985882E007AD3F6 /* DateModul.ViewState.swift in Sources */,
 				3A5D209C2989A6200029408A /* WeekPage.swift in Sources */,
 				3A5D208F29899DFD0029408A /* Template.View.swift in Sources */,
+				3A5D20AE2989AB520029408A /* Template.Constants.swift in Sources */,
 				3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */,
 				3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */,
 				3A5D208D29899C000029408A /* Body.View.swift in Sources */,
