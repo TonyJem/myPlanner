@@ -48,6 +48,8 @@
 		3A5D208D29899C000029408A /* Body.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D208C29899C000029408A /* Body.View.swift */; };
 		3A5D208F29899DFD0029408A /* Template.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D208E29899DFD0029408A /* Template.View.swift */; };
 		3A5D20912989A0610029408A /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20902989A0610029408A /* Template.swift */; };
+		3A5D20952989A31A0029408A /* Header.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20942989A31A0029408A /* Header.View.swift */; };
+		3A5D20972989A3570029408A /* Footer.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20962989A3570029408A /* Footer.View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		3A5D208C29899C000029408A /* Body.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.View.swift; sourceTree = "<group>"; };
 		3A5D208E29899DFD0029408A /* Template.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.View.swift; sourceTree = "<group>"; };
 		3A5D20902989A0610029408A /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
+		3A5D20942989A31A0029408A /* Header.View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.View.swift; sourceTree = "<group>"; };
+		3A5D20962989A3570029408A /* Footer.View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +380,7 @@
 		3A5D20712989973E0029408A /* Footer */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20962989A3570029408A /* Footer.View.swift */,
 				3A5D208929899AFE0029408A /* Footer.swift */,
 			);
 			path = Footer;
@@ -384,11 +389,7 @@
 		3A5D20722989974A0029408A /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D2078298997840029408A /* DayPage */,
-				3A5D2077298997810029408A /* WeekPage */,
-				3A5D20762989977E0029408A /* MonthPage */,
-				3A5D20752989977A0029408A /* TasksPage */,
-				3A5D2074298997610029408A /* NotesPage */,
+				3A5D20932989A2760029408A /* SubViews */,
 				3A5D208C29899C000029408A /* Body.View.swift */,
 				3A5D208729899AE70029408A /* Body.swift */,
 			);
@@ -398,6 +399,7 @@
 		3A5D2073298997510029408A /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20942989A31A0029408A /* Header.View.swift */,
 				3A5D208529899A7F0029408A /* Header.swift */,
 			);
 			path = Header;
@@ -509,6 +511,18 @@
 				3A5D20902989A0610029408A /* Template.swift */,
 			);
 			path = Templates;
+			sourceTree = "<group>";
+		};
+		3A5D20932989A2760029408A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D2078298997840029408A /* DayPage */,
+				3A5D2077298997810029408A /* WeekPage */,
+				3A5D20762989977E0029408A /* MonthPage */,
+				3A5D20752989977A0029408A /* TasksPage */,
+				3A5D2074298997610029408A /* NotesPage */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -653,6 +667,7 @@
 				3A2D66A12985244D007AD3F6 /* TabModel.swift in Sources */,
 				3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */,
 				3A5D208D29899C000029408A /* Body.View.swift in Sources */,
+				3A5D20972989A3570029408A /* Footer.View.swift in Sources */,
 				3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */,
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
 				3A5D208629899A7F0029408A /* Header.swift in Sources */,
@@ -673,6 +688,7 @@
 				3A5D208829899AE70029408A /* Body.swift in Sources */,
 				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
+				3A5D20952989A31A0029408A /* Header.View.swift in Sources */,
 				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
 				3A2D66B229856C48007AD3F6 /* DateModul.View.swift in Sources */,
 				3A5D2082298999540029408A /* Main.swift in Sources */,

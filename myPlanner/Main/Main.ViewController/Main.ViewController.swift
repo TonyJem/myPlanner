@@ -12,11 +12,13 @@ extension Main {
         }
         
         // MARK: - Views
-        private lazy var headerView = HeaderView().autolayout()
+        
+        private lazy var headerView = Header.View().autolayout()
         private lazy var bodyView = Body.View().autolayout()
-        private lazy var footerView = FooterView().autolayout()
+        private lazy var footerView = Footer.View().autolayout()
         
         // MARK: - LifeCycle
+        
         override func viewDidLoad() {
             super.viewDidLoad()
             setupViews()
@@ -24,6 +26,7 @@ extension Main {
         }
         
         // MARK: - Private Methods
+        
         private func setupViews() {
             view.addSubview(headerView)
             view.addSubview(bodyView)

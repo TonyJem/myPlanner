@@ -1,6 +1,6 @@
 import UIKit
 
-extension Body {
+extension Footer {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension Body {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .systemPink
         }
         
         private func addSubViews() {

@@ -11,9 +11,11 @@ extension Template {
         }
         
         // MARK: - SubViews
+        
         private lazy var subView = UIView().autolayout()
         
         // MARK: - Init
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
             setupView()
@@ -26,8 +28,9 @@ extension Template {
         }
         
         // MARK: - Private Methods
+        
         private func setupView() {
-            backgroundColor = .gray
+            backgroundColor = .green
         }
         
         private func addSubViews() {
@@ -36,10 +39,12 @@ extension Template {
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
+                
                 subView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 subView.topAnchor.constraint(equalTo: topAnchor),
                 subView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                
             ])
         }
         
