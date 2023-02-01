@@ -6,9 +6,9 @@ extension TabBar {
         
         // MARK: - SubViews
         
-        
-        private lazy var subView: TabButton = {
+        private lazy var subView: TabButtonProtocol = {
             let tab = TabButton().autolayout()
+            //TODO: Investigate why if tab.backgroundColor = .clear I can't see subView at all
             tab.backgroundColor = .orange
             return tab
         }()

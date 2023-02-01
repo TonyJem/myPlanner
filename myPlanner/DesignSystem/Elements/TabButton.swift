@@ -1,6 +1,12 @@
 import UIKit
 
-class TabButton: UIButton {
+protocol TabButtonProtocol: UIButton {
+    
+    var viewState: TabButton.ViewState { get set }
+    
+}
+
+class TabButton: UIButton, TabButtonProtocol {
     
     enum Constants {
         
