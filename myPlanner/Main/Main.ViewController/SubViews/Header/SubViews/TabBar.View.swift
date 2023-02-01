@@ -8,8 +8,7 @@ extension TabBar {
         
         
         private lazy var subView: TabButton = {
-            let tabNew = TabNEW(title: "Title", inactiveColor: .magenta)
-            let tab = TabButton(frame: .zero, tab: tabNew, index: 0).autolayout()
+            let tab = TabButton().autolayout()
             tab.backgroundColor = .orange
             return tab
         }()

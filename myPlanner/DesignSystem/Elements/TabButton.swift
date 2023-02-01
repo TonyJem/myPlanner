@@ -1,31 +1,5 @@
 import UIKit
 
-struct TabNEW {
-    let title: String
-    let inactiveColor: UIColor
-    
-    var isActive: Bool = false
-    
-    var backgroundColor: UIColor {
-        isActive ? activeColor : inactiveColor
-    }
-    
-    private let activeColor: UIColor = .activeTabBackround
-}
-
-class TabModelNEW {
-    
-    var activeTabIndex = 0
-    
-    var tabs: [Tab] = []
-    
-    func activateTab(by index: Int) {
-        tabs[activeTabIndex].isActive = false
-        tabs[index].isActive = true
-        activeTabIndex = index
-    }
-}
-
 class TabButton: UIButton {
     
     enum Constants {
@@ -40,25 +14,19 @@ class TabButton: UIButton {
         
     }
     
-    let index: Int
-    
-    var tab: TabNEW {
+    /// Holds the ViewState of the `TabButton` and renders it when set.
+    var viewState: ViewState = .initial {
         didSet {
-            reloadTabLayer()
+            render(viewState: viewState)
         }
     }
     
     // MARK: - Init
-    init(frame: CGRect, tab: TabNEW, index: Int) {
-        self.tab = tab
-        self.index = index
-        
+    
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        
-        backgroundColor = .clear
-        setTitleColor(.gray, for: .normal)
-        setTitle(tab.title, for: .normal)
-        addTarget(self, action: #selector(didTapOnTabButton), for: .touchUpInside)
+        setup()
+        render(viewState: .initial)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,24 +34,63 @@ class TabButton: UIButton {
     }
     
     // MARK: - Actions
+    
     @objc private func didTapOnTabButton() {
         print("🟢 didTapOnTabButton in TabButton")
     }
     
     // MARK: - Private Methods
-    private func reloadTabLayer() {
+    
+    private func setup() {
+        backgroundColor = .clear
+        setTitleColor(.white, for: .normal)
+        addTarget(self, action: #selector(didTapOnTabButton), for: .touchUpInside)
+    }
+    
+    private func render(viewState: ViewState) {
+        setTitle(viewState.title, for: .normal)
+        reloadLayer()
+    }
+    
+    //TODO: Check if we need to have it. Google `setNeedsDisplay` and `displayIfNeeded` and learn what they are doing
+    //TODO: Decide if these both methods are needed, or may be some of is redundant? So please Check it!
+    private func reloadLayer() {
         layer.setNeedsDisplay()
         layer.displayIfNeeded()
     }
 }
 
-// MARK: - Draw shape of Trapezium with rounded corners
+//MARK: - Viewstate
+
 extension TabButton {
+    
+    struct ViewState {
+        let title: String
+        let color: UIColor
+        
+        static let initial: ViewState = ViewState(title: "Title", color: .tabDayBackround)
+        
+        init(title: String, color: UIColor) {
+            self.title = title
+            self.color = color
+        }
+    }
+    
+}
+
+// MARK: - Draw shape of Trapezium with rounded corners
+
+extension TabButton {
+    
+//TODO: Write comments or each step, so it will be easy to understand algorithm later, while it will be needed to look at it again next time
     override func draw(_ rect: CGRect) {
         let size = self.bounds.size
         
         let W = size.width
-        let H = tab.isActive ? size.height : size.height - 3
+        
+//TODO: Set H difference if TabButton is actove or not
+//        let H = tab.isActive ? size.height : size.height - 3
+        let H = size.height
         
         let k: CGFloat = Constants.sideAlignmentProportion
         let R: CGFloat = Constants.tabCornerRadius
@@ -139,11 +146,14 @@ extension TabButton {
         
         path.close()
         
-        tab.backgroundColor.set()
+        // Set the background color of color
+        viewState.color.set()
         path.fill()
         
-        if tab.isActive {
-            superview?.bringSubviewToFront(self)
-        }
+//TODO: Set bringSubviewToFront if TabButton is active or not
+//        if tab.isActive {
+//            superview?.bringSubviewToFront(self)
+//        }
     }
+    
 }
