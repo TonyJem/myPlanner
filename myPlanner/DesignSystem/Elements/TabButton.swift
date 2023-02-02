@@ -97,27 +97,50 @@ extension TabButton {
     override func draw(_ rect: CGRect) {
         
         /// Trapezium rounding radius
-        let radius: CGFloat = Constants.tabCornerRadius
+        let cornerRadius: CGFloat = Constants.tabCornerRadius
         
         /// Converts `tabAlignmentAngle` value from degrees into radians.
-        let angle = Constants.tabAlignmentAngle * .pi / 180
+        let alignmentAngle = Constants.tabAlignmentAngle * .pi / 180
         
-        drawTopTabButton(with: radius, and: angle, of: rect.size)
+        drawTopTabButton(with: cornerRadius, and: alignmentAngle, for: rect.size)
+        
+//        drawBottomTabButton(with: cornerRadius, and: alignmentAngle, for: rect.size)
     }
     
-    private func drawTopTabButton(with radius: CGFloat, and angle: CGFloat, of size: CGSize) {
+    private func drawTopTabButton(with radius: CGFloat, and angle: CGFloat, for size: CGSize) {
         let height = size.height
-        let center1Xcoordinate = radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height
+        let leftArcCenter = CGPoint(
+            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height,
+            y: radius)
         createTrapeziumPath(
-            startBottom: CGPoint(x: .zero, y: height),
-            endBottom: CGPoint(x: size.width, y: height),
-            center1: CGPoint(x: center1Xcoordinate, y: radius),
-            center2: CGPoint(x: size.width - center1Xcoordinate, y: radius),
-            radius: radius,
+            startBaseLine: CGPoint(x: .zero, y: height),
+            endBaseLine: CGPoint(x: size.width, y: height),
+            leftArcCenter: leftArcCenter,
+            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: radius),
+            cornerRadius: radius,
             startAngle1: -angle,
             endAngle1: -0.5 * .pi,
             endAngle2: .pi + angle,
             clockwise: false,
+            color: viewState.color
+        )
+    }
+    
+    private func drawBottomTabButton(with radius: CGFloat, and angle: CGFloat, for size: CGSize) {
+        let height = size.height
+        let leftArcCenter = CGPoint(
+            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height,
+            y: height - radius)
+        createTrapeziumPath(
+            startBaseLine: .zero,
+            endBaseLine: CGPoint(x: size.width, y: .zero),
+            leftArcCenter: leftArcCenter,
+            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: height - radius),
+            cornerRadius: radius,
+            startAngle1: angle,
+            endAngle1: 0.5 * .pi,
+            endAngle2: .pi - angle,
+            clockwise: true,
             color: viewState.color
         )
     }
@@ -160,11 +183,11 @@ extension TabButton {
      */
     
     private func createTrapeziumPath(
-        startBottom: CGPoint,
-        endBottom: CGPoint,
-        center1: CGPoint,
-        center2: CGPoint,
-        radius: CGFloat,
+        startBaseLine: CGPoint,
+        endBaseLine: CGPoint,
+        leftArcCenter: CGPoint,
+        rightArcCenter: CGPoint,
+        cornerRadius: CGFloat,
         startAngle1: CGFloat,
         endAngle1: CGFloat,
         endAngle2: CGFloat,
@@ -172,18 +195,18 @@ extension TabButton {
         color: UIColor
     ) {
         let path = UIBezierPath()
-        path.move(to: startBottom)
-        path.addLine(to: endBottom)
-        path.addArc(withCenter: center2,
-                    radius: radius,
+        path.move(to: startBaseLine)
+        path.addLine(to: endBaseLine)
+        path.addArc(withCenter: rightArcCenter,
+                    radius: cornerRadius,
                     startAngle: startAngle1,
                     endAngle: endAngle1,
-                    clockwise: false)
-        path.addArc(withCenter: center1,
-                    radius: radius,
+                    clockwise: clockwise)
+        path.addArc(withCenter: leftArcCenter,
+                    radius: cornerRadius,
                     startAngle: endAngle1,
                     endAngle: endAngle2,
-                    clockwise: false)
+                    clockwise: clockwise)
         path.close()
         color.set()
         path.fill()
