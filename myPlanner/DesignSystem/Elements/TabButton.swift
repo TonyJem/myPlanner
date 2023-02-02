@@ -91,10 +91,8 @@ extension TabButton {
         /// Trapezium rounding radius
         let radius: CGFloat = Constants.tabCornerRadius
         
-        /// The mathematical constant pi.
-        let pi = CGFloat.pi
-        
-        let alfa = Constants.tabAlignmentAngle * pi / 180 // Converts angle from dgrees into radians
+        /// Converts `tabAlignmentAngle` value from degrees into radians.
+        let alfa = Constants.tabAlignmentAngle * .pi / 180
         
         let width = rect.size.width
         
@@ -102,25 +100,20 @@ extension TabButton {
 //        let H = tab.isActive ? size.height : size.height - 3
         let height = rect.size.height
         
-        let C1x = radius * tan(0.5 * (0.5 * pi - alfa)) + tan(alfa) * height
-
-        let A = CGPoint(x: rect.origin.x, y: height)
-        let B = CGPoint(x: width, y: height)
-        let C1 = CGPoint(x: C1x, y: radius)
-        let C2 = CGPoint(x: width - C1x, y: radius)
+        let C1x = radius * tan(0.5 * (0.5 * .pi - alfa)) + tan(alfa) * height
         
         let startAngle1 = -alfa
-        let endAngle1 = -0.5 * pi
+        let endAngle1 = -0.5 * .pi
         
         //TODO: Get rid of second startAngle
-        let startAngle2 = -0.5 * pi
-        let endAngle2 = pi + alfa
+        let startAngle2 = -0.5 * .pi
+        let endAngle2 = .pi + alfa
         
         createTrapeziumPath(
-            A: A,
-            B: B,
-            C1: C2,
-            C2: C1,
+            A: CGPoint(x: rect.origin.x, y: height),
+            B: CGPoint(x: width, y: height),
+            C1: CGPoint(x: C1x, y: radius),
+            C2: CGPoint(x: width - C1x, y: radius),
             radius: radius,
             startAngle1: startAngle1,
             endAngle1: endAngle1,
@@ -152,12 +145,12 @@ extension TabButton {
         let path = UIBezierPath()
         path.move(to: A)
         path.addLine(to: B)
-        path.addArc(withCenter: C1,
+        path.addArc(withCenter: C2,
                     radius: radius,
                     startAngle: startAngle1,
                     endAngle: endAngle1,
                     clockwise: false)
-        path.addArc(withCenter: C2,
+        path.addArc(withCenter: C1,
                     radius: radius,
                     startAngle: startAngle2,
                     endAngle: endAngle2,
