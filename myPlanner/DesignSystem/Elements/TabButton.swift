@@ -1,5 +1,15 @@
 import UIKit
 
+//TODO: Write comments for each step, so it will be easy to understand algorithm later, while it will be needed to look at it again next time
+
+//TODO: Set bringSubviewToFront if TabButton is active or not
+//        if tab.isActive {
+//            superview?.bringSubviewToFront(self)
+//        }
+
+//TODO: Set H difference if TabButton is actove or not
+//        let H = tab.isActive ? size.height : size.height - 3
+
 protocol TabButtonProtocol: UIButton {
     
     var viewState: TabButton.ViewState { get set }
@@ -102,25 +112,24 @@ extension TabButton {
 
 extension TabButton {
     
-    //TODO: Write comments or each step, so it will be easy to understand algorithm later, while it will be needed to look at it again next time
     override func draw(_ rect: CGRect) {
         
         /// Converts `tabAlignmentAngle` value from degrees into radians.
-        let alignmentAngle = Constants.tabAlignmentAngle * .pi / 180
+        let alignmentAngle: CGFloat = Constants.tabAlignmentAngle * .pi / 180
         
         switch viewState.type {
         case .top:
-            drawTopTabButton(and: alignmentAngle, for: rect.size)
+            drawTopTabButton(angle: alignmentAngle, size: rect.size)
         case .bottom:
-            drawBottomTabButton(and: alignmentAngle, for: rect.size)
+            drawBottomTabButton(angle: alignmentAngle, size: rect.size)
         }
         
     }
     
     private func drawTopTabButton(
         with radius: CGFloat = Constants.tabCornerRadius,
-        and angle: CGFloat,
-        for size: CGSize
+        angle: CGFloat,
+        size: CGSize
     ){
         let height = size.height
         let leftArcCenter = CGPoint(
@@ -143,10 +152,9 @@ extension TabButton {
     
     private func drawBottomTabButton(
         with radius: CGFloat = Constants.tabCornerRadius,
-        and angle: CGFloat,
-        for size: CGSize
-    )
-    {
+        angle: CGFloat,
+        size: CGSize
+    ){
         let height = size.height
         let leftArcCenter = CGPoint(
             x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height,
@@ -166,43 +174,6 @@ extension TabButton {
         )
     }
     
-    /*
-     private func drawBottomTabButton() {
-     
-     /// Trapezium rounding radius
-     let radius: CGFloat = Constants.tabCornerRadius
-     
-     /// Converts `tabAlignmentAngle` value from degrees into radians.
-     let alfa = Constants.tabAlignmentAngle * .pi / 180
-     
-     let width = rect.size.width
-     
-     //TODO: Set H difference if TabButton is actove or not
-     //        let H = tab.isActive ? size.height : size.height - 3
-     let height = rect.size.height
-     
-     let C1x = radius * tan(0.5 * (0.5 * .pi - alfa)) + tan(alfa) * height
-     
-     createTrapeziumPath(
-     startBottom: CGPoint(x: rect.origin.x, y: height),
-     endBottom: CGPoint(x: width, y: height),
-     center1: CGPoint(x: C1x, y: radius),
-     center2: CGPoint(x: width - C1x, y: radius),
-     radius: radius,
-     startAngle1: -alfa,
-     endAngle1: -0.5 * .pi,
-     endAngle2: .pi + alfa,
-     clockwise: false,
-     color: viewState.color
-     )
-     
-     //TODO: Set bringSubviewToFront if TabButton is active or not
-     //        if tab.isActive {
-     //            superview?.bringSubviewToFront(self)
-     //        }
-     }
-     */
-    
     private func createTrapeziumPath(
         startBaseLine: CGPoint,
         endBaseLine: CGPoint,
@@ -214,8 +185,7 @@ extension TabButton {
         endAngle2: CGFloat,
         clockwise: Bool,
         color: UIColor
-    )
-    {
+    ){
         let path = UIBezierPath()
         path.move(to: startBaseLine)
         path.addLine(to: endBaseLine)
