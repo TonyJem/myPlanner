@@ -1,15 +1,6 @@
 import UIKit
 
 //TODO: Write comments for each step, so it will be easy to understand algorithm later, while it will be needed to look at it again next time
-
-//TODO: Set bringSubviewToFront if TabButton is active or not
-//        if tab.isActive {
-//            superview?.bringSubviewToFront(self)
-//        }
-
-//TODO: Set H difference if TabButton is actove or not
-//        let H = tab.isActive ? size.height : size.height - 3
-
 protocol TabButtonProtocol: UIButton {
     
     var viewState: TabButton.ViewState { get set }
@@ -124,6 +115,10 @@ extension TabButton {
             drawBottomTabButton(angle: alignmentAngle, size: rect.size)
         }
         
+        if viewState.isActive {
+            superview?.bringSubviewToFront(self)
+        }
+        
     }
     
     private func drawTopTabButton(
@@ -132,15 +127,16 @@ extension TabButton {
         size: CGSize
     ){
         let height = size.height
+        let correction: CGFloat = viewState.isActive ? .zero : 3.0
         let leftArcCenter = CGPoint(
-            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height,
-            y: radius
+            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * (height + correction),
+            y: radius + correction
         )
         createTrapeziumPath(
             startBaseLine: CGPoint(x: .zero, y: height),
             endBaseLine: CGPoint(x: size.width, y: height),
             leftArcCenter: leftArcCenter,
-            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: radius),
+            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: leftArcCenter.y),
             cornerRadius: radius,
             startAngle1: -angle,
             endAngle1: -0.5 * .pi,
@@ -156,15 +152,16 @@ extension TabButton {
         size: CGSize
     ){
         let height = size.height
+        let correction: CGFloat = viewState.isActive ? .zero : 3.0
         let leftArcCenter = CGPoint(
-            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height,
-            y: height - radius
+            x: radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * (height - correction),
+            y: height - radius - correction
         )
         createTrapeziumPath(
             startBaseLine: .zero,
             endBaseLine: CGPoint(x: size.width, y: .zero),
             leftArcCenter: leftArcCenter,
-            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: height - radius),
+            rightArcCenter: CGPoint(x: size.width - leftArcCenter.x, y: leftArcCenter.y),
             cornerRadius: radius,
             startAngle1: angle,
             endAngle1: 0.5 * .pi,
