@@ -110,23 +110,15 @@ extension TabButton {
         
         let C1x = radius * tan(0.5 * (0.5 * .pi - alfa)) + tan(alfa) * height
         
-        let startAngle1 = -alfa
-        let endAngle1 = -0.5 * .pi
-        
-        //TODO: Get rid of second startAngle
-        let startAngle2 = -0.5 * .pi
-        let endAngle2 = .pi + alfa
-        
         createTrapeziumPath(
-            A: CGPoint(x: rect.origin.x, y: height),
-            B: CGPoint(x: width, y: height),
-            C1: CGPoint(x: C1x, y: radius),
-            C2: CGPoint(x: width - C1x, y: radius),
+            startBottom: CGPoint(x: rect.origin.x, y: height),
+            endBottom: CGPoint(x: width, y: height),
+            center1: CGPoint(x: C1x, y: radius),
+            center2: CGPoint(x: width - C1x, y: radius),
             radius: radius,
-            startAngle1: startAngle1,
-            endAngle1: endAngle1,
-            startAngle2: startAngle2,
-            endAngle2: endAngle2,
+            startAngle1: -alfa,
+            endAngle1: -0.5 * .pi,
+            endAngle2: .pi + alfa,
             clockwise: false,
             color: viewState.color
         )
@@ -138,29 +130,28 @@ extension TabButton {
     }
     
     private func createTrapeziumPath(
-        A: CGPoint,
-        B: CGPoint,
-        C1: CGPoint,
-        C2: CGPoint,
+        startBottom: CGPoint,
+        endBottom: CGPoint,
+        center1: CGPoint,
+        center2: CGPoint,
         radius: CGFloat,
         startAngle1: CGFloat,
         endAngle1: CGFloat,
-        startAngle2: CGFloat,
         endAngle2: CGFloat,
         clockwise: Bool,
         color: UIColor
     ) {
         let path = UIBezierPath()
-        path.move(to: A)
-        path.addLine(to: B)
-        path.addArc(withCenter: C2,
+        path.move(to: startBottom)
+        path.addLine(to: endBottom)
+        path.addArc(withCenter: center2,
                     radius: radius,
                     startAngle: startAngle1,
                     endAngle: endAngle1,
                     clockwise: false)
-        path.addArc(withCenter: C1,
+        path.addArc(withCenter: center1,
                     radius: radius,
-                    startAngle: startAngle2,
+                    startAngle: endAngle1,
                     endAngle: endAngle2,
                     clockwise: false)
         path.close()
