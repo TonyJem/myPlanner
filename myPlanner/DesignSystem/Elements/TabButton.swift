@@ -100,6 +100,35 @@ extension TabButton {
         let radius: CGFloat = Constants.tabCornerRadius
         
         /// Converts `tabAlignmentAngle` value from degrees into radians.
+        let angle = Constants.tabAlignmentAngle * .pi / 180
+        
+        drawTopTabButton(with: radius, and: angle, of: rect.size)
+    }
+    
+    private func drawTopTabButton(with radius: CGFloat, and angle: CGFloat, of size: CGSize) {
+        let height = size.height
+        let center1Xcoordinate = radius * tan(0.5 * (0.5 * .pi - angle)) + tan(angle) * height
+        createTrapeziumPath(
+            startBottom: CGPoint(x: .zero, y: height),
+            endBottom: CGPoint(x: size.width, y: height),
+            center1: CGPoint(x: center1Xcoordinate, y: radius),
+            center2: CGPoint(x: size.width - center1Xcoordinate, y: radius),
+            radius: radius,
+            startAngle1: -angle,
+            endAngle1: -0.5 * .pi,
+            endAngle2: .pi + angle,
+            clockwise: false,
+            color: viewState.color
+        )
+    }
+    
+    /*
+    private func drawBottomTabButton() {
+        
+        /// Trapezium rounding radius
+        let radius: CGFloat = Constants.tabCornerRadius
+        
+        /// Converts `tabAlignmentAngle` value from degrees into radians.
         let alfa = Constants.tabAlignmentAngle * .pi / 180
         
         let width = rect.size.width
@@ -128,6 +157,7 @@ extension TabButton {
         //            superview?.bringSubviewToFront(self)
         //        }
     }
+     */
     
     private func createTrapeziumPath(
         startBottom: CGPoint,
