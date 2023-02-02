@@ -108,7 +108,7 @@ extension TabButton {
     
 }
 
-// MARK: - Draw shape of Trapezium with rounded corners
+// MARK: - Draw TabButton shape as a Trapezium with rounded corners
 
 extension TabButton {
     
@@ -127,7 +127,7 @@ extension TabButton {
     }
     
     private func drawTopTabButton(
-        with radius: CGFloat = Constants.tabCornerRadius,
+        radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize
     ){
@@ -151,7 +151,7 @@ extension TabButton {
     }
     
     private func drawBottomTabButton(
-        with radius: CGFloat = Constants.tabCornerRadius,
+        radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize
     ){
