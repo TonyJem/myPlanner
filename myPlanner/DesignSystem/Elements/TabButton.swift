@@ -89,63 +89,39 @@ extension TabButton {
     override func draw(_ rect: CGRect) {
         
         /// Trapezium rounding radius
-        let Radius: CGFloat = Constants.tabCornerRadius
+        let radius: CGFloat = Constants.tabCornerRadius
         
         /// The mathematical constant pi.
-        let Pi = CGFloat.pi
+        let pi = CGFloat.pi
         
-        let alfa = Constants.tabAlignmentAngle * Pi / 180
+        let alfa = Constants.tabAlignmentAngle * pi / 180 // Converts angle from dgrees into radians
         
         let width = rect.size.width
         
 //TODO: Set H difference if TabButton is actove or not
 //        let H = tab.isActive ? size.height : size.height - 3
         let height = rect.size.height
-                
-        let Ax: CGFloat = .zero
-        let Ay: CGFloat = rect.size.height
         
-        //TODO: Get rid of O point
-        let Ox = Ax + 0.5 * width
-        let Oy = Ay
-        
-        let Bx = Ox + 0.5 * width
-        let By = Oy
-        
-        //TODO: Get rid of angle betta
-        let beta = 0.5 * Pi - alfa
-        
-        let EF = Radius * tan(0.5 * beta)
-        let FG = tan(alfa) * height
-        let EG = EF + FG
-        
-        let C1x = Bx - EG
-        let C1y = Oy - height + Radius
-        
-        let OB = Bx - Ox
-        let OC1x = OB - EG
-        
-        let C2x = Ox - OC1x
-        let C2y = C1y
-        
-        let A = CGPoint(x: Ax , y: Ay)
-        let B = CGPoint(x: Bx , y: By)
-        let C1 = CGPoint(x: C1x , y: C1y)
-        let C2 = CGPoint(x: C2x , y: C2y)
+        let C1x = radius * tan(0.5 * (0.5 * pi - alfa)) + tan(alfa) * height
+
+        let A = CGPoint(x: rect.origin.x, y: height)
+        let B = CGPoint(x: width, y: height)
+        let C1 = CGPoint(x: C1x, y: radius)
+        let C2 = CGPoint(x: width - C1x, y: radius)
         
         let startAngle1 = -alfa
-        let endAngle1 = -0.5 * Pi
+        let endAngle1 = -0.5 * pi
         
         //TODO: Get rid of second startAngle
-        let startAngle2 = -0.5 * Pi
-        let endAngle2 = Pi + alfa
+        let startAngle2 = -0.5 * pi
+        let endAngle2 = pi + alfa
         
         createTrapeziumPath(
             A: A,
             B: B,
-            C1: C1,
-            C2: C2,
-            radius: Radius,
+            C1: C2,
+            C2: C1,
+            radius: radius,
             startAngle1: startAngle1,
             endAngle1: endAngle1,
             startAngle2: startAngle2,
