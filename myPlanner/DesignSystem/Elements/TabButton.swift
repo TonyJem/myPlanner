@@ -92,34 +92,45 @@ extension TabButton {
     override func draw(_ rect: CGRect) {
         let size = self.bounds.size
         
-        let W = size.width
+        let Width = size.width
         
 //TODO: Set H difference if TabButton is actove or not
 //        let H = tab.isActive ? size.height : size.height - 3
-        let H = size.height
+        let Height = size.height
         
+        /// Descrbes trapezium side alignment angle.
+        /// Posible ranges: from 0.0 to 1.0.
+        /// Here 0.0 means that trapezium side will be fully vertical,
+        /// so trapezium will get just regularl get just regular rectangle's shape.
+        /// And with 1.0 trapezium side will be aligned by 45 degree.
         let k: CGFloat = Constants.sideAlignmentProportion
-        let R: CGFloat = Constants.tabCornerRadius
+        
+        /// Trapezium rounding radius
+        let Radius: CGFloat = Constants.tabCornerRadius
+        
+        /// The mathematical constant pi.
         let Pi = CGFloat.pi
         
         let Ax: CGFloat = .zero
         let Ay: CGFloat = size.height
         
-        let Ox = Ax + 0.5 * W
+        let Ox = Ax + 0.5 * Width
         let Oy = Ay
         
-        let Bx = Ox + 0.5 * W
+        let Bx = Ox + 0.5 * Width
         let By = Oy
         
+        //TODO: For better understanding Need to change into calculation based on Alfa instead of k
+        //k must be calculated and alfa entered as initial setup constant
         let alfa = atan(k)
         let beta = 0.5 * Pi - alfa
         
-        let EF = R * tan(0.5 * beta)
-        let FG = k * H
+        let EF = Radius * tan(0.5 * beta)
+        let FG = k * Height
         let EG = EF + FG
         
         let C1x = Bx - EG
-        let C1y = Oy - H + R
+        let C1y = Oy - Height + Radius
         
         let OB = Bx - Ox
         let OC1x = OB - EG
@@ -132,6 +143,15 @@ extension TabButton {
         let C1 = CGPoint(x: C1x , y: C1y)
         let C2 = CGPoint(x: C2x , y: C2y)
         
+        
+        let antiClockwise = false
+        
+        let startAngle1 = -alfa
+        let endAngle1 = 3 * Pi / 2
+        
+        let startAngle2 = 3 * Pi / 2
+        let endAngle2 = Pi + alfa
+        
         let path = UIBezierPath()
         
         path.move(to: A)
@@ -139,16 +159,16 @@ extension TabButton {
         path.addLine(to: B)
         
         path.addArc(withCenter: C1,
-                    radius: R,
-                    startAngle: -1 * alfa,
-                    endAngle: 3 * Pi / 2,
-                    clockwise: false)
+                    radius: Radius,
+                    startAngle: startAngle1,
+                    endAngle: endAngle1,
+                    clockwise: antiClockwise)
         
         path.addArc(withCenter: C2,
-                    radius: R,
-                    startAngle: 3 * Pi / 2,
-                    endAngle: Pi + alfa,
-                    clockwise: false)
+                    radius: Radius,
+                    startAngle: startAngle2,
+                    endAngle: endAngle2,
+                    clockwise: antiClockwise)
         
         path.close()
         
