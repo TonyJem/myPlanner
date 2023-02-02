@@ -90,13 +90,12 @@ extension TabButton {
     
 //TODO: Write comments or each step, so it will be easy to understand algorithm later, while it will be needed to look at it again next time
     override func draw(_ rect: CGRect) {
-        let size = self.bounds.size
         
-        let Width = size.width
+        let Width = rect.size.width
         
 //TODO: Set H difference if TabButton is actove or not
 //        let H = tab.isActive ? size.height : size.height - 3
-        let Height = size.height
+        let Height = rect.size.height
         
         /// Descrbes trapezium side alignment angle.
         /// Posible ranges: from 0.0 to 1.0.
@@ -112,7 +111,7 @@ extension TabButton {
         let Pi = CGFloat.pi
         
         let Ax: CGFloat = .zero
-        let Ay: CGFloat = size.height
+        let Ay: CGFloat = rect.size.height
         
         let Ox = Ax + 0.5 * Width
         let Oy = Ay
@@ -122,6 +121,7 @@ extension TabButton {
         
         //TODO: For better understanding Need to change into calculation based on Alfa instead of k
         //k must be calculated and alfa entered as initial setup constant
+        /// measured in radians
         let alfa = atan(k)
         let beta = 0.5 * Pi - alfa
         
@@ -143,43 +143,61 @@ extension TabButton {
         let C1 = CGPoint(x: C1x , y: C1y)
         let C2 = CGPoint(x: C2x , y: C2y)
         
-        
-        let antiClockwise = false
-        
         let startAngle1 = -alfa
-        let endAngle1 = 3 * Pi / 2
+        let endAngle1 = -0.5 * Pi
         
-        let startAngle2 = 3 * Pi / 2
+        let startAngle2 = -0.5 * Pi
         let endAngle2 = Pi + alfa
         
+        createTrapeziumPath(
+            A: A,
+            B: B,
+            C1: C1,
+            C2: C2,
+            radius: Radius,
+            startAngle1: startAngle1,
+            endAngle1: endAngle1,
+            startAngle2: startAngle2,
+            endAngle2: endAngle2,
+            clockwise: false,
+            color: viewState.color
+        )
+        
+        //TODO: Set bringSubviewToFront if TabButton is active or not
+        //        if tab.isActive {
+        //            superview?.bringSubviewToFront(self)
+        //        }
+    }
+    
+    private func createTrapeziumPath(
+        A: CGPoint,
+        B: CGPoint,
+        C1: CGPoint,
+        C2: CGPoint,
+        radius: CGFloat,
+        startAngle1: CGFloat,
+        endAngle1: CGFloat,
+        startAngle2: CGFloat,
+        endAngle2: CGFloat,
+        clockwise: Bool,
+        color: UIColor
+    ) {
         let path = UIBezierPath()
-        
         path.move(to: A)
-        
         path.addLine(to: B)
-        
         path.addArc(withCenter: C1,
-                    radius: Radius,
+                    radius: radius,
                     startAngle: startAngle1,
                     endAngle: endAngle1,
-                    clockwise: antiClockwise)
-        
+                    clockwise: false)
         path.addArc(withCenter: C2,
-                    radius: Radius,
+                    radius: radius,
                     startAngle: startAngle2,
                     endAngle: endAngle2,
-                    clockwise: antiClockwise)
-        
+                    clockwise: false)
         path.close()
-        
-        // Set the background color of color
-        viewState.color.set()
+        color.set()
         path.fill()
-        
-//TODO: Set bringSubviewToFront if TabButton is active or not
-//        if tab.isActive {
-//            superview?.bringSubviewToFront(self)
-//        }
     }
     
 }
