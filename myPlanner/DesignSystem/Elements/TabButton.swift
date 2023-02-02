@@ -68,15 +68,23 @@ class TabButton: UIButton, TabButtonProtocol {
 extension TabButton {
     
     struct ViewState {
+        
         let title: String
         let color: UIColor
+        let isActive: Bool
         
-        static let initial: ViewState = ViewState(title: "Title", color: .tabDayBackround)
+        static let initial: ViewState = ViewState(
+            title: "Title",
+            color: .tabDayBackround,
+            isActive: false
+        )
         
-        init(title: String, color: UIColor) {
+        init(title: String, color: UIColor, isActive: Bool = false) {
             self.title = title
             self.color = color
+            self.isActive = isActive
         }
+        
     }
     
 }
