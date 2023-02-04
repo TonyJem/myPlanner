@@ -24,8 +24,8 @@ extension Header {
             return view
         }()
         
-        private lazy var tabBarView: UIView = {
-            let view = UIView().autolayout()
+        private lazy var tabBarView: TabBar.View = {
+            let view = TabBar.View().autolayout()
             view.backgroundColor = .blue
             return view
         }()
@@ -60,11 +60,11 @@ extension Header {
         // MARK: - Actions
         
         @objc private func didTapOnSearchButton() {
-            print("🟢 didTapOnSearchButton in Header.View")
+            print("🐭🐹🦄🦋 didTapOnSearchButton in Header.View")
         }
         
         @objc private func didTapOnSettingsButton() {
-            print("🟢 didTapOnSearchButton in Header.View")
+            print("🥳🤩😍💩😻🫶🏻🤑 didTapOnSearchButton in Header.View")
         }
         
         

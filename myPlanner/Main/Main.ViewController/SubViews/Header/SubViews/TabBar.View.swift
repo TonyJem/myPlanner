@@ -1,15 +1,16 @@
 import UIKit
 
-extension Template {
+extension TabBar {
     
     class View: UIView {
         
         // MARK: - SubViews
         
-        private lazy var subView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .orange
-            return view
+        private lazy var subView: TabButtonProtocol = {
+            let tab = TabButton().autolayout()
+            //TODO: Investigate why if tab.backgroundColor = .clear I can't see subView at all
+            tab.backgroundColor = .orange
+            return tab
         }()
         
         // MARK: - Init
@@ -39,8 +40,8 @@ extension Template {
             NSLayoutConstraint.activate([
                 
                 subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                subView.widthAnchor.constraint(equalToConstant: 100),
+                subView.heightAnchor.constraint(equalToConstant: 30),
                 subView.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
@@ -49,3 +50,4 @@ extension Template {
     }
     
 }
+
