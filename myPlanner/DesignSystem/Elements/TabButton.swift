@@ -58,7 +58,7 @@ final class TabButton: UIButton, TabButtonProtocol {
     
     private func render(viewState: ViewState) {
         setTitle(viewState.title, for: .normal)
-        setTitleColor(viewState.color, for: .normal)
+        setTitleColor(viewState.textColor, for: .normal)
         reloadLayer()
     }
     
@@ -105,7 +105,7 @@ extension TabButton {
             isActive: false
         )
         
-        init(type: TabButtonType, title: String, color: UIColor, textColor: UIColor, isActive: Bool = false) {
+        init(type: TabButtonType, title: String, color: UIColor, textColor: UIColor = .white, isActive: Bool = false) {
             self.type = type
             self.title = title
             self.color = color
