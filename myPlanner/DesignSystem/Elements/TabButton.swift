@@ -58,9 +58,19 @@ class TabButton: UIButton, TabButtonProtocol {
     }
     
     //TODO: Check if we need to have it. Google `setNeedsDisplay` and `displayIfNeeded` and learn what they are doing
-    //TODO: Decide if these both methods are needed, or may be some of is redundant? So please Check it!
+    //Decide if these both methods are needed, or may be some of is redundant? So please Check it!
+    //Check it only when all tabs in Header are fully working
     private func reloadLayer() {
+        
+        /* Marks that -display needs to be called before the layer is next
+         * committed. If a region is specified, only that region of the layer
+         * is invalidated. */
+        
+        // https://stackoverflow.com/questions/10818319/when-do-i-need-to-call-setneedsdisplay-in-ios
+        // It sounds like it should be always called when you updating any property which may change the presentation.
         layer.setNeedsDisplay()
+        
+        /* Call -display if receiver is marked as needing redrawing. */
         layer.displayIfNeeded()
     }
 }
