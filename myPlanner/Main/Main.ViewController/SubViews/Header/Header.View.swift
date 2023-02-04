@@ -60,11 +60,11 @@ extension Header {
         // MARK: - Actions
         
         @objc private func didTapOnSearchButton() {
-            print("🟢 didTapOnSearchButton in Header.View")
+            print("🐭🐹🦄🦋 didTapOnSearchButton in Header.View")
         }
         
         @objc private func didTapOnSettingsButton() {
-            print("🟢 didTapOnSearchButton in Header.View")
+            print("🥳🤩😍💩😻🫶🏻🤑 didTapOnSearchButton in Header.View")
         }
         
         
