@@ -1,6 +1,6 @@
 import UIKit
 
-extension TabBar {
+extension Header.TabBar {
     
     class View: UIView {
         

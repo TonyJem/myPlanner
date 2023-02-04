@@ -24,9 +24,9 @@ extension Header {
             return view
         }()
         
-        private lazy var tabBarView: TabBar.View = {
-            let view = TabBar.View().autolayout()
-            view.backgroundColor = .blue
+        private lazy var tabBarView: TabBarView = {
+            let view = TabBarView().autolayout()
+//            view.backgroundColor = .blue
             return view
         }()
         

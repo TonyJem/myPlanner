@@ -5,6 +5,8 @@ protocol TabButtonProtocol: UIButton {
     /// Holds the ViewState of the `TabButton`
     var viewState: TabButton.ViewState { get set }
     
+    func reloadLayer()
+    
 }
 
 /// This class defines customised button, that has shape of Trapezium with rounded corners.
@@ -47,25 +49,27 @@ final class TabButton: UIButton, TabButtonProtocol {
     /// The action that will happen after tapping on particular instance of `TabButton`.
     @objc private func didTapAction() {
         print("🟢 didTapOnTabButton in TabButton")
+        reloadLayer()
     }
     
     // MARK: - Private Methods
     
     private func setup() {
-        backgroundColor = .clear
+//        backgroundColor = .clear
         addTarget(self, action: #selector(didTapAction), for: .touchUpInside)
     }
     
     private func render(viewState: ViewState) {
         setTitle(viewState.title, for: .normal)
         setTitleColor(viewState.textColor, for: .normal)
+        backgroundColor = .orange
         reloadLayer()
     }
     
     //TODO: Check if we need to have it. Google `setNeedsDisplay` and `displayIfNeeded` and learn what they are doing
     //Decide if these both methods are needed, or may be some of is redundant? So please Check it!
     //Check it only when all tabs in Header are fully working
-    private func reloadLayer() {
+    func reloadLayer() {
         
         /* Marks that -display needs to be called before the layer is next
          * committed. If a region is specified, only that region of the layer
@@ -80,7 +84,7 @@ final class TabButton: UIButton, TabButtonProtocol {
     }
 }
 
-//MARK: - Viewstate
+// MARK: - Viewstate
 
 extension TabButton {
     
@@ -122,6 +126,8 @@ extension TabButton {
 extension TabButton {
     
     override func draw(_ rect: CGRect) {
+        
+        print("🟢🟢🟢 override func draw")
         
         /// Converts `tabAlignmentAngle` value from degrees into radians.
         let alignmentAngle: CGFloat = Constants.tabAlignmentAngle * .pi / 180

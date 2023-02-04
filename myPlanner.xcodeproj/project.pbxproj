@@ -64,6 +64,7 @@
 		3A5D20B42989C3350029408A /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20B32989C3350029408A /* TabButton.swift */; };
 		3A5D20BA298A3D8D0029408A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20B9298A3D8D0029408A /* TabBar.swift */; };
 		3A5D20BC298A3DA40029408A /* TabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20BB298A3DA40029408A /* TabBar.View.swift */; };
+		3A5D20C0298EAC850029408A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20BF298EAC850029408A /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		3A5D20B32989C3350029408A /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		3A5D20B9298A3D8D0029408A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3A5D20BB298A3DA40029408A /* TabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.View.swift; sourceTree = "<group>"; };
+		3A5D20BF298EAC850029408A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 		3A2D66A629855E9B007AD3F6 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20BE298EAC140029408A /* Components */,
 				3A5D20B22989C3240029408A /* Elements */,
 				3A2D66822985203B007AD3F6 /* Extensions */,
 				3A2D668029852029007AD3F6 /* Colors.swift */,
@@ -591,6 +594,14 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		3A5D20BE298EAC140029408A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D20BF298EAC850029408A /* TabBarView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -757,6 +768,7 @@
 				3A5D20A02989A6410029408A /* TasksPage.swift in Sources */,
 				3A2D66AD29856481007AD3F6 /* String.swift in Sources */,
 				3A2D66B429856EB5007AD3F6 /* DateModul.swift in Sources */,
+				3A5D20C0298EAC850029408A /* TabBarView.swift in Sources */,
 				3A2D66B7298584DC007AD3F6 /* Spacing.swift in Sources */,
 				3A5D20B42989C3350029408A /* TabButton.swift in Sources */,
 				3A5D2084298999AF0029408A /* Main.ViewController.swift in Sources */,
