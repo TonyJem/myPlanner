@@ -60,9 +60,7 @@ extension TabBarView {
         static let initial: ViewState = ViewState(
             type: .top,
             tabViewStates: [
-                TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
+                TabButton.ViewState(type: .top, title: "initialTab1", color: .green)
             ]
         )
         

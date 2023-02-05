@@ -11,6 +11,13 @@ extension Main {
             
         }
         
+        /// Holds the ViewState of the `ViewController` and renders it when set.
+        var viewState: ViewState = .initial {
+            didSet {
+                render(viewState: viewState)
+            }
+        }
+        
         // MARK: - SubViews
         
         private lazy var headerView = Header.View().autolayout()
@@ -24,6 +31,8 @@ extension Main {
             setupView()
             addSubViews()
             setupLayout()
+            
+            render(viewState: viewState)
         }
         
         // MARK: - Private Methods
@@ -56,6 +65,35 @@ extension Main {
                 bodyView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
                 
             ])
+        }
+        
+        private func render(viewState: ViewState) {
+            headerView.viewState = viewState.headerViewState
+        }
+        
+    }
+    
+}
+
+// MARK: - Viewstate
+
+extension Main.ViewController {
+    
+    struct ViewState {
+        
+        let headerViewState: Header.View.ViewState
+        
+        static let initial: ViewState = ViewState(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                tabViewStates:[
+                    TabButton.ViewState(type: .top, title: "Tab1", color: .green),
+                    TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
+                    TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
+                ])))
+        
+        init(headerViewState: Header.View.ViewState) {
+            self.headerViewState = headerViewState
         }
         
     }

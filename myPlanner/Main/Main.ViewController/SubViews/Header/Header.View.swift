@@ -16,6 +16,13 @@ extension Header {
             
         }
         
+        /// Holds the ViewState of the `Header.View` and renders it when set.
+        var viewState: ViewState = .initial {
+            didSet {
+                render(viewState: viewState)
+            }
+        }
+        
         // MARK: - SubViews
         
         private lazy var dateView: UIView = {
@@ -26,7 +33,6 @@ extension Header {
         
         private lazy var tabBarView: TabBarView = {
             let view = TabBarView().autolayout()
-//            view.backgroundColor = .blue
             return view
         }()
         
@@ -126,6 +132,35 @@ extension Header {
                 searchButton.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
             ])
+        }
+        
+        private func render(viewState: ViewState) {
+            tabBarView.viewState = viewState.tabBarViewState
+        }
+        
+    }
+    
+}
+
+// MARK: - Viewstate
+
+extension Header.View {
+    
+    struct ViewState {
+        
+        let tabBarViewState: TabBarView.ViewState
+        
+        static let initial: ViewState = ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                tabViewStates:[
+                TabButton.ViewState(type: .top, title: "Tab1", color: .green),
+                TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
+                TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
+            ]))
+        
+        init(tabBarViewState: TabBarView.ViewState) {
+            self.tabBarViewState = tabBarViewState
         }
         
     }
