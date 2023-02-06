@@ -34,9 +34,11 @@ extension Main.Presenter {
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabViewStates:[
-                    TabButton.ViewState(type: .top, title: "MainTab1", color: .green),
-                    TabButton.ViewState(type: .top, title: "MainTab2", color: .blue),
-                    TabButton.ViewState(type: .top, title: "MainTab3", color: .magenta)
+                    TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround),
+                    TabButton.ViewState(type: .top, title: "Week", color: .tabWeekBackround),
+                    TabButton.ViewState(type: .top, title: "Month", color: .tabMonthBackround),
+                    TabButton.ViewState(type: .top, title: "Tasks", color: .tabTasksBackround),
+                    TabButton.ViewState(type: .top, title: "Notes", color: .tabNotesBackround)
                 ])))
     }
     
