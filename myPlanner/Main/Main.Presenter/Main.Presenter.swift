@@ -29,6 +29,7 @@ extension Main.Presenter: MainPresenter {
     
 }
 
+// TODO: Find out if my Presenter needs to have Provider or even Coordintor <- I think TabBarViewCoordinator should be another class
 extension Main.Presenter: TabBarViewCoordinator {
     
     func onDayTab() {
@@ -57,6 +58,8 @@ extension Main.Presenter: TabBarViewCoordinator {
 
 extension Main.Presenter {
     
+//    TODO: Make ViewState creation in one function depending on option,
+    // May be call it container and devide into 3 parts to Header 
     private func createDayViewState() -> Main.ViewState {
     
         .init(headerViewState: Header.View.ViewState(

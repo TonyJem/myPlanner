@@ -14,6 +14,7 @@ protocol TabBarViewCoordinator: AnyObject {
     
 }
 
+// TODO: Think if we need to move it under "Header" extension and make it PagesTab bar or etc. more meaningfull
 final class TabBarView: UIStackView {
     
     enum Constants {
