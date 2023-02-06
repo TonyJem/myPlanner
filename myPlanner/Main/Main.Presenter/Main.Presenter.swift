@@ -12,6 +12,8 @@ extension Main {
         
         weak var view: MainView?
         
+        var presenterClosure: (() -> Void) = { }
+        
     }
     
 }
@@ -55,11 +57,10 @@ extension Main.Presenter {
         
         var viewState: TabButton.ViewState {
             switch self {
-                
             case .day:
                 return dayTabViewState
             case .week:
-                return weekTabViewState
+                return dayTabViewState
             case .month:
                 return monthTabViewState
             case .tasks:
@@ -71,17 +72,44 @@ extension Main.Presenter {
         
     }
     
+    private func createWeekButtonViewState() -> TabButton.ViewState {
+        .init(
+            type: .top,
+            title: "Week",
+            color: .tabWeekBackround,
+            tabAction: {
+                print("Print in Week Button")
+                self.view?.render(viewState: self.createWeekMainViewState())
+            }
+        )
+    }
+    
     private func createInitialMainViewState() -> Main.ViewState {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabViewStates:[
                     PageTab.day.viewState,
-                    PageTab.week.viewState,
+                    createWeekButtonViewState(),
                     PageTab.month.viewState,
                     PageTab.tasks.viewState,
                     PageTab.notes.viewState
-                ])))
+                ])),
+              bodyViewState: Body.View.ViewState(activePage: .day))
+    }
+    
+    private func createWeekMainViewState() -> Main.ViewState {
+        .init(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                tabViewStates:[
+                    PageTab.day.viewState,
+                    createWeekButtonViewState(),
+                    PageTab.month.viewState,
+                    PageTab.tasks.viewState,
+                    PageTab.notes.viewState
+                ])),
+              bodyViewState: Body.View.ViewState(activePage: .week))
     }
     
 }

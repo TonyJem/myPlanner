@@ -90,6 +90,7 @@ extension Main.ViewController: MainView {
     func render(viewState: Main.ViewState) {
         self.viewState = viewState
         headerView.viewState = viewState.headerViewState
+        bodyView.viewState = viewState.bodyViewState
     }
     
 }
