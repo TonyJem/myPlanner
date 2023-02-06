@@ -69,7 +69,7 @@ extension Main.Presenter {
                 type: .top,
                 coordinator: self,
                 tabs: [
-                    PageTab(type: .day),
+                    PageTab(type: .day, isActive: true),
                     PageTab(type: .week),
                     PageTab(type: .month),
                     PageTab(type: .tasks),
@@ -88,7 +88,7 @@ extension Main.Presenter {
                 coordinator: self,
                 tabs: [
                     PageTab(type: .day),
-                    PageTab(type: .week),
+                    PageTab(type: .week, isActive: true),
                     PageTab(type: .month),
                     PageTab(type: .tasks),
                     PageTab(type: .notes)
@@ -107,7 +107,7 @@ extension Main.Presenter {
                 tabs: [
                     PageTab(type: .day),
                     PageTab(type: .week),
-                    PageTab(type: .month),
+                    PageTab(type: .month, isActive: true),
                     PageTab(type: .tasks),
                     PageTab(type: .notes)
                 ])
@@ -126,7 +126,7 @@ extension Main.Presenter {
                     PageTab(type: .day),
                     PageTab(type: .week),
                     PageTab(type: .month),
-                    PageTab(type: .tasks),
+                    PageTab(type: .tasks, isActive: true),
                     PageTab(type: .notes)
                 ])
         ),
@@ -145,7 +145,7 @@ extension Main.Presenter {
                     PageTab(type: .week),
                     PageTab(type: .month),
                     PageTab(type: .tasks),
-                    PageTab(type: .notes)
+                    PageTab(type: .notes, isActive: true)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .notes))

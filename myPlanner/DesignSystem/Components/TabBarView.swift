@@ -109,6 +109,7 @@ final class TabBarView: UIStackView {
             type: type,
             title: tab.type.tabTitle,
             color: tab.type.tabColor,
+            isActive: tab.isActive,
             tabAction: action
         )
         return tabButtonViewState
@@ -138,6 +139,12 @@ extension TabBarView {
 struct PageTab {
     
     let type: TabBarViewType
+    let isActive: Bool
+    
+    init(type: TabBarViewType, isActive: Bool = false) {
+        self.type = type
+        self.isActive = isActive
+    }
     
 }
 
