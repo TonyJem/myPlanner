@@ -72,7 +72,7 @@ extension Main.Presenter {
         
     }
     
-    private func createWeekButtonViewState() -> TabButton.ViewState {
+    private func createWeekTabViewState() -> TabButton.ViewState {
         .init(
             type: .top,
             title: "Week",
@@ -90,7 +90,7 @@ extension Main.Presenter {
                 type: .top,
                 tabViewStates:[
                     PageTab.day.viewState,
-                    createWeekButtonViewState(),
+                    createWeekTabViewState(),
                     PageTab.month.viewState,
                     PageTab.tasks.viewState,
                     PageTab.notes.viewState
@@ -104,7 +104,7 @@ extension Main.Presenter {
                 type: .top,
                 tabViewStates:[
                     PageTab.day.viewState,
-                    createWeekButtonViewState(),
+                    createWeekTabViewState(),
                     PageTab.month.viewState,
                     PageTab.tasks.viewState,
                     PageTab.notes.viewState
