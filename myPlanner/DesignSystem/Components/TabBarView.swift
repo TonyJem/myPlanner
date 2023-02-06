@@ -8,6 +8,10 @@ protocol TabBarViewCoordinator: AnyObject {
     
     func onMonthTab()
     
+    func onTasksTab()
+    
+    func onNotesTab()
+    
 }
 
 final class TabBarView: UIStackView {
@@ -64,7 +68,7 @@ final class TabBarView: UIStackView {
 
     }
     
-    private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: Tabb) -> TabButton.ViewState {
+    private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: PageTab) -> TabButton.ViewState {
         
         let action: (() -> Void)
         
@@ -81,6 +85,14 @@ final class TabBarView: UIStackView {
             case .month:
                 action = {
                     coordinator.onMonthTab()
+                }
+            case .tasks:
+                action = {
+                    coordinator.onTasksTab()
+                }
+            case .notes:
+                action = {
+                    coordinator.onNotesTab()
                 }
             }
         } else {
@@ -111,25 +123,27 @@ extension TabBarView {
         
         let type: TabBarViewType
         let coordinator: Main.Presenter
-        let tabs: [Tabb]
+        let tabs: [PageTab]
         
     }
     
 }
 
-struct Tabb {
+struct PageTab {
     
     let type: TabBarViewType
     
 }
 
-extension Tabb {
+extension PageTab {
     
     enum TabBarViewType {
         
         case day
         case week
         case month
+        case tasks
+        case notes
         
         var tabTitle: String {
             switch self {
@@ -139,6 +153,10 @@ extension Tabb {
                 return "Week"
             case .month:
                 return "Month"
+            case .tasks:
+                return "Tasks"
+            case .notes:
+                return "Notes"
             }
         }
         
@@ -150,6 +168,10 @@ extension Tabb {
                 return .tabWeekBackground
             case .month:
                 return .tabMonthBackground
+            case .tasks:
+                return .tabTasksBackground
+            case .notes:
+                return .tabNotesBackground
             }
         }
         

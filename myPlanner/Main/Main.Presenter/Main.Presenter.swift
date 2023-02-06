@@ -24,7 +24,7 @@ extension Main {
 extension Main.Presenter: MainPresenter {
     
     func viewDidLoad() {
-        view?.render(viewState: createInitialMainViewState())
+        view?.render(viewState: createDayViewState())
     }
     
 }
@@ -33,7 +33,7 @@ extension Main.Presenter: TabBarViewCoordinator {
     
     func onDayTab() {
         print("🟢🟢 onDayTab in Presenter")
-        view?.render(viewState: createInitialMainViewState())
+        view?.render(viewState: createDayViewState())
     }
     
     func onWeekTab() {
@@ -46,22 +46,34 @@ extension Main.Presenter: TabBarViewCoordinator {
         view?.render(viewState: createMonthViewState())
     }
     
+    func onTasksTab() {
+        print("🟢🟢 onTasksTab in Presenter")
+        view?.render(viewState: createTasksViewState())
+    }
+    
+    func onNotesTab() {
+        print("🟢🟢 onNotesTab in Presenter")
+        view?.render(viewState: createNotesViewState())
+    }
+    
 }
 
 // MARK: - Create ViewStates
 
 extension Main.Presenter {
     
-    private func createInitialMainViewState() -> Main.ViewState {
+    private func createDayViewState() -> Main.ViewState {
     
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 coordinator: self,
                 tabs: [
-                    Tabb(type: .day),
-                    Tabb(type: .week),
-                    Tabb(type: .month)
+                    PageTab(type: .day),
+                    PageTab(type: .week),
+                    PageTab(type: .month),
+                    PageTab(type: .tasks),
+                    PageTab(type: .notes)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .day))
@@ -75,9 +87,11 @@ extension Main.Presenter {
                 type: .top,
                 coordinator: self,
                 tabs: [
-                    Tabb(type: .day),
-                    Tabb(type: .week),
-                    Tabb(type: .month)
+                    PageTab(type: .day),
+                    PageTab(type: .week),
+                    PageTab(type: .month),
+                    PageTab(type: .tasks),
+                    PageTab(type: .notes)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .week))
@@ -91,12 +105,50 @@ extension Main.Presenter {
                 type: .top,
                 coordinator: self,
                 tabs: [
-                    Tabb(type: .day),
-                    Tabb(type: .week),
-                    Tabb(type: .month)
+                    PageTab(type: .day),
+                    PageTab(type: .week),
+                    PageTab(type: .month),
+                    PageTab(type: .tasks),
+                    PageTab(type: .notes)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .month))
+    
+    }
+    
+    private func createTasksViewState() -> Main.ViewState {
+    
+        .init(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                coordinator: self,
+                tabs: [
+                    PageTab(type: .day),
+                    PageTab(type: .week),
+                    PageTab(type: .month),
+                    PageTab(type: .tasks),
+                    PageTab(type: .notes)
+                ])
+        ),
+              bodyViewState: Body.View.ViewState(activePage: .tasks))
+    
+    }
+    
+    private func createNotesViewState() -> Main.ViewState {
+    
+        .init(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                coordinator: self,
+                tabs: [
+                    PageTab(type: .day),
+                    PageTab(type: .week),
+                    PageTab(type: .month),
+                    PageTab(type: .tasks),
+                    PageTab(type: .notes)
+                ])
+        ),
+              bodyViewState: Body.View.ViewState(activePage: .notes))
     
     }
     
