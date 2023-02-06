@@ -32,27 +32,22 @@ extension Main.Presenter: MainPresenter {
 extension Main.Presenter: TabBarViewCoordinator {
     
     func onDayTab() {
-        print("🟢🟢 onDayTab in Presenter")
         view?.render(viewState: createDayViewState())
     }
     
     func onWeekTab() {
-        print("🟢🟢 onWeekTab in Presenter")
         view?.render(viewState: createWeekViewState())
     }
     
     func onMonthTab() {
-        print("🟢🟢 onMonthTab in Presenter")
         view?.render(viewState: createMonthViewState())
     }
     
     func onTasksTab() {
-        print("🟢🟢 onTasksTab in Presenter")
         view?.render(viewState: createTasksViewState())
     }
     
     func onNotesTab() {
-        print("🟢🟢 onNotesTab in Presenter")
         view?.render(viewState: createNotesViewState())
     }
     
