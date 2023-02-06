@@ -45,8 +45,7 @@ final class TabButton: UIButton, TabButtonProtocol {
     
     /// The action that will happen after tapping on particular instance of `TabButton`.
     @objc private func didTapAction() {
-        print("🟢 didTapOnTabButton in TabButton")
-        
+        print("🟢 didTapOn Element TabButton in TabButton")
         guard let viewState = viewState else { return }
         viewState.tabAction()
     }

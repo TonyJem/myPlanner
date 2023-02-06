@@ -1,7 +1,18 @@
 import UIKit
 
+protocol TabBarViewCoordinator: AnyObject {
+    
+    var didSelectDayTab: (() -> Void) { get set }
+    
+    var didSelectWeekTab: (() -> Void) { get set }
+    
+    var didSelectMonthTab: (() -> Void) { get set }
+    
+}
 
 final class TabBarView: UIStackView {
+    
+    weak var coordinator: TabBarViewCoordinator?
     
     /// Holds the ViewState of the `TabBarView` and renders it when set.
     var viewState: ViewState? {
@@ -29,17 +40,6 @@ final class TabBarView: UIStackView {
         distribution = UIStackView.Distribution.fillEqually
     }
     
-    /*
-    private func render(viewState: ViewState?) {
-        guard let viewState = viewState else { return }
-        for viewState in viewState.tabViewStates {
-            let tabButton: TabButtonProtocol = TabButton()
-            tabButton.viewState = viewState
-            addArrangedSubview(tabButton)
-        }
-    }
-    */
-    
     private func render(viewState: ViewState?) {
         guard let viewState = viewState else { return }
         
@@ -61,11 +61,28 @@ final class TabBarView: UIStackView {
     }
     
     private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: Tabb) -> TabButton.ViewState {
+        
+        let action: (() -> Void)
+        
+        if let coordinator = coordinator {
+            switch tab.type {
+            case .day:
+                action = coordinator.didSelectDayTab
+            case .week:
+                action = coordinator.didSelectWeekTab
+            case .month:
+                action = coordinator.didSelectMonthTab
+            }
+        } else {
+            action = { }
+        }
+        
         let tabButtonViewState = TabButton.ViewState(
             type: type,
             title: tab.type.tabTitle,
             color: tab.type.tabColor,
-            tabAction: { })
+            tabAction: action
+        )
         return tabButtonViewState
     }
     
@@ -124,6 +141,25 @@ extension Tabb {
                 return .tabMonthBackground
             }
         }
+        
+//        var action: (() -> Void) {
+//            switch self {
+//            case .day:
+//                return {
+//                    print("🟢🟢 Day action in TabBarViewType.action")
+//                    coordinator?.didSelectDayTab()
+//                }
+//            case .week:
+//                return {
+//                    print("🟢🟢 Week action in TabBarViewType.action")
+//                    coordinator?.didSelectDayTab()
+//                }
+//            case .month:
+//                return {
+//                    print("🟢🟢 Month action in TabBarViewType.action")
+//                }
+//            }
+//        }
         
     }
     
