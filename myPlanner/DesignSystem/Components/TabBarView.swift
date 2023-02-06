@@ -2,6 +2,7 @@ import UIKit
 
 protocol TabBarViewCoordinator: AnyObject {
     
+//TODO: Check naming here and in all other places just by viewing all PR.
     func onDayTab()
     
     func onWeekTab()
