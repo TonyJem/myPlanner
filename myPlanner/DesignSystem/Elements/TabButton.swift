@@ -85,7 +85,7 @@ extension TabButton {
             type: TabButtonType,
             title: String,
             color: UIColor,
-            textColor: UIColor = .white,
+            textColor: UIColor = .black,
             isActive: Bool = false,
             tabAction: @escaping (() -> Void)
         ) {
