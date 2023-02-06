@@ -36,16 +36,16 @@ extension Main.Presenter {
     static let dayTabViewState = TabButton.ViewState(
         type: .top,
         title: "Day",
-        color: .tabDayBackround,
+        color: .tabDayBackground,
         tabAction: {
             print("🟢🟢🟢 Main.Presenter")
         }
     )
     
-    static let weekTabViewState = TabButton.ViewState(type: .top, title: "Week", color: .tabWeekBackround, tabAction: { })
-    static let monthTabViewState = TabButton.ViewState(type: .top, title: "Month", color: .tabMonthBackround, tabAction: { })
-    static let tasksTabViewState = TabButton.ViewState(type: .top, title: "Tasks", color: .tabTasksBackround, tabAction: { })
-    static let notesTabViewState = TabButton.ViewState(type: .top, title: "Notes", color: .tabNotesBackround, tabAction: { })
+    static let weekTabViewState = TabButton.ViewState(type: .top, title: "Week", color: .tabWeekBackground, tabAction: { })
+    static let monthTabViewState = TabButton.ViewState(type: .top, title: "Month", color: .tabMonthBackground, tabAction: { })
+    static let tasksTabViewState = TabButton.ViewState(type: .top, title: "Tasks", color: .tabTasksBackground, tabAction: { })
+    static let notesTabViewState = TabButton.ViewState(type: .top, title: "Notes", color: .tabNotesBackground, tabAction: { })
     
     enum PageTab {
         
@@ -76,7 +76,7 @@ extension Main.Presenter {
         .init(
             type: .top,
             title: "Week",
-            color: .tabWeekBackround,
+            color: .tabWeekBackground,
             tabAction: {
                 print("Print in Week Button")
                 self.view?.render(viewState: self.createWeekMainViewState())
@@ -85,31 +85,33 @@ extension Main.Presenter {
     }
     
     private func createInitialMainViewState() -> Main.ViewState {
+    
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                tabViewStates:[
-                    PageTab.day.viewState,
-                    createWeekTabViewState(),
-                    PageTab.month.viewState,
-                    PageTab.tasks.viewState,
-                    PageTab.notes.viewState
-                ])),
+                tabs: [
+                    Tabb(type: .day),
+                    Tabb(type: .week),
+                    Tabb(type: .month)
+                ])
+        ),
               bodyViewState: Body.View.ViewState(activePage: .day))
+    
     }
     
     private func createWeekMainViewState() -> Main.ViewState {
+        
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                tabViewStates:[
-                    PageTab.day.viewState,
-                    createWeekTabViewState(),
-                    PageTab.month.viewState,
-                    PageTab.tasks.viewState,
-                    PageTab.notes.viewState
-                ])),
+                tabs: [
+                    Tabb(type: .day),
+                    Tabb(type: .week),
+                    Tabb(type: .month)
+                ])
+        ),
               bodyViewState: Body.View.ViewState(activePage: .week))
+        
     }
     
 }

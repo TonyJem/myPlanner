@@ -24,7 +24,7 @@ extension NotesPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .tabNotesBackround
+            backgroundColor = .tabNotesBackground
         }
         
         private func addSubViews() {

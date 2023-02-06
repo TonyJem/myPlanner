@@ -29,6 +29,7 @@ final class TabBarView: UIStackView {
         distribution = UIStackView.Distribution.fillEqually
     }
     
+    /*
     private func render(viewState: ViewState?) {
         guard let viewState = viewState else { return }
         for viewState in viewState.tabViewStates {
@@ -36,6 +37,36 @@ final class TabBarView: UIStackView {
             tabButton.viewState = viewState
             addArrangedSubview(tabButton)
         }
+    }
+    */
+    
+    private func render(viewState: ViewState?) {
+        guard let viewState = viewState else { return }
+        
+        let type: TabButton.ViewState.TabButtonType
+        switch viewState.type {
+        case .top:
+            type = .top
+        case .bottom:
+            type = .bottom
+        }
+        
+        for tab in viewState.tabs {
+            let tabButtonViewState = createTabButtonViewState(type: type, for: tab)
+            let tabButton: TabButtonProtocol = TabButton()
+            tabButton.viewState = tabButtonViewState
+            addArrangedSubview(tabButton)
+        }
+
+    }
+    
+    private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: Tabb) -> TabButton.ViewState {
+        let tabButtonViewState = TabButton.ViewState(
+            type: type,
+            title: tab.type.tabTitle,
+            color: tab.type.tabColor,
+            tabAction: { })
+        return tabButtonViewState
     }
     
 }
@@ -52,7 +83,47 @@ extension TabBarView {
         }
         
         let type: TabBarViewType
-        let tabViewStates: [TabButton.ViewState]
+        let tabs: [Tabb]
+        
+    }
+    
+}
+
+struct Tabb {
+    
+    let type: TabBarViewType
+    
+}
+
+extension Tabb {
+    
+    enum TabBarViewType {
+        
+        case day
+        case week
+        case month
+        
+        var tabTitle: String {
+            switch self {
+            case .day:
+                return "Day"
+            case .week:
+                return "Week"
+            case .month:
+                return "Month"
+            }
+        }
+        
+        var tabColor: UIColor {
+            switch self {
+            case .day:
+                return .tabDayBackground
+            case .week:
+                return .tabWeekBackground
+            case .month:
+                return .tabMonthBackground
+            }
+        }
         
     }
     

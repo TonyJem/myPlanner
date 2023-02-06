@@ -24,7 +24,7 @@ extension DayPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .tabDayBackround
+            backgroundColor = .tabDayBackground
         }
         
         private func addSubViews() {

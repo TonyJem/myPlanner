@@ -24,7 +24,7 @@ extension MonthPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .tabMonthBackround
+            backgroundColor = .tabMonthBackground
         }
         
         private func addSubViews() {
