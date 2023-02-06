@@ -21,7 +21,7 @@ extension Main {
 extension Main.Presenter: MainPresenter {
     
     func viewDidLoad() {
-        
+        view?.render(viewState: .initial)
     }
     
 }

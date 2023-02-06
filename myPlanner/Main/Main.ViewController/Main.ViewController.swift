@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainView: AnyObject {
-    func render(viewstate: Main.ViewState)
+    func render(viewState: Main.ViewState)
 }
 
 extension Main {
@@ -38,14 +38,10 @@ extension Main {
             
         }
         
-        /// Holds the ViewState of the `ViewController` and renders it when set.
-        var viewState: ViewState = .initial {
-            didSet {
-                render(viewState: viewState)
-            }
-        }
-        
         private let presenter: Presenter
+        
+        /// Holds the ViewState of the `ViewController`
+        private var viewState: Main.ViewState?
         
         // MARK: - SubViews
         
@@ -75,7 +71,7 @@ extension Main {
             addSubViews()
             setupLayout()
             
-            render(viewState: viewState)
+            presenter.viewDidLoad()
         }
         
         // MARK: - Private Methods
@@ -110,42 +106,16 @@ extension Main {
             ])
         }
         
-        private func render(viewState: ViewState) {
-            headerView.viewState = viewState.headerViewState
-        }
-        
     }
     
 }
 
-// MARK: implementation of MainView protocol
+// MARK: - Implementation of MainView protocol:
 extension Main.ViewController: MainView {
-    func render(viewstate: Main.ViewState) {
-        
-    }
-}
-
-// MARK: - Viewstate
-
-extension Main.ViewController {
     
-    struct ViewState {
-        
-        let headerViewState: Header.View.ViewState
-        
-        static let initial: ViewState = ViewState(headerViewState: Header.View.ViewState(
-            tabBarViewState: TabBarView.ViewState(
-                type: .top,
-                tabViewStates:[
-                    TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                    TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                    TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
-                ])))
-        
-        init(headerViewState: Header.View.ViewState) {
-            self.headerViewState = headerViewState
-        }
-        
+    func render(viewState: Main.ViewState) {
+        self.viewState = viewState
+        headerView.viewState = viewState.headerViewState
     }
     
 }
