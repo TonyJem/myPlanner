@@ -32,10 +32,10 @@ extension Main.Presenter: MainPresenter {
 extension Main.Presenter {
     
     static let dayTabViewState = TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround)
-    static let weekTabViewState = TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround)
-    static let monthTabViewState = TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround)
-    static let tasksTabViewState = TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround)
-    static let notesTabViewState = TabButton.ViewState(type: .top, title: "Day", color: .tabDayBackround)
+    static let weekTabViewState = TabButton.ViewState(type: .top, title: "Week", color: .tabWeekBackround)
+    static let monthTabViewState = TabButton.ViewState(type: .top, title: "Month", color: .tabMonthBackround)
+    static let tasksTabViewState = TabButton.ViewState(type: .top, title: "Tasks", color: .tabTasksBackround)
+    static let notesTabViewState = TabButton.ViewState(type: .top, title: "Notes", color: .tabNotesBackround)
     
     enum PageTab {
         
