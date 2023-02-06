@@ -67,6 +67,7 @@
 		3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C42990EDEF0029408A /* Main.Presenter.swift */; };
 		3A5D20C82991169B0029408A /* Main.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C72991169B0029408A /* Main.ViewState.swift */; };
 		3A5D20CA299117970029408A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C9299117970029408A /* MainView.swift */; };
+		3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20CB2991997A0029408A /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		3A5D20C42990EDEF0029408A /* Main.Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Presenter.swift; sourceTree = "<group>"; };
 		3A5D20C72991169B0029408A /* Main.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20C9299117970029408A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3A5D20CB2991997A0029408A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		3A2D66822985203B007AD3F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20CB2991997A0029408A /* UIStackView.swift */,
 				3A2D66A729855ED9007AD3F6 /* UIView.swift */,
 			);
 			path = Extensions;
@@ -779,6 +782,7 @@
 				3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D66C92985BCA5007AD3F6 /* Calendar.Cell.swift in Sources */,
+				3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */,
 				3A5D20A62989A6FB0029408A /* WeekPage.View.swift in Sources */,
 				3A5D20A22989A64F0029408A /* NotesPage.swift in Sources */,
 				3A5D20A02989A6410029408A /* TasksPage.swift in Sources */,

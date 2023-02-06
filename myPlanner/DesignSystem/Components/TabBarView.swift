@@ -43,6 +43,8 @@ final class TabBarView: UIStackView {
     private func render(viewState: ViewState?) {
         guard let viewState = viewState else { return }
         
+        removeAllArrangedSubviews()
+        
         coordinator = viewState.coordinator
         
         let type: TabButton.ViewState.TabButtonType
@@ -151,26 +153,6 @@ extension Tabb {
             }
         }
         
-//        var action: (() -> Void) {
-//            switch self {
-//            case .day:
-//                return {
-//                    print("🟢🟢 Day action in TabBarViewType.action")
-//                    coordinator?.didSelectDayTab()
-//                }
-//            case .week:
-//                return {
-//                    print("🟢🟢 Week action in TabBarViewType.action")
-//                    coordinator?.didSelectDayTab()
-//                }
-//            case .month:
-//                return {
-//                    print("🟢🟢 Month action in TabBarViewType.action")
-//                }
-//            }
-//        }
-        
     }
     
 }
-

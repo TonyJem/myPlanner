@@ -33,6 +33,7 @@ extension Main.Presenter: TabBarViewCoordinator {
     
     func onDayTab() {
         print("🟢🟢 onDayTab in Presenter")
+        view?.render(viewState: createInitialMainViewState())
     }
     
     func onWeekTab() {
@@ -42,6 +43,7 @@ extension Main.Presenter: TabBarViewCoordinator {
     
     func onMonthTab() {
         print("🟢🟢 onMonthTab in Presenter")
+        view?.render(viewState: createMonthViewState())
     }
     
 }
@@ -79,6 +81,22 @@ extension Main.Presenter {
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .week))
+    
+    }
+    
+    private func createMonthViewState() -> Main.ViewState {
+    
+        .init(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                coordinator: self,
+                tabs: [
+                    Tabb(type: .day),
+                    Tabb(type: .week),
+                    Tabb(type: .month)
+                ])
+        ),
+              bodyViewState: Body.View.ViewState(activePage: .month))
     
     }
     
