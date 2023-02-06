@@ -3,9 +3,7 @@ import UIKit
 protocol TabButtonProtocol: UIButton {
     
     /// Holds the ViewState of the `TabButton`
-    var viewState: TabButton.ViewState { get set }
-    
-    func reloadLayer()
+    var viewState: TabButton.ViewState? { get set }
     
 }
 
@@ -26,7 +24,7 @@ final class TabButton: UIButton, TabButtonProtocol {
     }
     
     /// Holds the ViewState of the `TabButton` and renders it when set.
-    var viewState: ViewState = .initial {
+    var viewState: ViewState? {
         didSet {
             render(viewState: viewState)
         }
@@ -37,7 +35,6 @@ final class TabButton: UIButton, TabButtonProtocol {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setup()
-        render(viewState: .initial)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,38 +46,18 @@ final class TabButton: UIButton, TabButtonProtocol {
     /// The action that will happen after tapping on particular instance of `TabButton`.
     @objc private func didTapAction() {
         print("🟢 didTapOnTabButton in TabButton")
-        reloadLayer()
     }
     
     // MARK: - Private Methods
     
     private func setup() {
-//        backgroundColor = .clear
         addTarget(self, action: #selector(didTapAction), for: .touchUpInside)
     }
     
-    private func render(viewState: ViewState) {
+    private func render(viewState: ViewState?) {
+        guard let viewState = viewState else { return }
         setTitle(viewState.title, for: .normal)
         setTitleColor(viewState.textColor, for: .normal)
-        backgroundColor = .orange
-        reloadLayer()
-    }
-    
-    //TODO: Check if we need to have it. Google `setNeedsDisplay` and `displayIfNeeded` and learn what they are doing
-    //Decide if these both methods are needed, or may be some of is redundant? So please Check it!
-    //Check it only when all tabs in Header are fully working
-    func reloadLayer() {
-        
-        /* Marks that -display needs to be called before the layer is next
-         * committed. If a region is specified, only that region of the layer
-         * is invalidated. */
-        
-        // https://stackoverflow.com/questions/10818319/when-do-i-need-to-call-setneedsdisplay-in-ios
-        // It sounds like it should be always called when you updating any property which may change the presentation.
-        layer.setNeedsDisplay()
-        
-        /* Call -display if receiver is marked as needing redrawing. */
-        layer.displayIfNeeded()
     }
 }
 
@@ -101,15 +78,13 @@ extension TabButton {
         let textColor: UIColor
         let isActive: Bool
         
-        static let initial: ViewState = ViewState(
-            type: .top,
-            title: "Title",
-            color: .tabDayBackround,
-            textColor: .white,
-            isActive: false
-        )
-        
-        init(type: TabButtonType, title: String, color: UIColor, textColor: UIColor = .white, isActive: Bool = false) {
+        init(
+            type: TabButtonType,
+            title: String,
+            color: UIColor,
+            textColor: UIColor = .white,
+            isActive: Bool = false
+        ) {
             self.type = type
             self.title = title
             self.color = color
@@ -126,8 +101,7 @@ extension TabButton {
 extension TabButton {
     
     override func draw(_ rect: CGRect) {
-        
-        print("🟢🟢🟢 override func draw")
+        guard let viewState = self.viewState else { return }
         
         /// Converts `tabAlignmentAngle` value from degrees into radians.
         let alignmentAngle: CGFloat = Constants.tabAlignmentAngle * .pi / 180
@@ -135,9 +109,9 @@ extension TabButton {
         // Selects `TabButton` shape's drawing method depending on type of `TabButton`:
         switch viewState.type {
         case .top:
-            drawTopTabButton(angle: alignmentAngle, size: rect.size)
+            drawTopTabButton(viewState: viewState, angle: alignmentAngle, size: rect.size)
         case .bottom:
-            drawBottomTabButton(angle: alignmentAngle, size: rect.size)
+            drawBottomTabButton(viewState: viewState, angle: alignmentAngle, size: rect.size)
         }
         
         // Brings active tab in front of other tabs located near by:
@@ -148,6 +122,7 @@ extension TabButton {
     }
     
     private func drawTopTabButton(
+        viewState: TabButton.ViewState,
         radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize
@@ -173,6 +148,7 @@ extension TabButton {
     }
     
     private func drawBottomTabButton(
+        viewState: TabButton.ViewState,
         radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize
