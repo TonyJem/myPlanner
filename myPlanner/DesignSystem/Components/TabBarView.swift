@@ -2,11 +2,11 @@ import UIKit
 
 protocol TabBarViewCoordinator: AnyObject {
     
-    var didSelectDayTab: (() -> Void) { get set }
+    func onDayTab()
     
-    var didSelectWeekTab: (() -> Void) { get set }
+    func onWeekTab()
     
-    var didSelectMonthTab: (() -> Void) { get set }
+    func onMonthTab()
     
 }
 
@@ -43,6 +43,8 @@ final class TabBarView: UIStackView {
     private func render(viewState: ViewState?) {
         guard let viewState = viewState else { return }
         
+        coordinator = viewState.coordinator
+        
         let type: TabButton.ViewState.TabButtonType
         switch viewState.type {
         case .top:
@@ -67,11 +69,17 @@ final class TabBarView: UIStackView {
         if let coordinator = coordinator {
             switch tab.type {
             case .day:
-                action = coordinator.didSelectDayTab
+                action = {
+                    coordinator.onDayTab()
+                }
             case .week:
-                action = coordinator.didSelectWeekTab
+                action = {
+                    coordinator.onWeekTab()
+                }
             case .month:
-                action = coordinator.didSelectMonthTab
+                action = {
+                    coordinator.onMonthTab()
+                }
             }
         } else {
             action = { }
@@ -100,6 +108,7 @@ extension TabBarView {
         }
         
         let type: TabBarViewType
+        let coordinator: Main.Presenter
         let tabs: [Tabb]
         
     }
