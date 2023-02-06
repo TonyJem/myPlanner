@@ -16,6 +16,12 @@ protocol TabBarViewCoordinator: AnyObject {
 
 final class TabBarView: UIStackView {
     
+    enum Constants {
+        
+        static let tabApposition: CGFloat = .spacingXS
+        
+    }
+    
     weak var coordinator: TabBarViewCoordinator?
     
     /// Holds the ViewState of the `TabBarView` and renders it when set.
@@ -40,7 +46,7 @@ final class TabBarView: UIStackView {
     
     private func setupView() {
         axis  = NSLayoutConstraint.Axis.horizontal
-//        spacing = -1 * Constants.tabApposition
+        spacing = -Constants.tabApposition
         distribution = UIStackView.Distribution.fillEqually
     }
     
