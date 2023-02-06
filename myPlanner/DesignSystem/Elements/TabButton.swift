@@ -46,6 +46,9 @@ final class TabButton: UIButton, TabButtonProtocol {
     /// The action that will happen after tapping on particular instance of `TabButton`.
     @objc private func didTapAction() {
         print("🟢 didTapOnTabButton in TabButton")
+        
+        guard let viewState = viewState else { return }
+        viewState.tabAction()
     }
     
     // MARK: - Private Methods
@@ -77,19 +80,22 @@ extension TabButton {
         let color: UIColor
         let textColor: UIColor
         let isActive: Bool
+        let tabAction: (() -> Void)
         
         init(
             type: TabButtonType,
             title: String,
             color: UIColor,
             textColor: UIColor = .white,
-            isActive: Bool = false
+            isActive: Bool = false,
+            tabAction: @escaping (() -> Void)
         ) {
             self.type = type
             self.title = title
             self.color = color
             self.textColor = textColor
             self.isActive = isActive
+            self.tabAction = tabAction
         }
         
     }
