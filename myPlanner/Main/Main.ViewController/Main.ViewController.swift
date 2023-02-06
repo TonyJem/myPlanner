@@ -1,5 +1,32 @@
 import UIKit
 
+protocol MainView: AnyObject {
+    func render(viewstate: Main.ViewState)
+}
+
+extension Main {
+    
+    struct ViewState {
+        
+        let headerViewState: Header.View.ViewState
+        
+        static let initial: ViewState = ViewState(headerViewState: Header.View.ViewState(
+            tabBarViewState: TabBarView.ViewState(
+                type: .top,
+                tabViewStates:[
+                    TabButton.ViewState(type: .top, title: "Tab1", color: .green),
+                    TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
+                    TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
+                ])))
+        
+        init(headerViewState: Header.View.ViewState) {
+            self.headerViewState = headerViewState
+        }
+        
+    }
+    
+}
+
 extension Main {
     
     class ViewController: UIViewController {
@@ -18,11 +45,27 @@ extension Main {
             }
         }
         
+        private let presenter: Presenter
+        
         // MARK: - SubViews
         
         private lazy var headerView = Header.View().autolayout()
         private lazy var bodyView = Body.View().autolayout()
         private lazy var footerView = Footer.View().autolayout()
+        
+        // MARK: - LifeCycle
+        
+        init(presenter: Presenter) {
+            self.presenter = presenter
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+    //TODO: - Need to find out what next row does and decide if we need to keep it in our app
+        // Also think if we need to add it to other places
+        @available(*, unavailable)
+        required init(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
         
         // MARK: - LifeCycle
         
@@ -73,6 +116,13 @@ extension Main {
         
     }
     
+}
+
+// MARK: implementation of MainView protocol
+extension Main.ViewController: MainView {
+    func render(viewstate: Main.ViewState) {
+        
+    }
 }
 
 // MARK: - Viewstate

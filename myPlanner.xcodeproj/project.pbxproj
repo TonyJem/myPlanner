@@ -63,6 +63,8 @@
 		3A5D20AE2989AB520029408A /* Template.Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20AD2989AB520029408A /* Template.Constants.swift */; };
 		3A5D20B42989C3350029408A /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20B32989C3350029408A /* TabButton.swift */; };
 		3A5D20C0298EAC850029408A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20BF298EAC850029408A /* TabBarView.swift */; };
+		3A5D20C32990ED650029408A /* Main.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C22990ED640029408A /* Main.Module.swift */; };
+		3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C42990EDEF0029408A /* Main.Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,8 @@
 		3A5D20AD2989AB520029408A /* Template.Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.Constants.swift; sourceTree = "<group>"; };
 		3A5D20B32989C3350029408A /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		3A5D20BF298EAC850029408A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		3A5D20C22990ED640029408A /* Main.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Module.swift; sourceTree = "<group>"; };
+		3A5D20C42990EDEF0029408A /* Main.Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Presenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +376,7 @@
 		3A5D206D2989969B0029408A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20C12990ED3C0029408A /* Main.Module */,
 				3A5D206E298997030029408A /* Main.Presenter */,
 				3A5D206F298997100029408A /* Main.ViewController */,
 				3A5D2081298999540029408A /* Main.swift */,
@@ -382,6 +387,7 @@
 		3A5D206E298997030029408A /* Main.Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20C42990EDEF0029408A /* Main.Presenter.swift */,
 			);
 			path = Main.Presenter;
 			sourceTree = "<group>";
@@ -588,6 +594,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3A5D20C12990ED3C0029408A /* Main.Module */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D20C22990ED640029408A /* Main.Module.swift */,
+			);
+			path = Main.Module;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,6 +735,7 @@
 			files = (
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3A2D6697298523FF007AD3F6 /* View.swift in Sources */,
+				3A5D20C32990ED650029408A /* Main.Module.swift in Sources */,
 				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,
 				3A2D668129852029007AD3F6 /* Colors.swift in Sources */,
 				3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */,
@@ -740,6 +755,7 @@
 				3A2D66BF29859856007AD3F6 /* Day.swift in Sources */,
 				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,
 				3A2D6684298522FF007AD3F6 /* ViewController.swift in Sources */,
+				3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */,
