@@ -17,7 +17,7 @@ extension Header {
         }
         
         /// Holds the ViewState of the `Header.View` and renders it when set.
-        var viewState: ViewState = .initial {
+        var viewState: ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -134,7 +134,8 @@ extension Header {
             ])
         }
         
-        private func render(viewState: ViewState) {
+        private func render(viewState: ViewState?) {
+            guard let viewState = viewState else { return }
             tabBarView.viewState = viewState.tabBarViewState
         }
         
@@ -149,19 +150,6 @@ extension Header.View {
     struct ViewState {
         
         let tabBarViewState: TabBarView.ViewState
-        
-        static let initial: ViewState = ViewState(
-            tabBarViewState: TabBarView.ViewState(
-                type: .top,
-                tabViewStates:[
-                TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
-            ]))
-        
-        init(tabBarViewState: TabBarView.ViewState) {
-            self.tabBarViewState = tabBarViewState
-        }
         
     }
     
