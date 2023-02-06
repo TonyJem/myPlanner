@@ -37,8 +37,6 @@ extension Body {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
-            
         }
         
         private func addSubViews() {
@@ -53,30 +51,30 @@ extension Body {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dayPageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                dayPageView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                dayPageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                dayPageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL),
+                dayPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                dayPageView.topAnchor.constraint(equalTo: topAnchor),
+                dayPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                dayPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                weekPageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                weekPageView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                weekPageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                weekPageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL),
+                weekPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                weekPageView.topAnchor.constraint(equalTo: topAnchor),
+                weekPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                weekPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                monthPageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                monthPageView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                monthPageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                monthPageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL),
+                monthPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                monthPageView.topAnchor.constraint(equalTo: topAnchor),
+                monthPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                monthPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                tasksPageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                tasksPageView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                tasksPageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                tasksPageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL),
+                tasksPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                tasksPageView.topAnchor.constraint(equalTo: topAnchor),
+                tasksPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                tasksPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                notesPageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                notesPageView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                notesPageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                notesPageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
+                notesPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                notesPageView.topAnchor.constraint(equalTo: topAnchor),
+                notesPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                notesPageView.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
         }
