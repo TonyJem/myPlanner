@@ -132,6 +132,7 @@ extension TabButton {
         angle: CGFloat,
         size: CGSize
     ){
+        let color: UIColor = viewState.isActive ? .activeTabBackground : viewState.color
         let height = size.height
         let correction: CGFloat = viewState.isActive ? .zero : 3.0
         let leftArcCenter = CGPoint(
@@ -148,7 +149,7 @@ extension TabButton {
             endAngle1: -0.5 * .pi,
             endAngle2: .pi + angle,
             clockwise: false,
-            color: viewState.color
+            color: color
         )
     }
     
@@ -158,6 +159,7 @@ extension TabButton {
         angle: CGFloat,
         size: CGSize
     ){
+        let color: UIColor = viewState.isActive ? .activeTabBackground : viewState.color
         let height = size.height
         let correction: CGFloat = viewState.isActive ? .zero : 3.0
         let leftArcCenter = CGPoint(
@@ -174,7 +176,7 @@ extension TabButton {
             endAngle1: 0.5 * .pi,
             endAngle2: .pi - angle,
             clockwise: true,
-            color: viewState.color
+            color: color
         )
     }
     
