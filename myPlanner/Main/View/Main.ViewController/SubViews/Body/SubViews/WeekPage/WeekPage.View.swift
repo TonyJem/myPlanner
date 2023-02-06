@@ -24,7 +24,7 @@ extension WeekPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .tabWeekBackround
         }
         
         private func addSubViews() {

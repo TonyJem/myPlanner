@@ -24,7 +24,7 @@ extension TasksPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .tabTasksBackround
         }
         
         private func addSubViews() {
