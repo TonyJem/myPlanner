@@ -65,6 +65,8 @@
 		3A5D20C0298EAC850029408A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20BF298EAC850029408A /* TabBarView.swift */; };
 		3A5D20C32990ED650029408A /* Main.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C22990ED640029408A /* Main.Module.swift */; };
 		3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C42990EDEF0029408A /* Main.Presenter.swift */; };
+		3A5D20C82991169B0029408A /* Main.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C72991169B0029408A /* Main.ViewState.swift */; };
+		3A5D20CA299117970029408A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C9299117970029408A /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		3A5D20BF298EAC850029408A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3A5D20C22990ED640029408A /* Main.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Module.swift; sourceTree = "<group>"; };
 		3A5D20C42990EDEF0029408A /* Main.Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Presenter.swift; sourceTree = "<group>"; };
+		3A5D20C72991169B0029408A /* Main.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20C9299117970029408A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,7 +382,7 @@
 			children = (
 				3A5D20C12990ED3C0029408A /* Main.Module */,
 				3A5D206E298997030029408A /* Main.Presenter */,
-				3A5D206F298997100029408A /* Main.ViewController */,
+				3A5D20C6299116410029408A /* View */,
 				3A5D2081298999540029408A /* Main.swift */,
 			);
 			path = Main;
@@ -602,6 +606,16 @@
 			path = Main.Module;
 			sourceTree = "<group>";
 		};
+		3A5D20C6299116410029408A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D206F298997100029408A /* Main.ViewController */,
+				3A5D20C72991169B0029408A /* Main.ViewState.swift */,
+				3A5D20C9299117970029408A /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -733,6 +747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5D20C82991169B0029408A /* Main.ViewState.swift in Sources */,
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3A2D6697298523FF007AD3F6 /* View.swift in Sources */,
 				3A5D20C32990ED650029408A /* Main.Module.swift in Sources */,
@@ -751,6 +766,7 @@
 				3A5D20972989A3570029408A /* Footer.View.swift in Sources */,
 				3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */,
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
+				3A5D20CA299117970029408A /* MainView.swift in Sources */,
 				3A5D208629899A7F0029408A /* Header.swift in Sources */,
 				3A2D66BF29859856007AD3F6 /* Day.swift in Sources */,
 				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,

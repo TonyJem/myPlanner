@@ -1,32 +1,5 @@
 import UIKit
 
-protocol MainView: AnyObject {
-    func render(viewState: Main.ViewState)
-}
-
-extension Main {
-    
-    struct ViewState {
-        
-        let headerViewState: Header.View.ViewState
-        
-        static let initial: ViewState = ViewState(headerViewState: Header.View.ViewState(
-            tabBarViewState: TabBarView.ViewState(
-                type: .top,
-                tabViewStates:[
-                    TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                    TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                    TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
-                ])))
-        
-        init(headerViewState: Header.View.ViewState) {
-            self.headerViewState = headerViewState
-        }
-        
-    }
-    
-}
-
 extension Main {
     
     class ViewController: UIViewController {
@@ -41,7 +14,7 @@ extension Main {
         private let presenter: Presenter
         
         /// Holds the ViewState of the `ViewController`
-        private var viewState: Main.ViewState?
+        private var viewState: ViewState?
         
         // MARK: - SubViews
         
@@ -111,6 +84,7 @@ extension Main {
 }
 
 // MARK: - Implementation of MainView protocol:
+
 extension Main.ViewController: MainView {
     
     func render(viewState: Main.ViewState) {
