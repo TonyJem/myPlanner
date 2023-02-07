@@ -12,8 +12,6 @@ extension Main {
         
         weak var view: MainView?
         
-        var presenterClosure: (() -> Void) = { }
-        
     }
     
 }
