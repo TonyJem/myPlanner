@@ -78,7 +78,7 @@ extension TabButton {
 //    TODO: rename type to position or alignement or etc.... but not type anymore
         let type: TabButtonType
         
-        //    TODO: May be make it somehow generic, or tab tell it self which button was tapped
+        //    TODO: May be make it somehow generic, or tab should tell to presenter it self which button was tapped
         let pageTabType: PageTab.PageTabType
         let title: String
         let color: UIColor
