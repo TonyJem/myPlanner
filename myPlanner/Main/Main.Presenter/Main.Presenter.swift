@@ -29,26 +29,27 @@ extension Main.Presenter: MainPresenter {
     
 }
 
-// TODO: Find out if my Presenter needs to have Provider or even Coordintor <- I think TabBarViewCoordinator should be another class
-extension Main.Presenter: TabBarViewCoordinator {
+// MARK: - Page Tab Actions
+
+extension Main.Presenter {
     
-    func onDayTab() {
+    private func onDayTab() {
         view?.render(viewState: createDayViewState())
     }
     
-    func onWeekTab() {
+    private func onWeekTab() {
         view?.render(viewState: createWeekViewState())
     }
     
-    func onMonthTab() {
+    private func onMonthTab() {
         view?.render(viewState: createMonthViewState())
     }
     
-    func onTasksTab() {
+    private func onTasksTab() {
         view?.render(viewState: createTasksViewState())
     }
     
-    func onNotesTab() {
+    private func onNotesTab() {
         view?.render(viewState: createNotesViewState())
     }
     
@@ -65,13 +66,12 @@ extension Main.Presenter {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                coordinator: self,
                 tabs: [
-                    PageTab(type: .day, isActive: true),
-                    PageTab(type: .week),
-                    PageTab(type: .month),
-                    PageTab(type: .tasks),
-                    PageTab(type: .notes)
+                    PageTab(type: .day, isActive: true, action: onDayTab),
+                    PageTab(type: .week, action: onWeekTab),
+                    PageTab(type: .month, action: onMonthTab),
+                    PageTab(type: .tasks, action: onTasksTab),
+                    PageTab(type: .notes, action: onNotesTab)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .day))
@@ -83,13 +83,12 @@ extension Main.Presenter {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                coordinator: self,
                 tabs: [
-                    PageTab(type: .day),
-                    PageTab(type: .week, isActive: true),
-                    PageTab(type: .month),
-                    PageTab(type: .tasks),
-                    PageTab(type: .notes)
+                    PageTab(type: .day, action: onDayTab),
+                    PageTab(type: .week, isActive: true, action: onWeekTab),
+                    PageTab(type: .month, action: onMonthTab),
+                    PageTab(type: .tasks, action: onTasksTab),
+                    PageTab(type: .notes, action: onNotesTab)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .week))
@@ -101,13 +100,12 @@ extension Main.Presenter {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                coordinator: self,
                 tabs: [
-                    PageTab(type: .day),
-                    PageTab(type: .week),
-                    PageTab(type: .month, isActive: true),
-                    PageTab(type: .tasks),
-                    PageTab(type: .notes)
+                    PageTab(type: .day, action: onDayTab),
+                    PageTab(type: .week, action: onWeekTab),
+                    PageTab(type: .month, isActive: true, action: onMonthTab),
+                    PageTab(type: .tasks, action: onTasksTab),
+                    PageTab(type: .notes, action: onNotesTab)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .month))
@@ -119,13 +117,12 @@ extension Main.Presenter {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                coordinator: self,
                 tabs: [
-                    PageTab(type: .day),
-                    PageTab(type: .week),
-                    PageTab(type: .month),
-                    PageTab(type: .tasks, isActive: true),
-                    PageTab(type: .notes)
+                    PageTab(type: .day, action: onDayTab),
+                    PageTab(type: .week, action: onWeekTab),
+                    PageTab(type: .month, action: onMonthTab),
+                    PageTab(type: .tasks, isActive: true, action: onTasksTab),
+                    PageTab(type: .notes, action: onNotesTab)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .tasks))
@@ -137,13 +134,12 @@ extension Main.Presenter {
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
-                coordinator: self,
                 tabs: [
-                    PageTab(type: .day),
-                    PageTab(type: .week),
-                    PageTab(type: .month),
-                    PageTab(type: .tasks),
-                    PageTab(type: .notes, isActive: true)
+                    PageTab(type: .day, action: onDayTab),
+                    PageTab(type: .week, action: onWeekTab),
+                    PageTab(type: .month, action: onMonthTab),
+                    PageTab(type: .tasks, action: onTasksTab),
+                    PageTab(type: .notes, isActive: true, action: onNotesTab)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .notes))

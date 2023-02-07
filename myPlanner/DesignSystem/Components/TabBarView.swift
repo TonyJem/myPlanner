@@ -1,20 +1,5 @@
 import UIKit
 
-protocol TabBarViewCoordinator: AnyObject {
-    
-//TODO: Check naming here and in all other places just by viewing all PR.
-    func onDayTab()
-    
-    func onWeekTab()
-    
-    func onMonthTab()
-    
-    func onTasksTab()
-    
-    func onNotesTab()
-    
-}
-
 // TODO: Think if we need to move it under "Header" extension and make it PagesTab bar or etc. more meaningfull
 final class TabBarView: UIStackView {
     
@@ -23,8 +8,6 @@ final class TabBarView: UIStackView {
         static let tabApposition: CGFloat = .spacingXS
         
     }
-    
-    weak var coordinator: TabBarViewCoordinator?
     
     /// Holds the ViewState of the `TabBarView` and renders it when set.
     var viewState: ViewState? {
@@ -57,8 +40,6 @@ final class TabBarView: UIStackView {
         
         removeAllArrangedSubviews()
         
-        coordinator = viewState.coordinator
-        
         let type: TabButton.ViewState.TabButtonType
         switch viewState.type {
         case .top:
@@ -77,44 +58,13 @@ final class TabBarView: UIStackView {
     }
     
     private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: PageTab) -> TabButton.ViewState {
-        
-        let action: (() -> Void)
-        
-        if let coordinator = coordinator {
-            switch tab.type {
-            case .day:
-                action = {
-                    coordinator.onDayTab()
-                }
-            case .week:
-                action = {
-                    coordinator.onWeekTab()
-                }
-            case .month:
-                action = {
-                    coordinator.onMonthTab()
-                }
-            case .tasks:
-                action = {
-                    coordinator.onTasksTab()
-                }
-            case .notes:
-                action = {
-                    coordinator.onNotesTab()
-                }
-            }
-        } else {
-            action = { }
-        }
-        
-        let tabButtonViewState = TabButton.ViewState(
+        .init(
             type: type,
             title: tab.type.tabTitle,
             color: tab.type.tabColor,
             isActive: tab.isActive,
-            tabAction: action
+            tabAction: tab.action
         )
-        return tabButtonViewState
     }
     
 }
@@ -131,7 +81,6 @@ extension TabBarView {
         }
         
         let type: TabBarViewType
-        let coordinator: Main.Presenter
         let tabs: [PageTab]
         
     }
@@ -140,19 +89,25 @@ extension TabBarView {
 
 struct PageTab {
     
-    let type: TabBarViewType
+    let type: PageTabType
     let isActive: Bool
+    let action: (() -> Void)
     
-    init(type: TabBarViewType, isActive: Bool = false) {
+    init(
+        type: PageTabType,
+        isActive: Bool = false,
+        action: @escaping (() -> Void))
+    {
         self.type = type
         self.isActive = isActive
+        self.action = action
     }
     
 }
 
 extension PageTab {
     
-    enum TabBarViewType {
+    enum PageTabType {
         
         case day
         case week
