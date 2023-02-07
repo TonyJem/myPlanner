@@ -14,7 +14,7 @@ extension Main {
         private let presenter: Presenter
         
         /// Holds the ViewState of the `ViewController`
-        private var viewState: ViewState?
+        private var viewStateContainer: ViewStateContainer?
         
         // MARK: - SubViews
         
@@ -87,10 +87,10 @@ extension Main {
 
 extension Main.ViewController: MainView {
     
-    func render(viewState: Main.ViewState) {
-        self.viewState = viewState
-        headerView.viewState = viewState.headerViewState
-        bodyView.viewState = viewState.bodyViewState
+    func render(viewStateContainer: Main.ViewStateContainer) {
+        self.viewStateContainer = viewStateContainer
+        headerView.viewState = viewStateContainer.headerViewState
+        bodyView.viewState = viewStateContainer.bodyViewState
     }
     
 }

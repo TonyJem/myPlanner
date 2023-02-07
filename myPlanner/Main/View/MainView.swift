@@ -2,6 +2,6 @@ import Foundation
 
 protocol MainView: AnyObject {
     
-    func render(viewState: Main.ViewState)
+    func render(viewStateContainer: Main.ViewStateContainer)
     
 }
