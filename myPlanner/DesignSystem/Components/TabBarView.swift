@@ -58,8 +58,10 @@ final class TabBarView: UIStackView {
     }
     
     private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: PageTab) -> TabButton.ViewState {
-        .init(
+
+        return .init(
             type: type,
+            pageTabType: tab.type,
             title: tab.type.tabTitle,
             color: tab.type.tabColor,
             isActive: tab.isActive,
@@ -91,12 +93,12 @@ struct PageTab {
     
     let type: PageTabType
     let isActive: Bool
-    let action: (() -> Void)
+    let action: ((PageTabType) -> Void)
     
     init(
         type: PageTabType,
         isActive: Bool = false,
-        action: @escaping (() -> Void))
+        action: @escaping ((PageTabType) -> Void))
     {
         self.type = type
         self.isActive = isActive

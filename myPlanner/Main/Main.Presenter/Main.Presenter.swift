@@ -12,6 +12,21 @@ extension Main {
         
         weak var view: MainView?
         
+        var handleAction: ((PageTab.PageTabType) -> Void) = { pageType in
+            switch pageType {
+            case .day:
+                return print("handle day")
+            case .week:
+                return print("handle week")
+            case .month:
+                return print("handle month")
+            case .tasks:
+                return print("handle tasks")
+            case .notes:
+                return print("handle notes")
+            }
+        }
+        
     }
     
 }
@@ -30,6 +45,10 @@ extension Main.Presenter: MainPresenter {
 // MARK: - Page Tab Actions
 
 extension Main.Presenter {
+    
+    private func updateView(with viewState: Main.ViewState) {
+        view?.render(viewState: viewState)
+    }
     
     private func onDayTab() {
         view?.render(viewState: createDayViewState())
@@ -58,18 +77,31 @@ extension Main.Presenter {
 extension Main.Presenter {
     
 //    TODO: Make ViewState creation in one function depending on option,
-    // May be call it container and devide into 3 parts to Header 
+    // May be call it container and devide into 3 parts to Header
+    private func createViewStateContainer(
+        headerViewstate: Header.View.ViewState,
+        bodyViewState: Body.View.ViewState
+    ) -> Main.ViewStateContainer
+    {
+        
+        .init(
+            headerViewState: headerViewstate,
+            bodyViewState: bodyViewState
+        )
+    }
+    
+    
     private func createDayViewState() -> Main.ViewState {
     
         .init(headerViewState: Header.View.ViewState(
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabs: [
-                    PageTab(type: .day, isActive: true, action: onDayTab),
-                    PageTab(type: .week, action: onWeekTab),
-                    PageTab(type: .month, action: onMonthTab),
-                    PageTab(type: .tasks, action: onTasksTab),
-                    PageTab(type: .notes, action: onNotesTab)
+                    PageTab(type: .day, isActive: true, action: handleAction),
+                    PageTab(type: .week, action: handleAction),
+                    PageTab(type: .month, action: handleAction),
+                    PageTab(type: .tasks, action: handleAction),
+                    PageTab(type: .notes, action: handleAction)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .day))
@@ -82,11 +114,11 @@ extension Main.Presenter {
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabs: [
-                    PageTab(type: .day, action: onDayTab),
-                    PageTab(type: .week, isActive: true, action: onWeekTab),
-                    PageTab(type: .month, action: onMonthTab),
-                    PageTab(type: .tasks, action: onTasksTab),
-                    PageTab(type: .notes, action: onNotesTab)
+                    PageTab(type: .day, action: handleAction),
+                    PageTab(type: .week, isActive: true, action: handleAction),
+                    PageTab(type: .month, action: handleAction),
+                    PageTab(type: .tasks, action: handleAction),
+                    PageTab(type: .notes, action: handleAction)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .week))
@@ -99,11 +131,11 @@ extension Main.Presenter {
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabs: [
-                    PageTab(type: .day, action: onDayTab),
-                    PageTab(type: .week, action: onWeekTab),
-                    PageTab(type: .month, isActive: true, action: onMonthTab),
-                    PageTab(type: .tasks, action: onTasksTab),
-                    PageTab(type: .notes, action: onNotesTab)
+                    PageTab(type: .day, action: handleAction),
+                    PageTab(type: .week, action: handleAction),
+                    PageTab(type: .month, isActive: true, action: handleAction),
+                    PageTab(type: .tasks, action: handleAction),
+                    PageTab(type: .notes, action: handleAction)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .month))
@@ -116,11 +148,11 @@ extension Main.Presenter {
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabs: [
-                    PageTab(type: .day, action: onDayTab),
-                    PageTab(type: .week, action: onWeekTab),
-                    PageTab(type: .month, action: onMonthTab),
-                    PageTab(type: .tasks, isActive: true, action: onTasksTab),
-                    PageTab(type: .notes, action: onNotesTab)
+                    PageTab(type: .day, action: handleAction),
+                    PageTab(type: .week, action: handleAction),
+                    PageTab(type: .month, action: handleAction),
+                    PageTab(type: .tasks, isActive: true, action: handleAction),
+                    PageTab(type: .notes, action: handleAction)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .tasks))
@@ -133,11 +165,11 @@ extension Main.Presenter {
             tabBarViewState: TabBarView.ViewState(
                 type: .top,
                 tabs: [
-                    PageTab(type: .day, action: onDayTab),
-                    PageTab(type: .week, action: onWeekTab),
-                    PageTab(type: .month, action: onMonthTab),
-                    PageTab(type: .tasks, action: onTasksTab),
-                    PageTab(type: .notes, isActive: true, action: onNotesTab)
+                    PageTab(type: .day, action: handleAction),
+                    PageTab(type: .week, action: handleAction),
+                    PageTab(type: .month, action: handleAction),
+                    PageTab(type: .tasks, action: handleAction),
+                    PageTab(type: .notes, isActive: true, action: handleAction)
                 ])
         ),
               bodyViewState: Body.View.ViewState(activePage: .notes))

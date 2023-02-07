@@ -48,7 +48,7 @@ final class TabButton: UIButton, TabButtonProtocol {
     @objc private func didTapAction() {
         print("🟢 didTapOn Element TabButton in TabButton")
         guard let viewState = viewState else { return }
-        viewState.tabAction()
+        viewState.tabAction(viewState.pageTabType)
     }
     
     // MARK: - Private Methods
@@ -75,22 +75,26 @@ extension TabButton {
             case bottom
         }
         
+//    TODO: rename type to position or alignement or etc.... but not type anymore
         let type: TabButtonType
+        let pageTabType: PageTab.PageTabType
         let title: String
         let color: UIColor
         let textColor: UIColor
         let isActive: Bool
-        let tabAction: (() -> Void)
+        let tabAction: ((PageTab.PageTabType) -> Void)
         
         init(
             type: TabButtonType,
+            pageTabType: PageTab.PageTabType,
             title: String,
             color: UIColor,
             textColor: UIColor = .black,
             isActive: Bool = false,
-            tabAction: @escaping (() -> Void)
+            tabAction: @escaping ((PageTab.PageTabType) -> Void)
         ) {
             self.type = type
+            self.pageTabType = pageTabType
             self.title = title
             self.color = color
             self.textColor = textColor
