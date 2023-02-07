@@ -12,21 +12,6 @@ extension Main {
         
         weak var view: MainView?
         
-        var handleAction: ((PageTab.PageTabType) -> Void) = { pageType in
-            switch pageType {
-            case .day:
-                return print("handle day")
-            case .week:
-                return print("handle week")
-            case .month:
-                return print("handle month")
-            case .tasks:
-                return print("handle tasks")
-            case .notes:
-                return print("handle notes")
-            }
-        }
-        
     }
     
 }
@@ -46,28 +31,23 @@ extension Main.Presenter: MainPresenter {
 
 extension Main.Presenter {
     
+    func handleAction(type: PageTab.PageTabType) {
+        switch type {
+        case .day:
+            updateView(with: createDayViewState())
+        case .week:
+            updateView(with: createWeekViewState())
+        case .month:
+            updateView(with: createMonthViewState())
+        case .tasks:
+            updateView(with: createTasksViewState())
+        case .notes:
+            updateView(with: createNotesViewState())
+        }
+    }
+    
     private func updateView(with viewState: Main.ViewState) {
         view?.render(viewState: viewState)
-    }
-    
-    private func onDayTab() {
-        view?.render(viewState: createDayViewState())
-    }
-    
-    private func onWeekTab() {
-        view?.render(viewState: createWeekViewState())
-    }
-    
-    private func onMonthTab() {
-        view?.render(viewState: createMonthViewState())
-    }
-    
-    private func onTasksTab() {
-        view?.render(viewState: createTasksViewState())
-    }
-    
-    private func onNotesTab() {
-        view?.render(viewState: createNotesViewState())
     }
     
 }
@@ -76,15 +56,16 @@ extension Main.Presenter {
 
 extension Main.Presenter {
     
-//    TODO: Make ViewState creation in one function depending on option,
+    //    TODO: Make ViewState creation in one function depending on option,
     // May be call it container and devide into 3 parts to Header
     private func createViewStateContainer(
+        type: PageTab.PageTabType,
         headerViewstate: Header.View.ViewState,
         bodyViewState: Body.View.ViewState
     ) -> Main.ViewStateContainer
     {
         
-        .init(
+        return .init(
             headerViewState: headerViewstate,
             bodyViewState: bodyViewState
         )

@@ -146,18 +146,8 @@ extension Body.View {
     
     struct ViewState {
         
-        let activePage: PageType
+        let activePage: PageTab.PageTabType
         
     }
-    
-}
-
-enum PageType {
-    
-    case day
-    case week
-    case month
-    case tasks
-    case notes
     
 }
