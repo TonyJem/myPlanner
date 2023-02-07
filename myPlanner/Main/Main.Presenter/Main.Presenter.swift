@@ -68,7 +68,7 @@ extension Main.Presenter {
             .notes
         ]
         let tabs = createTabs(pages: pages, activePage: activePage, action: action)
-        let tabBarViewState = TabBarView.ViewState(type: .top, tabs: tabs)
+        let tabBarViewState = Header.TabBarView.ViewState(type: .top, tabs: tabs)
         return .init(tabBarViewState: tabBarViewState)
     }
     

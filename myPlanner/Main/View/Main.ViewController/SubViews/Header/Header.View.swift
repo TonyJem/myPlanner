@@ -149,7 +149,7 @@ extension Header.View {
     
     struct ViewState {
         
-        let tabBarViewState: TabBarView.ViewState
+        let tabBarViewState: Header.TabBarView.ViewState
         
     }
     
