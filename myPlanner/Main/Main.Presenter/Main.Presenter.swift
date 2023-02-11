@@ -103,8 +103,22 @@ extension Main.Presenter {
             .notes
         ]
         let tabs = createTabs(pages: pages, activePage: .day, action: { _ in } )
-        let tabBarViewState = TabBar.ViewState(type: .top, tabs: tabs)
+        let tabBarViewState = TabBar.ViewState(type: .bottom, tabs: tabs)
         return Footer.ViewState(tabBarViewState: tabBarViewState)
+    }
+    
+    private func createTabs(
+        months: [MonthTab.MonthTabType],
+        activeMonth: MonthTab.MonthTabType,
+        action: @escaping ((MonthTab.MonthTabType) -> Void)
+    ) -> [MonthTab]
+    {
+        var tabs: [MonthTab] = []
+        months.forEach {
+            let tab = MonthTab(type: $0, isActive: $0 == activeMonth, action: action)
+            tabs.append(tab)
+        }
+        return tabs
     }
     
 }

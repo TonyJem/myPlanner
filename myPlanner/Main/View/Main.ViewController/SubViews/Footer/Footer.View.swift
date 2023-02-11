@@ -18,7 +18,6 @@ extension Footer {
             
         }
         
-        /// Holds the ViewState of the `Header.View` and renders it when set.
         var viewState: ViewState? {
             didSet {
                 render(viewState: viewState)
@@ -48,7 +47,7 @@ extension Footer {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .systemPink
+            backgroundColor = .systemGray
         }
         
         private func addSubViews() {

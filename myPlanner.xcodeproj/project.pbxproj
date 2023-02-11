@@ -452,8 +452,8 @@
 		3A5D2073298997510029408A /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D20942989A31A0029408A /* Header.View.swift */,
 				3A5D208529899A7F0029408A /* Header.swift */,
+				3A5D20942989A31A0029408A /* Header.View.swift */,
 				3A5D20D02993040D0029408A /* PageTab.swift */,
 			);
 			path = Header;

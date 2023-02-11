@@ -2,14 +2,14 @@ import UIKit
 
 struct MonthTab {
     
-    let type: PageTabType
+    let type: MonthTabType
     let isActive: Bool
-    let action: ((PageTabType) -> Void)
+    let action: ((MonthTabType) -> Void)
     
     init(
-        type: PageTabType,
+        type: MonthTabType,
         isActive: Bool = false,
-        action: @escaping ((PageTabType) -> Void))
+        action: @escaping ((MonthTabType) -> Void))
     {
         self.type = type
         self.isActive = isActive
@@ -20,7 +20,7 @@ struct MonthTab {
 
 extension MonthTab {
     
-    enum PageTabType {
+    enum MonthTabType {
         
         case january
         case february
