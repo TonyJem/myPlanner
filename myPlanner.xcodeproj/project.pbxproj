@@ -72,6 +72,7 @@
 		3A5D20DB29978A6D0029408A /* TabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DA29978A6D0029408A /* TabBar.View.swift */; };
 		3A5D20DD29978A7E0029408A /* TabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */; };
 		3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DE299792160029408A /* Footer.ViewState.swift */; };
+		3A5D20E1299797F20029408A /* MonthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E0299797F20029408A /* MonthTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		3A5D20DA29978A6D0029408A /* TabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.View.swift; sourceTree = "<group>"; };
 		3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20DE299792160029408A /* Footer.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20E0299797F20029408A /* MonthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +434,7 @@
 				3A5D208929899AFE0029408A /* Footer.swift */,
 				3A5D20962989A3570029408A /* Footer.View.swift */,
 				3A5D20DE299792160029408A /* Footer.ViewState.swift */,
+				3A5D20E0299797F20029408A /* MonthTab.swift */,
 			);
 			path = Footer;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */,
 				3A5D20DB29978A6D0029408A /* TabBar.View.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
+				3A5D20E1299797F20029408A /* MonthTab.swift in Sources */,
 				3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */,
 				3A5D209E2989A6330029408A /* MonthPage.swift in Sources */,

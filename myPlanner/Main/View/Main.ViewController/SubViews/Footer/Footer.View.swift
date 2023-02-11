@@ -11,6 +11,13 @@ extension Footer {
     
     class View: UIView, FooterProtocol {
         
+        enum Constants {
+            
+            static let tabBarViewWidth: CGFloat = 650.0
+            static let tabBarViewHeight: CGFloat = 30.0
+            
+        }
+        
         /// Holds the ViewState of the `Header.View` and renders it when set.
         var viewState: ViewState? {
             didSet {
@@ -20,7 +27,11 @@ extension Footer {
         
         // MARK: - SubViews
         
-        private lazy var subView = UIView().autolayout()
+        private lazy var tabBar: TabBarProtocol = {
+            let view = TabBar.View().autolayout()
+            view.backgroundColor = .orange
+            return view
+        }()
         
         // MARK: - Init
         
@@ -42,23 +53,23 @@ extension Footer {
         }
         
         private func addSubViews() {
-            addSubview(subView)
+            addSubview(tabBar)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
+                tabBar.topAnchor.constraint(equalTo: topAnchor),
+                tabBar.widthAnchor.constraint(equalToConstant: Constants.tabBarViewWidth),
+                tabBar.heightAnchor.constraint(equalToConstant: Constants.tabBarViewHeight),
                 
             ])
         }
         
         private func render(viewState: ViewState?) {
             guard let viewState = viewState else { return }
-//            tabBar.viewState = viewState.tabBarViewState
+            tabBar.viewState = viewState.tabBarViewState
         }
         
     }
