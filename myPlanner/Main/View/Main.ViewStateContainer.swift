@@ -8,6 +8,8 @@ extension Main {
         
         let bodyViewState: Body.View.ViewState
         
+        let footerViewState: Footer.ViewState
+        
     }
     
 }

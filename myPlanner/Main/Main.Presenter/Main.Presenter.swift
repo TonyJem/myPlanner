@@ -49,9 +49,12 @@ extension Main.Presenter {
         
         let bodyViewState = createBodyViewState(for: page)
         
+        let footerViewState = createFooterViewState()
+        
         return .init(
             headerViewState: headerViewState,
-            bodyViewState: bodyViewState
+            bodyViewState: bodyViewState,
+            footerViewState: footerViewState
         )
     }
     
@@ -88,6 +91,20 @@ extension Main.Presenter {
     
     private func createBodyViewState(for page: PageTab.PageTabType) -> Body.View.ViewState {
         Body.View.ViewState(activePage: page)
+    }
+    
+    private func createFooterViewState() -> Footer.ViewState {
+        
+        let pages: [PageTab.PageTabType] = [
+            .day,
+            .week,
+            .month,
+            .tasks,
+            .notes
+        ]
+        let tabs = createTabs(pages: pages, activePage: .day, action: { _ in } )
+        let tabBarViewState = TabBar.ViewState(type: .top, tabs: tabs)
+        return Footer.ViewState(tabBarViewState: tabBarViewState)
     }
     
 }

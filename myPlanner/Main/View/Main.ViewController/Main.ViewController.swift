@@ -95,6 +95,7 @@ extension Main.ViewController: MainView {
         self.viewStateContainer = viewStateContainer
         headerView.viewState = viewStateContainer.headerViewState
         bodyView.viewState = viewStateContainer.bodyViewState
+        footer.viewState = viewStateContainer.footerViewState
     }
     
 }

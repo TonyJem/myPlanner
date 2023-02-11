@@ -21,7 +21,7 @@ extension Footer {
         /// Holds the ViewState of the `Header.View` and renders it when set.
         var viewState: ViewState? {
             didSet {
-//                render(viewState: viewState)
+                render(viewState: viewState)
             }
         }
         
@@ -29,7 +29,6 @@ extension Footer {
         
         private lazy var tabBar: TabBarProtocol = {
             let view = TabBar.View().autolayout()
-            view.backgroundColor = .orange
             return view
         }()
         
