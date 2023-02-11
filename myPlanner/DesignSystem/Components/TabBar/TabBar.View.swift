@@ -1,8 +1,15 @@
 import UIKit
 
-extension Header {
+protocol TabBarProtocol: UIStackView {
     
-    final class TabBarView: UIStackView {
+    /// Holds the ViewState of the `TabBar`
+    var viewState: TabBar.ViewState? { get set }
+    
+}
+
+extension TabBar {
+    
+    class View: UIStackView, TabBarProtocol {
         
         enum Constants {
             
@@ -10,7 +17,6 @@ extension Header {
             
         }
         
-        /// Holds the ViewState of the `TabBarView` and renders it when set.
         var viewState: ViewState? {
             didSet {
                 render(viewState: viewState)
@@ -69,24 +75,6 @@ extension Header {
                 tabAction: tab.action
             )
         }
-        
-    }
-    
-}
-
-// MARK: - Viewstate
-
-extension Header.TabBarView {
-    
-    struct ViewState {
-        
-        enum TabBarViewType {
-            case top
-            case bottom
-        }
-        
-        let type: TabBarViewType
-        let tabs: [PageTab]
         
     }
     
