@@ -1,3 +1,6 @@
+// TODO: Create HeaderProtocol
+// TODO: Make Header Structure same as in Footer (after fully finishing Footer UI)
+
 import UIKit
 
 extension Header {

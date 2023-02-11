@@ -64,13 +64,14 @@
 		3A5D20B42989C3350029408A /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20B32989C3350029408A /* TabButton.swift */; };
 		3A5D20C32990ED650029408A /* Main.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C22990ED640029408A /* Main.Module.swift */; };
 		3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C42990EDEF0029408A /* Main.Presenter.swift */; };
-		3A5D20C82991169B0029408A /* Main.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C72991169B0029408A /* Main.ViewState.swift */; };
+		3A5D20C82991169B0029408A /* Main.ViewStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C72991169B0029408A /* Main.ViewStateContainer.swift */; };
 		3A5D20CA299117970029408A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C9299117970029408A /* MainView.swift */; };
 		3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20CB2991997A0029408A /* UIStackView.swift */; };
 		3A5D20D12993040D0029408A /* PageTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20D02993040D0029408A /* PageTab.swift */; };
 		3A5D20D929978A470029408A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20D829978A470029408A /* TabBar.swift */; };
 		3A5D20DB29978A6D0029408A /* TabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DA29978A6D0029408A /* TabBar.View.swift */; };
 		3A5D20DD29978A7E0029408A /* TabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */; };
+		3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DE299792160029408A /* Footer.ViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,13 +153,14 @@
 		3A5D20B32989C3350029408A /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		3A5D20C22990ED640029408A /* Main.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Module.swift; sourceTree = "<group>"; };
 		3A5D20C42990EDEF0029408A /* Main.Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.Presenter.swift; sourceTree = "<group>"; };
-		3A5D20C72991169B0029408A /* Main.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20C72991169B0029408A /* Main.ViewStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.ViewStateContainer.swift; sourceTree = "<group>"; };
 		3A5D20C9299117970029408A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3A5D20CB2991997A0029408A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		3A5D20D02993040D0029408A /* PageTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTab.swift; sourceTree = "<group>"; };
 		3A5D20D829978A470029408A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3A5D20DA29978A6D0029408A /* TabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.View.swift; sourceTree = "<group>"; };
 		3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20DE299792160029408A /* Footer.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.ViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,8 +429,9 @@
 		3A5D20712989973E0029408A /* Footer */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D20962989A3570029408A /* Footer.View.swift */,
 				3A5D208929899AFE0029408A /* Footer.swift */,
+				3A5D20962989A3570029408A /* Footer.View.swift */,
+				3A5D20DE299792160029408A /* Footer.ViewState.swift */,
 			);
 			path = Footer;
 			sourceTree = "<group>";
@@ -620,7 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5D206F298997100029408A /* Main.ViewController */,
-				3A5D20C72991169B0029408A /* Main.ViewState.swift */,
+				3A5D20C72991169B0029408A /* Main.ViewStateContainer.swift */,
 				3A5D20C9299117970029408A /* MainView.swift */,
 			);
 			path = View;
@@ -767,7 +770,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5D20C82991169B0029408A /* Main.ViewState.swift in Sources */,
+				3A5D20C82991169B0029408A /* Main.ViewStateContainer.swift in Sources */,
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3A2D6697298523FF007AD3F6 /* View.swift in Sources */,
 				3A5D20C32990ED650029408A /* Main.Module.swift in Sources */,
@@ -800,6 +803,7 @@
 				3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */,
 				3A5D209E2989A6330029408A /* MonthPage.swift in Sources */,
+				3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */,
 				3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D66C92985BCA5007AD3F6 /* Calendar.Cell.swift in Sources */,

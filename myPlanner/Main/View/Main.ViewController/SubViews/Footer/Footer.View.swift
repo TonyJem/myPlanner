@@ -1,8 +1,22 @@
 import UIKit
 
+protocol FooterProtocol: UIView {
+    
+    /// Holds the ViewState of the `TabButton`
+    var viewState: Footer.ViewState? { get set }
+    
+}
+
 extension Footer {
     
-    class View: UIView {
+    class View: UIView, FooterProtocol {
+        
+        /// Holds the ViewState of the `Header.View` and renders it when set.
+        var viewState: ViewState? {
+            didSet {
+//                render(viewState: viewState)
+            }
+        }
         
         // MARK: - SubViews
         
@@ -40,6 +54,11 @@ extension Footer {
                 subView.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
+        }
+        
+        private func render(viewState: ViewState?) {
+            guard let viewState = viewState else { return }
+//            tabBar.viewState = viewState.tabBarViewState
         }
         
     }

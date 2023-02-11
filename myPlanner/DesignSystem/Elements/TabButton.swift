@@ -1,6 +1,5 @@
 import UIKit
 
-//TODO: Use protocols to connect all other views same as I did here
 protocol TabButtonProtocol: UIButton {
     
     /// Holds the ViewState of the `TabButton`
