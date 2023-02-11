@@ -17,7 +17,7 @@ extension Header {
         }
         
         /// Holds the ViewState of the `Header.View` and renders it when set.
-        var viewState: ViewState = .initial {
+        var viewState: ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -31,8 +31,8 @@ extension Header {
             return view
         }()
         
-        private lazy var tabBarView: TabBarView = {
-            let view = TabBarView().autolayout()
+        private lazy var tabBar: TabBarProtocol = {
+            let view = TabBar.View().autolayout()
             return view
         }()
         
@@ -82,7 +82,7 @@ extension Header {
         
         private func addSubViews() {
             addSubview(dateView)
-            addSubview(tabBarView)
+            addSubview(tabBar)
             addSubview(searchButton)
             addSubview(settingsButton)
         }
@@ -116,10 +116,10 @@ extension Header {
                 dateView.widthAnchor.constraint(equalToConstant: Constants.dateViewWidth),
                 dateView.heightAnchor.constraint(equalToConstant: Constants.dateViewHeight),
                 
-                tabBarView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                tabBarView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                tabBarView.widthAnchor.constraint(equalToConstant: Constants.tabBarViewWidth),
-                tabBarView.heightAnchor.constraint(equalToConstant: Constants.tabBarViewHeight),
+                tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
+                tabBar.bottomAnchor.constraint(equalTo: bottomAnchor),
+                tabBar.widthAnchor.constraint(equalToConstant: Constants.tabBarViewWidth),
+                tabBar.heightAnchor.constraint(equalToConstant: Constants.tabBarViewHeight),
                 
                 settingsButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width),
                 settingsButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height),
@@ -134,8 +134,9 @@ extension Header {
             ])
         }
         
-        private func render(viewState: ViewState) {
-            tabBarView.viewState = viewState.tabBarViewState
+        private func render(viewState: ViewState?) {
+            guard let viewState = viewState else { return }
+            tabBar.viewState = viewState.tabBarViewState
         }
         
     }
@@ -148,20 +149,7 @@ extension Header.View {
     
     struct ViewState {
         
-        let tabBarViewState: TabBarView.ViewState
-        
-        static let initial: ViewState = ViewState(
-            tabBarViewState: TabBarView.ViewState(
-                type: .top,
-                tabViewStates:[
-                TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
-            ]))
-        
-        init(tabBarViewState: TabBarView.ViewState) {
-            self.tabBarViewState = tabBarViewState
-        }
+        let tabBarViewState: TabBar.ViewState
         
     }
     

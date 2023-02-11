@@ -1,6 +1,6 @@
 import UIKit
 
-extension TasksPage {
+extension MonthPage {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension TasksPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .tabMonthBackground
         }
         
         private func addSubViews() {

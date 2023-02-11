@@ -1,12 +1,12 @@
 import UIKit
 
-extension Body {
+extension TasksPage {
     
     class View: UIView {
         
         // MARK: - SubViews
         
-        private lazy var subView = DayPage.View().autolayout()
+        private lazy var subView = UIView().autolayout()
         
         // MARK: - Init
         
@@ -24,7 +24,7 @@ extension Body {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .tabTasksBackground
         }
         
         private func addSubViews() {
@@ -34,10 +34,10 @@ extension Body {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                subView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
+                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                subView.topAnchor.constraint(equalTo: topAnchor),
+                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
         }
@@ -45,3 +45,4 @@ extension Body {
     }
     
 }
+

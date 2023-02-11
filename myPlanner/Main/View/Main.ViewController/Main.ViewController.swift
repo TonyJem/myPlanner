@@ -11,12 +11,10 @@ extension Main {
             
         }
         
-        /// Holds the ViewState of the `ViewController` and renders it when set.
-        var viewState: ViewState = .initial {
-            didSet {
-                render(viewState: viewState)
-            }
-        }
+        private let presenter: Presenter
+        
+        /// Holds the ViewState of the `ViewController`
+        private var viewStateContainer: ViewStateContainer?
         
         // MARK: - SubViews
         
@@ -26,13 +24,27 @@ extension Main {
         
         // MARK: - LifeCycle
         
+        init(presenter: Presenter) {
+            self.presenter = presenter
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+    //TODO: - Need to find out what next row does and decide if we need to keep it in our app
+        // Also think if we need to add it to other places
+        @available(*, unavailable)
+        required init(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        // MARK: - LifeCycle
+        
         override func viewDidLoad() {
             super.viewDidLoad()
             setupView()
             addSubViews()
             setupLayout()
             
-            render(viewState: viewState)
+            presenter.viewDidLoad()
         }
         
         // MARK: - Private Methods
@@ -67,35 +79,18 @@ extension Main {
             ])
         }
         
-        private func render(viewState: ViewState) {
-            headerView.viewState = viewState.headerViewState
-        }
-        
     }
     
 }
 
-// MARK: - Viewstate
+// MARK: - Implementation of MainView protocol:
 
-extension Main.ViewController {
+extension Main.ViewController: MainView {
     
-    struct ViewState {
-        
-        let headerViewState: Header.View.ViewState
-        
-        static let initial: ViewState = ViewState(headerViewState: Header.View.ViewState(
-            tabBarViewState: TabBarView.ViewState(
-                type: .top,
-                tabViewStates:[
-                    TabButton.ViewState(type: .top, title: "Tab1", color: .green),
-                    TabButton.ViewState(type: .top, title: "Tab2", color: .blue),
-                    TabButton.ViewState(type: .top, title: "Tab3", color: .magenta)
-                ])))
-        
-        init(headerViewState: Header.View.ViewState) {
-            self.headerViewState = headerViewState
-        }
-        
+    func render(viewStateContainer: Main.ViewStateContainer) {
+        self.viewStateContainer = viewStateContainer
+        headerView.viewState = viewStateContainer.headerViewState
+        bodyView.viewState = viewStateContainer.bodyViewState
     }
     
 }

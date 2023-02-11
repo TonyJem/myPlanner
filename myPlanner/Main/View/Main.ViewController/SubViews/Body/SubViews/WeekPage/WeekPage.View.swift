@@ -1,6 +1,6 @@
 import UIKit
 
-extension NotesPage {
+extension WeekPage {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension NotesPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .tabWeekBackground
         }
         
         private func addSubViews() {

@@ -1,6 +1,6 @@
 import UIKit
 
-extension DayPage {
+extension NotesPage {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension DayPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .red
+            backgroundColor = .tabNotesBackground
         }
         
         private func addSubViews() {
@@ -34,10 +34,10 @@ extension DayPage {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                subView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
+                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                subView.topAnchor.constraint(equalTo: topAnchor),
+                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
         }

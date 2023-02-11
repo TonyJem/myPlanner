@@ -10,7 +10,7 @@ struct Tab {
         isActive ? activeColor : inactiveColor
     }
     
-    private let activeColor: UIColor = .activeTabBackround
+    private let activeColor: UIColor = .activeTabBackground
 }
 
 class TabModel {

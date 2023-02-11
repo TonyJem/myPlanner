@@ -1,6 +1,6 @@
 import UIKit
 
-extension WeekPage {
+extension DayPage {
     
     class View: UIView {
         
@@ -24,7 +24,7 @@ extension WeekPage {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .green
+            backgroundColor = .white
         }
         
         private func addSubViews() {
@@ -34,10 +34,10 @@ extension WeekPage {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                subView.topAnchor.constraint(equalTo: topAnchor, constant: .spacingL),
+                subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.spacingL),
+                subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingL)
                 
             ])
         }

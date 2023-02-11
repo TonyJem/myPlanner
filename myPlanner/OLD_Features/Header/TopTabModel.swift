@@ -1,11 +1,11 @@
 class TopTabModel: TabModel {
     
     private var topTabs: [Tab] = [
-        Tab(title: "Day", inactiveColor: .tabDayBackround),
-        Tab(title: "Week", inactiveColor: .tabWeekBackround),
-        Tab(title: "Month", inactiveColor: .tabMonthBackround),
-        Tab(title: "Tasks", inactiveColor: .tabTasksBackround),
-        Tab(title: "Notes", inactiveColor: .tabNotesBackround)
+        Tab(title: "Day", inactiveColor: .tabDayBackground),
+        Tab(title: "Week", inactiveColor: .tabWeekBackground),
+        Tab(title: "Month", inactiveColor: .tabMonthBackground),
+        Tab(title: "Tasks", inactiveColor: .tabTasksBackground),
+        Tab(title: "Notes", inactiveColor: .tabNotesBackground)
     ]
     
     override init() {
