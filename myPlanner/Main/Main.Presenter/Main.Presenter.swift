@@ -12,8 +12,20 @@ extension Main {
         
         weak var view: MainView?
         
+        private var activePage: Header.PageTab.PageTabType = .day
+        
+        private var activeMonth: Footer.MonthTab.MonthTabType = .january
+        
         private func handlePageTabAction(type: Header.PageTab.PageTabType) {
+            activePage = type
             let container = createViewStateContainer(page: type, action: handlePageTabAction)
+            view?.render(viewStateContainer: container)
+        }
+        
+        private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
+            activeMonth = month
+            
+            let container = createViewStateContainer(page: activePage, action: handlePageTabAction)
             view?.render(viewStateContainer: container)
         }
         
@@ -108,7 +120,7 @@ extension Main.Presenter {
             .november,
             .december
         ]
-        let tabs = createMonthTabs(months: months, activeMonth: .january, action: { _ in } )
+        let tabs = createMonthTabs(months: months, activeMonth: activeMonth, action: handleMonthTabAction )
         let tabBarViewState = Footer.MonthTabBar.ViewState(type: .bottom, tabs: tabs)
         return Footer.ViewState(tabBarViewState: tabBarViewState)
     }
