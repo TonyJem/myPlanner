@@ -13,19 +13,17 @@ extension Main {
         weak var view: MainView?
         
         private var activePage: Header.PageTab.PageTabType = .day
-        
         private var activeMonth: Footer.MonthTab.MonthTabType = .january
         
         private func handlePageTabAction(type: Header.PageTab.PageTabType) {
             activePage = type
-            let container = createViewStateContainer(page: type, action: handlePageTabAction)
+            let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
         }
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
-            
-            let container = createViewStateContainer(page: activePage, action: handlePageTabAction)
+            let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
         }
         
@@ -39,8 +37,8 @@ extension Main {
 extension Main.Presenter: MainPresenter {
     
     func viewDidLoad() {
-        let viewStateContainer = createViewStateContainer(page: .day, action: handlePageTabAction)
-        view?.render(viewStateContainer: viewStateContainer)
+        let container = createViewStateContainer()
+        view?.render(viewStateContainer: container)
     }
     
 }
@@ -49,18 +47,10 @@ extension Main.Presenter: MainPresenter {
 
 extension Main.Presenter {
     
-    private func createViewStateContainer(
-        page: Header.PageTab.PageTabType,
-        action: @escaping ((Header.PageTab.PageTabType) -> Void)
-    ) -> Main.ViewStateContainer
+    private func createViewStateContainer() -> Main.ViewStateContainer
     {
-        let headerViewState = createHeaderViewState(
-            activePage: page,
-            action: action
-        )
-        
-        let bodyViewState = createBodyViewState(for: page)
-        
+        let headerViewState = createHeaderViewState()
+        let bodyViewState = createBodyViewState()
         let footerViewState = createFooterViewState()
         
         return .init(
@@ -70,10 +60,7 @@ extension Main.Presenter {
         )
     }
     
-    private func createHeaderViewState(
-        activePage: Header.PageTab.PageTabType,
-        action: @escaping ((Header.PageTab.PageTabType) -> Void)
-    ) -> Header.View.ViewState
+    private func createHeaderViewState() -> Header.View.ViewState
     {
         let pages: [Header.PageTab.PageTabType] = [
             .day,
@@ -82,7 +69,7 @@ extension Main.Presenter {
             .tasks,
             .notes
         ]
-        let tabs = createPageTabs(pages: pages, activePage: activePage, action: action)
+        let tabs = createPageTabs(pages: pages, activePage: activePage, action: handlePageTabAction)
         let tabBarViewState = Header.PageTabBar.ViewState(type: .top, tabs: tabs)
         return .init(tabBarViewState: tabBarViewState)
     }
@@ -101,8 +88,8 @@ extension Main.Presenter {
         return tabs
     }
     
-    private func createBodyViewState(for page: Header.PageTab.PageTabType) -> Body.View.ViewState {
-        Body.View.ViewState(activePage: page)
+    private func createBodyViewState() -> Body.View.ViewState {
+        Body.View.ViewState(activePage: activePage)
     }
     
     private func createFooterViewState() -> Footer.ViewState {
