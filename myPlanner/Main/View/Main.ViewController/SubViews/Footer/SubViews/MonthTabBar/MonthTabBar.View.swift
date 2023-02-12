@@ -1,15 +1,15 @@
 import UIKit
 
-protocol TabBarProtocol: UIStackView {
+protocol MonthTabBarProtocol: UIStackView {
     
-    /// Holds the ViewState of the `TabBar`
-    var viewState: TabBar.ViewState? { get set }
+    /// Holds the ViewState of the `MonthTabBar`
+    var viewState: Footer.MonthTabBar.ViewState? { get set }
     
 }
 
-extension TabBar {
+extension Footer.MonthTabBar {
     
-    class View: UIStackView, TabBarProtocol {
+    class View: UIStackView, MonthTabBarProtocol {
         
         enum Constants {
             
@@ -47,7 +47,7 @@ extension TabBar {
             
             removeAllArrangedSubviews()
             
-            let type: TabButton.ViewState.TabButtonType
+            let type: MonthTabButton.ViewState.TabButtonType
             switch viewState.type {
             case .top:
                 type = .top
@@ -57,25 +57,25 @@ extension TabBar {
             
             for tab in viewState.tabs {
                 let tabButtonViewState = createTabButtonViewState(type: type, for: tab)
-                let tabButton: TabButtonProtocol = TabButton()
+                let tabButton: MonthTabButtonProtocol = MonthTabButton()
                 tabButton.viewState = tabButtonViewState
                 addArrangedSubview(tabButton)
             }
             
         }
         
-        private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: PageTab) -> TabButton.ViewState {
+        private func createTabButtonViewState(type: MonthTabButton.ViewState.TabButtonType, for tab: Footer.MonthTab) -> MonthTabButton.ViewState {
             
-            return .init(
+            return MonthTabButton.ViewState(
                 type: type,
-                pageTabType: tab.type,
+                monthTabType: tab.type,
                 title: tab.type.tabTitle,
                 color: tab.type.tabColor,
                 isActive: tab.isActive,
-                tabAction: tab.action
-            )
+                tabAction: tab.action)
         }
         
     }
     
 }
+

@@ -11,16 +11,25 @@ extension Footer {
     
     class View: UIView, FooterProtocol {
         
-        /// Holds the ViewState of the `Header.View` and renders it when set.
+        enum Constants {
+            
+            static let tabBarViewWidth: CGFloat = 850.0
+            static let tabBarViewHeight: CGFloat = 30.0
+            
+        }
+        
         var viewState: ViewState? {
             didSet {
-//                render(viewState: viewState)
+                render(viewState: viewState)
             }
         }
         
         // MARK: - SubViews
         
-        private lazy var subView = UIView().autolayout()
+        private lazy var tabBar: MonthTabBarProtocol = {
+            let view = Footer.MonthTabBar.View().autolayout()
+            return view
+        }()
         
         // MARK: - Init
         
@@ -38,27 +47,27 @@ extension Footer {
         // MARK: - Private Methods
         
         private func setupView() {
-            backgroundColor = .systemPink
+            backgroundColor = .systemGray
         }
         
         private func addSubViews() {
-            addSubview(subView)
+            addSubview(tabBar)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
+                tabBar.topAnchor.constraint(equalTo: topAnchor),
+                tabBar.widthAnchor.constraint(equalToConstant: Constants.tabBarViewWidth),
+                tabBar.heightAnchor.constraint(equalToConstant: Constants.tabBarViewHeight),
                 
             ])
         }
         
         private func render(viewState: ViewState?) {
             guard let viewState = viewState else { return }
-//            tabBar.viewState = viewState.tabBarViewState
+            tabBar.viewState = viewState.tabBarViewState
         }
         
     }

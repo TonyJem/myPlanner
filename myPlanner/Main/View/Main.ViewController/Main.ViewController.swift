@@ -13,7 +13,7 @@ extension Main {
         
         private let presenter: Presenter
         
-        /// Holds the ViewState of the `ViewController`
+        /// Holds the viewStateContainer of the `ViewController`
         private var viewStateContainer: ViewStateContainer?
         
         // MARK: - SubViews
@@ -23,8 +23,7 @@ extension Main {
         private lazy var bodyView = Body.View().autolayout()
         
         private lazy var footer: FooterProtocol = {
-            let view = Footer.View().autolayout()
-            return view
+            Footer.View().autolayout()
         }()
         
         // MARK: - LifeCycle
@@ -96,6 +95,7 @@ extension Main.ViewController: MainView {
         self.viewStateContainer = viewStateContainer
         headerView.viewState = viewStateContainer.headerViewState
         bodyView.viewState = viewStateContainer.bodyViewState
+        footer.viewState = viewStateContainer.footerViewState
     }
     
 }

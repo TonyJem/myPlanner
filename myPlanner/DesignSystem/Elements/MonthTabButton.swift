@@ -1,29 +1,21 @@
 import UIKit
 
-protocol TabButtonProtocol: UIButton {
+protocol MonthTabButtonProtocol: UIButton {
     
     /// Holds the ViewState of the `TabButton`
-    var viewState: TabButton.ViewState? { get set }
+    var viewState: MonthTabButton.ViewState? { get set }
     
 }
 
-/// This class defines customised button, that has shape of Trapezium with rounded corners.
-/// Used for Tab's shape visualisation in UI.
-final class TabButton: UIButton, TabButtonProtocol {
+final class MonthTabButton: UIButton, MonthTabButtonProtocol {
     
-    /// Holds internal constants, that will be used same for all instances of `TabButton`.
-    /// Adjustments of it will cause changes in each `TabButton` used in App.
     enum Constants {
         
-        /// Describes the radius for rounding left and right top corners of Tab.
         static let tabCornerRadius: CGFloat = 10.0
-        
-        /// Describes Tab side's alignment angle measured in degrees:
         static let tabAlignmentAngle: CGFloat = 15.0
         
     }
     
-    /// Holds the ViewState of the `TabButton` and renders it when set.
     var viewState: ViewState? {
         didSet {
             render(viewState: viewState)
@@ -43,11 +35,10 @@ final class TabButton: UIButton, TabButtonProtocol {
     
     // MARK: - Actions
     
-    /// The action that will happen after tapping on particular instance of `TabButton`.
     @objc private func didTapAction() {
-        print("🟢 didTapOn Element TabButton in TabButton")
+        print("🟢🟢 didTapOn Element MonthTabButton")        
         guard let viewState = viewState else { return }
-        viewState.tabAction(viewState.pageTabType)
+        viewState.tabAction(viewState.monthTabType)
     }
     
     // MARK: - Private Methods
@@ -65,7 +56,7 @@ final class TabButton: UIButton, TabButtonProtocol {
 
 // MARK: - Viewstate
 
-extension TabButton {
+extension MonthTabButton {
     
     struct ViewState {
         
@@ -74,28 +65,25 @@ extension TabButton {
             case bottom
         }
         
-//    TODO: rename type to position or alignement or etc.... but not type anymore
         let type: TabButtonType
-        
-        //    TODO: May be make it somehow generic, or tab should tell to presenter it self which button was tapped
-        let pageTabType: Header.PageTab.PageTabType
+        let monthTabType: Footer.MonthTab.MonthTabType
         let title: String
         let color: UIColor
         let textColor: UIColor
         let isActive: Bool
-        let tabAction: ((Header.PageTab.PageTabType) -> Void)
+        let tabAction: ((Footer.MonthTab.MonthTabType) -> Void)
         
         init(
             type: TabButtonType,
-            pageTabType: Header.PageTab.PageTabType,
+            monthTabType: Footer.MonthTab.MonthTabType,
             title: String,
             color: UIColor,
             textColor: UIColor = .black,
             isActive: Bool = false,
-            tabAction: @escaping ((Header.PageTab.PageTabType) -> Void)
+            tabAction: @escaping ((Footer.MonthTab.MonthTabType) -> Void)
         ) {
             self.type = type
-            self.pageTabType = pageTabType
+            self.monthTabType = monthTabType
             self.title = title
             self.color = color
             self.textColor = textColor
@@ -109,7 +97,7 @@ extension TabButton {
 
 // MARK: - Draw TabButton shape as a Trapezium with rounded corners
 
-extension TabButton {
+extension MonthTabButton {
     
     override func draw(_ rect: CGRect) {
         guard let viewState = self.viewState else { return }
@@ -133,7 +121,7 @@ extension TabButton {
     }
     
     private func drawTopTabButton(
-        viewState: TabButton.ViewState,
+        viewState: MonthTabButton.ViewState,
         radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize
@@ -160,7 +148,7 @@ extension TabButton {
     }
     
     private func drawBottomTabButton(
-        viewState: TabButton.ViewState,
+        viewState: MonthTabButton.ViewState,
         radius: CGFloat = Constants.tabCornerRadius,
         angle: CGFloat,
         size: CGSize

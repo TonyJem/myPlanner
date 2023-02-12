@@ -1,24 +1,28 @@
 import UIKit
 
-struct PageTab {
+extension Header {
     
-    let type: PageTabType
-    let isActive: Bool
-    let action: ((PageTabType) -> Void)
-    
-    init(
-        type: PageTabType,
-        isActive: Bool = false,
-        action: @escaping ((PageTabType) -> Void))
-    {
-        self.type = type
-        self.isActive = isActive
-        self.action = action
+    struct PageTab {
+        
+        let type: PageTabType
+        let isActive: Bool
+        let action: ((PageTabType) -> Void)
+        
+        init(
+            type: PageTabType,
+            isActive: Bool = false,
+            action: @escaping ((PageTabType) -> Void))
+        {
+            self.type = type
+            self.isActive = isActive
+            self.action = action
+        }
+        
     }
     
 }
 
-extension PageTab {
+extension Header.PageTab {
     
     enum PageTabType {
         
