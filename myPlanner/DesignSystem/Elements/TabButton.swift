@@ -78,21 +78,21 @@ extension TabButton {
         let type: TabButtonType
         
         //    TODO: May be make it somehow generic, or tab should tell to presenter it self which button was tapped
-        let pageTabType: PageTab.PageTabType
+        let pageTabType: Header.PageTab.PageTabType
         let title: String
         let color: UIColor
         let textColor: UIColor
         let isActive: Bool
-        let tabAction: ((PageTab.PageTabType) -> Void)
+        let tabAction: ((Header.PageTab.PageTabType) -> Void)
         
         init(
             type: TabButtonType,
-            pageTabType: PageTab.PageTabType,
+            pageTabType: Header.PageTab.PageTabType,
             title: String,
             color: UIColor,
             textColor: UIColor = .black,
             isActive: Bool = false,
-            tabAction: @escaping ((PageTab.PageTabType) -> Void)
+            tabAction: @escaping ((Header.PageTab.PageTabType) -> Void)
         ) {
             self.type = type
             self.pageTabType = pageTabType

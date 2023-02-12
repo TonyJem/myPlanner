@@ -27,7 +27,7 @@ extension Footer {
         // MARK: - SubViews
         
         private lazy var tabBar: TabBarProtocol = {
-            let view = TabBar.View().autolayout()
+            let view = Header.TabBar.View().autolayout()
             return view
         }()
         

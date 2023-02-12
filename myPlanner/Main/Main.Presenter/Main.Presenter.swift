@@ -12,7 +12,7 @@ extension Main {
         
         weak var view: MainView?
         
-        private func handlePageTabAction(type: PageTab.PageTabType) {
+        private func handlePageTabAction(type: Header.PageTab.PageTabType) {
             let container = createViewStateContainer(page: type, action: handlePageTabAction)
             view?.render(viewStateContainer: container)
         }
@@ -38,8 +38,8 @@ extension Main.Presenter: MainPresenter {
 extension Main.Presenter {
     
     private func createViewStateContainer(
-        page: PageTab.PageTabType,
-        action: @escaping ((PageTab.PageTabType) -> Void)
+        page: Header.PageTab.PageTabType,
+        action: @escaping ((Header.PageTab.PageTabType) -> Void)
     ) -> Main.ViewStateContainer
     {
         let headerViewState = createHeaderViewState(
@@ -59,51 +59,51 @@ extension Main.Presenter {
     }
     
     private func createHeaderViewState(
-        activePage: PageTab.PageTabType,
-        action: @escaping ((PageTab.PageTabType) -> Void)
+        activePage: Header.PageTab.PageTabType,
+        action: @escaping ((Header.PageTab.PageTabType) -> Void)
     ) -> Header.View.ViewState
     {
-        let pages: [PageTab.PageTabType] = [
+        let pages: [Header.PageTab.PageTabType] = [
             .day,
             .week,
             .month,
             .tasks,
             .notes
         ]
-        let tabs = createTabs(pages: pages, activePage: activePage, action: action)
-        let tabBarViewState = TabBar.ViewState(type: .top, tabs: tabs)
+        let tabs = createPageTabs(pages: pages, activePage: activePage, action: action)
+        let tabBarViewState = Header.TabBar.ViewState(type: .top, tabs: tabs)
         return .init(tabBarViewState: tabBarViewState)
     }
     
-    private func createTabs(
-        pages: [PageTab.PageTabType],
-        activePage: PageTab.PageTabType,
-        action: @escaping ((PageTab.PageTabType) -> Void)
-    ) -> [PageTab]
+    private func createPageTabs(
+        pages: [Header.PageTab.PageTabType],
+        activePage: Header.PageTab.PageTabType,
+        action: @escaping ((Header.PageTab.PageTabType) -> Void)
+    ) -> [Header.PageTab]
     {
-        var tabs: [PageTab] = []
+        var tabs: [Header.PageTab] = []
         pages.forEach {
-            let tab = PageTab(type: $0, isActive: $0 == activePage, action: action)
+            let tab = Header.PageTab(type: $0, isActive: $0 == activePage, action: action)
             tabs.append(tab)
         }
         return tabs
     }
     
-    private func createBodyViewState(for page: PageTab.PageTabType) -> Body.View.ViewState {
+    private func createBodyViewState(for page: Header.PageTab.PageTabType) -> Body.View.ViewState {
         Body.View.ViewState(activePage: page)
     }
     
     private func createFooterViewState() -> Footer.ViewState {
         
-        let pages: [PageTab.PageTabType] = [
+        let pages: [Header.PageTab.PageTabType] = [
             .day,
             .week,
             .month,
             .tasks,
             .notes
         ]
-        let tabs = createTabs(pages: pages, activePage: .day, action: { _ in } )
-        let tabBarViewState = TabBar.ViewState(type: .bottom, tabs: tabs)
+        let tabs = createPageTabs(pages: pages, activePage: .day, action: { _ in } )
+        let tabBarViewState = Header.TabBar.ViewState(type: .bottom, tabs: tabs)
         return Footer.ViewState(tabBarViewState: tabBarViewState)
     }
     

@@ -452,9 +452,9 @@
 		3A5D2073298997510029408A /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20E22998F1DA0029408A /* SubViews */,
 				3A5D208529899A7F0029408A /* Header.swift */,
 				3A5D20942989A31A0029408A /* Header.View.swift */,
-				3A5D20D02993040D0029408A /* PageTab.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -609,7 +609,6 @@
 		3A5D20BE298EAC140029408A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D20D729978A340029408A /* TabBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -635,11 +634,20 @@
 		3A5D20D729978A340029408A /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20D02993040D0029408A /* PageTab.swift */,
 				3A5D20D829978A470029408A /* TabBar.swift */,
 				3A5D20DA29978A6D0029408A /* TabBar.View.swift */,
 				3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3A5D20E22998F1DA0029408A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D20D729978A340029408A /* TabBar */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -146,7 +146,7 @@ extension Body.View {
     
     struct ViewState {
         
-        let activePage: PageTab.PageTabType
+        let activePage: Header.PageTab.PageTabType
         
     }
     

@@ -3,11 +3,11 @@ import UIKit
 protocol TabBarProtocol: UIStackView {
     
     /// Holds the ViewState of the `TabBar`
-    var viewState: TabBar.ViewState? { get set }
+    var viewState: Header.TabBar.ViewState? { get set }
     
 }
 
-extension TabBar {
+extension Header.TabBar {
     
     class View: UIStackView, TabBarProtocol {
         
@@ -64,7 +64,7 @@ extension TabBar {
             
         }
         
-        private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: PageTab) -> TabButton.ViewState {
+        private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: Header.PageTab) -> TabButton.ViewState {
             
             return .init(
                 type: type,

@@ -1,4 +1,4 @@
-extension TabBar {
+extension Header.TabBar {
     
     struct ViewState {
         
@@ -8,7 +8,7 @@ extension TabBar {
         }
         
         let type: TabBarViewType
-        let tabs: [PageTab]
+        let tabs: [Header.PageTab]
         
     }
     
