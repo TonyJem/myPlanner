@@ -68,11 +68,15 @@
 		3A5D20CA299117970029408A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20C9299117970029408A /* MainView.swift */; };
 		3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20CB2991997A0029408A /* UIStackView.swift */; };
 		3A5D20D12993040D0029408A /* PageTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20D02993040D0029408A /* PageTab.swift */; };
-		3A5D20D929978A470029408A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20D829978A470029408A /* TabBar.swift */; };
-		3A5D20DB29978A6D0029408A /* TabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DA29978A6D0029408A /* TabBar.View.swift */; };
-		3A5D20DD29978A7E0029408A /* TabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */; };
+		3A5D20D929978A470029408A /* PageTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20D829978A470029408A /* PageTabBar.swift */; };
+		3A5D20DB29978A6D0029408A /* PageTabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DA29978A6D0029408A /* PageTabBar.View.swift */; };
+		3A5D20DD29978A7E0029408A /* PageTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DC29978A7E0029408A /* PageTabBar.ViewState.swift */; };
 		3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20DE299792160029408A /* Footer.ViewState.swift */; };
 		3A5D20E1299797F20029408A /* MonthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E0299797F20029408A /* MonthTab.swift */; };
+		3A5D20E62998F6D10029408A /* MonthTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E52998F6D10029408A /* MonthTabBar.swift */; };
+		3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */; };
+		3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */; };
+		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,11 +162,15 @@
 		3A5D20C9299117970029408A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3A5D20CB2991997A0029408A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		3A5D20D02993040D0029408A /* PageTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTab.swift; sourceTree = "<group>"; };
-		3A5D20D829978A470029408A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		3A5D20DA29978A6D0029408A /* TabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.View.swift; sourceTree = "<group>"; };
-		3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20D829978A470029408A /* PageTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabBar.swift; sourceTree = "<group>"; };
+		3A5D20DA29978A6D0029408A /* PageTabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabBar.View.swift; sourceTree = "<group>"; };
+		3A5D20DC29978A7E0029408A /* PageTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20DE299792160029408A /* Footer.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20E0299797F20029408A /* MonthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTab.swift; sourceTree = "<group>"; };
+		3A5D20E52998F6D10029408A /* MonthTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.swift; sourceTree = "<group>"; };
+		3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.View.swift; sourceTree = "<group>"; };
+		3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.ViewState.swift; sourceTree = "<group>"; };
+		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,10 +439,10 @@
 		3A5D20712989973E0029408A /* Footer */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D20E32998F4240029408A /* SubViews */,
 				3A5D208929899AFE0029408A /* Footer.swift */,
 				3A5D20962989A3570029408A /* Footer.View.swift */,
 				3A5D20DE299792160029408A /* Footer.ViewState.swift */,
-				3A5D20E0299797F20029408A /* MonthTab.swift */,
 			);
 			path = Footer;
 			sourceTree = "<group>";
@@ -602,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5D20B32989C3350029408A /* TabButton.swift */,
+				3A5D20EB2998F9630029408A /* MonthTabButton.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -635,9 +644,9 @@
 			isa = PBXGroup;
 			children = (
 				3A5D20D02993040D0029408A /* PageTab.swift */,
-				3A5D20D829978A470029408A /* TabBar.swift */,
-				3A5D20DA29978A6D0029408A /* TabBar.View.swift */,
-				3A5D20DC29978A7E0029408A /* TabBar.ViewState.swift */,
+				3A5D20D829978A470029408A /* PageTabBar.swift */,
+				3A5D20DA29978A6D0029408A /* PageTabBar.View.swift */,
+				3A5D20DC29978A7E0029408A /* PageTabBar.ViewState.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -648,6 +657,25 @@
 				3A5D20D729978A340029408A /* TabBar */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		3A5D20E32998F4240029408A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D20E42998F47B0029408A /* MonthTabBar */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		3A5D20E42998F47B0029408A /* MonthTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D20E0299797F20029408A /* MonthTab.swift */,
+				3A5D20E52998F6D10029408A /* MonthTabBar.swift */,
+				3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */,
+				3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */,
+			);
+			path = MonthTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,6 +817,7 @@
 				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,
 				3A2D668129852029007AD3F6 /* Colors.swift in Sources */,
 				3A2D6692298523DD007AD3F6 /* FooterView.swift in Sources */,
+				3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */,
 				3A5D20AC2989A73A0029408A /* NotesPage.View.swift in Sources */,
 				3A5D20912989A0610029408A /* Template.swift in Sources */,
 				3A2D66B92985882E007AD3F6 /* DateModul.ViewState.swift in Sources */,
@@ -799,17 +828,17 @@
 				3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */,
 				3A5D208D29899C000029408A /* Body.View.swift in Sources */,
 				3A5D20972989A3570029408A /* Footer.View.swift in Sources */,
-				3A5D20DD29978A7E0029408A /* TabBar.ViewState.swift in Sources */,
+				3A5D20DD29978A7E0029408A /* PageTabBar.ViewState.swift in Sources */,
 				3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */,
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
 				3A5D20CA299117970029408A /* MainView.swift in Sources */,
-				3A5D20D929978A470029408A /* TabBar.swift in Sources */,
+				3A5D20D929978A470029408A /* PageTabBar.swift in Sources */,
 				3A5D208629899A7F0029408A /* Header.swift in Sources */,
 				3A2D66BF29859856007AD3F6 /* Day.swift in Sources */,
 				3A2D66A02985244D007AD3F6 /* TopTabModel.swift in Sources */,
 				3A2D6684298522FF007AD3F6 /* ViewController.swift in Sources */,
 				3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */,
-				3A5D20DB29978A6D0029408A /* TabBar.View.swift in Sources */,
+				3A5D20DB29978A6D0029408A /* PageTabBar.View.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
 				3A5D20E1299797F20029408A /* MonthTab.swift in Sources */,
 				3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */,
@@ -833,12 +862,15 @@
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
 				3A2D66CF298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift in Sources */,
 				3A5D208829899AE70029408A /* Body.swift in Sources */,
+				3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */,
 				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A2D6694298523DD007AD3F6 /* BottomTabPanelView.swift in Sources */,
 				3A5D20952989A31A0029408A /* Header.View.swift in Sources */,
 				3A2D668C298523D2007AD3F6 /* HeaderView.swift in Sources */,
 				3A5D20A42989A6CF0029408A /* DayPage.View.swift in Sources */,
+				3A5D20E62998F6D10029408A /* MonthTabBar.swift in Sources */,
 				3A2D66B229856C48007AD3F6 /* DateModul.View.swift in Sources */,
+				3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */,
 				3A5D2082298999540029408A /* Main.swift in Sources */,
 				3A2D669F2985244D007AD3F6 /* BottomTabModel.swift in Sources */,
 			);

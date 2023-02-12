@@ -34,8 +34,8 @@ extension Header {
             return view
         }()
         
-        private lazy var tabBar: TabBarProtocol = {
-            let view = TabBar.View().autolayout()
+        private lazy var tabBar: PageTabBarProtocol = {
+            let view = PageTabBar.View().autolayout()
             return view
         }()
         
@@ -152,7 +152,7 @@ extension Header.View {
     
     struct ViewState {
         
-        let tabBarViewState: Header.TabBar.ViewState
+        let tabBarViewState: Header.PageTabBar.ViewState
         
     }
     

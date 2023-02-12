@@ -1,4 +1,6 @@
-extension Header.TabBar {
+import Foundation
+
+extension Footer.MonthTabBar {
     
     struct ViewState {
         
@@ -8,8 +10,9 @@ extension Header.TabBar {
         }
         
         let type: TabBarViewType
-        let tabs: [Header.PageTab]
+        let tabs: [Footer.MonthTab]
         
     }
     
 }
+

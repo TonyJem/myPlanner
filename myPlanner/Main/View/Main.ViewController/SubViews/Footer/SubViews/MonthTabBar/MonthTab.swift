@@ -1,24 +1,28 @@
 import UIKit
 
-struct MonthTab {
+extension Footer {
     
-    let type: MonthTabType
-    let isActive: Bool
-    let action: ((MonthTabType) -> Void)
-    
-    init(
-        type: MonthTabType,
-        isActive: Bool = false,
-        action: @escaping ((MonthTabType) -> Void))
-    {
-        self.type = type
-        self.isActive = isActive
-        self.action = action
+    struct MonthTab {
+        
+        let type: MonthTabType
+        let isActive: Bool
+        let action: ((MonthTabType) -> Void)
+        
+        init(
+            type: MonthTabType,
+            isActive: Bool = false,
+            action: @escaping ((MonthTabType) -> Void))
+        {
+            self.type = type
+            self.isActive = isActive
+            self.action = action
+        }
+        
     }
     
 }
 
-extension MonthTab {
+extension Footer.MonthTab {
     
     enum MonthTabType {
         

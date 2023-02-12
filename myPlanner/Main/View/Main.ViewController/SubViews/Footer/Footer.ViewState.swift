@@ -6,8 +6,8 @@ extension Footer {
     
     struct ViewState {
         
-        let tabBarViewState: Header.TabBar.ViewState
+        let tabBarViewState: Footer.MonthTabBar.ViewState
         
     }
-    
+     
 }
