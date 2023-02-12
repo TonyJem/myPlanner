@@ -13,7 +13,7 @@ extension Footer {
         
         enum Constants {
             
-            static let tabBarViewWidth: CGFloat = 650.0
+            static let tabBarViewWidth: CGFloat = 850.0
             static let tabBarViewHeight: CGFloat = 30.0
             
         }

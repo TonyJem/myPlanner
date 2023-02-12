@@ -97,7 +97,16 @@ extension Main.Presenter {
         let months: [Footer.MonthTab.MonthTabType] = [
             .january,
             .february,
-            .march
+            .march,
+            .april,
+            .may,
+            .june,
+            .july,
+            .august,
+            .september,
+            .october,
+            .november,
+            .december
         ]
         let tabs = createMonthTabs(months: months, activeMonth: .january, action: { _ in } )
         let tabBarViewState = Footer.MonthTabBar.ViewState(type: .bottom, tabs: tabs)
