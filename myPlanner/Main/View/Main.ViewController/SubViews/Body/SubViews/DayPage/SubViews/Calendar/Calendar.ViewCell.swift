@@ -2,7 +2,7 @@ import UIKit
 
 extension DayPage.Calendar {
     
-    class Cell: UICollectionViewCell {
+    class ViewCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -10,7 +10,7 @@ extension DayPage.Calendar {
             
         }
         
-        static let identifier = String(describing: Cell.self)
+        static let identifier = String(describing: ViewCell.self)
         
         var viewState: CollectionViewCell.ViewState? {
             didSet {
@@ -100,7 +100,7 @@ extension DayPage.Calendar {
 }
 
 // MARK: - SetConstraints
-extension DayPage.Calendar.Cell {
+extension DayPage.Calendar.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

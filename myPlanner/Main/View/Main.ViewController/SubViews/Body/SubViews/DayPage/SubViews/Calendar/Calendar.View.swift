@@ -80,11 +80,11 @@ extension DayPage.Calendar {
             
             weekDays.dataSource = self
             weekDays.delegate = self
-            weekDays.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+            weekDays.register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
             
             dates.dataSource = self
             dates.delegate = self
-            dates.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
+            dates.register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
             
         }
         
@@ -153,7 +153,7 @@ extension DayPage.Calendar.View: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.Cell.identifier, for: indexPath) as! DayPage.Calendar.Cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.ViewCell.identifier, for: indexPath) as! DayPage.Calendar.ViewCell
         
         if collectionView == self.weekDays {
             cell.viewState = weekDayViewStates[indexPath.row]

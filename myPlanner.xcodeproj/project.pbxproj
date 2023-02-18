@@ -38,7 +38,7 @@
 		3A2D66BF29859856007AD3F6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66BE29859856007AD3F6 /* Day.swift */; };
 		3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C32985B132007AD3F6 /* Calendar.swift */; };
 		3A2D66C72985B209007AD3F6 /* Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C62985B209007AD3F6 /* Calendar.View.swift */; };
-		3A2D66C92985BCA5007AD3F6 /* Calendar.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C82985BCA5007AD3F6 /* Calendar.Cell.swift */; };
+		3A2D66C92985BCA5007AD3F6 /* Calendar.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66C82985BCA5007AD3F6 /* Calendar.ViewCell.swift */; };
 		3A2D66CF298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D66CE298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift */; };
 		3A5D2082298999540029408A /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D2081298999540029408A /* Main.swift */; };
 		3A5D2084298999AF0029408A /* Main.ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D2083298999AF0029408A /* Main.ViewController.swift */; };
@@ -136,7 +136,7 @@
 		3A2D66BE29859856007AD3F6 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3A2D66C32985B132007AD3F6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		3A2D66C62985B209007AD3F6 /* Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.View.swift; sourceTree = "<group>"; };
-		3A2D66C82985BCA5007AD3F6 /* Calendar.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.Cell.swift; sourceTree = "<group>"; };
+		3A2D66C82985BCA5007AD3F6 /* Calendar.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.ViewCell.swift; sourceTree = "<group>"; };
 		3A2D66CE298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.CollectionViewCell.ViewState.swift; sourceTree = "<group>"; };
 		3A5D2081298999540029408A /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		3A5D2083298999AF0029408A /* Main.ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.ViewController.swift; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 			children = (
 				3A2D66C32985B132007AD3F6 /* Calendar.swift */,
 				3A2D66C62985B209007AD3F6 /* Calendar.View.swift */,
-				3A2D66C82985BCA5007AD3F6 /* Calendar.Cell.swift */,
+				3A2D66C82985BCA5007AD3F6 /* Calendar.ViewCell.swift */,
 				3A2D66CE298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift */,
 			);
 			path = Calendar;
@@ -838,7 +838,7 @@
 				3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */,
 				3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
-				3A2D66C92985BCA5007AD3F6 /* Calendar.Cell.swift in Sources */,
+				3A2D66C92985BCA5007AD3F6 /* Calendar.ViewCell.swift in Sources */,
 				3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */,
 				3A5D20A62989A6FB0029408A /* WeekPage.View.swift in Sources */,
 				3A5D20A22989A64F0029408A /* NotesPage.swift in Sources */,
