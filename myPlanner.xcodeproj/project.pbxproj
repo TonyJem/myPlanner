@@ -78,6 +78,8 @@
 		3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */; };
 		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
 		3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */; };
+		3AD34AB729A0C534001FD558 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB629A0C534001FD558 /* Date.swift */; };
+		3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB829A0C557001FD558 /* Date.View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
 		3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.swift; sourceTree = "<group>"; };
+		3AD34AB629A0C534001FD558 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3AD34AB829A0C557001FD558 /* Date.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +559,8 @@
 		3A5D207E298997D60029408A /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				3AD34AB629A0C534001FD558 /* Date.swift */,
+				3AD34AB829A0C557001FD558 /* Date.View.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -823,6 +829,7 @@
 				3A2D669929852407007AD3F6 /* ViewCell.swift in Sources */,
 				3A5D208D29899C000029408A /* Body.View.swift in Sources */,
 				3A5D20972989A3570029408A /* Footer.View.swift in Sources */,
+				3AD34AB729A0C534001FD558 /* Date.swift in Sources */,
 				3A5D20DD29978A7E0029408A /* PageTabBar.ViewState.swift in Sources */,
 				3A2D66C42985B132007AD3F6 /* Calendar.swift in Sources */,
 				3A2D6693298523DD007AD3F6 /* BottomTab.swift in Sources */,
@@ -841,6 +848,7 @@
 				3A5D209E2989A6330029408A /* MonthPage.swift in Sources */,
 				3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */,
 				3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */,
+				3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */,
 				3A2D668B298523D2007AD3F6 /* TopTab.swift in Sources */,
 				3A2D66C92985BCA5007AD3F6 /* Calendar.Cell.swift in Sources */,
 				3A5D20CC2991997B0029408A /* UIStackView.swift in Sources */,
