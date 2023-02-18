@@ -39,15 +39,15 @@ extension Header {
             return view
         }()
         
-        private lazy var searchButton: UIButton = {
-            let button = createIconButton(systemName: "magnifyingglass").autolayout()
-            button.addTarget(self, action: #selector(didTapOnSettingsButton), for: .touchUpInside)
+        private lazy var searchButton: IconButton = {
+            let button = IconButton(systemName: "magnifyingglass").autolayout()
+            button.addTarget(self, action: #selector(didTapOnSearchButton), for: .touchUpInside)
             return button
         }()
         
         
-        private lazy var settingsButton: UIButton = {
-            let button = createIconButton(systemName: "gearshape").autolayout()
+        private lazy var settingsButton: IconButton = {
+            let button = IconButton(systemName: "gearshape").autolayout()
             button.addTarget(self, action: #selector(didTapOnSettingsButton), for: .touchUpInside)
             return button
         }()
@@ -88,27 +88,6 @@ extension Header {
             addSubview(tabBar)
             addSubview(searchButton)
             addSubview(settingsButton)
-        }
-        
-        private func createIconButton(
-            systemName: String,
-            tintColor: UIColor = .white,
-            pointSize: CGFloat = 24,
-            weight: UIImage.SymbolWeight = .light
-        ) -> UIButton
-        {
-            let button = UIButton().autolayout()
-            let buttonIcon = UIImage(
-                systemName: systemName,
-                withConfiguration: UIImage.SymbolConfiguration(weight: weight)
-            )
-            button.tintColor = tintColor
-            button.setImage(buttonIcon, for: .normal)
-            button.setPreferredSymbolConfiguration(
-                UIImage.SymbolConfiguration(pointSize: pointSize),
-                forImageIn: .normal
-            )
-            return button
         }
         
         private func setupLayout() {

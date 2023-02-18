@@ -40,14 +40,16 @@ final class IconButton: UIButton {
     }
     
     private func configureImage() {
-        let icon = UIImage(
-        systemName: systemName,
-        withConfiguration: UIImage.SymbolConfiguration(weight: weight)
+        setImage(
+            UIImage(
+                systemName: systemName,
+                withConfiguration: UIImage.SymbolConfiguration(weight: weight)
+            ),
+            for: .normal
         )
-        setImage(icon, for: .normal)
         setPreferredSymbolConfiguration(
-        UIImage.SymbolConfiguration(pointSize: size),
-        forImageIn: .normal
+            UIImage.SymbolConfiguration(pointSize: size),
+            forImageIn: .normal
         )
     }
     
