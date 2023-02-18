@@ -80,6 +80,7 @@
 		3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */; };
 		3AD34AB729A0C534001FD558 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB629A0C534001FD558 /* Date.swift */; };
 		3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB829A0C557001FD558 /* Date.View.swift */; };
+		3AD34ABB29A0C712001FD558 /* Date.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34ABA29A0C712001FD558 /* Date.ViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.swift; sourceTree = "<group>"; };
 		3AD34AB629A0C534001FD558 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AD34AB829A0C557001FD558 /* Date.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.View.swift; sourceTree = "<group>"; };
+		3AD34ABA29A0C712001FD558 /* Date.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.ViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,6 +563,7 @@
 			children = (
 				3AD34AB629A0C534001FD558 /* Date.swift */,
 				3AD34AB829A0C557001FD558 /* Date.View.swift */,
+				3AD34ABA29A0C712001FD558 /* Date.ViewState.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				3A5D20C82991169B0029408A /* Main.ViewStateContainer.swift in Sources */,
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3A2D6697298523FF007AD3F6 /* View.swift in Sources */,
+				3AD34ABB29A0C712001FD558 /* Date.ViewState.swift in Sources */,
 				3A5D20C32990ED650029408A /* Main.Module.swift in Sources */,
 				3A5D20D12993040D0029408A /* PageTab.swift in Sources */,
 				3A2D668D298523D2007AD3F6 /* TopTabPanelView.swift in Sources */,

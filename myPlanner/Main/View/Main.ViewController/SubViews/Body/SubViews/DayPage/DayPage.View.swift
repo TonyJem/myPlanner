@@ -59,7 +59,7 @@ extension DayPage.View: UICollectionViewDataSource {
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
         let subtitle = "\(indexPath.row)TH DAY, 337 LEFT, WEEK 4"
-        let viewState = DateModul.ViewState(
+        let viewState = DayPage.Date.ViewState(
             title: title,
             date: date,
             subtitle: subtitle
