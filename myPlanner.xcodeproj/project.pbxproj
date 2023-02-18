@@ -62,6 +62,7 @@
 		3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */; };
 		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
 		3ACA4D5E29A0E15900C7DCC6 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */; };
+		3ACA4D6029A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D5F29A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift */; };
 		3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */; };
 		3AD34AB729A0C534001FD558 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB629A0C534001FD558 /* Date.swift */; };
 		3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB829A0C557001FD558 /* Date.View.swift */; };
@@ -145,6 +146,7 @@
 		3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
 		3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		3ACA4D5F29A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoInvalidatingLayout.swift; sourceTree = "<group>"; };
 		3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.swift; sourceTree = "<group>"; };
 		3AD34AB629A0C534001FD558 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AD34AB829A0C557001FD558 /* Date.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.View.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				3A5D20992989A60F0029408A /* DayPage.swift */,
 				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
 				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
+				3ACA4D5F29A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift */,
 			);
 			path = DayPage;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACA4D6029A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift in Sources */,
 				3A5D20C82991169B0029408A /* Main.ViewStateContainer.swift in Sources */,
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3AD34ABB29A0C712001FD558 /* Date.ViewState.swift in Sources */,
