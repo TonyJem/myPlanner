@@ -13,7 +13,6 @@ extension Footer {
         
         enum Constants {
             
-            static let tabBarViewWidth: CGFloat = 850.0
             static let tabBarViewHeight: CGFloat = 30.0
             static let buttonSize = CGSize(width: 40, height: 40)
             
@@ -82,10 +81,11 @@ extension Footer {
                 todayButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
                 todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
                 todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height),
+                todayButton.widthAnchor.constraint(equalToConstant: todayButton.intrinsicContentSize.width),
                 
-                tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
+                tabBar.leadingAnchor.constraint(equalTo: todayButton.trailingAnchor, constant: .spacingL),
                 tabBar.topAnchor.constraint(equalTo: topAnchor),
-                tabBar.widthAnchor.constraint(equalToConstant: Constants.tabBarViewWidth),
+                tabBar.trailingAnchor.constraint(equalTo: calendarsButton.leadingAnchor, constant: -.spacingL),
                 tabBar.heightAnchor.constraint(equalToConstant: Constants.tabBarViewHeight),
                 
                 calendarsButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width),
