@@ -40,9 +40,8 @@ extension Footer {
             return view
         }()
         
-        private lazy var calendarsButton: UIButton = {
-            let button = createIconButton(systemName: "calendar").autolayout()
-            button.addTarget(self, action: #selector(didTapOnCalendarsButton), for: .touchUpInside)
+        private lazy var calendarsButton: IconButton = {
+            let button = IconButton(systemName: "calendar").autolayout()
             return button
         }()
         
@@ -63,10 +62,6 @@ extension Footer {
         
         @objc private func didTapOnTodayButton() {
             print("🟢 didTapOnTodayButton in Footer.View")
-        }
-        
-        @objc private func didTapOnCalendarsButton() {
-            print("🟢 didTapOnCalendarsButton in Footer.View")
         }
 
         // MARK: - Private Methods
@@ -104,27 +99,6 @@ extension Footer {
         private func render(viewState: ViewState?) {
             guard let viewState = viewState else { return }
             tabBar.viewState = viewState.tabBarViewState
-        }
-        
-        private func createIconButton(
-            systemName: String,
-            tintColor: UIColor = .white,
-            pointSize: CGFloat = 24,
-            weight: UIImage.SymbolWeight = .light
-        ) -> UIButton
-        {
-            let button = UIButton().autolayout()
-            let buttonIcon = UIImage(
-                systemName: systemName,
-                withConfiguration: UIImage.SymbolConfiguration(weight: weight)
-            )
-            button.tintColor = tintColor
-            button.setImage(buttonIcon, for: .normal)
-            button.setPreferredSymbolConfiguration(
-                UIImage.SymbolConfiguration(pointSize: pointSize),
-                forImageIn: .normal
-            )
-            return button
         }
         
     }
