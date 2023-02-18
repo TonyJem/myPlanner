@@ -12,7 +12,7 @@ extension DayPage.Calendar {
         
         static let identifier = String(describing: ViewCell.self)
         
-        var viewState: CollectionViewCell.ViewState? {
+        var viewState: ViewCell.ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -52,7 +52,7 @@ extension DayPage.Calendar {
             addSubview(label)
         }
         
-        private func render(viewState: CollectionViewCell.ViewState?) {
+        private func render(viewState: ViewCell.ViewState?) {
             
             guard let viewState = viewState else { return }
             
