@@ -73,7 +73,7 @@ extension DayPage {
 }
 
 // MARK: - SetConstraints
-extension Day.ViewCell {
+extension DayPage.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
