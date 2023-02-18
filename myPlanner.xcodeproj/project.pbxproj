@@ -77,6 +77,7 @@
 		3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */; };
 		3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */; };
 		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
+		3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.View.swift; sourceTree = "<group>"; };
 		3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
+		3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +319,6 @@
 		3A2D66A629855E9B007AD3F6 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D20BE298EAC140029408A /* Components */,
 				3A5D20B22989C3240029408A /* Elements */,
 				3A2D66822985203B007AD3F6 /* Extensions */,
 				3A2D668029852029007AD3F6 /* Colors.swift */,
@@ -507,8 +508,9 @@
 			isa = PBXGroup;
 			children = (
 				3A5D20982989A5AD0029408A /* SubViews */,
-				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
 				3A5D20992989A60F0029408A /* DayPage.swift */,
+				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
+				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
 			);
 			path = DayPage;
 			sourceTree = "<group>";
@@ -613,13 +615,6 @@
 				3A5D20EB2998F9630029408A /* MonthTabButton.swift */,
 			);
 			path = Elements;
-			sourceTree = "<group>";
-		};
-		3A5D20BE298EAC140029408A /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		3A5D20C12990ED3C0029408A /* Main.Module */ = {
@@ -860,6 +855,7 @@
 				3A5D208A29899AFE0029408A /* Footer.swift in Sources */,
 				3A5D209A2989A60F0029408A /* DayPage.swift in Sources */,
 				3A2D664F298515FE007AD3F6 /* SceneDelegate.swift in Sources */,
+				3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */,
 				3A2D66CF298680D6007AD3F6 /* Calendar.CollectionViewCell.ViewState.swift in Sources */,
 				3A5D208829899AE70029408A /* Body.swift in Sources */,
 				3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */,
