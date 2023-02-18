@@ -515,62 +515,62 @@
 			path = DayPage;
 			sourceTree = "<group>";
 		};
-		3A5D2079298997C10029408A /* EventsContainer */ = {
+		3A5D2079298997C10029408A /* Events */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = EventsContainer;
+			path = Events;
 			sourceTree = "<group>";
 		};
-		3A5D207A298997C80029408A /* ExtrasContainer */ = {
+		3A5D207A298997C80029408A /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D2080298998160029408A /* QuotaContainer */,
-				3A5D207F298998130029408A /* CommercialContainer */,
+				3A5D2080298998160029408A /* Quota */,
+				3A5D207F298998130029408A /* Commercial */,
 			);
-			path = ExtrasContainer;
+			path = Extras;
 			sourceTree = "<group>";
 		};
-		3A5D207B298997CC0029408A /* NotesContainer */ = {
+		3A5D207B298997CC0029408A /* Notes */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = NotesContainer;
+			path = Notes;
 			sourceTree = "<group>";
 		};
-		3A5D207C298997CF0029408A /* TodolistContainer */ = {
+		3A5D207C298997CF0029408A /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = TodolistContainer;
+			path = TodoList;
 			sourceTree = "<group>";
 		};
-		3A5D207D298997D20029408A /* CalendarContainer */ = {
+		3A5D207D298997D20029408A /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = CalendarContainer;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
-		3A5D207E298997D60029408A /* DateContainer */ = {
+		3A5D207E298997D60029408A /* Date */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = DateContainer;
+			path = Date;
 			sourceTree = "<group>";
 		};
-		3A5D207F298998130029408A /* CommercialContainer */ = {
+		3A5D207F298998130029408A /* Commercial */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = CommercialContainer;
+			path = Commercial;
 			sourceTree = "<group>";
 		};
-		3A5D2080298998160029408A /* QuotaContainer */ = {
+		3A5D2080298998160029408A /* Quota */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = QuotaContainer;
+			path = Quota;
 			sourceTree = "<group>";
 		};
 		3A5D208B29899B930029408A /* Templates */ = {
@@ -598,12 +598,12 @@
 		3A5D20982989A5AD0029408A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				3A5D207E298997D60029408A /* DateContainer */,
-				3A5D207D298997D20029408A /* CalendarContainer */,
-				3A5D207C298997CF0029408A /* TodolistContainer */,
-				3A5D207B298997CC0029408A /* NotesContainer */,
-				3A5D207A298997C80029408A /* ExtrasContainer */,
-				3A5D2079298997C10029408A /* EventsContainer */,
+				3A5D207E298997D60029408A /* Date */,
+				3A5D207D298997D20029408A /* Calendar */,
+				3A5D207C298997CF0029408A /* TodoList */,
+				3A5D207B298997CC0029408A /* Notes */,
+				3A5D207A298997C80029408A /* Extras */,
+				3A5D2079298997C10029408A /* Events */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";

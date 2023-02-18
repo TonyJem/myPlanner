@@ -43,7 +43,7 @@ extension DayPage.NewView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Day.ViewCell.identifier, for: indexPath) as! Day.ViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Day.ViewCell.identifier, for: indexPath) as! DayPage.ViewCell
         
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
