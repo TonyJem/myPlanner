@@ -97,6 +97,7 @@ extension Footer {
             
             static let tabBarViewWidth: CGFloat = 850.0
             static let tabBarViewHeight: CGFloat = 30.0
+            static let buttonSize = CGSize(width: 40, height: 40)
             
         }
         
@@ -108,10 +109,26 @@ extension Footer {
         
         // MARK: - SubViews
         
+        private lazy var todayButton: UIButton = {
+            let button = UIButton().autolayout()
+            button.setTitle("Footer.TodayButton.Title".localized, for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.addTarget(self, action: #selector(didTapOnTodayButton), for: .touchUpInside)
+            return button
+        }()
+        
         private lazy var tabBar: MonthTabBarProtocol = {
             let view = Footer.MonthTabBar.View().autolayout()
             return view
         }()
+        
+        /*
+         private lazy var searchButton: UIButton = {
+             let button = createIconButton(systemName: "magnifyingglass").autolayout()
+             button.addTarget(self, action: #selector(didTapOnSettingsButton), for: .touchUpInside)
+             return button
+         }()
+         */
         
         // MARK: - Init
         
@@ -126,6 +143,12 @@ extension Footer {
             fatalError("init(coder:) has not been implemented")
         }
         
+        // MARK: - Actions
+        
+        @objc private func didTapOnTodayButton() {
+            print("🟢 didTapOnTodayButton in Footer.View")
+        }
+
         // MARK: - Private Methods
         
         private func setupView() {
@@ -133,11 +156,16 @@ extension Footer {
         }
         
         private func addSubViews() {
+            addSubview(todayButton)
             addSubview(tabBar)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
+                
+                todayButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+                todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height),
                 
                 tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
                 tabBar.topAnchor.constraint(equalTo: topAnchor),
