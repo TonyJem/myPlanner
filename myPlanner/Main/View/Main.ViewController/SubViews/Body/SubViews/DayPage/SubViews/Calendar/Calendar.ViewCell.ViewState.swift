@@ -1,6 +1,6 @@
 import Foundation
 
-extension DayPage.Calendar {
+extension DayPage.Calendar.ViewCell {
     
     struct ViewState { }
     
