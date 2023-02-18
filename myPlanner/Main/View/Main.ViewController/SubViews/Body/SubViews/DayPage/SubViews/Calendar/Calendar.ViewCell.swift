@@ -1,8 +1,8 @@
 import UIKit
 
-extension Calendar {
+extension DayPage.Calendar {
     
-    class Cell: UICollectionViewCell {
+    class ViewCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -10,9 +10,9 @@ extension Calendar {
             
         }
         
-        static let identifier = String(describing: Cell.self)
+        static let identifier = String(describing: ViewCell.self)
         
-        var viewState: CollectionViewCell.ViewState? {
+        var viewState: ViewCell.ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -52,7 +52,7 @@ extension Calendar {
             addSubview(label)
         }
         
-        private func render(viewState: CollectionViewCell.ViewState?) {
+        private func render(viewState: ViewCell.ViewState?) {
             
             guard let viewState = viewState else { return }
             
@@ -100,7 +100,7 @@ extension Calendar {
 }
 
 // MARK: - SetConstraints
-extension Calendar.Cell {
+extension DayPage.Calendar.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

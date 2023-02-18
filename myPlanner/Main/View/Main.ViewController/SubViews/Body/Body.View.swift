@@ -13,11 +13,15 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var dayPageView = DayPage.View().autolayout()
-        private lazy var weekPageView = WeekPage.View().autolayout()
-        private lazy var monthPageView = MonthPage.View().autolayout()
-        private lazy var tasksPageView = TasksPage.View().autolayout()
-        private lazy var notesPageView = NotesPage.View().autolayout()
+        private lazy var dayPage: DayPage.View = {
+            let view = DayPage.View().autolayout()
+            return view
+        }()
+        
+        private lazy var weekPage = WeekPage.View().autolayout()
+        private lazy var monthPage = MonthPage.View().autolayout()
+        private lazy var tasksPage = TasksPage.View().autolayout()
+        private lazy var notesPage = NotesPage.View().autolayout()
         
         
         // MARK: - Init
@@ -40,41 +44,41 @@ extension Body {
         }
         
         private func addSubViews() {
-            addSubview(dayPageView)
-            addSubview(weekPageView)
-            addSubview(monthPageView)
-            addSubview(tasksPageView)
-            addSubview(notesPageView)
+            addSubview(dayPage)
+            addSubview(weekPage)
+            addSubview(monthPage)
+            addSubview(tasksPage)
+            addSubview(notesPage)
             
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dayPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                dayPageView.topAnchor.constraint(equalTo: topAnchor),
-                dayPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                dayPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                dayPage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                dayPage.topAnchor.constraint(equalTo: topAnchor),
+                dayPage.trailingAnchor.constraint(equalTo: trailingAnchor),
+                dayPage.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                weekPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                weekPageView.topAnchor.constraint(equalTo: topAnchor),
-                weekPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                weekPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                weekPage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                weekPage.topAnchor.constraint(equalTo: topAnchor),
+                weekPage.trailingAnchor.constraint(equalTo: trailingAnchor),
+                weekPage.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                monthPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                monthPageView.topAnchor.constraint(equalTo: topAnchor),
-                monthPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                monthPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                monthPage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                monthPage.topAnchor.constraint(equalTo: topAnchor),
+                monthPage.trailingAnchor.constraint(equalTo: trailingAnchor),
+                monthPage.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                tasksPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                tasksPageView.topAnchor.constraint(equalTo: topAnchor),
-                tasksPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                tasksPageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                tasksPage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                tasksPage.topAnchor.constraint(equalTo: topAnchor),
+                tasksPage.trailingAnchor.constraint(equalTo: trailingAnchor),
+                tasksPage.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                notesPageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                notesPageView.topAnchor.constraint(equalTo: topAnchor),
-                notesPageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                notesPageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                notesPage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                notesPage.topAnchor.constraint(equalTo: topAnchor),
+                notesPage.trailingAnchor.constraint(equalTo: trailingAnchor),
+                notesPage.bottomAnchor.constraint(equalTo: bottomAnchor)
                 
             ])
         }
@@ -97,43 +101,43 @@ extension Body {
         }
         
         private func showDayPage() {
-            dayPageView.isHidden = false
-            weekPageView.isHidden = true
-            monthPageView.isHidden = true
-            tasksPageView.isHidden = true
-            notesPageView.isHidden = true
+            dayPage.isHidden = false
+            weekPage.isHidden = true
+            monthPage.isHidden = true
+            tasksPage.isHidden = true
+            notesPage.isHidden = true
         }
         
         private func showWeekPage() {
-            dayPageView.isHidden = true
-            weekPageView.isHidden = false
-            monthPageView.isHidden = true
-            tasksPageView.isHidden = true
-            notesPageView.isHidden = true
+            dayPage.isHidden = true
+            weekPage.isHidden = false
+            monthPage.isHidden = true
+            tasksPage.isHidden = true
+            notesPage.isHidden = true
         }
         
         private func showMonthPage() {
-            dayPageView.isHidden = true
-            weekPageView.isHidden = true
-            monthPageView.isHidden = false
-            tasksPageView.isHidden = true
-            notesPageView.isHidden = true
+            dayPage.isHidden = true
+            weekPage.isHidden = true
+            monthPage.isHidden = false
+            tasksPage.isHidden = true
+            notesPage.isHidden = true
         }
         
         private func showTasksPage() {
-            dayPageView.isHidden = true
-            weekPageView.isHidden = true
-            monthPageView.isHidden = true
-            tasksPageView.isHidden = false
-            notesPageView.isHidden = true
+            dayPage.isHidden = true
+            weekPage.isHidden = true
+            monthPage.isHidden = true
+            tasksPage.isHidden = false
+            notesPage.isHidden = true
         }
         
         private func showNotesPage() {
-            dayPageView.isHidden = true
-            weekPageView.isHidden = true
-            monthPageView.isHidden = true
-            tasksPageView.isHidden = true
-            notesPageView.isHidden = false
+            dayPage.isHidden = true
+            weekPage.isHidden = true
+            monthPage.isHidden = true
+            tasksPage.isHidden = true
+            notesPage.isHidden = false
         }
         
     }

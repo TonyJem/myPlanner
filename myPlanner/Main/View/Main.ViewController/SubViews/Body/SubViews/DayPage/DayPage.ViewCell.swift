@@ -14,8 +14,8 @@ extension DayPage {
         static let identifier = "ViewCellIdentifier"
         
         // MARK: - SubViews
-        private lazy var dateView: DateModul.View = {
-            let view = DateModul.View().autolayout()
+        private lazy var dateView: DayPage.Date.View = {
+            let view = DayPage.Date.View().autolayout()
             return view
         }()
         
@@ -55,7 +55,7 @@ extension DayPage {
         }
         
         // MARK: - Public Methods
-        func renderDate(viewState: DateModul.ViewState) {
+        func renderDate(viewState: DayPage.Date.ViewState) {
             dateView.renderDate(viewState: viewState)
         }
         
@@ -73,7 +73,7 @@ extension DayPage {
 }
 
 // MARK: - SetConstraints
-extension Day.ViewCell {
+extension DayPage.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

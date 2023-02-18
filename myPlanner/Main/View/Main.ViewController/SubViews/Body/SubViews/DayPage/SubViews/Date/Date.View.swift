@@ -1,8 +1,8 @@
 import UIKit
 
-extension DateModul {
+extension DayPage.Date {
     
-    class View: UIView {
+    final class View: UIView {
         
         // MARK: - Sub Views
         private lazy var title: UILabel = {
@@ -51,7 +51,7 @@ extension DateModul {
             addSubview(subtitle)
         }
         
-        func renderDate(viewState: DateModul.ViewState) {
+        func renderDate(viewState: DayPage.Date.ViewState) {
             title.text = viewState.title
             date.text = viewState.date
             subtitle.text = viewState.subtitle
@@ -62,7 +62,7 @@ extension DateModul {
 }
 
 // MARK: - SetConstraints
-extension DateModul.View {
+extension DayPage.Date.View {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
