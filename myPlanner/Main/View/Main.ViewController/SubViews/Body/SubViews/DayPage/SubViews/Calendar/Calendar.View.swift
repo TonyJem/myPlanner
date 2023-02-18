@@ -1,6 +1,6 @@
 import UIKit
 
-extension Calendar {
+extension DayPage.Calendar {
     
     class View: UIView {
         
@@ -118,7 +118,7 @@ extension Calendar {
 }
 
 // MARK: - SetConstraints
-extension Calendar.View {
+extension DayPage.Calendar.View {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
@@ -142,7 +142,7 @@ extension Calendar.View {
 }
 
 // MARK: - CollectionView DataSource
-extension Calendar.View: UICollectionViewDataSource {
+extension DayPage.Calendar.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.weekDays {
@@ -153,7 +153,7 @@ extension Calendar.View: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Calendar.Cell.identifier, for: indexPath) as! Calendar.Cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.Cell.identifier, for: indexPath) as! DayPage.Calendar.Cell
         
         if collectionView == self.weekDays {
             cell.viewState = weekDayViewStates[indexPath.row]
@@ -167,12 +167,12 @@ extension Calendar.View: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension Calendar.View: UICollectionViewDelegate {
+extension DayPage.Calendar.View: UICollectionViewDelegate {
     
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension Calendar.View: UICollectionViewDelegateFlowLayout {
+extension DayPage.Calendar.View: UICollectionViewDelegateFlowLayout {
     
     // Returns Item size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

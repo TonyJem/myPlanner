@@ -1,6 +1,6 @@
 import Foundation
 
-extension Calendar {
+extension DayPage.Calendar {
     
     enum CollectionViewCell {
         

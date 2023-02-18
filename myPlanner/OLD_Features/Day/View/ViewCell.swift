@@ -19,8 +19,8 @@ extension Day {
             return view
         }()
         
-        private lazy var calendarView: Calendar.View = {
-            let view = Calendar.View().autolayout()
+        private lazy var calendarView: DayPage.Calendar.View = {
+            let view = DayPage.Calendar.View().autolayout()
             return view
         }()
         
