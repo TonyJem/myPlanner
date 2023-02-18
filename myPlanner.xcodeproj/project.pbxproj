@@ -277,7 +277,6 @@
 				3A2D6695298523ED007AD3F6 /* Day */,
 				3A2D668E298523DD007AD3F6 /* Footer */,
 				3A2D66B029856C0E007AD3F6 /* DateModul */,
-				3A2D66C12985B0F4007AD3F6 /* Calendar */,
 			);
 			path = OLD_Features;
 			sourceTree = "<group>";
@@ -384,15 +383,6 @@
 				3A2D669829852407007AD3F6 /* ViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		3A2D66C12985B0F4007AD3F6 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				3A2D66C52985B1E7007AD3F6 /* View */,
-				3A2D66C32985B132007AD3F6 /* Calendar.swift */,
-			);
-			path = Calendar;
 			sourceTree = "<group>";
 		};
 		3A2D66C52985B1E7007AD3F6 /* View */ = {
@@ -551,13 +541,6 @@
 			path = TodoList;
 			sourceTree = "<group>";
 		};
-		3A5D207D298997D20029408A /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		3A5D207E298997D60029408A /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,7 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5D207E298997D60029408A /* Date */,
-				3A5D207D298997D20029408A /* Calendar */,
+				3ACA4D5929A0D29700C7DCC6 /* Calendar */,
 				3A5D207C298997CF0029408A /* TodoList */,
 				3A5D207B298997CC0029408A /* Notes */,
 				3A5D207A298997C80029408A /* Extras */,
@@ -680,6 +663,15 @@
 				3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */,
 			);
 			path = MonthTabBar;
+			sourceTree = "<group>";
+		};
+		3ACA4D5929A0D29700C7DCC6 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D66C52985B1E7007AD3F6 /* View */,
+				3A2D66C32985B132007AD3F6 /* Calendar.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
