@@ -81,7 +81,7 @@ extension Footer {
                 todayButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
                 todayButton.centerYAnchor.constraint(equalTo: centerYAnchor),
                 todayButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height),
-                todayButton.widthAnchor.constraint(equalToConstant: todayButton.intrinsicContentSize.width),
+                todayButton.widthAnchor.constraint(equalToConstant: todayButton.intrinsicContentSize.width + .spacingXS),
                 
                 tabBar.leadingAnchor.constraint(equalTo: todayButton.trailingAnchor, constant: .spacingL),
                 tabBar.topAnchor.constraint(equalTo: topAnchor),
