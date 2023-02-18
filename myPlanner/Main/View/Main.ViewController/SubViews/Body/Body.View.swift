@@ -13,8 +13,8 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var dayPage: DayPage.NewView = {
-            let view = DayPage.NewView().autolayout()
+        private lazy var dayPage: DayPage.View = {
+            let view = DayPage.View().autolayout()
             return view
         }()
         
