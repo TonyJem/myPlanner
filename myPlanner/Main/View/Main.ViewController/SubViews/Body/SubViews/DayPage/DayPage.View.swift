@@ -11,13 +11,16 @@ extension DayPage {
         }
         
         // MARK: - Init
+        
         init() {
-            let layout = UICollectionViewFlowLayout()
+            
+            let layout = AutoInvalidatingLayout()
             layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = Constants.minimumLineSpacing
+            
             super.init(frame: .zero, collectionViewLayout: layout)
             setupView()
-            setupDelegates()
+            configureDataSource()
             configureTableView()
         }
         
@@ -34,9 +37,8 @@ extension DayPage {
             showsHorizontalScrollIndicator = false
         }
         
-        private func setupDelegates() {
+        private func configureDataSource() {
             dataSource = self
-            delegate = self
         }
         
         private func configureTableView() {
@@ -48,6 +50,7 @@ extension DayPage {
 }
 
 // MARK: - CollectionView DataSource
+
 extension DayPage.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,20 +69,6 @@ extension DayPage.View: UICollectionViewDataSource {
         )
         cell.renderDate(viewState: viewState)
         return cell
-    }
-    
-}
-
-// MARK: - CollectionView Delegate
-extension DayPage.View: UICollectionViewDelegate {
-    
-}
-
-// MARK: - CollectionView DelegateFlowLayout
-extension DayPage.View: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width, height: frame.height)
     }
     
 }
