@@ -11,8 +11,10 @@ protocol CalendarServiceProtocol {
     /// Converts `Date` value and returns Year as a `String`
     func yearString(date: Date) -> String
     
+    /// Defines date for `monthTab` and returns it as a `Date`
     func date(for monthTab: Footer.MonthTab.MonthTabType) -> Date
     
+    /// Defines monthTab type for `date` and returns it as a `MonthTabType`
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
 }
@@ -20,8 +22,6 @@ protocol CalendarServiceProtocol {
 extension DayPage.Calendar {
     
     final class Service {
-        
-        let calendar = Calendar.current
         
     }
     
@@ -74,13 +74,21 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         case .december:
             components.month = 12
         }
+        
+        // TODO: need to provide Year correctly
+        // for cases when need to show next or previouse year
+        // TODO: Find out WHY do I need to set hour and day ? Without it I get always 2 hours offset from local
+        // Need to find out how it should be in order Users in all world could use thei local time that they have on their devices
+        components.hour = 2
+        components.day = 1
+        components.year = dateNow().get(.year)
         return Calendar.current.date(from: components) ?? dateNow()
     }
     
     // TODO: Refactor to have only "calendar.component(.month" as
     // descripbtion of Tab type
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType {
-        let component = calendar.component(.month, from: date)
+        let component = date.get(.month)
         switch component {
         case 1:
             return .january
