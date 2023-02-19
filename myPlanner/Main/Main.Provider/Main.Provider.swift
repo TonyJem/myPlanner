@@ -8,6 +8,10 @@ protocol MainProviderProtocol {
     
     func yearString(date: Date) -> String
     
+    func date(for monthTab: Footer.MonthTab.MonthTabType) -> Date
+    
+    func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
+    
 }
 
 extension Main {
@@ -38,6 +42,14 @@ extension Main.Provider: MainProviderProtocol {
     
     func yearString(date: Date) -> String {
         return calendarService.yearString(date: date)
+    }
+    
+    func date(for monthTab: Footer.MonthTab.MonthTabType) -> Date {
+        return calendarService.date(for: monthTab)
+    }
+    
+    func monthTab(for date: Date) -> Footer.MonthTab.MonthTabType {
+        return calendarService.monthTab(for: date)
     }
     
 }

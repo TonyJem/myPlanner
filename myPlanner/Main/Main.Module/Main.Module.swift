@@ -6,17 +6,13 @@ protocol MainModule {
     
 }
 
-
 extension Main {
     
     class Module: MainModule {
         
         func getView(provider: MainProviderProtocol) -> UIViewController {
             
-            let presenter = Presenter(
-                provider: provider,
-                currentDate: provider.currentDate()
-            )
+            let presenter = Presenter(provider: provider)
             let view = ViewController(presenter: presenter)
             presenter.view = view
             return view

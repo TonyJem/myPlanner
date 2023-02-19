@@ -19,17 +19,18 @@ extension Main {
         private var selectedDate: Date
         
         private var activePage: Header.PageTab.PageTabType = .day
-        private var activeMonth: Footer.MonthTab.MonthTabType = .january
         
+        // TODO: Think if we need thi parameter, may is ebought to have just only "selectedDate"
+        private var activeMonth: Footer.MonthTab.MonthTabType = .january
         
         // MARK: - Init
         
         init(
-            provider: MainProviderProtocol,
-            currentDate: Date
+            provider: MainProviderProtocol
         ) {
             self.provider = provider
-            self.selectedDate = currentDate
+            selectedDate = provider.currentDate()
+            activeMonth = provider.monthTab(for: selectedDate)
         }
         
         // MARK: - Private Methods
@@ -42,6 +43,8 @@ extension Main {
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
+            selectedDate = provider.date(for: month)
+            
             let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
         }
