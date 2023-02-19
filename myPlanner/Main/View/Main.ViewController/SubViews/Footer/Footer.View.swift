@@ -1,6 +1,6 @@
 import UIKit
 
-protocol FooterProtocol: UIView {
+protocol FooterViewProtocol: UIView {
     
     /// Holds the ViewState of the `Footer`
     var viewState: Footer.ViewState? { get set }
@@ -9,7 +9,7 @@ protocol FooterProtocol: UIView {
 
 extension Footer {
     
-    class View: UIView, FooterProtocol {
+    class View: UIView, FooterViewProtocol {
         
         enum Constants {
             

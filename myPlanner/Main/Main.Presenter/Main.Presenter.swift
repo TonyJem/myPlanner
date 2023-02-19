@@ -89,7 +89,7 @@ extension Main.Presenter {
         )
     }
     
-    private func createHeaderViewState() -> Header.View.ViewState
+    private func createHeaderViewState() -> Header.ViewState
     {
         let pages: [Header.PageTab.PageTabType] = [
             .day,
@@ -100,7 +100,14 @@ extension Main.Presenter {
         ]
         let tabs = createPageTabs(pages: pages, activePage: activePage, action: handlePageTabAction)
         let tabBarViewState = Header.PageTabBar.ViewState(type: .top, tabs: tabs)
-        return .init(tabBarViewState: tabBarViewState)
+        
+        let headerViewState = Header.ViewState(
+            month: provider.monthString(date: selectedDate),
+            year: provider.yearString(date: selectedDate),
+            tabBarViewState: tabBarViewState
+        )
+        
+        return headerViewState
     }
     
     private func createPageTabs(
