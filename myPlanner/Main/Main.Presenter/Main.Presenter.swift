@@ -88,8 +88,8 @@ extension Main.Presenter {
         return tabs
     }
     
-    private func createBodyViewState() -> Body.View.ViewState {
-        Body.View.ViewState(activePage: activePage)
+    private func createBodyViewState() -> Body.ViewState {
+        Body.ViewState(activePage: activePage)
     }
     
     private func createFooterViewState() -> Footer.ViewState {

@@ -1,13 +1,20 @@
 import UIKit
 
+
+protocol BodyViewProtocol: UIView {
+    
+    /// Holds the ViewState of the `Body`
+    var viewState: Body.ViewState? { get set }
+    
+}
+
 extension Body {
     
     class View: UIView {
         
         // MARK: - Properties
         
-        /// Holds the ViewState of the `Body.View` and renders it when set.
-        var viewState: ViewState? {
+        var viewState: Body.ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -15,7 +22,7 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var dayPage: DayPageProtocol = {
+        private lazy var dayPage: DayPageViewProtocol = {
             let view = DayPage.View().autolayout()
             return view
         }()
@@ -83,80 +90,74 @@ extension Body {
             ])
         }
         
-        private func render(viewState: ViewState?) {
-            guard let viewState = viewState else { return }
-            switch viewState.activePage {
-            case .day:
-                dayPage.viewState = DayPage.ViewState(
-                    calendarState: DayPage.Calendar.ViewState(
-                        testText: "Rendered in Body.View"
-                    )
-                )
-                showDayPage()
-            case .week:
-                showWeekPage()
-            case .month:
-                showMonthPage()
-            case .tasks:
-                showTasksPage()
-            case .notes:
-                showNotesPage()
-            }
-            
-        }
-        
-        private func showDayPage() {
-            dayPage.isHidden = false
-            weekPage.isHidden = true
-            monthPage.isHidden = true
-            tasksPage.isHidden = true
-            notesPage.isHidden = true
-        }
-        
-        private func showWeekPage() {
-            dayPage.isHidden = true
-            weekPage.isHidden = false
-            monthPage.isHidden = true
-            tasksPage.isHidden = true
-            notesPage.isHidden = true
-        }
-        
-        private func showMonthPage() {
-            dayPage.isHidden = true
-            weekPage.isHidden = true
-            monthPage.isHidden = false
-            tasksPage.isHidden = true
-            notesPage.isHidden = true
-        }
-        
-        private func showTasksPage() {
-            dayPage.isHidden = true
-            weekPage.isHidden = true
-            monthPage.isHidden = true
-            tasksPage.isHidden = false
-            notesPage.isHidden = true
-        }
-        
-        private func showNotesPage() {
-            dayPage.isHidden = true
-            weekPage.isHidden = true
-            monthPage.isHidden = true
-            tasksPage.isHidden = true
-            notesPage.isHidden = false
-        }
-        
     }
     
 }
 
-// MARK: - Viewstate
+// MARK: - BodyViewProtocol
 
-extension Body.View {
+extension Body.View: BodyViewProtocol {
     
-    struct ViewState {
+    private func render(viewState: Body.ViewState?) {
+        guard let viewState = viewState else { return }
+        switch viewState.activePage {
+        case .day:
+            dayPage.viewState = DayPage.ViewState(
+                calendarState: DayPage.Calendar.ViewState(
+                    testText: "Rendered in Body.View"
+                )
+            )
+            showDayPage()
+        case .week:
+            showWeekPage()
+        case .month:
+            showMonthPage()
+        case .tasks:
+            showTasksPage()
+        case .notes:
+            showNotesPage()
+        }
         
-        let activePage: Header.PageTab.PageTabType
-        
+    }
+    
+    private func showDayPage() {
+        dayPage.isHidden = false
+        weekPage.isHidden = true
+        monthPage.isHidden = true
+        tasksPage.isHidden = true
+        notesPage.isHidden = true
+    }
+    
+    private func showWeekPage() {
+        dayPage.isHidden = true
+        weekPage.isHidden = false
+        monthPage.isHidden = true
+        tasksPage.isHidden = true
+        notesPage.isHidden = true
+    }
+    
+    private func showMonthPage() {
+        dayPage.isHidden = true
+        weekPage.isHidden = true
+        monthPage.isHidden = false
+        tasksPage.isHidden = true
+        notesPage.isHidden = true
+    }
+    
+    private func showTasksPage() {
+        dayPage.isHidden = true
+        weekPage.isHidden = true
+        monthPage.isHidden = true
+        tasksPage.isHidden = false
+        notesPage.isHidden = true
+    }
+    
+    private func showNotesPage() {
+        dayPage.isHidden = true
+        weekPage.isHidden = true
+        monthPage.isHidden = true
+        tasksPage.isHidden = true
+        notesPage.isHidden = false
     }
     
 }

@@ -20,10 +20,14 @@ extension Main {
         
         private lazy var headerView = Header.View().autolayout()
         
-        private lazy var bodyView = Body.View().autolayout()
+        private lazy var bodyView: BodyViewProtocol = {
+            let view = Body.View().autolayout()
+            return view
+        }()
         
         private lazy var footer: FooterProtocol = {
-            Footer.View().autolayout()
+            let view = Footer.View().autolayout()
+            return view
         }()
         
         // MARK: - LifeCycle

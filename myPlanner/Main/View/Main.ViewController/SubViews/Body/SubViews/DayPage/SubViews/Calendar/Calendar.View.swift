@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CalendarProtocol: UIView {
+protocol CalendarViewProtocol: UIView {
     
     /// Holds the ViewState of the `DayPage.Calendar`
     var viewState: DayPage.Calendar.ViewState? { get set }
@@ -61,7 +61,10 @@ extension DayPage.Calendar {
     
 }
 
-extension DayPage.Calendar.View: CalendarProtocol {
+
+// MARK: - CalendarViewProtocol
+
+extension DayPage.Calendar.View: CalendarViewProtocol {
     
     private func render(viewState: DayPage.Calendar.ViewState?) {
         guard let viewState = viewState else { return }

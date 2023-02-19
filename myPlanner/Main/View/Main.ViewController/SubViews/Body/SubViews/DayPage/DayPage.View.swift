@@ -1,6 +1,6 @@
 import UIKit
 
-protocol DayPageProtocol: UIView {
+protocol DayPageViewProtocol: UICollectionView {
     
     /// Holds the ViewState of the `DayPage`
     var viewState: DayPage.ViewState? { get set }
@@ -9,13 +9,15 @@ protocol DayPageProtocol: UIView {
 
 extension DayPage {
     
-    final class View: UICollectionView, DayPageProtocol {
+    final class View: UICollectionView, DayPageViewProtocol {
         
         enum Constants {
             
             static let minimumLineSpacing: CGFloat = 0.0
             
         }
+        
+        // MARK: - Properties
         
         var viewState: DayPage.ViewState?
         
