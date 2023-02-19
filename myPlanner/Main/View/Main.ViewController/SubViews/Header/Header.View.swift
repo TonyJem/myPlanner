@@ -32,10 +32,11 @@ extension Header {
         
         // MARK: - SubViews
         
-        private lazy var dateView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .orange
-            return view
+        private lazy var titleLabel: UILabel = {
+            let label = UILabel().autolayout()
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
+            return label
         }()
         
         private lazy var tabBar: PageTabBarProtocol = {
@@ -88,7 +89,7 @@ extension Header {
         }
         
         private func addSubViews() {
-            addSubview(dateView)
+            addSubview(titleLabel)
             addSubview(tabBar)
             addSubview(searchButton)
             addSubview(settingsButton)
@@ -97,10 +98,8 @@ extension Header {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                dateView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingXXS),
-                dateView.widthAnchor.constraint(equalToConstant: Constants.dateViewWidth),
-                dateView.heightAnchor.constraint(equalToConstant: Constants.dateViewHeight),
+                titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingXXS),
                 
                 tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
                 tabBar.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -134,6 +133,7 @@ extension Header.View: HeaderViewProtocol {
     private func render(viewState: Header.ViewState?) {
         guard let viewState = viewState else { return }
         tabBar.viewState = viewState.tabBarViewState
+        titleLabel.text = "\(viewState.month) \(viewState.year)"
     }
     
 }
