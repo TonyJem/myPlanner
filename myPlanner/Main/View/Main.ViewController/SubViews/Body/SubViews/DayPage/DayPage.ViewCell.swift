@@ -19,9 +19,8 @@ extension DayPage {
             return view
         }()
         
-        private lazy var calendarView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .systemBlue
+        private lazy var calendarView: CalendarProtocol = {
+            let view = DayPage.Calendar.View().autolayout()
             return view
         }()
         

@@ -1,7 +1,5 @@
 import Foundation
 
-// MARK: - Viewstate
-
 extension Footer {
     
     struct ViewState {
@@ -9,5 +7,5 @@ extension Footer {
         let tabBarViewState: Footer.MonthTabBar.ViewState
         
     }
-     
+    
 }

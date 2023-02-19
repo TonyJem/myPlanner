@@ -2,7 +2,7 @@ import UIKit
 
 protocol FooterProtocol: UIView {
     
-    /// Holds the ViewState of the `TabButton`
+    /// Holds the ViewState of the `Footer`
     var viewState: Footer.ViewState? { get set }
     
 }
