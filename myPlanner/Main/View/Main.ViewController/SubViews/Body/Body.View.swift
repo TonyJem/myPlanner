@@ -4,6 +4,8 @@ extension Body {
     
     class View: UIView {
         
+        // MARK: - Properties
+        
         /// Holds the ViewState of the `Body.View` and renders it when set.
         var viewState: ViewState? {
             didSet {
@@ -13,7 +15,7 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var dayPage: DayPage.View = {
+        private lazy var dayPage: DayPageProtocol = {
             let view = DayPage.View().autolayout()
             return view
         }()
@@ -31,7 +33,6 @@ extension Body {
             setupView()
             addSubViews()
             setupLayout()
-            showWeekPage()
         }
         
         required init?(coder: NSCoder) {
@@ -49,7 +50,6 @@ extension Body {
             addSubview(monthPage)
             addSubview(tasksPage)
             addSubview(notesPage)
-            
         }
         
         private func setupLayout() {
@@ -87,6 +87,11 @@ extension Body {
             guard let viewState = viewState else { return }
             switch viewState.activePage {
             case .day:
+                dayPage.viewState = DayPage.ViewState(
+                    calendarState: DayPage.Calendar.ViewState(
+                        testText: "Rendered in Body.View"
+                    )
+                )
                 showDayPage()
             case .week:
                 showWeekPage()
@@ -97,7 +102,7 @@ extension Body {
             case .notes:
                 showNotesPage()
             }
-
+            
         }
         
         private func showDayPage() {

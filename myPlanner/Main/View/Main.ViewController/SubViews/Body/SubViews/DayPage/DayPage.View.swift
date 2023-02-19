@@ -1,8 +1,15 @@
 import UIKit
 
+protocol DayPageProtocol: UIView {
+    
+    /// Holds the ViewState of the `DayPage`
+    var viewState: DayPage.ViewState? { get set }
+    
+}
+
 extension DayPage {
     
-    final class View: UICollectionView {
+    final class View: UICollectionView, DayPageProtocol {
         
         enum Constants {
             
@@ -10,7 +17,10 @@ extension DayPage {
             
         }
         
+        var viewState: DayPage.ViewState?
+        
         // MARK: - Init
+        
         init() {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
@@ -48,6 +58,7 @@ extension DayPage {
 }
 
 // MARK: - CollectionView DataSource
+
 extension DayPage.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,29 +71,31 @@ extension DayPage.View: UICollectionViewDataSource {
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
         let subtitle = "\(indexPath.row)TH DAY, 337 LEFT, WEEK 4"
-        let viewState = DayPage.Date.ViewState(
+        let dateViewState = DayPage.Date.ViewState(
             title: title,
             date: date,
             subtitle: subtitle
         )
-        cell.renderDate(viewState: viewState)
+        cell.renderDate(viewState: dateViewState)
         
+        guard let viewState = viewState else { return cell }
         cell.viewState = DayPage.ViewCell.ViewState(
-            calendarState: DayPage.Calendar.ViewState(
-                testText: "DayPageViewText"
-            )
+            calendarState: viewState.calendarState
         )
+        
         return cell
     }
     
 }
 
 // MARK: - CollectionView Delegate
+
 extension DayPage.View: UICollectionViewDelegate {
     
 }
 
 // MARK: - CollectionView DelegateFlowLayout
+
 extension DayPage.View: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
