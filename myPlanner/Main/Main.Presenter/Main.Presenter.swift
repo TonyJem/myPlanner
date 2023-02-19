@@ -37,14 +37,22 @@ extension Main {
         
         private func handlePageTabAction(type: Header.PageTab.PageTabType) {
             activePage = type
-            let container = createViewStateContainer()
-            view?.render(viewStateContainer: container)
+            updateMainView()
         }
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
             selectedDate = provider.date(for: month)
-            
+            updateMainView()
+        }
+        
+        private func handleTodayButtonAction() {
+            selectedDate = provider.currentDate()
+            activeMonth = provider.monthTab(for: selectedDate)
+            updateMainView()
+        }
+        
+        private func updateMainView() {
             let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
         }
@@ -59,8 +67,7 @@ extension Main {
 extension Main.Presenter: MainPresenter {
     
     func viewDidLoad() {
-        let container = createViewStateContainer()
-        view?.render(viewStateContainer: container)
+        updateMainView()
     }
     
 }
