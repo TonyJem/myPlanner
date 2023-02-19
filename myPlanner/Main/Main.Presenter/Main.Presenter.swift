@@ -12,10 +12,19 @@ extension Main {
         
         // MARK: - Properties
         
+        private let provider: MainProviderProtocol
+        
         weak var view: MainView?
         
         private var activePage: Header.PageTab.PageTabType = .day
         private var activeMonth: Footer.MonthTab.MonthTabType = .january
+        
+        
+        // MARK: - Init
+        
+        init(provider: MainProviderProtocol) {
+            self.provider = provider
+        }
         
         // MARK: - Private Methods
         

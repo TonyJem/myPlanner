@@ -4,12 +4,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let module = Main.Module()
-        let viewController = module.getView()
+        let provider = Main.Provider()
+        let viewController = module.getView(provider: provider)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light
