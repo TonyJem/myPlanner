@@ -19,10 +19,11 @@ extension DayPage.Calendar {
         
         // MARK: - SubViews
         
-        private lazy var subView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .orange
-            return view
+        private lazy var testLabel: UILabel = {
+            let label = UILabel().autolayout()
+            label.text = "initialText"
+            label.backgroundColor = .green
+            return label
         }()
         
         // MARK: - Init
@@ -45,16 +46,14 @@ extension DayPage.Calendar {
         }
         
         private func addSubViews() {
-            addSubview(subView)
+            addSubview(testLabel)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                subView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                subView.topAnchor.constraint(equalTo: topAnchor),
-                subView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                subView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                testLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+                testLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
                 
             ])
         }
@@ -67,8 +66,7 @@ extension DayPage.Calendar.View: CalendarProtocol {
     
     private func render(viewState: DayPage.Calendar.ViewState?) {
         guard let viewState = viewState else { return }
-        
-        print(viewState)
+        testLabel.text = viewState.testText
     }
     
 }
