@@ -2,7 +2,7 @@ import Foundation
 
 protocol MainProviderProtocol {
     
-    func currentDate() -> Date
+    func dateNow() -> Date
     
     func monthString(date: Date) -> String
     
@@ -32,8 +32,8 @@ extension Main {
 
 extension Main.Provider: MainProviderProtocol {
     
-    func currentDate() -> Date {
-        return calendarService.currentDate()
+    func dateNow() -> Date {
+        return calendarService.dateNow()
     }
     
     func monthString(date: Date) -> String {

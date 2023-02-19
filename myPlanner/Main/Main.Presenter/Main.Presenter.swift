@@ -29,7 +29,7 @@ extension Main {
             provider: MainProviderProtocol
         ) {
             self.provider = provider
-            selectedDate = provider.currentDate()
+            selectedDate = provider.dateNow()
             activeMonth = provider.monthTab(for: selectedDate)
         }
         
@@ -47,7 +47,7 @@ extension Main {
         }
         
         private func handleTodayButtonAction() {
-            selectedDate = provider.currentDate()
+            selectedDate = provider.dateNow()
             activeMonth = provider.monthTab(for: selectedDate)
             updateMainView()
         }

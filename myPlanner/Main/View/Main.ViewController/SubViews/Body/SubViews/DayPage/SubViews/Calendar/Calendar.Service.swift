@@ -3,7 +3,7 @@ import Foundation
 protocol CalendarServiceProtocol {
     
     /// Creates a `Date` value initialized to the current date and time
-    func currentDate() -> Date
+    func dateNow() -> Date
     
     /// Converts `Date` value and returns Month as a `String`
     func monthString(date: Date) -> String
@@ -29,8 +29,8 @@ extension DayPage.Calendar {
 
 extension DayPage.Calendar.Service: CalendarServiceProtocol {
     
-    func currentDate() -> Date {
-        let date = Date().localDate()
+    func dateNow() -> Date {
+        let date = Date.now.localDate()
         return date
     }
     
@@ -74,7 +74,7 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         case .december:
             components.month = 12
         }
-        return Calendar.current.date(from: components) ?? currentDate()
+        return Calendar.current.date(from: components) ?? dateNow()
     }
     
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType {
