@@ -124,6 +124,11 @@ extension Header {
     
 }
 
+// TODO: Make sure all protocols are implemented like this template
+// in extension and in Mark is only name of protocol and nothing else
+
+// MARK: - HeaderViewProtocol:
+
 extension Header.View: HeaderViewProtocol {
     
     private func render(viewState: Header.ViewState?) {

@@ -4,13 +4,6 @@ extension Main {
     
     class ViewController: UIViewController {
         
-        enum Constants {
-            
-            static let headerHeight: CGFloat = 63.0
-            static let footerHeight: CGFloat = 36.0
-            
-        }
-        
         private let presenter: Presenter
         
         /// Holds the viewStateContainer of the `ViewController`
@@ -18,17 +11,17 @@ extension Main {
         
         // MARK: - SubViews
         
-        private lazy var header: HeaderViewProtocol = {
+        private lazy var headerView: HeaderViewProtocol = {
             let view = Header.View().autolayout()
             return view
         }()
         
-        private lazy var body: BodyViewProtocol = {
+        private lazy var bodyView: BodyViewProtocol = {
             let view = Body.View().autolayout()
             return view
         }()
         
-        private lazy var footer: FooterViewProtocol = {
+        private lazy var footerView: FooterViewProtocol = {
             let view = Footer.View().autolayout()
             return view
         }()
@@ -64,28 +57,28 @@ extension Main {
         }
         
         private func addSubViews() {
-            view.addSubview(header)
-            view.addSubview(body)
-            view.addSubview(footer)
+            view.addSubview(headerView)
+            view.addSubview(bodyView)
+            view.addSubview(footerView)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                header.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-                header.topAnchor.constraint(equalTo: view.topAnchor),
-                header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                header.heightAnchor.constraint(equalToConstant: Constants.headerHeight),
+                headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+                headerView.topAnchor.constraint(equalTo: view.topAnchor),
+                headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                headerView.heightAnchor.constraint(equalToConstant: .spacingXXXL),
 
-                footer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-                footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                footer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                footer.heightAnchor.constraint(equalToConstant: Constants.footerHeight),
+                footerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+                footerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                footerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                footerView.heightAnchor.constraint(equalToConstant: .spacingXXL),
 
-                body.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-                body.topAnchor.constraint(equalTo: header.bottomAnchor),
-                body.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                body.bottomAnchor.constraint(equalTo: footer.topAnchor)
+                bodyView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+                bodyView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+                bodyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                bodyView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
                 
             ])
         }
@@ -100,9 +93,9 @@ extension Main.ViewController: MainView {
     
     func render(viewStateContainer: Main.ViewStateContainer) {
         self.viewStateContainer = viewStateContainer
-        header.viewState = viewStateContainer.headerViewState
-        body.viewState = viewStateContainer.bodyViewState
-        footer.viewState = viewStateContainer.footerViewState
+        headerView.viewState = viewStateContainer.headerViewState
+        bodyView.viewState = viewStateContainer.bodyViewState
+        footerView.viewState = viewStateContainer.footerViewState
     }
     
 }
