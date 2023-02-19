@@ -11,9 +11,10 @@ extension DayPage {
             
         }
         
-        static let identifier = "ViewCellIdentifier"
+        static let identifier = String(describing: ViewCell.self)
         
         // MARK: - SubViews
+        
         private lazy var dateView: DayPage.Date.View = {
             let view = DayPage.Date.View().autolayout()
             return view
@@ -44,11 +45,11 @@ extension DayPage {
         }()
         
         // MARK: - Init
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
-            
-            setupViews()
-            setConstraints()
+            addSubViews()
+            setupLayout()
         }
         
         required init?(coder: NSCoder) {
@@ -56,12 +57,14 @@ extension DayPage {
         }
         
         // MARK: - Public Methods
+        
         func renderDate(viewState: DayPage.Date.ViewState) {
             dateView.renderDate(viewState: viewState)
         }
         
         // MARK: - Private Methods
-        private func setupViews() {
+        
+        private func addSubViews() {
             addSubview(dateView)
             addSubview(calendarView)
             addSubview(tableView)
@@ -69,45 +72,39 @@ extension DayPage {
             addSubview(eventsView)
         }
         
+        private func setupLayout() {
+            NSLayoutConstraint.activate([
+                
+                dateView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                dateView.topAnchor.constraint(equalTo: topAnchor),
+                dateView.widthAnchor.constraint(equalTo: widthAnchor,
+                                                multiplier: Constants.dateViewWidthMultiplier),
+                dateView.heightAnchor.constraint(equalTo: dateView.widthAnchor,
+                                                 multiplier: Constants.dateViewHeightMultiplier),
+                
+                calendarView.leadingAnchor.constraint(equalTo: dateView.trailingAnchor),
+                calendarView.topAnchor.constraint(equalTo: topAnchor),
+                calendarView.widthAnchor.constraint(equalTo: dateView.widthAnchor),
+                calendarView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
+                
+                tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                tableView.topAnchor.constraint(equalTo: dateView.bottomAnchor),
+                tableView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                
+                quoteView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                quoteView.topAnchor.constraint(equalTo: topAnchor),
+                quoteView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                quoteView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
+                
+                eventsView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                eventsView.topAnchor.constraint(equalTo: quoteView.bottomAnchor),
+                eventsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                eventsView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                
+            ])
+        }
+        
     }
     
 }
-
-// MARK: - SetConstraints
-extension DayPage.ViewCell {
-    
-    private func setConstraints() {
-        NSLayoutConstraint.activate([
-            
-            dateView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dateView.topAnchor.constraint(equalTo: topAnchor),
-            dateView.widthAnchor.constraint(equalTo: widthAnchor,
-                                            multiplier: Constants.dateViewWidthMultiplier),
-            dateView.heightAnchor.constraint(equalTo: dateView.widthAnchor,
-                                             multiplier: Constants.dateViewHeightMultiplier),
-
-            calendarView.leadingAnchor.constraint(equalTo: dateView.trailingAnchor),
-            calendarView.topAnchor.constraint(equalTo: topAnchor),
-            calendarView.widthAnchor.constraint(equalTo: dateView.widthAnchor),
-            calendarView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
-
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.topAnchor.constraint(equalTo: dateView.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-            quoteView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
-            quoteView.topAnchor.constraint(equalTo: topAnchor),
-            quoteView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            quoteView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
-
-            eventsView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
-            eventsView.topAnchor.constraint(equalTo: quoteView.bottomAnchor),
-            eventsView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            eventsView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            
-        ])
-    }
-    
-}
-
