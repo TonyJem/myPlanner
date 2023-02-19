@@ -18,11 +18,15 @@ extension Footer {
             
         }
         
+        // MARK: - Properties
+        
         var viewState: ViewState? {
             didSet {
                 render(viewState: viewState)
             }
         }
+        
+        private var todayButtonAction: (() -> Void)?
         
         // MARK: - SubViews
         
@@ -60,7 +64,7 @@ extension Footer {
         // MARK: - Actions
         
         @objc private func didTapOnTodayButton() {
-            print("🟢 didTapOnTodayButton in Footer.View")
+            todayButtonAction?()
         }
 
         // MARK: - Private Methods
@@ -99,6 +103,7 @@ extension Footer {
         private func render(viewState: ViewState?) {
             guard let viewState = viewState else { return }
             tabBar.viewState = viewState.tabBarViewState
+            todayButtonAction = viewState.todayButtonAction
         }
         
     }

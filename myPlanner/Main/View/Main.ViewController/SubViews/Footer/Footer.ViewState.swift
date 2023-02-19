@@ -6,6 +6,8 @@ extension Footer {
         
         let tabBarViewState: Footer.MonthTabBar.ViewState
         
+        let todayButtonAction: (()-> Void)
+        
     }
     
 }

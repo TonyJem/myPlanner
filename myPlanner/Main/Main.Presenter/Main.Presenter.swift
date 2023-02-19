@@ -147,7 +147,11 @@ extension Main.Presenter {
         ]
         let tabs = createMonthTabs(months: months, activeMonth: activeMonth, action: handleMonthTabAction )
         let tabBarViewState = Footer.MonthTabBar.ViewState(type: .bottom, tabs: tabs)
-        return Footer.ViewState(tabBarViewState: tabBarViewState)
+        let footerViewState = Footer.ViewState(
+            tabBarViewState: tabBarViewState,
+            todayButtonAction: handleTodayButtonAction
+        )
+        return footerViewState
     }
     
     private func createMonthTabs(
