@@ -32,7 +32,7 @@ extension DayPage.Calendar {
 extension DayPage.Calendar.Service: CalendarServiceProtocol {
     
     func currentDate() -> Date {
-        let date = Date()
+        let date = Date().localDate()
         return date
     }
     
