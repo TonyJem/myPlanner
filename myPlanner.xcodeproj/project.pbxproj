@@ -65,6 +65,7 @@
 		3ACA4D6329A226EC00C7DCC6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */; };
 		3ACA4D6529A227BE00C7DCC6 /* Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6429A227BE00C7DCC6 /* Calendar.View.swift */; };
 		3ACA4D6729A2294D00C7DCC6 /* Calendar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */; };
+		3ACA4D6929A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */; };
 		3AD34AB529A0B887001FD558 /* DayPage.ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */; };
 		3AD34AB729A0C534001FD558 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB629A0C534001FD558 /* Date.swift */; };
 		3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD34AB829A0C557001FD558 /* Date.View.swift */; };
@@ -151,6 +152,7 @@
 		3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		3ACA4D6429A227BE00C7DCC6 /* Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.View.swift; sourceTree = "<group>"; };
 		3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.ViewState.swift; sourceTree = "<group>"; };
+		3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.ViewState.swift; sourceTree = "<group>"; };
 		3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.swift; sourceTree = "<group>"; };
 		3AD34AB629A0C534001FD558 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AD34AB829A0C557001FD558 /* Date.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.View.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				3A5D20992989A60F0029408A /* DayPage.swift */,
 				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
 				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
+				3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */,
 			);
 			path = DayPage;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */,
 				3A2D66A829855ED9007AD3F6 /* UIView.swift in Sources */,
 				3A5D20952989A31A0029408A /* Header.View.swift in Sources */,
+				3ACA4D6929A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift in Sources */,
 				3A5D20A42989A6CF0029408A /* DayPage.View.swift in Sources */,
 				3A5D20E62998F6D10029408A /* MonthTabBar.swift in Sources */,
 				3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */,

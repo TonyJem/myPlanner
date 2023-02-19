@@ -51,9 +51,10 @@ extension DayPage {
 extension DayPage.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 888
+        return 88
     }
     
+    // TODO: Change force unwrapping "as!" with guard, check for sollution in PaulHadson, RW tutorial or our project
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.ViewCell.identifier, for: indexPath) as! DayPage.ViewCell
         let title = "Day: \(indexPath.row)"
@@ -65,6 +66,12 @@ extension DayPage.View: UICollectionViewDataSource {
             subtitle: subtitle
         )
         cell.renderDate(viewState: viewState)
+        
+        cell.viewState = DayPage.ViewCell.ViewState(
+            calendarState: DayPage.Calendar.ViewState(
+                testText: "DayPageViewText"
+            )
+        )
         return cell
     }
     

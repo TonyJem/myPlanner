@@ -11,7 +11,15 @@ extension DayPage {
             
         }
         
+        // MARK: - Properties
+        
         static let identifier = String(describing: ViewCell.self)
+        
+        var viewState: ViewState? {
+            didSet {
+                render(viewState: viewState)
+            }
+        }
         
         // MARK: - SubViews
         
@@ -105,6 +113,15 @@ extension DayPage {
             ])
         }
         
+    }
+    
+}
+
+extension DayPage.ViewCell {
+    
+    private func render(viewState: DayPage.ViewCell.ViewState?) {
+        guard let viewState = viewState else { return }
+        calendarView.viewState = viewState.calendarState
     }
     
 }

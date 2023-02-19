@@ -21,7 +21,6 @@ extension DayPage.Calendar {
         
         private lazy var testLabel: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "initialText"
             label.backgroundColor = .green
             return label
         }()
