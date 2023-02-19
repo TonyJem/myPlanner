@@ -38,8 +38,6 @@ extension Main {
             activeMonth = month
             let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
-            
-            provider.testFuncFromMainProviderProtocol()
         }
         
     }
@@ -104,9 +102,12 @@ extension Main.Presenter {
     }
     
     private func createBodyViewState() -> Body.ViewState {
+        
+        let monthName = provider.provideMonthString(for: activeMonth)
+        
         let dayPageViewState = DayPage.ViewState(
             calendarState: DayPage.Calendar.ViewState(
-                testText: "\(activeMonth.tabTitle)"
+                testText: "\(monthName)"
             )
         )
         return Body.ViewState(

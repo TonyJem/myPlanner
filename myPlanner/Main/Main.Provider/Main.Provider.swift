@@ -2,7 +2,7 @@ import Foundation
 
 protocol MainProviderProtocol {
     
-    func testFuncFromMainProviderProtocol()
+    func provideMonthString(for selectedTab: Footer.MonthTab.MonthTabType) -> String
     
 }
 
@@ -16,9 +16,8 @@ extension Main {
             self.calendarService = calendarService
         }
         
-        
-        func testFuncFromMainProviderProtocol() {
-            calendarService.runTestFunc()
+        func provideMonthString(for selectedTab: Footer.MonthTab.MonthTabType) -> String {
+            return calendarService.getMonthName(for: selectedTab)
         }
         
     }
