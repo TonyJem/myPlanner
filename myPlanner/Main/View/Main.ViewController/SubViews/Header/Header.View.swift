@@ -1,7 +1,11 @@
-// TODO: Create HeaderProtocol
-// TODO: Make Header Structure same as in Footer (after fully finishing Footer UI)
-
 import UIKit
+
+protocol HeaderViewProtocol: UIView {
+    
+    /// Holds the ViewState of the `Header`
+    var viewState: Header.ViewState? { get set }
+    
+}
 
 extension Header {
     
@@ -116,23 +120,15 @@ extension Header {
             ])
         }
         
-        private func render(viewState: ViewState?) {
-            guard let viewState = viewState else { return }
-            tabBar.viewState = viewState.tabBarViewState
-        }
-        
     }
     
 }
 
-// MARK: - Viewstate
-
-extension Header.View {
+extension Header.View: HeaderViewProtocol {
     
-    struct ViewState {
-        
-        let tabBarViewState: Header.PageTabBar.ViewState
-        
+    private func render(viewState: Header.ViewState?) {
+        guard let viewState = viewState else { return }
+        tabBar.viewState = viewState.tabBarViewState
     }
     
 }
