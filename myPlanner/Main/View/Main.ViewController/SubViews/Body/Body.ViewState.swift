@@ -6,6 +6,8 @@ extension Body {
         
         let activePage: Header.PageTab.PageTabType
         
+        let dayPageViewState: DayPage.ViewState
+        
     }
     
 }

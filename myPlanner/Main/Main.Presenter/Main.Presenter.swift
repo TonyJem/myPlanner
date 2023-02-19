@@ -89,7 +89,15 @@ extension Main.Presenter {
     }
     
     private func createBodyViewState() -> Body.ViewState {
-        Body.ViewState(activePage: activePage)
+        let dayPageViewState = DayPage.ViewState(
+            calendarState: DayPage.Calendar.ViewState(
+                testText: "\(activeMonth.tabTitle)"
+            )
+        )
+        return Body.ViewState(
+            activePage: activePage,
+            dayPageViewState: dayPageViewState
+        )
     }
     
     private func createFooterViewState() -> Footer.ViewState {

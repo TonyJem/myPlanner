@@ -102,11 +102,7 @@ extension Body.View: BodyViewProtocol {
         guard let viewState = viewState else { return }
         switch viewState.activePage {
         case .day:
-            dayPage.viewState = DayPage.ViewState(
-                calendarState: DayPage.Calendar.ViewState(
-                    testText: "Rendered in Body.View"
-                )
-            )
+            dayPage.viewState = viewState.dayPageViewState
             showDayPage()
         case .week:
             showWeekPage()

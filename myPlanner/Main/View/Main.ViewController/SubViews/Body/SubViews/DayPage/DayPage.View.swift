@@ -19,7 +19,11 @@ extension DayPage {
         
         // MARK: - Properties
         
-        var viewState: DayPage.ViewState?
+        var viewState: ViewState? {
+            didSet {
+                reloadData()
+            }
+        }
         
         // MARK: - Init
         
