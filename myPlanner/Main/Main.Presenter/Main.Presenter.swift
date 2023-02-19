@@ -38,6 +38,8 @@ extension Main {
             activeMonth = month
             let container = createViewStateContainer()
             view?.render(viewStateContainer: container)
+            
+            provider.testFuncFromMainProviderProtocol()
         }
         
     }

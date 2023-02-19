@@ -2,6 +2,8 @@ import Foundation
 
 protocol MainProviderProtocol {
     
+    func testFuncFromMainProviderProtocol()
+    
 }
 
 extension Main {
@@ -12,6 +14,11 @@ extension Main {
         
         init(calendarService: CalendarServiceProtocol) {
             self.calendarService = calendarService
+        }
+        
+        
+        func testFuncFromMainProviderProtocol() {
+            calendarService.runTestFunc()
         }
         
     }
