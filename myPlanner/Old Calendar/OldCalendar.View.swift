@@ -1,6 +1,6 @@
 import UIKit
 
-extension DayPage.Calendar {
+extension DayPage.OldCalendar {
     
     class View: UIView {
         
@@ -70,6 +70,7 @@ extension DayPage.Calendar {
         // MARK: - SubViews
         
         private lazy var weekDays = createCollectionView()
+        
         private lazy var dates = createCollectionView()
         
         // MARK: - Init
@@ -118,7 +119,7 @@ extension DayPage.Calendar {
 }
 
 // MARK: - SetConstraints
-extension DayPage.Calendar.View {
+extension DayPage.OldCalendar.View {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
@@ -142,7 +143,7 @@ extension DayPage.Calendar.View {
 }
 
 // MARK: - CollectionView DataSource
-extension DayPage.Calendar.View: UICollectionViewDataSource {
+extension DayPage.OldCalendar.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.weekDays {
@@ -153,7 +154,7 @@ extension DayPage.Calendar.View: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.ViewCell.identifier, for: indexPath) as! DayPage.Calendar.ViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.OldCalendar.ViewCell.identifier, for: indexPath) as! DayPage.OldCalendar.ViewCell
         
         if collectionView == self.weekDays {
             cell.viewState = weekDayViewStates[indexPath.row]
@@ -167,12 +168,12 @@ extension DayPage.Calendar.View: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension DayPage.Calendar.View: UICollectionViewDelegate {
+extension DayPage.OldCalendar.View: UICollectionViewDelegate {
     
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension DayPage.Calendar.View: UICollectionViewDelegateFlowLayout {
+extension DayPage.OldCalendar.View: UICollectionViewDelegateFlowLayout {
     
     // Returns Item size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
