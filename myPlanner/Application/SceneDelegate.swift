@@ -8,7 +8,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let module = Main.Module()
-        let provider = Main.Provider()
+        let calendarService = DayPage.Calendar.Service()
+        let provider = Main.Provider(calendarService: calendarService)
         let viewController = module.getView(provider: provider)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
