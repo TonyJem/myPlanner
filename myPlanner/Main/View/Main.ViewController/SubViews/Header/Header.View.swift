@@ -133,6 +133,9 @@ extension Header.View: HeaderViewProtocol {
     private func render(viewState: Header.ViewState?) {
         guard let viewState = viewState else { return }
         tabBar.viewState = viewState.tabBarViewState
+        
+        // TODO: Need to show month as a number only if titleLabel is too wide
+        // it happens while device is rotated vertically
         titleLabel.text = "\(viewState.month) \(viewState.year)"
     }
     
