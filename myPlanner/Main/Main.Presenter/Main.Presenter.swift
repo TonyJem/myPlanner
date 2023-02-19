@@ -16,7 +16,15 @@ extension Main {
         
         weak var view: MainView?
         
-        private var selectedDate: Date
+        // TODO: Need to fix selectedDate calculation
+        // in prints I see it show last day of the month
+        // for example for March it shows SelectedDate: 0001-02-28 22:18:44 +0000
+        // when I have localy 2023-02-20 Mon 00:08
+        private var selectedDate: Date {
+            didSet {
+                print("🟢 SelectedDate: \(selectedDate)")
+            }
+        }
         
         private var activePage: Header.PageTab.PageTabType = .day
         
