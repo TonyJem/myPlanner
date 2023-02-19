@@ -10,10 +10,14 @@ extension Main {
     
     class Presenter {
         
+        // MARK: - Properties
+        
         weak var view: MainView?
         
         private var activePage: Header.PageTab.PageTabType = .day
         private var activeMonth: Footer.MonthTab.MonthTabType = .january
+        
+        // MARK: - Private Methods
         
         private func handlePageTabAction(type: Header.PageTab.PageTabType) {
             activePage = type
