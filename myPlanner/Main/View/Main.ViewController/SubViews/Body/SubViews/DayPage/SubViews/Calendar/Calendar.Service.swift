@@ -77,6 +77,8 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         return Calendar.current.date(from: components) ?? dateNow()
     }
     
+    // TODO: Refactor to have only "calendar.component(.month" as
+    // descripbtion of Tab type
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType {
         let component = calendar.component(.month, from: date)
         switch component {

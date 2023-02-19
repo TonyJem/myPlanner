@@ -20,7 +20,7 @@ extension Main {
         
         private var activePage: Header.PageTab.PageTabType = .day
         
-        // TODO: Think if we need thi parameter, may is ebought to have just only "selectedDate"
+        // TODO: Think if we need this parameter, may is ebought to have just only "selectedDate"
         private var activeMonth: Footer.MonthTab.MonthTabType = .january
         
         // MARK: - Init
