@@ -23,8 +23,8 @@ extension DayPage {
         
         // MARK: - SubViews
         
-        private lazy var dateView: DayPage.Date.View = {
-            let view = DayPage.Date.View().autolayout()
+        private lazy var dateView: DayPage.DateView.View = {
+            let view = DayPage.DateView.View().autolayout()
             return view
         }()
         
@@ -66,7 +66,7 @@ extension DayPage {
         
         // MARK: - Public Methods
         
-        func renderDate(viewState: DayPage.Date.ViewState) {
+        func renderDate(viewState: DayPage.DateView.ViewState) {
             dateView.renderDate(viewState: viewState)
         }
         

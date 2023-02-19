@@ -1,6 +1,6 @@
 import UIKit
 
-extension DayPage.Date {
+extension DayPage.DateView {
     
     final class View: UIView {
         
@@ -51,7 +51,7 @@ extension DayPage.Date {
             addSubview(subtitle)
         }
         
-        func renderDate(viewState: DayPage.Date.ViewState) {
+        func renderDate(viewState: DayPage.DateView.ViewState) {
             title.text = viewState.title
             date.text = viewState.date
             subtitle.text = viewState.subtitle
@@ -62,7 +62,7 @@ extension DayPage.Date {
 }
 
 // MARK: - SetConstraints
-extension DayPage.Date.View {
+extension DayPage.DateView.View {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

@@ -16,14 +16,20 @@ extension Main {
         
         weak var view: MainView?
         
+        private var selectedDate: Date
+        
         private var activePage: Header.PageTab.PageTabType = .day
         private var activeMonth: Footer.MonthTab.MonthTabType = .january
         
         
         // MARK: - Init
         
-        init(provider: MainProviderProtocol) {
+        init(
+            provider: MainProviderProtocol,
+            currentDate: Date
+        ) {
             self.provider = provider
+            self.selectedDate = currentDate
         }
         
         // MARK: - Private Methods
@@ -52,6 +58,8 @@ extension Main.Presenter: MainPresenter {
     func viewDidLoad() {
         let container = createViewStateContainer()
         view?.render(viewStateContainer: container)
+        
+        print("🟢 SelectedDate: \(selectedDate)")
     }
     
 }
