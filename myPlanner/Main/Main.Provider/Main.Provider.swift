@@ -2,17 +2,17 @@ import Foundation
 
 protocol MainProviderProtocol {
     
-    func provideMonthString(for selectedTab: Footer.MonthTab.MonthTabType) -> String
+    func currentDate() -> Date
     
-    func getCurrentDate() -> Date
+    func monthString(date: Date) -> String
+    
+    func yearString(date: Date) -> String
     
 }
 
 extension Main {
     
-    final class Provider: MainProviderProtocol {
-
-        
+    final class Provider {
         
         private let calendarService: CalendarServiceProtocol
         
@@ -20,16 +20,24 @@ extension Main {
             self.calendarService = calendarService
         }
         
-        // MARK: - MainProviderProtocol implementation
-        
-        func provideMonthString(for selectedTab: Footer.MonthTab.MonthTabType) -> String {
-            return calendarService.getMonthName(for: selectedTab)
-        }
-        
-        func getCurrentDate() -> Date {
-            return calendarService.currentDate()
-        }
-        
+    }
+    
+}
+
+// MARK: - MainProviderProtocol implementation
+
+extension Main.Provider: MainProviderProtocol {
+    
+    func currentDate() -> Date {
+        return calendarService.currentDate()
+    }
+    
+    func monthString(date: Date) -> String {
+        return calendarService.monthString(date: date)
+    }
+    
+    func yearString(date: Date) -> String {
+        return calendarService.yearString(date: date)
     }
     
 }

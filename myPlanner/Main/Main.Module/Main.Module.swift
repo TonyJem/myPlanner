@@ -15,7 +15,7 @@ extension Main {
             
             let presenter = Presenter(
                 provider: provider,
-                currentDate: provider.getCurrentDate()
+                currentDate: provider.currentDate()
             )
             let view = ViewController(presenter: presenter)
             presenter.view = view

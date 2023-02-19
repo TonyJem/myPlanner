@@ -58,8 +58,6 @@ extension Main.Presenter: MainPresenter {
     func viewDidLoad() {
         let container = createViewStateContainer()
         view?.render(viewStateContainer: container)
-        
-        print("🟢 SelectedDate: \(selectedDate)")
     }
     
 }
@@ -111,11 +109,9 @@ extension Main.Presenter {
     
     private func createBodyViewState() -> Body.ViewState {
         
-        let monthName = provider.provideMonthString(for: activeMonth)
-        
         let dayPageViewState = DayPage.ViewState(
             calendarState: DayPage.Calendar.ViewState(
-                testText: "\(monthName)"
+                testText: provider.monthString(date: selectedDate)
             )
         )
         return Body.ViewState(
