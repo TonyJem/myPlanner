@@ -1,5 +1,17 @@
 import UIKit
 
+struct MyItem: Hashable {
+    var title: String
+}
+
+struct MySection: Hashable {
+    
+    let type: String
+    
+    var items: [MyItem]
+    
+}
+
 extension DayPage.Calendar {
     
     final class View: UIView {
@@ -96,6 +108,7 @@ extension DayPage.Calendar {
                 collectionViewLayout: createCompositionalLayout()
             )
             collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            collectionView.isScrollEnabled = false
             
             self.addSubview(collectionView)
             
@@ -122,21 +135,20 @@ extension DayPage.Calendar {
         private func createSection() -> NSCollectionLayoutSection {
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1/7),
-                heightDimension: .fractionalWidth(1/7)
+                heightDimension: .fractionalHeight(1)
             )
             
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+//            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
             
             let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(1.0)
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1/7)
             )
             
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
             return section
         }
         

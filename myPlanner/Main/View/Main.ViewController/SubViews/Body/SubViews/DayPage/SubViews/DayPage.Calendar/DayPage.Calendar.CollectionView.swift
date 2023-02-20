@@ -7,18 +7,6 @@ protocol CalendarCollectionViewProtocol: UICollectionView {
     
 }
 
-struct MyItem: Hashable {
-    var title: String
-}
-
-struct MySection: Hashable {
-    
-    let type: String
-    
-    var items: [MyItem]
-    
-}
-
 extension DayPage.Calendar {
     
     final class CollectionView: UICollectionView {
