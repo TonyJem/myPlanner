@@ -28,12 +28,14 @@ extension DayPage {
         // MARK: - Init
         
         init() {
-            let layout = UICollectionViewFlowLayout()
+            
+            let layout = AutoInvalidatingLayout()
             layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = Constants.minimumLineSpacing
+            
             super.init(frame: .zero, collectionViewLayout: layout)
             setupView()
-            setupDelegates()
+            configureDataSource()
             configureTableView()
         }
         
@@ -50,9 +52,8 @@ extension DayPage {
             showsHorizontalScrollIndicator = false
         }
         
-        private func setupDelegates() {
+        private func configureDataSource() {
             dataSource = self
-            delegate = self
         }
         
         private func configureTableView() {

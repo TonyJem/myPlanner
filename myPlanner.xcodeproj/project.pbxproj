@@ -734,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACA4D6029A13C4B00C7DCC6 /* AutoInvalidatingLayout.swift in Sources */,
 				3A5D20C82991169B0029408A /* Main.ViewStateContainer.swift in Sources */,
 				3A2D6657298515FE007AD3F6 /* myPlanner.xcdatamodeld in Sources */,
 				3AD34ABB29A0C712001FD558 /* Date.ViewState.swift in Sources */,
