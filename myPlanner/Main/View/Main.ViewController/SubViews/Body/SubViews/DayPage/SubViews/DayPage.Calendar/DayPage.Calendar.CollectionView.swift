@@ -7,6 +7,15 @@ protocol CalendarCollectionViewProtocol: UICollectionView {
     
 }
 
+struct MyItem {
+    var title: String
+}
+
+struct MySection {
+    var items: [MyItem]
+    
+}
+
 extension DayPage.Calendar {
     
     final class CollectionView: UICollectionView {
@@ -16,6 +25,65 @@ extension DayPage.Calendar {
         }
         
         // MARK: - Properties
+        
+        var sections: [MySection] = [
+        
+            MySection(items: [
+                MyItem(title: "Mon"),
+                MyItem(title: "Tue"),
+                MyItem(title: "Wed"),
+                MyItem(title: "Thu"),
+                MyItem(title: "Fri"),
+                MyItem(title: "Sat"),
+                MyItem(title: "Sun")
+            ]),
+            
+            MySection(items: [
+                MyItem(title: "1"),
+                MyItem(title: "2"),
+                MyItem(title: "3"),
+                MyItem(title: "4"),
+                MyItem(title: "5"),
+                MyItem(title: "6"),
+                MyItem(title: "7"),
+                MyItem(title: "8"),
+                MyItem(title: "9"),
+                MyItem(title: "10"),
+                MyItem(title: "11"),
+                MyItem(title: "12"),
+                MyItem(title: "13"),
+                MyItem(title: "14"),
+                MyItem(title: "15"),
+                MyItem(title: "16"),
+                MyItem(title: "17"),
+                MyItem(title: "18"),
+                MyItem(title: "19"),
+                MyItem(title: "20"),
+                MyItem(title: "21"),
+                MyItem(title: "22"),
+                MyItem(title: "23"),
+                MyItem(title: "24"),
+                MyItem(title: "25"),
+                MyItem(title: "26"),
+                MyItem(title: "27"),
+                MyItem(title: "28"),
+                MyItem(title: "29"),
+                MyItem(title: "30"),
+                MyItem(title: "31"),
+                MyItem(title: "32"),
+                MyItem(title: "33"),
+                MyItem(title: "34"),
+                MyItem(title: "35"),
+                MyItem(title: "36"),
+                MyItem(title: "37"),
+                MyItem(title: "38"),
+                MyItem(title: "39"),
+                MyItem(title: "40"),
+                MyItem(title: "41"),
+                MyItem(title: "42")
+            ])
+        
+        ]
         
         var viewState: ViewState? {
             didSet {
@@ -29,7 +97,6 @@ extension DayPage.Calendar {
         init() {
             
             let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = .separatorHeight
             layout.minimumInteritemSpacing = .separatorHeight
             
@@ -75,13 +142,21 @@ extension DayPage.Calendar.CollectionView: CalendarCollectionViewProtocol {
 
 extension DayPage.Calendar.CollectionView: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sections.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 49
+        return sections[section].items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.ViewCell.identifier, for: indexPath) as! DayPage.Calendar.ViewCell
-        cell.backgroundColor = .systemOrange
+        
+        let section = sections[indexPath.section]
+        let item = section.items[indexPath.item]
+        
+        cell.setLabel(text: item.title)
         return cell
     }
     
