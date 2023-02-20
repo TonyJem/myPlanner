@@ -4,12 +4,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let module = Main.Module()
-        let viewController = module.getView()
+        let calendarService = DayPage.Calendar.Service()
+        let provider = Main.Provider(calendarService: calendarService)
+        let viewController = module.getView(provider: provider)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light

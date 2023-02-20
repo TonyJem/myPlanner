@@ -1,6 +1,6 @@
 import Foundation
 
-extension DayPage.Date {
+extension DayPage.DateView {
     
     struct ViewState {
         

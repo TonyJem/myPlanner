@@ -1,7 +1,11 @@
-// TODO: Create HeaderProtocol
-// TODO: Make Header Structure same as in Footer (after fully finishing Footer UI)
-
 import UIKit
+
+protocol HeaderViewProtocol: UIView {
+    
+    /// Holds the ViewState of the `Header`
+    var viewState: Header.ViewState? { get set }
+    
+}
 
 extension Header {
     
@@ -28,10 +32,11 @@ extension Header {
         
         // MARK: - SubViews
         
-        private lazy var dateView: UIView = {
-            let view = UIView().autolayout()
-            view.backgroundColor = .orange
-            return view
+        private lazy var titleLabel: UILabel = {
+            let label = UILabel().autolayout()
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
+            return label
         }()
         
         private lazy var tabBar: PageTabBarProtocol = {
@@ -84,7 +89,7 @@ extension Header {
         }
         
         private func addSubViews() {
-            addSubview(dateView)
+            addSubview(titleLabel)
             addSubview(tabBar)
             addSubview(searchButton)
             addSubview(settingsButton)
@@ -93,10 +98,8 @@ extension Header {
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
-                dateView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingXXS),
-                dateView.widthAnchor.constraint(equalToConstant: Constants.dateViewWidth),
-                dateView.heightAnchor.constraint(equalToConstant: Constants.dateViewHeight),
+                titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .spacingL),
+                titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.spacingXXS),
                 
                 tabBar.centerXAnchor.constraint(equalTo: centerXAnchor),
                 tabBar.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -116,23 +119,24 @@ extension Header {
             ])
         }
         
-        private func render(viewState: ViewState?) {
-            guard let viewState = viewState else { return }
-            tabBar.viewState = viewState.tabBarViewState
-        }
-        
     }
     
 }
 
-// MARK: - Viewstate
+// TODO: Make sure all protocols are implemented like this template
+// in extension and in Mark is only name of protocol and nothing else
 
-extension Header.View {
+// MARK: - HeaderViewProtocol:
+
+extension Header.View: HeaderViewProtocol {
     
-    struct ViewState {
+    private func render(viewState: Header.ViewState?) {
+        guard let viewState = viewState else { return }
+        tabBar.viewState = viewState.tabBarViewState
         
-        let tabBarViewState: Header.PageTabBar.ViewState
-        
+        // TODO: Need to show month as a number only if titleLabel is too wide
+        // it happens while device is rotated vertically
+        titleLabel.text = "\(viewState.month) \(viewState.year)"
     }
     
 }

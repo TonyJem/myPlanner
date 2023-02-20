@@ -24,6 +24,8 @@ extension Footer {
 
 extension Footer.MonthTab {
     
+    // TODO: Refactor to have only "calendar.component(.month" as
+    // descripbtion of Tab type
     enum MonthTabType {
         
         case january

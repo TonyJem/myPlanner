@@ -11,6 +11,10 @@ import Foundation
  */
 extension ExpressibleByIntegerLiteral {
     
+    public static var separatorHeight: Self { 1 }
+    
+    public static var spacingXXXS: Self { 2 }
+    
     public static var spacingXXS: Self { 4 }
     
     public static var spacingXS: Self { 8 }
@@ -20,5 +24,11 @@ extension ExpressibleByIntegerLiteral {
     public static var spacingM: Self { 16 }
     
     public static var spacingL: Self { 24 }
+    
+    public static var spacingXL: Self { 32 }
+    
+    public static var spacingXXL: Self { 48 }
+    
+    public static var spacingXXXL: Self { 64 }
     
 }

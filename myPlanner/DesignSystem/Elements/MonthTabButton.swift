@@ -35,8 +35,7 @@ final class MonthTabButton: UIButton, MonthTabButtonProtocol {
     
     // MARK: - Actions
     
-    @objc private func didTapAction() {
-        print("🟢🟢 didTapOn Element MonthTabButton")        
+    @objc private func didTapAction() {      
         guard let viewState = viewState else { return }
         viewState.tabAction(viewState.monthTabType)
     }

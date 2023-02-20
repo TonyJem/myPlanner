@@ -1,6 +1,6 @@
 import UIKit
 
-extension DayPage.Calendar {
+extension DayPage.OldCalendar {
     
     class ViewCell: UICollectionViewCell {
         
@@ -100,7 +100,7 @@ extension DayPage.Calendar {
 }
 
 // MARK: - SetConstraints
-extension DayPage.Calendar.ViewCell {
+extension DayPage.OldCalendar.ViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

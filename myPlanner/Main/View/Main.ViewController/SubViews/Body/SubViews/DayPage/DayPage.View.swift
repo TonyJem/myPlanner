@@ -1,13 +1,28 @@
 import UIKit
 
+protocol DayPageViewProtocol: UICollectionView {
+    
+    /// Holds the ViewState of the `DayPage`
+    var viewState: DayPage.ViewState? { get set }
+    
+}
+
 extension DayPage {
     
-    final class View: UICollectionView {
+    final class View: UICollectionView, DayPageViewProtocol {
         
         enum Constants {
             
             static let minimumLineSpacing: CGFloat = 0.0
             
+        }
+        
+        // MARK: - Properties
+        
+        var viewState: ViewState? {
+            didSet {
+                reloadData()
+            }
         }
         
         // MARK: - Init
@@ -54,21 +69,44 @@ extension DayPage {
 extension DayPage.View: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 888
+        return 88
     }
     
+    // TODO: Change force unwrapping "as!" with guard, check for sollution in PaulHadson, RW tutorial or our project
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.ViewCell.identifier, for: indexPath) as! DayPage.ViewCell
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
         let subtitle = "\(indexPath.row)TH DAY, 337 LEFT, WEEK 4"
-        let viewState = DayPage.Date.ViewState(
+        let dateViewState = DayPage.DateView.ViewState(
             title: title,
             date: date,
             subtitle: subtitle
         )
-        cell.renderDate(viewState: viewState)
+        cell.renderDate(viewState: dateViewState)
+        
+        guard let viewState = viewState else { return cell }
+        cell.viewState = DayPage.ViewCell.ViewState(
+            calendarState: viewState.calendarState
+        )
+        
         return cell
+    }
+    
+}
+
+// MARK: - CollectionView Delegate
+
+extension DayPage.View: UICollectionViewDelegate {
+    
+}
+
+// MARK: - CollectionView DelegateFlowLayout
+
+extension DayPage.View: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width, height: frame.height)
     }
     
 }

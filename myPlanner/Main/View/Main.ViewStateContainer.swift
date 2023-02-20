@@ -4,9 +4,9 @@ extension Main {
     
     struct ViewStateContainer {
         
-        let headerViewState: Header.View.ViewState
+        let headerViewState: Header.ViewState
         
-        let bodyViewState: Body.View.ViewState
+        let bodyViewState: Body.ViewState
         
         let footerViewState: Footer.ViewState
         
