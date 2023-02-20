@@ -28,8 +28,8 @@ extension DayPage {
             return view
         }()
         
-        private lazy var calendarView: CalendarViewProtocol = {
-            let view = DayPage.Calendar.View().autolayout()
+        private lazy var calendarView: CalendarCollectionViewProtocol = {
+            let view = DayPage.Calendar.CollectionView().autolayout()
             view.backgroundColor = .systemBlue
             return view
         }()
