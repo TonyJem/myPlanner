@@ -29,7 +29,7 @@ extension DayPage {
         
         init() {
             
-            let layout = AutoInvalidatingLayout()
+            let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = Constants.minimumLineSpacing
             
