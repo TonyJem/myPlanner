@@ -139,7 +139,7 @@ extension DayPage.Calendar {
             )
             
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
