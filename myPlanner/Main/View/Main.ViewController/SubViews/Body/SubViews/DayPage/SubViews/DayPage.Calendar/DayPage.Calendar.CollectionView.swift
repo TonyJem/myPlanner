@@ -13,8 +13,6 @@ extension DayPage.Calendar {
         
         enum Constants {
             
-            static let minimumLineSpacing: CGFloat = 1.0
-            
         }
         
         // MARK: - Properties
@@ -32,7 +30,8 @@ extension DayPage.Calendar {
             
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-            layout.minimumLineSpacing = Constants.minimumLineSpacing
+            layout.minimumLineSpacing = .separatorHeight
+            layout.minimumInteritemSpacing = .separatorHeight
             
             super.init(frame: .zero, collectionViewLayout: layout)
             setupView()
@@ -47,8 +46,8 @@ extension DayPage.Calendar {
         // MARK: - Private Methods
         
         private func setupView() {
-//            showsVerticalScrollIndicator = false
-//            showsHorizontalScrollIndicator = false
+            showsVerticalScrollIndicator = false
+            showsHorizontalScrollIndicator = false
         }
         
         private func configureCollectionView() {
@@ -99,7 +98,7 @@ extension DayPage.Calendar.CollectionView: UICollectionViewDelegate {
 extension DayPage.Calendar.CollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/7*0.95, height: frame.height/7*0.95)
+        return CGSize(width: frame.width/7*0.97, height: frame.height/7*0.97)
     }
     
 }
