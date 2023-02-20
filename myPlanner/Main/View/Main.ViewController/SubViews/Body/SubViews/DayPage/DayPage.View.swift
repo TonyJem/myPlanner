@@ -35,8 +35,7 @@ extension DayPage {
             
             super.init(frame: .zero, collectionViewLayout: layout)
             setupView()
-            configureDataSource()
-            configureTableView()
+            configureCollectionView()
         }
         
         required init?(coder: NSCoder) {
@@ -52,11 +51,9 @@ extension DayPage {
             showsHorizontalScrollIndicator = false
         }
         
-        private func configureDataSource() {
+        private func configureCollectionView() {
             dataSource = self
-        }
-        
-        private func configureTableView() {
+            delegate = self
             register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
         }
         
