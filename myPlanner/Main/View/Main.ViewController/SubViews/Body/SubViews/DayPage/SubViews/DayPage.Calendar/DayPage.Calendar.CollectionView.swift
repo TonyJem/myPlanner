@@ -98,7 +98,7 @@ extension DayPage.Calendar.CollectionView: UICollectionViewDelegate {
 extension DayPage.Calendar.CollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/7*0.97, height: frame.height/7*0.97)
+        return CGSize(width: frame.width/7-1, height: frame.height/7-1)
     }
     
 }
