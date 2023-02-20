@@ -7,11 +7,14 @@ protocol CalendarCollectionViewProtocol: UICollectionView {
     
 }
 
-struct MyItem {
+struct MyItem: Hashable {
     var title: String
 }
 
-struct MySection {
+struct MySection: Hashable {
+    
+    let type: String
+    
     var items: [MyItem]
     
 }
@@ -28,7 +31,9 @@ extension DayPage.Calendar {
         
         var sections: [MySection] = [
         
-            MySection(items: [
+            MySection(
+                type: "DayNames",
+                items: [
                 MyItem(title: "Mon"),
                 MyItem(title: "Tue"),
                 MyItem(title: "Wed"),
@@ -38,7 +43,9 @@ extension DayPage.Calendar {
                 MyItem(title: "Sun")
             ]),
             
-            MySection(items: [
+            MySection(
+                type: "MonthDays",
+                items: [
                 MyItem(title: "1"),
                 MyItem(title: "2"),
                 MyItem(title: "3"),
@@ -121,6 +128,40 @@ extension DayPage.Calendar {
             dataSource = self
             delegate = self
             register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
+        }
+        
+        private func createCompositionalLayout() -> UICollectionViewLayout {
+            let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+                let section = self.sections[sectionIndex]
+                switch section.type {
+                default:
+                    return self.createSection()
+                }
+            }
+            return layout
+        }
+        
+        
+        // section -> group -> items -> size
+        private func createSection() -> NSCollectionLayoutSection {
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/7),
+                heightDimension: .fractionalWidth(1/7)
+            )
+            
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(1.0)
+            )
+            
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+            return section
         }
         
     }
