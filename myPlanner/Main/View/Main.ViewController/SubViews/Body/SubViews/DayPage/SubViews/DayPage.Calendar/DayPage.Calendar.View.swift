@@ -20,10 +20,12 @@ extension DayPage.Calendar {
         
         var collectionView: UICollectionView!
         
+        var dataSource: UICollectionViewDiffableDataSource<MySection, MyItem>?
+        
         var sections: [MySection] = [
         
             MySection(
-                type: "DayNames",
+                type: "WeekDays",
                 items: [
                 MyItem(title: "Mon"),
                 MyItem(title: "Tue"),
@@ -91,6 +93,8 @@ extension DayPage.Calendar {
             super.init(frame: frame)
             
             setupCollectionView()
+            createDataSource()
+            reloadData()
         }
         
         required init?(coder: NSCoder) {
@@ -112,10 +116,8 @@ extension DayPage.Calendar {
             
             self.addSubview(collectionView)
             
-            collectionView.register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
-            
-            collectionView.dataSource = self
-            collectionView.delegate = self
+            collectionView.register(MonthDateCell.self, forCellWithReuseIdentifier: MonthDateCell.identifier)
+            collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
             
         }
         
@@ -152,34 +154,38 @@ extension DayPage.Calendar {
             return section
         }
         
-    }
-    
-}
+        private func createDataSource() {
+            dataSource = UICollectionViewDiffableDataSource<MySection, MyItem>(
+                collectionView: collectionView,
+                cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
+                    
+                    switch self.sections[indexPath.section].type {
+                    case "WeekDays":
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
+                        
+                        cell?.setLabel(text: item.title)
+                        return cell
+                        
+                    default:
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDateCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDateCell
+                        
+                        cell?.setLabel(text: item.title)
+                        return cell
+                    }
 
-// MARK: - UICollectionViewDataSource
-
-extension DayPage.Calendar.View: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.ViewCell.identifier, for: indexPath) as! DayPage.Calendar.ViewCell
+            })
+        }
         
-        let section = sections[indexPath.section]
-        let item = section.items[indexPath.item]
+        private func reloadData() {
+            var snapshot = NSDiffableDataSourceSnapshot<MySection, MyItem>()
+            snapshot.appendSections(sections)
+            
+            for section in sections {
+                snapshot.appendItems(section.items, toSection: section)
+            }
+            dataSource?.apply(snapshot)
+        }
         
-        cell.setLabel(text: item.title)
-        return cell
     }
-    
-}
-
-extension DayPage.Calendar.View: UICollectionViewDelegate {
     
 }

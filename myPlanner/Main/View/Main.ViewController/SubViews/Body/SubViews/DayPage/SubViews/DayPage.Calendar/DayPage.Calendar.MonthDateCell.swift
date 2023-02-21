@@ -2,7 +2,7 @@ import UIKit
 
 extension DayPage.Calendar {
     
-    final class ViewCell: UICollectionViewCell {
+    final class MonthDateCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -10,7 +10,7 @@ extension DayPage.Calendar {
         
         // MARK: - Properties
         
-        static let identifier = String(describing: ViewCell.self)
+        static let identifier = String(describing: MonthDateCell.self)
         
         var viewState: ViewState? {
             didSet {
@@ -67,9 +67,9 @@ extension DayPage.Calendar {
     
 }
 
-extension DayPage.Calendar.ViewCell {
+extension DayPage.Calendar.MonthDateCell {
     
-    private func render(viewState: DayPage.Calendar.ViewCell.ViewState?) {
+    private func render(viewState: DayPage.Calendar.MonthDateCell.ViewState?) {
 
     }
     
