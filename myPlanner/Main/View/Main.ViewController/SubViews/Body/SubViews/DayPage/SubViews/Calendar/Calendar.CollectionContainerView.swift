@@ -6,11 +6,7 @@ extension DayPage.Calendar {
     // Learn differences about final and not final classes
     final class CollectionContainerView: UIView {
         
-        // MARK: - Properties
-        
         var collectionViewDataSource: CollectionViewDataSource
-        
-        // MARK: - SubViews
         
         private lazy var collectionView: UICollectionView = {
             var collectionView = UICollectionView(
@@ -40,20 +36,13 @@ extension DayPage.Calendar {
         
         static func create(dataSource: CollectionViewDataSource) -> CollectionContainerView {
             let view = CollectionContainerView(dataSource: dataSource)
-            view.setup()
+            view.setupCollectionView()
             return view
-        }
-        
-        // MARK: - Public Methods
-        
-        func updateLayout(animated: Bool) {
-            collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: animated)
-            collectionView.collectionViewLayout.invalidateLayout()
         }
         
         // MARK: - Private Methods
         
-        private func setup() {
+        private func setupCollectionView() {
             collectionViewDataSource.collectionView = collectionView
             addSubview(collectionView)
             NSLayoutConstraint.activate([
@@ -65,33 +54,30 @@ extension DayPage.Calendar {
             
             collectionView.register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
             collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
+            
+            collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
+            collectionView.collectionViewLayout.invalidateLayout()
         }
         
-    }
-    
-}
-
-// MARK: - CollectionContainerView Layout
-
-extension DayPage.Calendar.CollectionContainerView {
-    
-    private func createCompositionalLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1/7),
-                heightDimension: .fractionalHeight(1)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1/7)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            return section
+        private func createCompositionalLayout() -> UICollectionViewLayout {
+            let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1/7),
+                    heightDimension: .fractionalHeight(1)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1/7)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                return section
+            }
+            return layout
         }
-        return layout
+        
     }
     
 }

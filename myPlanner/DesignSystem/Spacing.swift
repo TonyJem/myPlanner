@@ -11,7 +11,7 @@ import Foundation
  */
 extension ExpressibleByIntegerLiteral {
     
-    public static var separatorHeight: Self { 1 }
+    public static var separatorThickness: Self { 1 }
     
     public static var spacingXXXS: Self { 2 }
     

@@ -125,7 +125,6 @@ extension DayPage.ViewCell {
 //        calendarView.viewState = viewState.calendarState
         
         calendarContainer.collectionViewDataSource.update(animated: false)
-        calendarContainer.updateLayout(animated: false)
     }
     
 }
