@@ -200,7 +200,7 @@ extension DayPage.ViewCell {
 //        guard let viewState = viewState else { return }
 //        calendarView.viewState = viewState.calendarState
         
-        calendarContainer.collectionViewDataSource.update(sections: sections, animated: false)
+        calendarContainer.collectionViewDataSource.update(sections, animated: false)
     }
     
 }

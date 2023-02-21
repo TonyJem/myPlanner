@@ -48,7 +48,7 @@ extension DayPage.Calendar {
         
         // MARK: - Public Methods
         
-        func update(sections: [CalendarSection], animated: Bool) {
+        func update(_ sections: [CalendarSection], animated: Bool) {
             self.sections = sections
             updateData(animated: animated)
         }
