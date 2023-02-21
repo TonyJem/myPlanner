@@ -135,9 +135,7 @@ extension Main.Presenter {
     private func createBodyViewState() -> Body.ViewState {
         
         let dayPageViewState = DayPage.ViewState(
-            calendarState: DayPage.Calendar.ViewState(
-                testText: provider.monthString(date: selectedDate)
-            )
+            calendarState: DayPage.Calendar.ViewState()
         )
         return Body.ViewState(
             activePage: activePage,

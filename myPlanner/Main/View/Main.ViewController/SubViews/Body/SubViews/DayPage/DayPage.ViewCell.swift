@@ -28,7 +28,7 @@ extension DayPage {
             return view
         }()
         
-        private lazy var calendarView: CalendarViewProtocol = {
+        private lazy var calendarView: DayPage.Calendar.View = {
             let view = DayPage.Calendar.View().autolayout()
             view.backgroundColor = .systemBlue
             return view
@@ -120,8 +120,8 @@ extension DayPage {
 extension DayPage.ViewCell {
     
     private func render(viewState: DayPage.ViewCell.ViewState?) {
-        guard let viewState = viewState else { return }
-        calendarView.viewState = viewState.calendarState
+//        guard let viewState = viewState else { return }
+//        calendarView.viewState = viewState.calendarState
     }
     
 }

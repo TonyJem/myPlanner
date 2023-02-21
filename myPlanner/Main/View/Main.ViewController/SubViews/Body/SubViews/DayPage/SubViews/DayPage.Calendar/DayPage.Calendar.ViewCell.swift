@@ -1,15 +1,16 @@
 import UIKit
 
-protocol CalendarViewProtocol: UIView {
-    
-    /// Holds the ViewState of the `DayPage.Calendar`
-    var viewState: DayPage.Calendar.ViewState? { get set }
-    
-}
-
 extension DayPage.Calendar {
     
-    final class View: UIView {
+    final class ViewCell: UICollectionViewCell {
+        
+        enum Constants {
+            
+        }
+        
+        // MARK: - Properties
+        
+        static let identifier = String(describing: ViewCell.self)
         
         var viewState: ViewState? {
             didSet {
@@ -18,18 +19,21 @@ extension DayPage.Calendar {
         }
         
         // MARK: - SubViews
-        
-        private lazy var testLabel: UILabel = {
+                
+        private lazy var dateLabel: UILabel = {
             let label = UILabel().autolayout()
-            label.backgroundColor = .green
+            label.text = "88"
             return label
         }()
+        
         
         // MARK: - Init
         
         override init(frame: CGRect) {
             super.init(frame: frame)
-            setupView()
+            
+            backgroundColor = .systemOrange
+            
             addSubViews()
             setupLayout()
         }
@@ -38,21 +42,23 @@ extension DayPage.Calendar {
             fatalError("init(coder:) has not been implemented")
         }
         
-        // MARK: - Private Methods
+        // MARK: - Temporary Public Methods
         
-        private func setupView() {
-            backgroundColor = .green
+        func setLabel(text: String) {
+            dateLabel.text = text
         }
         
+        // MARK: - Private Methods
+        
         private func addSubViews() {
-            addSubview(testLabel)
+            addSubview(dateLabel)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                testLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                testLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+                dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+                dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
                 
             ])
         }
@@ -61,14 +67,11 @@ extension DayPage.Calendar {
     
 }
 
-
-// MARK: - CalendarViewProtocol
-
-extension DayPage.Calendar.View: CalendarViewProtocol {
+extension DayPage.Calendar.ViewCell {
     
-    private func render(viewState: DayPage.Calendar.ViewState?) {
-        guard let viewState = viewState else { return }
-        testLabel.text = viewState.testText
+    private func render(viewState: DayPage.Calendar.ViewCell.ViewState?) {
+
     }
     
 }
+
