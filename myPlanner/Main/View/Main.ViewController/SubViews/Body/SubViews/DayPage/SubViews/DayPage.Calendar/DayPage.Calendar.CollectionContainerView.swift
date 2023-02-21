@@ -21,10 +21,6 @@ extension DayPage.Calendar {
             return collectionView
         }()
         
-        private lazy var layout = {
-            
-        }()
-        
         // MARK: - Init
         
         init(dataSource: CollectionViewDataSource) {

@@ -28,9 +28,10 @@ extension DayPage {
             return view
         }()
         
-        private lazy var calendarView: DayPage.Calendar.View = {
-            let view = DayPage.Calendar.View().autolayout()
-            view.backgroundColor = .systemBlue
+        private lazy var calendarContainer: DayPage.Calendar.CollectionContainerView = {
+            let view = DayPage.Calendar.CollectionContainerView.create(
+                dataSource: DayPage.Calendar.CollectionViewDataSource()
+            ).autolayout()
             return view
         }()
         
@@ -74,7 +75,7 @@ extension DayPage {
         
         private func addSubViews() {
             addSubview(dateView)
-            addSubview(calendarView)
+            addSubview(calendarContainer)
             addSubview(tableView)
             addSubview(quoteView)
             addSubview(eventsView)
@@ -90,22 +91,22 @@ extension DayPage {
                 dateView.heightAnchor.constraint(equalTo: dateView.widthAnchor,
                                                  multiplier: Constants.dateViewHeightMultiplier),
                 
-                calendarView.leadingAnchor.constraint(equalTo: dateView.trailingAnchor),
-                calendarView.topAnchor.constraint(equalTo: topAnchor),
-                calendarView.widthAnchor.constraint(equalTo: dateView.widthAnchor),
-                calendarView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
+                calendarContainer.leadingAnchor.constraint(equalTo: dateView.trailingAnchor),
+                calendarContainer.topAnchor.constraint(equalTo: topAnchor),
+                calendarContainer.widthAnchor.constraint(equalTo: dateView.widthAnchor),
+                calendarContainer.heightAnchor.constraint(equalTo: dateView.heightAnchor),
                 
                 tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 tableView.topAnchor.constraint(equalTo: dateView.bottomAnchor),
-                tableView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: calendarContainer.trailingAnchor),
                 tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
                 
-                quoteView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                quoteView.leadingAnchor.constraint(equalTo: calendarContainer.trailingAnchor),
                 quoteView.topAnchor.constraint(equalTo: topAnchor),
                 quoteView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 quoteView.heightAnchor.constraint(equalTo: dateView.heightAnchor),
                 
-                eventsView.leadingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+                eventsView.leadingAnchor.constraint(equalTo: calendarContainer.trailingAnchor),
                 eventsView.topAnchor.constraint(equalTo: quoteView.bottomAnchor),
                 eventsView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 eventsView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -122,6 +123,8 @@ extension DayPage.ViewCell {
     private func render(viewState: DayPage.ViewCell.ViewState?) {
 //        guard let viewState = viewState else { return }
 //        calendarView.viewState = viewState.calendarState
+        
+        calendarContainer.collectionViewDataSource.update(animated: true)
     }
     
 }
