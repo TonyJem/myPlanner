@@ -120,11 +120,7 @@ extension DayPage.Calendar {
         func update(animated: Bool) {
             var snapshot = NSDiffableDataSourceSnapshot<CalendarSection, CalendarItem>()
             snapshot.appendSections(sections)
-            
-            for section in sections {
-                snapshot.appendItems(section.items, toSection: section)
-            }
-            
+            sections.forEach { snapshot.appendItems($0.items, toSection: $0) }
             dataSource.apply(snapshot, animatingDifferences: animated)
         }
         
