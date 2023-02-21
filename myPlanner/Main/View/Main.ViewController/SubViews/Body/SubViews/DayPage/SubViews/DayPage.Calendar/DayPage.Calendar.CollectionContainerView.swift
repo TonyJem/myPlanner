@@ -21,6 +21,10 @@ extension DayPage.Calendar {
             return collectionView
         }()
         
+        private lazy var layout = {
+            
+        }()
+        
         // MARK: - Init
         
         init(dataSource: CollectionViewDataSource) {
@@ -52,7 +56,12 @@ extension DayPage.Calendar {
                 collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
+            
+            collectionView.register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
+            collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
         }
+        
+        
         
     }
     

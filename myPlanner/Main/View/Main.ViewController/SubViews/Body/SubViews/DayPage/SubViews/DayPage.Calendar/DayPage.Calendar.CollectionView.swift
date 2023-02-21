@@ -92,8 +92,6 @@ extension DayPage.Calendar {
         init() {
             
             let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = .separatorHeight
-            layout.minimumInteritemSpacing = .separatorHeight
             
             super.init(frame: .zero, collectionViewLayout: layout)
             setupView()
