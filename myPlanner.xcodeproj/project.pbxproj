@@ -30,7 +30,7 @@
 		3A36033129A2C775002A8796 /* Header.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36033029A2C775002A8796 /* Header.ViewState.swift */; };
 		3A4732B829A35D6500C6BB33 /* Calendar.MonthDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B729A35D6500C6BB33 /* Calendar.MonthDayCell.swift */; };
 		3A4732BA29A35DBD00C6BB33 /* Calendar.MonthDayCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B929A35DBD00C6BB33 /* Calendar.MonthDayCell.ViewState.swift */; };
-		3A4732BC29A4246400C6BB33 /* Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BB29A4246300C6BB33 /* Calendar.View.swift */; };
+		3A4732BC29A4246400C6BB33 /* OLD.Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BB29A4246300C6BB33 /* OLD.Calendar.View.swift */; };
 		3A4732BE29A4B8DB00C6BB33 /* Calendar.WeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BD29A4B8DB00C6BB33 /* Calendar.WeekDayCell.swift */; };
 		3A4732C029A4B8FB00C6BB33 /* Calendar.WeekDayCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BF29A4B8FB00C6BB33 /* Calendar.WeekDayCell.ViewState.swift */; };
 		3A4732C229A4BE0E00C6BB33 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732C129A4BE0E00C6BB33 /* DateView.swift */; };
@@ -129,7 +129,7 @@
 		3A36033029A2C775002A8796 /* Header.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.ViewState.swift; sourceTree = "<group>"; };
 		3A4732B729A35D6500C6BB33 /* Calendar.MonthDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.MonthDayCell.swift; sourceTree = "<group>"; };
 		3A4732B929A35DBD00C6BB33 /* Calendar.MonthDayCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.MonthDayCell.ViewState.swift; sourceTree = "<group>"; };
-		3A4732BB29A4246300C6BB33 /* Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.View.swift; sourceTree = "<group>"; };
+		3A4732BB29A4246300C6BB33 /* OLD.Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLD.Calendar.View.swift; sourceTree = "<group>"; };
 		3A4732BD29A4B8DB00C6BB33 /* Calendar.WeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.WeekDayCell.swift; sourceTree = "<group>"; };
 		3A4732BF29A4B8FB00C6BB33 /* Calendar.WeekDayCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.WeekDayCell.ViewState.swift; sourceTree = "<group>"; };
 		3A4732C129A4BE0E00C6BB33 /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
@@ -475,6 +475,7 @@
 				3A4732C129A4BE0E00C6BB33 /* DateView.swift */,
 				3AD34AB829A0C557001FD558 /* Date.View.swift */,
 				3AD34ABA29A0C712001FD558 /* Date.ViewState.swift */,
+				3A4732BB29A4246300C6BB33 /* OLD.Calendar.View.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -599,7 +600,6 @@
 				3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */,
 				3A4732C329A4DBB600C6BB33 /* Calendar.CollectionContainerView.swift */,
 				3A4732C529A4DFA500C6BB33 /* Calendar.CollectionViewDataSource.swift */,
-				3A4732BB29A4246300C6BB33 /* Calendar.View.swift */,
 				3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */,
 				3A36032929A26D39002A8796 /* Calendar.Service.swift */,
 				3A4732B729A35D6500C6BB33 /* Calendar.MonthDayCell.swift */,
@@ -783,7 +783,7 @@
 				3A2D66C72985B209007AD3F6 /* OldCalendar.View.swift in Sources */,
 				3A5D209E2989A6330029408A /* MonthPage.swift in Sources */,
 				3A5D20DF299792160029408A /* Footer.ViewState.swift in Sources */,
-				3A4732BC29A4246400C6BB33 /* Calendar.View.swift in Sources */,
+				3A4732BC29A4246400C6BB33 /* OLD.Calendar.View.swift in Sources */,
 				3A5D20AA2989A7290029408A /* TasksPage.View.swift in Sources */,
 				3AD34AB929A0C557001FD558 /* Date.View.swift in Sources */,
 				3A2D66C92985BCA5007AD3F6 /* OldCalendar.ViewCell.swift in Sources */,
