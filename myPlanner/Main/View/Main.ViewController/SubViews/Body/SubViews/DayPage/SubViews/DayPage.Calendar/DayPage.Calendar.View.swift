@@ -125,6 +125,9 @@ extension DayPage.Calendar {
             let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
                 let section = self.sections[sectionIndex]
                 switch section.type {
+                case "WeekDays":
+                    return self.createWeekDaysSection()
+    
                 default:
                     return self.createMonthDaysSection()
                 }
@@ -134,7 +137,27 @@ extension DayPage.Calendar {
         
         
         // section -> group -> items -> size
-        private func createSection() -> NSCollectionLayoutSection {
+        private func createMonthDaysSection() -> NSCollectionLayoutSection {
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/7),
+                heightDimension: .fractionalHeight(1)
+            )
+            
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1/7)
+            )
+            
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            return section
+        }
+        
+        private func createWeekDaysSection() -> NSCollectionLayoutSection {
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1/7),
                 heightDimension: .fractionalHeight(1)
@@ -158,8 +181,8 @@ extension DayPage.Calendar {
             dataSource = UICollectionViewDiffableDataSource<MySection, MyItem>(
                 collectionView: collectionView,
                 cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
-                    
-                    switch self.sections[indexPath.section].type {
+                    let section = self.sections[indexPath.section]
+                    switch section.type {
                     case "WeekDays":
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
                         
