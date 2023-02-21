@@ -125,8 +125,8 @@ extension DayPage.ViewCell {
 //        guard let viewState = viewState else { return }
 //        calendarView.viewState = viewState.calendarState
         
-        calendarContainer.collectionViewDataSource.update(animated: true)
-        calendarContainer.updateLayout(animated: true)
+        calendarContainer.collectionViewDataSource.update(animated: false)
+        calendarContainer.updateLayout(animated: false)
     }
     
 }

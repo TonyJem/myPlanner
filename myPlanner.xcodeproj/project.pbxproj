@@ -75,7 +75,6 @@
 		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
 		3ACA4D5E29A0E15900C7DCC6 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */; };
 		3ACA4D6329A226EC00C7DCC6 /* DayPage.Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6229A226EC00C7DCC6 /* DayPage.Calendar.swift */; };
-		3ACA4D6529A227BE00C7DCC6 /* DayPage.Calendar.CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6429A227BE00C7DCC6 /* DayPage.Calendar.CollectionView.swift */; };
 		3ACA4D6729A2294D00C7DCC6 /* DayPage.Calendar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6629A2294D00C7DCC6 /* DayPage.Calendar.ViewState.swift */; };
 		3ACA4D6929A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */; };
 		3ACA4D6B29A237B200C7DCC6 /* DayPage.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6A29A237B200C7DCC6 /* DayPage.ViewState.swift */; };
@@ -175,7 +174,6 @@
 		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
 		3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		3ACA4D6229A226EC00C7DCC6 /* DayPage.Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.swift; sourceTree = "<group>"; };
-		3ACA4D6429A227BE00C7DCC6 /* DayPage.Calendar.CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.CollectionView.swift; sourceTree = "<group>"; };
 		3ACA4D6629A2294D00C7DCC6 /* DayPage.Calendar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.ViewState.swift; sourceTree = "<group>"; };
 		3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewCell.ViewState.swift; sourceTree = "<group>"; };
 		3ACA4D6A29A237B200C7DCC6 /* DayPage.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.ViewState.swift; sourceTree = "<group>"; };
@@ -601,7 +599,6 @@
 				3ACA4D6229A226EC00C7DCC6 /* DayPage.Calendar.swift */,
 				3A4732C329A4DBB600C6BB33 /* DayPage.Calendar.CollectionContainerView.swift */,
 				3A4732C529A4DFA500C6BB33 /* DayPage.Calendar.CollectionViewDataSource.swift */,
-				3ACA4D6429A227BE00C7DCC6 /* DayPage.Calendar.CollectionView.swift */,
 				3A4732BB29A4246300C6BB33 /* DayPage.Calendar.View.swift */,
 				3ACA4D6629A2294D00C7DCC6 /* DayPage.Calendar.ViewState.swift */,
 				3A36032929A26D39002A8796 /* DayPage.Calendar.Service.swift */,
@@ -781,7 +778,6 @@
 				3A5D20DB29978A6D0029408A /* PageTabBar.View.swift in Sources */,
 				3ACA4D5E29A0E15900C7DCC6 /* IconButton.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
-				3ACA4D6529A227BE00C7DCC6 /* DayPage.Calendar.CollectionView.swift in Sources */,
 				3A5D20E1299797F20029408A /* MonthTab.swift in Sources */,
 				3A5D20A82989A7120029408A /* MonthPage.View.swift in Sources */,
 				3A2D66C72985B209007AD3F6 /* OldCalendar.View.swift in Sources */,
