@@ -111,6 +111,7 @@ extension DayPage.Calendar {
         }
         
         private func reloadData(animated: Bool) {
+            print("🟢🟢 reloadData in CollectionViewDataSource")
             var snapshot = NSDiffableDataSourceSnapshot<MySection, MyItem>()
             snapshot.appendSections(sections)
             

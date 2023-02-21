@@ -79,7 +79,7 @@ extension DayPage.Calendar {
             var collectionView = UICollectionView(
                 frame: .zero,
                 collectionViewLayout: UICollectionViewLayout()
-            )
+            ).autolayout()
             collectionView.contentInsetAdjustmentBehavior = .always
             return collectionView
         }()
@@ -107,6 +107,7 @@ extension DayPage.Calendar {
         }
         
         func updateLayout(animated: Bool) {
+            print("🟢🟢🟢 updateLayout in CollectionContainerView")
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: animated)
             collectionView.collectionViewLayout.invalidateLayout()
         }
@@ -182,8 +183,6 @@ extension DayPage.Calendar {
             let section = NSCollectionLayoutSection(group: group)
             return section
         }
-        
-        
         
     }
     

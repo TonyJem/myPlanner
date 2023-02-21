@@ -17,6 +17,7 @@ extension DayPage {
         
         var viewState: ViewState? {
             didSet {
+                print("🟢 Will render(viewState: viewState) in ViewCell")
                 render(viewState: viewState)
             }
         }
