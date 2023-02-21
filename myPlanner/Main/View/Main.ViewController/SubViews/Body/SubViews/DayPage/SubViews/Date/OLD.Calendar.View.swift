@@ -6,7 +6,7 @@ struct MyItem: Hashable {
 
 struct MySection: Hashable {
     
-    let type: String
+    let type: DayPage.Calendar.SectionType
     
     var items: [MyItem]
     
@@ -25,7 +25,7 @@ extension DayPage.Calendar {
         var sections: [MySection] = [
         
             MySection(
-                type: "WeekDays",
+                type: .weekDays,
                 items: [
                 MyItem(title: "Mon"),
                 MyItem(title: "Tue"),
@@ -37,7 +37,7 @@ extension DayPage.Calendar {
             ]),
             
             MySection(
-                type: "MonthDays",
+                type: .monthDays,
                 items: [
                 MyItem(title: "1"),
                 MyItem(title: "2"),
@@ -125,10 +125,9 @@ extension DayPage.Calendar {
             let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
                 let section = self.sections[sectionIndex]
                 switch section.type {
-                case "WeekDays":
+                case .weekDays:
                     return self.createWeekDaysSection()
-    
-                default:
+                case .monthDays:
                     return self.createMonthDaysSection()
                 }
             }
@@ -178,25 +177,25 @@ extension DayPage.Calendar {
         }
         
         private func createDataSource() {
-            dataSource = UICollectionViewDiffableDataSource<MySection, MyItem>(
-                collectionView: collectionView,
-                cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
-                    let section = self.sections[indexPath.section]
-                    switch section.type {
-                    case "WeekDays":
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
-                        
-                        cell?.setLabel(text: item.title)
-                        return cell
-                        
-                    default:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
-                        
-                        cell?.setLabel(text: item.title)
-                        return cell
-                    }
-
-            })
+//            dataSource = UICollectionViewDiffableDataSource<MySection, MyItem>(
+//                collectionView: collectionView,
+//                cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
+//                    let section = self.sections[indexPath.section]
+//                    switch section.type {
+//                    case "WeekDays":
+//                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
+//                        
+//                        cell?.setLabel(text: item.title)
+//                        return cell
+//                        
+//                    default:
+//                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
+//                        
+//                        cell?.setLabel(text: item.title)
+//                        return cell
+//                    }
+//
+//            })
         }
         
         private func reloadData() {

@@ -16,7 +16,7 @@ extension DayPage.Calendar {
         var sections: [MySection] = [
         
             MySection(
-                type: "WeekDays",
+                type: .weekDays,
                 items: [
                 MyItem(title: "Mon"),
                 MyItem(title: "Tue"),
@@ -28,7 +28,7 @@ extension DayPage.Calendar {
             ]),
             
             MySection(
-                type: "MonthDays",
+                type: .monthDays,
                 items: [
                 MyItem(title: "1"),
                 MyItem(title: "2"),
@@ -87,13 +87,13 @@ extension DayPage.Calendar {
                 cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
                     let section = self.sections[indexPath.section]
                     switch section.type {
-                    case "WeekDays":
+                    case .weekDays:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
                         
                         cell?.setLabel(text: item.title)
                         return cell
                         
-                    default:
+                    case .monthDays:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
                         
                         cell?.setLabel(text: item.title)
