@@ -102,12 +102,14 @@ extension DayPage.Calendar {
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
                         
                         cell?.setLabel(text: item.title)
+                        
                         return cell
                         
                     case .monthDays:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
                         
                         cell?.setLabel(text: item.title)
+                        
                         return cell
                     }
 
