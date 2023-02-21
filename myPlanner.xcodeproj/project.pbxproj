@@ -28,8 +28,8 @@
 		3A36032A29A26D39002A8796 /* DayPage.Calendar.Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36032929A26D39002A8796 /* DayPage.Calendar.Service.swift */; };
 		3A36032F29A2A1B0002A8796 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36032E29A2A1B0002A8796 /* Date.swift */; };
 		3A36033129A2C775002A8796 /* Header.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A36033029A2C775002A8796 /* Header.ViewState.swift */; };
-		3A4732B829A35D6500C6BB33 /* DayPage.Calendar.MonthDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDateCell.swift */; };
-		3A4732BA29A35DBD00C6BB33 /* DayPage.Calendar.MonthDateCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDateCell.ViewState.swift */; };
+		3A4732B829A35D6500C6BB33 /* DayPage.Calendar.MonthDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDayCell.swift */; };
+		3A4732BA29A35DBD00C6BB33 /* DayPage.Calendar.MonthDayCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDayCell.ViewState.swift */; };
 		3A4732BC29A4246400C6BB33 /* DayPage.Calendar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BB29A4246300C6BB33 /* DayPage.Calendar.View.swift */; };
 		3A4732BE29A4B8DB00C6BB33 /* DayPage.Calendar.WeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BD29A4B8DB00C6BB33 /* DayPage.Calendar.WeekDayCell.swift */; };
 		3A4732C029A4B8FB00C6BB33 /* DayPage.Calendar.WeekDayCell.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4732BF29A4B8FB00C6BB33 /* DayPage.Calendar.WeekDayCell.ViewState.swift */; };
@@ -126,8 +126,8 @@
 		3A36032929A26D39002A8796 /* DayPage.Calendar.Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.Service.swift; sourceTree = "<group>"; };
 		3A36032E29A2A1B0002A8796 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3A36033029A2C775002A8796 /* Header.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.ViewState.swift; sourceTree = "<group>"; };
-		3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.MonthDateCell.swift; sourceTree = "<group>"; };
-		3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDateCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.MonthDateCell.ViewState.swift; sourceTree = "<group>"; };
+		3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.MonthDayCell.swift; sourceTree = "<group>"; };
+		3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDayCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.MonthDayCell.ViewState.swift; sourceTree = "<group>"; };
 		3A4732BB29A4246300C6BB33 /* DayPage.Calendar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.View.swift; sourceTree = "<group>"; };
 		3A4732BD29A4B8DB00C6BB33 /* DayPage.Calendar.WeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.WeekDayCell.swift; sourceTree = "<group>"; };
 		3A4732BF29A4B8FB00C6BB33 /* DayPage.Calendar.WeekDayCell.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPage.Calendar.WeekDayCell.ViewState.swift; sourceTree = "<group>"; };
@@ -599,8 +599,8 @@
 				3A4732BB29A4246300C6BB33 /* DayPage.Calendar.View.swift */,
 				3ACA4D6629A2294D00C7DCC6 /* DayPage.Calendar.ViewState.swift */,
 				3A36032929A26D39002A8796 /* DayPage.Calendar.Service.swift */,
-				3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDateCell.swift */,
-				3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDateCell.ViewState.swift */,
+				3A4732B729A35D6500C6BB33 /* DayPage.Calendar.MonthDayCell.swift */,
+				3A4732B929A35DBD00C6BB33 /* DayPage.Calendar.MonthDayCell.ViewState.swift */,
 				3A4732BD29A4B8DB00C6BB33 /* DayPage.Calendar.WeekDayCell.swift */,
 				3A4732BF29A4B8FB00C6BB33 /* DayPage.Calendar.WeekDayCell.ViewState.swift */,
 			);
@@ -770,7 +770,7 @@
 				3A5D20D929978A470029408A /* PageTabBar.swift in Sources */,
 				3A5D208629899A7F0029408A /* Header.swift in Sources */,
 				3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */,
-				3A4732B829A35D6500C6BB33 /* DayPage.Calendar.MonthDateCell.swift in Sources */,
+				3A4732B829A35D6500C6BB33 /* DayPage.Calendar.MonthDayCell.swift in Sources */,
 				3A5D20DB29978A6D0029408A /* PageTabBar.View.swift in Sources */,
 				3ACA4D5E29A0E15900C7DCC6 /* IconButton.swift in Sources */,
 				3A2D664D298515FE007AD3F6 /* AppDelegate.swift in Sources */,
@@ -814,7 +814,7 @@
 				3ACA4D6D29A23E8100C7DCC6 /* Body.ViewState.swift in Sources */,
 				3A5D20A42989A6CF0029408A /* DayPage.View.swift in Sources */,
 				3A5D20E62998F6D10029408A /* MonthTabBar.swift in Sources */,
-				3A4732BA29A35DBD00C6BB33 /* DayPage.Calendar.MonthDateCell.ViewState.swift in Sources */,
+				3A4732BA29A35DBD00C6BB33 /* DayPage.Calendar.MonthDayCell.ViewState.swift in Sources */,
 				3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */,
 				3A5D2082298999540029408A /* Main.swift in Sources */,
 			);

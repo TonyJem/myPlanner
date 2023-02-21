@@ -115,7 +115,7 @@ extension DayPage.Calendar {
         private func configureCollectionView() {
             dataSource = self
             delegate = self
-            register(MonthDateCell.self, forCellWithReuseIdentifier: MonthDateCell.identifier)
+            register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
         }
         
         private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -180,7 +180,7 @@ extension DayPage.Calendar.CollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDateCell.identifier, for: indexPath) as! DayPage.Calendar.MonthDateCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as! DayPage.Calendar.MonthDayCell
         
         let section = sections[indexPath.section]
         let item = section.items[indexPath.item]

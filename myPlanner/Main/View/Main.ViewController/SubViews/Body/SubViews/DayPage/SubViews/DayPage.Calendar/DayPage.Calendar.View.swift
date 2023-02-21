@@ -116,7 +116,7 @@ extension DayPage.Calendar {
             
             self.addSubview(collectionView)
             
-            collectionView.register(MonthDateCell.self, forCellWithReuseIdentifier: MonthDateCell.identifier)
+            collectionView.register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
             collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
             
         }
@@ -126,7 +126,7 @@ extension DayPage.Calendar {
                 let section = self.sections[sectionIndex]
                 switch section.type {
                 default:
-                    return self.createSection()
+                    return self.createMonthDaysSection()
                 }
             }
             return layout
@@ -167,7 +167,7 @@ extension DayPage.Calendar {
                         return cell
                         
                     default:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDateCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDateCell
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
                         
                         cell?.setLabel(text: item.title)
                         return cell
