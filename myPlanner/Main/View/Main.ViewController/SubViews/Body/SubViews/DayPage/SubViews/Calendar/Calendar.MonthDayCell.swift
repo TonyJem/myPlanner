@@ -22,7 +22,6 @@ extension DayPage.Calendar {
                 
         private lazy var dateLabel: UILabel = {
             let label = UILabel().autolayout()
-            label.text = "88"
             return label
         }()
         
