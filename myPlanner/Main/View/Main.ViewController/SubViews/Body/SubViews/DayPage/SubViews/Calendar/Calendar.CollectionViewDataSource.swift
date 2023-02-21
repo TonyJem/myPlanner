@@ -5,6 +5,18 @@ protocol CalendarCollectionViewDataSourceProtocol {
     
 }
 
+struct MyItem: Hashable {
+    var title: String
+}
+
+struct MySection: Hashable {
+    
+    let type: DayPage.Calendar.SectionType
+    
+    var items: [MyItem]
+    
+}
+
 extension DayPage.Calendar {
     
     final class CollectionViewDataSource: CalendarCollectionViewDataSourceProtocol {
