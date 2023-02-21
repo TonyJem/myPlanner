@@ -20,7 +20,7 @@ extension DayPage.Calendar {
         var sections: [MySection] = [
         
             MySection(
-                type: "DayNames",
+                type: "WeekDays",
                 items: [
                 MyItem(title: "Mon"),
                 MyItem(title: "Tue"),
@@ -115,7 +115,7 @@ extension DayPage.Calendar {
         private func configureCollectionView() {
             dataSource = self
             delegate = self
-            register(ViewCell.self, forCellWithReuseIdentifier: ViewCell.identifier)
+            register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
         }
         
         private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -180,7 +180,7 @@ extension DayPage.Calendar.CollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.ViewCell.identifier, for: indexPath) as! DayPage.Calendar.ViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as! DayPage.Calendar.MonthDayCell
         
         let section = sections[indexPath.section]
         let item = section.items[indexPath.item]
