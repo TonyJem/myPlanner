@@ -107,11 +107,6 @@ extension DayPage.Calendar {
         
         
         func update(animated: Bool) {
-            reloadData(animated: animated)
-        }
-        
-        private func reloadData(animated: Bool) {
-            print("🟢🟢 reloadData in CollectionViewDataSource")
             var snapshot = NSDiffableDataSourceSnapshot<MySection, MyItem>()
             snapshot.appendSections(sections)
             
@@ -121,7 +116,6 @@ extension DayPage.Calendar {
             
             dataSource.apply(snapshot, animatingDifferences: animated)
         }
-        
         
     }
     

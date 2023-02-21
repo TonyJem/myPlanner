@@ -46,9 +46,8 @@ extension DayPage.Calendar {
         
         // MARK: - Public Methods
         
-        func updateLayout(for sections: [MySection], animated: Bool) {
-            print("🟢🟢🟢 updateLayout in CollectionContainerView")
-            collectionView.setCollectionViewLayout(createCompositionalLayout(for: sections), animated: animated)
+        func updateLayout(animated: Bool) {
+            collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: animated)
             collectionView.collectionViewLayout.invalidateLayout()
         }
         
@@ -76,58 +75,23 @@ extension DayPage.Calendar {
 
 extension DayPage.Calendar.CollectionContainerView {
     
-    private func createCompositionalLayout(for sections: [MySection]) -> UICollectionViewLayout {
+    private func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            let section = sections[sectionIndex]
-            switch section.type {
-            case "WeekDays":
-                return self.createWeekDaysSection()
-                
-            default:
-                return self.createMonthDaysSection()
-            }
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/7),
+                heightDimension: .fractionalHeight(1)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1/7)
+            )
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            return section
         }
         return layout
-    }
-    
-    private func createWeekDaysSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1/7),
-            heightDimension: .fractionalHeight(1)
-        )
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/7)
-        )
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    private func createMonthDaysSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1/7),
-            heightDimension: .fractionalHeight(1)
-        )
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/7)
-        )
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        return section
     }
     
 }
