@@ -12,7 +12,7 @@ extension DayPage.Calendar {
         
         static let identifier = String(describing: TableCell.self)
         
-        var viewState: ViewState? {
+        var viewState: DayPage.Calendar.CollectionViewCell.ViewState? {
             didSet {
                 render(viewState: viewState)
             }
@@ -62,13 +62,13 @@ extension DayPage.Calendar {
 
 extension DayPage.Calendar.TableCell {
     
-    private func render(viewState: DayPage.Calendar.TableCell.ViewState?) {
+    private func render(viewState: DayPage.Calendar.CollectionViewCell.ViewState?) {
         guard let viewState = viewState else { return }
         titleLabel.text = viewState.title
         updateUI(with: viewState.config)
     }
     
-    private func updateUI(with configuration: DayPage.Calendar.ViewState.Configuration?) {
+    private func updateUI(with configuration: DayPage.Calendar.CollectionViewCell.Configuration?) {
         guard let configuration = configuration else { return }
         switch configuration {
         case .previuos:

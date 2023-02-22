@@ -125,11 +125,12 @@ extension DayPage.ViewCell {
         // such as missing viewState or may be use FatalError...?
         guard let viewState = viewState else { return }
         
-        let newSections = transform(viewState)
+        let newSections = viewState.calendarState.sections
         
         calendarContainer.collectionViewDataSource.update(newSections, animated: false)
     }
     
+    /*
     private func transform(_ viewState: DayPage.ViewCell.ViewState) -> [DayPage.Calendar.Section] {
         
         var headerItems: [DayPage.Calendar.Section.Item] = []
@@ -148,5 +149,6 @@ extension DayPage.ViewCell {
 
         return [headerSection, tableSection]
     }
+     */
     
 }

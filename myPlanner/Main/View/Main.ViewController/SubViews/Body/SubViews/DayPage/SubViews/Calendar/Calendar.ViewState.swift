@@ -9,15 +9,8 @@ extension DayPage.Calendar {
             case table
         }
         
-        struct Item: Hashable {
-            
-            let title: String
-            let config: DayPage.Calendar.ViewState.Configuration?
-            
-        }
-        
         let type: SectionType
-        let items: [Item]
+        let items: [DayPage.Calendar.CollectionViewCell.ViewState]
         
     }
     
@@ -27,27 +20,8 @@ extension DayPage.Calendar {
     
     struct ViewState {
         
-        enum Configuration {
-            case previuos
-            case current
-            case currentSelected
-            case today
-            case todaySelected
-            case upcoming
-        }
+        let sections: [DayPage.Calendar.Section]
         
-        struct HeaderItem: Hashable {
-            let title: String
-            let config: Configuration? = nil
-        }
-        
-        struct TableItem: Hashable {
-            let title: String
-            let config: Configuration?
-        }
-        
-        let headerItems: [HeaderItem]
-        let tableItems: [TableItem]
     }
     
 }
@@ -66,8 +40,15 @@ extension DayPage.Calendar {
         }
         
         struct ViewState: Hashable {
+            
             let title: String
             let config: Configuration?
+            
+            init(title: String, config: Configuration? = nil) {
+                self.title = title
+                self.config = config
+            }
+            
         }
         
     }
