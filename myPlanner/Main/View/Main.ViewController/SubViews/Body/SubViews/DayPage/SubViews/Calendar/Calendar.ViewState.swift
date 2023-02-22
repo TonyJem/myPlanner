@@ -38,11 +38,12 @@ extension DayPage.Calendar {
         
         struct HeaderItem: Hashable {
             let title: String
+            let config: Configuration? = nil
         }
         
         struct TableItem: Hashable {
             let title: String
-            let config: Configuration
+            let config: Configuration?
         }
         
         let headerItems: [HeaderItem]

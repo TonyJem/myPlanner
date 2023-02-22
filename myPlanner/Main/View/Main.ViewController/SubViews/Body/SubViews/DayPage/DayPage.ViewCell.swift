@@ -124,7 +124,9 @@ extension DayPage.ViewCell {
         // TODO: Think if we should handle errors in all viewStates unwraping places
         // such as missing viewState or may be use FatalError...?
         guard let viewState = viewState else { return }
+        
         let newSections = transform(viewState)
+        
         calendarContainer.collectionViewDataSource.update(newSections, animated: false)
     }
     
