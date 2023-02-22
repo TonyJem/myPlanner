@@ -144,6 +144,8 @@ extension Main.Presenter {
             "Sun"
         ]
         
+        // TODO: Make sure we can put same numbers but each should be unic anyway!
+        // otherwise we will get crash!
         let monthItems: [DayPage.Calendar.ViewState.monthItem] = [
             DayPage.Calendar.ViewState.monthItem(title: "30", config: .previuos),
             DayPage.Calendar.ViewState.monthItem(title: "31", config: .previuos),
