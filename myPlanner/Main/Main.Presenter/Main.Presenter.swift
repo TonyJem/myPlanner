@@ -175,11 +175,11 @@ extension Main.Presenter {
             DayPage.Calendar.ViewState.monthItem(title: "26", config: .currentSelected),
             DayPage.Calendar.ViewState.monthItem(title: "27", config: .current),
             DayPage.Calendar.ViewState.monthItem(title: "28", config: .current),
-            DayPage.Calendar.ViewState.monthItem(title: "1", config: .upcoming),
-            DayPage.Calendar.ViewState.monthItem(title: "2", config: .upcoming),
-            DayPage.Calendar.ViewState.monthItem(title: "3", config: .upcoming),
-            DayPage.Calendar.ViewState.monthItem(title: "4", config: .upcoming),
-            DayPage.Calendar.ViewState.monthItem(title: "5", config: .upcoming)
+            DayPage.Calendar.ViewState.monthItem(title: "44", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "55", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "66", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "77", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "88", config: .upcoming)
         ]
         
         return DayPage.Calendar.ViewState(weekDays: weekDays, monthItems: monthItems)

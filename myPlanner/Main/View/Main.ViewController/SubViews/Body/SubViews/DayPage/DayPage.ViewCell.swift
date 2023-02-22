@@ -186,18 +186,27 @@ extension DayPage.ViewCell {
     private func render(viewState: DayPage.ViewCell.ViewState?) {
         // TODO: Think if we should handle errors in all viewStates unwraping places
         // such as missing viewState or may be use FatalError...?
-        //        guard let viewState = viewState else { return }
-        //
-        //        let sections = transform(viewState)
-        
+        guard let viewState = viewState else { return }
+
         calendarContainer.collectionViewDataSource.update(sections, animated: false)
         
-        //        let weekDays = viewState.calendarState.weekDays
-        //
-        //        weekDays.forEach({
-        //            print($0)
-        //        })
+        let weekDays = viewState.calendarState.weekDays
         
+        weekDays.forEach({
+            print($0)
+        })
+        
+        let monthItems = viewState.calendarState.monthItems
+        
+        monthItems.forEach { monthItem in
+            print(monthItem.title)
+        }
+        
+        let newSections = transform(viewState)
+        
+        print(newSections[1].items[0].title)
+        
+        calendarContainer.collectionViewDataSource.update(newSections, animated: false)
         
     }
     
