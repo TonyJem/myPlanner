@@ -36,7 +36,7 @@ extension DayPage.Calendar {
                     case .table:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.TableCell.identifier, for: indexPath) as? DayPage.Calendar.TableCell
                         
-                        cell?.setLabel(text: item.title)
+                        cell?.viewState = DayPage.Calendar.TableCell.ViewState(title: item.title, config: item.config)
                         
                         return cell
                     }

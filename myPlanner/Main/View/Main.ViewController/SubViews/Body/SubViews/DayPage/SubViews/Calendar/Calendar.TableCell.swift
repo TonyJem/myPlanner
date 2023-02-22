@@ -20,7 +20,7 @@ extension DayPage.Calendar {
         
         // MARK: - SubViews
                 
-        private lazy var dateLabel: UILabel = {
+        private lazy var titleLabel: UILabel = {
             let label = UILabel().autolayout()
             return label
         }()
@@ -41,23 +41,17 @@ extension DayPage.Calendar {
             fatalError("init(coder:) has not been implemented")
         }
         
-        // MARK: - Temporary Public Methods
-        
-        func setLabel(text: String) {
-            dateLabel.text = text
-        }
-        
         // MARK: - Private Methods
         
         private func addSubViews() {
-            addSubview(dateLabel)
+            addSubview(titleLabel)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+                titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
                 
             ])
         }
@@ -69,6 +63,9 @@ extension DayPage.Calendar {
 extension DayPage.Calendar.TableCell {
     
     private func render(viewState: DayPage.Calendar.TableCell.ViewState?) {
+        
+        guard let viewState = viewState else { return }
+        titleLabel.text = viewState.title
 
     }
     
