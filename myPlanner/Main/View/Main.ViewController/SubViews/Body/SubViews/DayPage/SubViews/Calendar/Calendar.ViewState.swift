@@ -1,13 +1,5 @@
 import Foundation
 
-// TODO: Create separate extension of Calendar only for section and move all related stuff here
-struct CalendarSection: Hashable {
-    
-    let type: DayPage.Calendar.SectionType
-    let items: [CalendarSectionItem]
-    
-}
-
 // TODO: Rename and move it inside CalendarSection
 struct CalendarSectionItem: Hashable {
     
@@ -22,6 +14,13 @@ extension DayPage.Calendar {
     enum SectionType {
         case weekDays
         case monthDays
+    }
+    
+    struct Section: Hashable {
+        
+        let type: SectionType
+        let items: [CalendarSectionItem]
+        
     }
     
     struct ViewState {

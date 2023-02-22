@@ -128,13 +128,13 @@ extension DayPage.ViewCell {
         calendarContainer.collectionViewDataSource.update(newSections, animated: false)
     }
     
-    private func transform(_ viewState: DayPage.ViewCell.ViewState) -> [CalendarSection] {
+    private func transform(_ viewState: DayPage.ViewCell.ViewState) -> [DayPage.Calendar.Section] {
         var weekDayItems: [CalendarSectionItem] = []
         viewState.calendarState.weekDays.forEach { weekDayTitle in
             let calendarItem = CalendarSectionItem(title: weekDayTitle, config: nil)
             weekDayItems.append(calendarItem)
         }
-        let weekDaysSection = CalendarSection(
+        let weekDaysSection = DayPage.Calendar.Section(
             type: .weekDays,
             items: weekDayItems
         )
@@ -144,7 +144,7 @@ extension DayPage.ViewCell {
             let calendarItem = CalendarSectionItem(title: monthItem.title, config: monthItem.config)
             monthDayItems.append(calendarItem)
         }
-        let monthDaysSection = CalendarSection(
+        let monthDaysSection = DayPage.Calendar.Section(
             type: .monthDays,
             items: monthDayItems
         )
