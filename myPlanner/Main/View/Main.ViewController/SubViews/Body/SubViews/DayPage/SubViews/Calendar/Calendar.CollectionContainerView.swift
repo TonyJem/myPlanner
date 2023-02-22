@@ -69,7 +69,7 @@ extension DayPage.Calendar {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0.5, leading: 0.5, bottom: 0.5, trailing: 0.5)
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1/7)
+                    heightDimension: .fractionalHeight(1/6)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
