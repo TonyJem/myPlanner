@@ -65,10 +65,10 @@ extension DayPage.Calendar.TableCell {
     private func render(viewState: DayPage.Calendar.CollectionViewCell.ViewState?) {
         guard let viewState = viewState else { return }
         titleLabel.text = viewState.title
-        updateUI(with: viewState.config)
+        configureUI(with: viewState.config)
     }
     
-    private func updateUI(with configuration: DayPage.Calendar.CollectionViewCell.Configuration?) {
+    private func configureUI(with configuration: DayPage.Calendar.CollectionViewCell.Configuration?) {
         guard let configuration = configuration else { return }
         switch configuration {
         case .previuos:

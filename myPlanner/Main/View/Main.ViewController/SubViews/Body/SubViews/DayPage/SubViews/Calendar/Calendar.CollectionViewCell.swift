@@ -1,7 +1,8 @@
 import Foundation
 
 extension DayPage.Calendar {
-    
+
+    // TODO: - Think if we need to create parent Cell class and iherit from it HeaderCell and TableCell
     struct CollectionViewCell {
         
         enum Configuration {
