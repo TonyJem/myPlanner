@@ -17,7 +17,7 @@ protocol CalendarServiceProtocol {
     /// Defines monthTab type for `date` and returns it as a `MonthTabType`
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
-    func createItems(for date: Date) -> [String]
+    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
     
 }
 
@@ -127,25 +127,31 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
 
 extension DayPage.Calendar.Service {
     
-    func createItems(for date: Date) -> [String] {
+    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         
         let daysInMonth = daysInMonth(date: date)
         let firstDayOfMonth = firstOfMonth(date: date)
         let startingSpaces = weekDay(date: firstDayOfMonth)
         
-        var items: [String] = []
+        var items: [DayPage.Calendar.CollectionViewCell.ViewState] = []
         
         var count: Int = 1
         
-        while(count <= 35)
+        while(count <= 42)
         {
-            if(count <= startingSpaces || count - startingSpaces > daysInMonth)
+            
+            if (count <= startingSpaces || count - startingSpaces > daysInMonth)
             {
-                items.append("e")
+                let item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count)", config: .previuos)
+                
+                items.append(item)
             }
             else
             {
-                items.append(String(count - startingSpaces))
+                
+                let item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
+                
+                items.append(item)
             }
             count += 1
         }

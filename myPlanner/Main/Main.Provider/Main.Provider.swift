@@ -12,7 +12,7 @@ protocol MainProviderProtocol {
     
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
-    func createItems(for date: Date) -> [String]
+    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
     
 }
 
@@ -54,7 +54,7 @@ extension Main.Provider: MainProviderProtocol {
         return calendarService.monthTab(for: date)
     }
     
-    func createItems(for date: Date) -> [String] {
+    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         calendarService.createItems(for: date)
     }
     
