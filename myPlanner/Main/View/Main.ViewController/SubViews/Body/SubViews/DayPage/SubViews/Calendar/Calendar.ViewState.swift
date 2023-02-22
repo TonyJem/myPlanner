@@ -4,14 +4,15 @@ import Foundation
 struct CalendarSection: Hashable {
     
     let type: DayPage.Calendar.SectionType
-    let items: [CalendarItem]
+    let items: [CalendarSectionItem]
     
 }
 
 // TODO: Rename and move it inside CalendarSection
-struct CalendarItem: Hashable {
+struct CalendarSectionItem: Hashable {
     
     let title: String
+    let config: DayPage.Calendar.ViewState.Configuration?
     
 }
 
@@ -34,13 +35,13 @@ extension DayPage.Calendar {
             case upcoming
         }
         
-        struct monthItem {
+        struct MonthItem: Hashable {
             let title: String
             let config: Configuration
         }
         
         let weekDays: [String]
-        let monthItems: [monthItem]
+        let monthItems: [MonthItem]
     }
     
 }

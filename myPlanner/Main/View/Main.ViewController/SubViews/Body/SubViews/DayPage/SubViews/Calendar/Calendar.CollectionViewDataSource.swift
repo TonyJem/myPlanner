@@ -15,13 +15,13 @@ extension DayPage.Calendar {
         
         var sections: [CalendarSection] = []
         
-        lazy var dataSource: UICollectionViewDiffableDataSource<CalendarSection, CalendarItem> = {
+        lazy var dataSource: UICollectionViewDiffableDataSource<CalendarSection, CalendarSectionItem> = {
             
             guard let collectionView = collectionView else {
                 fatalError("Calendar CollectionView should be available")
             }
             
-            let dataSource = UICollectionViewDiffableDataSource<CalendarSection, CalendarItem>(
+            let dataSource = UICollectionViewDiffableDataSource<CalendarSection, CalendarSectionItem>(
                 collectionView: collectionView,
                 cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
                     let section = self.sections[indexPath.section]
@@ -56,7 +56,7 @@ extension DayPage.Calendar {
         // MARK: - Private Methods
         
         private func updateData(animated: Bool) {
-            var snapshot = NSDiffableDataSourceSnapshot<CalendarSection, CalendarItem>()
+            var snapshot = NSDiffableDataSourceSnapshot<CalendarSection, CalendarSectionItem>()
             snapshot.appendSections(sections)
             sections.forEach { snapshot.appendItems($0.items, toSection: $0) }
             dataSource.apply(snapshot, animatingDifferences: animated)
