@@ -7,6 +7,8 @@ protocol DayPageViewProtocol: UICollectionView {
     
 }
 
+// TODO: Refacor DayPageView and make it on same pattern as Calendar
+// Use Diffable dataSource and Compositional Layout
 extension DayPage {
     
     final class View: UICollectionView, DayPageViewProtocol {

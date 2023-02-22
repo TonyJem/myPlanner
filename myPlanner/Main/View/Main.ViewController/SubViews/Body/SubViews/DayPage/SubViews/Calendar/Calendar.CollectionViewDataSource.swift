@@ -34,7 +34,7 @@ extension DayPage.Calendar {
                         return cell
                         
                     case .monthDays:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDateCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDateCell
                         
                         cell?.setLabel(text: item.title)
                         
