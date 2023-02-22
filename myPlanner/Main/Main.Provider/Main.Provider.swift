@@ -12,6 +12,8 @@ protocol MainProviderProtocol {
     
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
+    func createItems(for date: Date) -> [String]
+    
 }
 
 extension Main {
@@ -50,6 +52,10 @@ extension Main.Provider: MainProviderProtocol {
     
     func monthTab(for date: Date) -> Footer.MonthTab.MonthTabType {
         return calendarService.monthTab(for: date)
+    }
+    
+    func createItems(for date: Date) -> [String] {
+        calendarService.createItems(for: date)
     }
     
 }

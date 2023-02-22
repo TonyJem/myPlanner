@@ -17,11 +17,15 @@ protocol CalendarServiceProtocol {
     /// Defines monthTab type for `date` and returns it as a `MonthTabType`
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
+    func createItems(for date: Date) -> [String]
+    
 }
 
 extension DayPage.Calendar {
     
     final class Service {
+        
+        let calendar = Calendar.current
         
     }
     
@@ -117,6 +121,52 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         default:
             return .january
         }
+    }
+    
+}
+
+extension DayPage.Calendar.Service {
+    
+    func createItems(for date: Date) -> [String] {
+        
+        let daysInMonth = daysInMonth(date: date)
+        let firstDayOfMonth = firstOfMonth(date: date)
+        let startingSpaces = weekDay(date: firstDayOfMonth)
+        
+        var items: [String] = []
+        
+        var count: Int = 1
+        
+        while(count <= 35)
+        {
+            if(count <= startingSpaces || count - startingSpaces > daysInMonth)
+            {
+                items.append("e")
+            }
+            else
+            {
+                items.append(String(count - startingSpaces))
+            }
+            count += 1
+        }
+        
+        return items
+    }
+    
+    // TODO: Avoid force unwrapping in all code of project
+    private func daysInMonth(date: Date) -> Int {
+        let range = calendar.range(of: .day, in: .month, for: date)!
+        return range.count
+    }
+    
+    private func firstOfMonth(date: Date) -> Date {
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return calendar.date(from: components)!
+    }
+    
+    private func weekDay(date: Date) -> Int {
+        let components = calendar.dateComponents([.weekday], from: date)
+        return components.weekday! - 2
     }
     
 }

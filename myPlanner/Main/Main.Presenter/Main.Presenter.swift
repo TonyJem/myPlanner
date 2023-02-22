@@ -147,6 +147,15 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
         
+        let dateItems = provider.createItems(for: selectedDate)
+        
+        var count = 0
+        for item in dateItems {
+            count += 1
+            print("🟢 \(count) Item: \(item)")
+        }
+        
+        
         let headerSection = DayPage.Calendar.Section(type: .header, items: headerItems)
         
         let tableItems: [DayPage.Calendar.CollectionViewCell.ViewState] = [
