@@ -124,31 +124,7 @@ extension DayPage.ViewCell {
         // TODO: Think if we should handle errors in all viewStates unwraping places
         // such as missing viewState or may be use FatalError...?
         guard let viewState = viewState else { return }
-        
-        let newSections = viewState.calendarState.sections
-        
-        calendarContainer.collectionViewDataSource.update(newSections, animated: false)
+        calendarContainer.collectionViewDataSource.update(viewState.calendarState.sections, animated: false)
     }
-    
-    /*
-    private func transform(_ viewState: DayPage.ViewCell.ViewState) -> [DayPage.Calendar.Section] {
-        
-        var headerItems: [DayPage.Calendar.Section.Item] = []
-        viewState.calendarState.headerItems.forEach { headerItem in
-            let headerSectionItem = DayPage.Calendar.Section.Item(title: headerItem.title, config: nil)
-            headerItems.append(headerSectionItem)
-        }
-        let headerSection = DayPage.Calendar.Section(type: .header, items: headerItems)
-        
-        var tableItems: [DayPage.Calendar.Section.Item] = []
-        viewState.calendarState.tableItems.forEach { tableItem in
-            let tableSectionItem = DayPage.Calendar.Section.Item(title: tableItem.title, config: tableItem.config)
-            tableItems.append(tableSectionItem)
-        }
-        let tableSection = DayPage.Calendar.Section(type: .table, items: tableItems)
-
-        return [headerSection, tableSection]
-    }
-     */
     
 }

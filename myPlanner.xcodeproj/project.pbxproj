@@ -70,6 +70,8 @@
 		3A5D20E82998F6E60029408A /* MonthTabBar.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */; };
 		3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */; };
 		3A5D20EC2998F9630029408A /* MonthTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D20EB2998F9630029408A /* MonthTabButton.swift */; };
+		3A6DB56129A6C05800BFD689 /* Calendar.Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DB56029A6C05800BFD689 /* Calendar.Section.swift */; };
+		3A6DB56329A6C09500BFD689 /* Calendar.CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DB56229A6C09500BFD689 /* Calendar.CollectionViewCell.swift */; };
 		3ACA4D5E29A0E15900C7DCC6 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */; };
 		3ACA4D6329A226EC00C7DCC6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */; };
 		3ACA4D6729A2294D00C7DCC6 /* Calendar.ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */; };
@@ -166,6 +168,8 @@
 		3A5D20E72998F6E60029408A /* MonthTabBar.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.View.swift; sourceTree = "<group>"; };
 		3A5D20E92998F6FE0029408A /* MonthTabBar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabBar.ViewState.swift; sourceTree = "<group>"; };
 		3A5D20EB2998F9630029408A /* MonthTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTabButton.swift; sourceTree = "<group>"; };
+		3A6DB56029A6C05800BFD689 /* Calendar.Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.Section.swift; sourceTree = "<group>"; };
+		3A6DB56229A6C09500BFD689 /* Calendar.CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.CollectionViewCell.swift; sourceTree = "<group>"; };
 		3ACA4D5D29A0E15900C7DCC6 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.ViewState.swift; sourceTree = "<group>"; };
@@ -594,7 +598,9 @@
 				3A4732C329A4DBB600C6BB33 /* Calendar.CollectionContainerView.swift */,
 				3A4732C529A4DFA500C6BB33 /* Calendar.CollectionViewDataSource.swift */,
 				3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */,
+				3A6DB56029A6C05800BFD689 /* Calendar.Section.swift */,
 				3A36032929A26D39002A8796 /* Calendar.Service.swift */,
+				3A6DB56229A6C09500BFD689 /* Calendar.CollectionViewCell.swift */,
 				3A4732BD29A4B8DB00C6BB33 /* Calendar.HeaderCell.swift */,
 				3A4732B729A35D6500C6BB33 /* Calendar.TableCell.swift */,
 			);
@@ -762,6 +768,7 @@
 				3A4732C629A4DFA500C6BB33 /* Calendar.CollectionViewDataSource.swift in Sources */,
 				3A2D66C42985B132007AD3F6 /* OldCalendar.swift in Sources */,
 				3A5D20CA299117970029408A /* MainView.swift in Sources */,
+				3A6DB56329A6C09500BFD689 /* Calendar.CollectionViewCell.swift in Sources */,
 				3A5D20D929978A470029408A /* PageTabBar.swift in Sources */,
 				3A5D208629899A7F0029408A /* Header.swift in Sources */,
 				3A5D20C52990EDEF0029408A /* Main.Presenter.swift in Sources */,
@@ -808,6 +815,7 @@
 				3A5D20A42989A6CF0029408A /* DayPage.View.swift in Sources */,
 				3A5D20E62998F6D10029408A /* MonthTabBar.swift in Sources */,
 				3A5D20EA2998F6FE0029408A /* MonthTabBar.ViewState.swift in Sources */,
+				3A6DB56129A6C05800BFD689 /* Calendar.Section.swift in Sources */,
 				3A5D2082298999540029408A /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
