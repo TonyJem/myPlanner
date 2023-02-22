@@ -19,7 +19,7 @@ extension DayPage.Calendar {
         }
         
         // MARK: - SubViews
-                
+        
         private lazy var titleLabel: UILabel = {
             let label = UILabel().autolayout()
             return label
@@ -63,11 +63,27 @@ extension DayPage.Calendar {
 extension DayPage.Calendar.TableCell {
     
     private func render(viewState: DayPage.Calendar.TableCell.ViewState?) {
-        
         guard let viewState = viewState else { return }
         titleLabel.text = viewState.title
-
+        updateUI(with: viewState.config)
+    }
+    
+    private func updateUI(with configuration: DayPage.Calendar.ViewState.Configuration?) {
+        guard let configuration = configuration else { return }
+        switch configuration {
+        case .previuos:
+            backgroundColor = .systemGray
+        case .current:
+            backgroundColor = .orange
+        case .currentSelected:
+            backgroundColor = .systemCyan
+        case .today:
+            backgroundColor = .green
+        case .todaySelected:
+            backgroundColor = .systemRed
+        case .upcoming:
+            backgroundColor = .systemGray
+        }
     }
     
 }
-

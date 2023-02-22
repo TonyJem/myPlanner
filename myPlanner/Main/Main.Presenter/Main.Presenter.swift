@@ -172,7 +172,7 @@ extension Main.Presenter {
             DayPage.Calendar.ViewState.TableItem(title: "20", config: .current),
             DayPage.Calendar.ViewState.TableItem(title: "21", config: .current),
             DayPage.Calendar.ViewState.TableItem(title: "22", config: .today),
-            DayPage.Calendar.ViewState.TableItem(title: "23", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "23", config: .todaySelected),
             DayPage.Calendar.ViewState.TableItem(title: "24", config: .current),
             DayPage.Calendar.ViewState.TableItem(title: "25", config: .current),
             DayPage.Calendar.ViewState.TableItem(title: "26", config: .currentSelected),
