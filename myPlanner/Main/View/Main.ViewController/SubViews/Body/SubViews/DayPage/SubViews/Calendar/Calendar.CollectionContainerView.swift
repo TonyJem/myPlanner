@@ -52,8 +52,8 @@ extension DayPage.Calendar {
                 collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
             
-            collectionView.register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
-            collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
+            collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
+            collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: HeaderCell.identifier)
             
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
             collectionView.collectionViewLayout.invalidateLayout()

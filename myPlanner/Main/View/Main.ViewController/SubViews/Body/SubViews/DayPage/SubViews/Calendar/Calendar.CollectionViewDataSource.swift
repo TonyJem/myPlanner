@@ -27,14 +27,14 @@ extension DayPage.Calendar {
                     let section = self.sections[indexPath.section]
                     switch section.type {
                     case .header:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.HeaderCell.identifier, for: indexPath) as? DayPage.Calendar.HeaderCell
                         
                         cell?.setLabel(text: item.title)
                         
                         return cell
                         
                     case .table:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.TableCell.identifier, for: indexPath) as? DayPage.Calendar.TableCell
                         
                         cell?.setLabel(text: item.title)
                         

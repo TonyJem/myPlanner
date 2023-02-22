@@ -1,6 +1,6 @@
 import Foundation
 
-extension DayPage.Calendar.MonthDayCell {
+extension DayPage.Calendar.TableCell {
     
     struct ViewState {
         

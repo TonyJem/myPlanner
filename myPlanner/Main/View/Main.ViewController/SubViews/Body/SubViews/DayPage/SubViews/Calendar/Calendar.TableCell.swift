@@ -2,7 +2,7 @@ import UIKit
 
 extension DayPage.Calendar {
     
-    final class WeekDayCell: UICollectionViewCell {
+    final class TableCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -10,7 +10,7 @@ extension DayPage.Calendar {
         
         // MARK: - Properties
         
-        static let identifier = String(describing: WeekDayCell.self)
+        static let identifier = String(describing: TableCell.self)
         
         var viewState: ViewState? {
             didSet {
@@ -19,20 +19,19 @@ extension DayPage.Calendar {
         }
         
         // MARK: - SubViews
-        
+                
         private lazy var dateLabel: UILabel = {
             let label = UILabel().autolayout()
-            label.textColor = .white
-            label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
             return label
         }()
+        
         
         // MARK: - Init
         
         override init(frame: CGRect) {
             super.init(frame: frame)
             
-            backgroundColor = .systemTeal
+            backgroundColor = .systemOrange
             
             addSubViews()
             setupLayout()
@@ -67,10 +66,11 @@ extension DayPage.Calendar {
     
 }
 
-extension DayPage.Calendar.WeekDayCell {
+extension DayPage.Calendar.TableCell {
     
-    private func render(viewState: DayPage.Calendar.WeekDayCell.ViewState?) {
+    private func render(viewState: DayPage.Calendar.TableCell.ViewState?) {
 
     }
     
 }
+
