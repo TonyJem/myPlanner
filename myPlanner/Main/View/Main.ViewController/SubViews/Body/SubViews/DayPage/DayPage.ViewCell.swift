@@ -134,14 +134,20 @@ extension DayPage.ViewCell {
             let calendarItem = CalendarItem(title: weekDayTitle)
             weekDayItems.append(calendarItem)
         }
-        let weekDaysSection = CalendarSection(type: .weekDays, items: weekDayItems)
+        let weekDaysSection = CalendarSection(
+            type: .weekDays,
+            items: weekDayItems
+        )
         
         var monthDayItems: [CalendarItem] = []
         viewState.calendarState.monthItems.forEach { monthItem in
             let calendarItem = CalendarItem(title: monthItem.title)
             monthDayItems.append(calendarItem)
         }
-        let monthDaysSection = CalendarSection(type: .monthDays, items: monthDayItems)
+        let monthDaysSection = CalendarSection(
+            type: .monthDays,
+            items: monthDayItems
+        )
         
         return [weekDaysSection, monthDaysSection]
     }
