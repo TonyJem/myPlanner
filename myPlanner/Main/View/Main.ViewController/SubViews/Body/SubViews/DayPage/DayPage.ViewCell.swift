@@ -129,9 +129,9 @@ extension DayPage.ViewCell {
     }
     
     private func transform(_ viewState: DayPage.ViewCell.ViewState) -> [DayPage.Calendar.Section] {
-        var weekDayItems: [CalendarSectionItem] = []
+        var weekDayItems: [DayPage.Calendar.Section.Item] = []
         viewState.calendarState.weekDays.forEach { weekDayTitle in
-            let calendarItem = CalendarSectionItem(title: weekDayTitle, config: nil)
+            let calendarItem = DayPage.Calendar.Section.Item(title: weekDayTitle, config: nil)
             weekDayItems.append(calendarItem)
         }
         let weekDaysSection = DayPage.Calendar.Section(
@@ -139,9 +139,9 @@ extension DayPage.ViewCell {
             items: weekDayItems
         )
         
-        var monthDayItems: [CalendarSectionItem] = []
+        var monthDayItems: [DayPage.Calendar.Section.Item] = []
         viewState.calendarState.monthItems.forEach { monthItem in
-            let calendarItem = CalendarSectionItem(title: monthItem.title, config: monthItem.config)
+            let calendarItem = DayPage.Calendar.Section.Item(title: monthItem.title, config: monthItem.config)
             monthDayItems.append(calendarItem)
         }
         let monthDaysSection = DayPage.Calendar.Section(
