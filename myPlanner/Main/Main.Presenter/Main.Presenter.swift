@@ -132,10 +132,63 @@ extension Main.Presenter {
         return tabs
     }
     
+    private func createDayPageCalendarViewStateMock() -> DayPage.Calendar.ViewState {
+        
+        let weekDays: [String] = [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"
+        ]
+        
+        let monthItems: [DayPage.Calendar.ViewState.monthItem] = [
+            DayPage.Calendar.ViewState.monthItem(title: "30", config: .previuos),
+            DayPage.Calendar.ViewState.monthItem(title: "31", config: .previuos),
+            DayPage.Calendar.ViewState.monthItem(title: "1", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "2", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "3", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "4", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "5", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "6", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "7", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "8", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "9", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "10", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "11", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "12", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "13", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "14", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "15", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "16", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "17", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "18", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "19", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "20", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "21", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "22", config: .today),
+            DayPage.Calendar.ViewState.monthItem(title: "23", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "24", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "25", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "26", config: .currentSelected),
+            DayPage.Calendar.ViewState.monthItem(title: "27", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "28", config: .current),
+            DayPage.Calendar.ViewState.monthItem(title: "1", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "2", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "3", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "4", config: .upcoming),
+            DayPage.Calendar.ViewState.monthItem(title: "5", config: .upcoming)
+        ]
+        
+        return DayPage.Calendar.ViewState(weekDays: weekDays, monthItems: monthItems)
+    }
+    
     private func createBodyViewState() -> Body.ViewState {
         
         let dayPageViewState = DayPage.ViewState(
-            calendarState: DayPage.Calendar.ViewState()
+            calendarState: createDayPageCalendarViewStateMock()
         )
         return Body.ViewState(
             activePage: activePage,
