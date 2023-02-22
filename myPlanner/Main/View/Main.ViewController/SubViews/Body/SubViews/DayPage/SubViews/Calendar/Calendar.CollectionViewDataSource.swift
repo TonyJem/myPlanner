@@ -29,7 +29,7 @@ extension DayPage.Calendar {
                     case .header:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.HeaderCell.identifier, for: indexPath) as? DayPage.Calendar.HeaderCell
                         
-                        cell?.setLabel(text: item.title)
+                        cell?.viewState = DayPage.Calendar.HeaderCell.ViewState(title: item.title)
                         
                         return cell
                         
