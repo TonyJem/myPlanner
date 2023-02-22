@@ -14,7 +14,7 @@ extension DayPage {
         // MARK: - Properties
         
         var sections: [CalendarSection] = [
-
+            
             CalendarSection(
                 type: .weekDays,
                 items: [
@@ -26,7 +26,7 @@ extension DayPage {
                     CalendarItem(title: "Sat"),
                     CalendarItem(title: "Sun")
                 ]),
-
+            
             CalendarSection(
                 type: .monthDays,
                 items: [
@@ -73,7 +73,7 @@ extension DayPage {
                     CalendarItem(title: "41"),
                     CalendarItem(title: "42")
                 ])
-
+            
         ]
         
         static let identifier = String(describing: ViewCell.self)
@@ -186,17 +186,17 @@ extension DayPage.ViewCell {
     private func render(viewState: DayPage.ViewCell.ViewState?) {
         // TODO: Think if we should handle errors in all viewStates unwraping places
         // such as missing viewState or may be use FatalError...?
-//        guard let viewState = viewState else { return }
-//
-//        let sections = transform(viewState)
+        //        guard let viewState = viewState else { return }
+        //
+        //        let sections = transform(viewState)
         
         calendarContainer.collectionViewDataSource.update(sections, animated: false)
         
-//        let weekDays = viewState.calendarState.weekDays
-//
-//        weekDays.forEach({
-//            print($0)
-//        })
+        //        let weekDays = viewState.calendarState.weekDays
+        //
+        //        weekDays.forEach({
+        //            print($0)
+        //        })
         
         
     }
