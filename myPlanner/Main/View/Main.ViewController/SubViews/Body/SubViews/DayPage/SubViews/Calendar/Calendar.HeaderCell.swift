@@ -2,7 +2,7 @@ import UIKit
 
 extension DayPage.Calendar {
     
-    final class MonthDayCell: UICollectionViewCell {
+    final class HeaderCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -10,28 +10,29 @@ extension DayPage.Calendar {
         
         // MARK: - Properties
         
-        static let identifier = String(describing: MonthDayCell.self)
+        static let identifier = String(describing: HeaderCell.self)
         
-        var viewState: ViewState? {
+        var viewState: DayPage.Calendar.CollectionViewCell.ViewState? {
             didSet {
                 render(viewState: viewState)
             }
         }
         
         // MARK: - SubViews
-                
-        private lazy var dateLabel: UILabel = {
+        
+        private lazy var titleLabel: UILabel = {
             let label = UILabel().autolayout()
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
             return label
         }()
-        
         
         // MARK: - Init
         
         override init(frame: CGRect) {
             super.init(frame: frame)
             
-            backgroundColor = .systemOrange
+            backgroundColor = .systemTeal
             
             addSubViews()
             setupLayout()
@@ -41,23 +42,17 @@ extension DayPage.Calendar {
             fatalError("init(coder:) has not been implemented")
         }
         
-        // MARK: - Temporary Public Methods
-        
-        func setLabel(text: String) {
-            dateLabel.text = text
-        }
-        
         // MARK: - Private Methods
         
         private func addSubViews() {
-            addSubview(dateLabel)
+            addSubview(titleLabel)
         }
         
         private func setupLayout() {
             NSLayoutConstraint.activate([
                 
-                dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+                titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
                 
             ])
         }
@@ -66,11 +61,11 @@ extension DayPage.Calendar {
     
 }
 
-extension DayPage.Calendar.MonthDayCell {
+extension DayPage.Calendar.HeaderCell {
     
-    private func render(viewState: DayPage.Calendar.MonthDayCell.ViewState?) {
-
+    private func render(viewState: DayPage.Calendar.CollectionViewCell.ViewState?) {
+        guard let viewState = viewState else { return }
+        titleLabel.text = viewState.title
     }
     
 }
-

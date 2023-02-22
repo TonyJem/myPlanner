@@ -52,8 +52,8 @@ extension DayPage.Calendar {
                 collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
             
-            collectionView.register(MonthDayCell.self, forCellWithReuseIdentifier: MonthDayCell.identifier)
-            collectionView.register(WeekDayCell.self, forCellWithReuseIdentifier: WeekDayCell.identifier)
+            collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
+            collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: HeaderCell.identifier)
             
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
             collectionView.collectionViewLayout.invalidateLayout()
@@ -69,7 +69,7 @@ extension DayPage.Calendar {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0.5, leading: 0.5, bottom: 0.5, trailing: 0.5)
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1/7)
+                    heightDimension: .fractionalHeight(1/6)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)

@@ -9,46 +9,41 @@ extension DayPage.Calendar {
     
     final class CollectionViewDataSource: CalendarCollectionViewDataSourceProtocol {
         
+        typealias Section = DayPage.Calendar.Section
+        typealias ViewState = DayPage.Calendar.CollectionViewCell.ViewState
+        typealias HeaderCell = DayPage.Calendar.HeaderCell
+        typealias TableCell = DayPage.Calendar.TableCell
+        
         // MARK: - Properties
         
         var collectionView: UICollectionView?
         
-        var sections: [CalendarSection] = []
+        var sections: [Section] = []
         
-        lazy var dataSource: UICollectionViewDiffableDataSource<CalendarSection, CalendarItem> = {
-            
+        lazy var dataSource: UICollectionViewDiffableDataSource<Section, ViewState> = {
             guard let collectionView = collectionView else {
                 fatalError("Calendar CollectionView should be available")
             }
-            
-            let dataSource = UICollectionViewDiffableDataSource<CalendarSection, CalendarItem>(
+            let dataSource = UICollectionViewDiffableDataSource<Section, ViewState>(
                 collectionView: collectionView,
-                cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
-                    let section = self.sections[indexPath.section]
-                    switch section.type {
-                    case .weekDays:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
-                        
-                        cell?.setLabel(text: item.title)
-                        
+                cellProvider: { (collectionView, indexPath, itemViewState) -> UICollectionViewCell? in
+                    switch self.sections[indexPath.section].type {
+                    case .header:
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell
+                        cell?.viewState = itemViewState
                         return cell
-                        
-                    case .monthDays:
-                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
-                        
-                        cell?.setLabel(text: item.title)
-                        
+                    case .table:
+                        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCell.identifier, for: indexPath) as? TableCell
+                        cell?.viewState = itemViewState
                         return cell
                     }
-
             })
-            
             return dataSource
         }()
         
         // MARK: - Public Methods
         
-        func update(_ sections: [CalendarSection], animated: Bool) {
+        func update(_ sections: [Section], animated: Bool) {
             self.sections = sections
             updateData(animated: animated)
         }
@@ -56,7 +51,7 @@ extension DayPage.Calendar {
         // MARK: - Private Methods
         
         private func updateData(animated: Bool) {
-            var snapshot = NSDiffableDataSourceSnapshot<CalendarSection, CalendarItem>()
+            var snapshot = NSDiffableDataSourceSnapshot<Section, ViewState>()
             snapshot.appendSections(sections)
             sections.forEach { snapshot.appendItems($0.items, toSection: $0) }
             dataSource.apply(snapshot, animatingDifferences: animated)
