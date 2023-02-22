@@ -135,7 +135,7 @@ extension DayPage.ViewCell {
             weekDayItems.append(calendarItem)
         }
         let weekDaysSection = DayPage.Calendar.Section(
-            type: .weekDays,
+            type: .header,
             items: weekDayItems
         )
         
@@ -145,7 +145,7 @@ extension DayPage.ViewCell {
             monthDayItems.append(calendarItem)
         }
         let monthDaysSection = DayPage.Calendar.Section(
-            type: .monthDays,
+            type: .table,
             items: monthDayItems
         )
         

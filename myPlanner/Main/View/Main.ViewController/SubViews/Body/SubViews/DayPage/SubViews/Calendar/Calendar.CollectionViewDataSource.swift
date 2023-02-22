@@ -26,14 +26,14 @@ extension DayPage.Calendar {
                 cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
                     let section = self.sections[indexPath.section]
                     switch section.type {
-                    case .weekDays:
+                    case .header:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.WeekDayCell.identifier, for: indexPath) as? DayPage.Calendar.WeekDayCell
                         
                         cell?.setLabel(text: item.title)
                         
                         return cell
                         
-                    case .monthDays:
+                    case .table:
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.Calendar.MonthDayCell.identifier, for: indexPath) as? DayPage.Calendar.MonthDayCell
                         
                         cell?.setLabel(text: item.title)

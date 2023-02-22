@@ -2,15 +2,12 @@ import Foundation
 
 extension DayPage.Calendar {
     
-// TODO: Move in separate extesion related to calendar section only
-    enum SectionType {
-        case weekDays
-        case monthDays
-    }
-    
-    
-    
     struct Section: Hashable {
+        
+        enum SectionType {
+            case header
+            case table
+        }
         
         struct Item: Hashable {
             
