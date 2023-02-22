@@ -42,7 +42,7 @@ extension DayPage.Calendar {
             fatalError("init(coder:) has not been implemented")
         }
         
-        // TODO: Chande Temporary Public Methods into render Viewstate or else
+        // MARK: - Temporary Public Methods
         
         func setLabel(text: String) {
             dateLabel.text = text
