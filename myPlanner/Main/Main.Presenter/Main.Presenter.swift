@@ -134,58 +134,58 @@ extension Main.Presenter {
     
     private func createDayPageCalendarViewStateMock() -> DayPage.Calendar.ViewState {
         
-        let weekDays: [String] = [
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun"
+        let headerItems: [DayPage.Calendar.ViewState.HeaderItem] = [
+            DayPage.Calendar.ViewState.HeaderItem(title: "Mon"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Tue"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Wed"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Thu"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Fri"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Sat"),
+            DayPage.Calendar.ViewState.HeaderItem(title: "Sun")
         ]
         
         // TODO: Make sure we can put same numbers but each should be unic anyway!
         // otherwise we will get crash!
         // Need to insert some validation and check before if it is hasshable
-        let monthItems: [DayPage.Calendar.ViewState.MonthItem] = [
-            DayPage.Calendar.ViewState.MonthItem(title: "30", config: .previuos),
-            DayPage.Calendar.ViewState.MonthItem(title: "31", config: .previuos),
-            DayPage.Calendar.ViewState.MonthItem(title: "1", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "2", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "3", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "4", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "5", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "6", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "7", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "8", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "9", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "10", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "11", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "12", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "13", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "14", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "15", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "16", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "17", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "18", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "19", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "20", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "21", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "22", config: .today),
-            DayPage.Calendar.ViewState.MonthItem(title: "23", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "24", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "25", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "26", config: .currentSelected),
-            DayPage.Calendar.ViewState.MonthItem(title: "27", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "28", config: .current),
-            DayPage.Calendar.ViewState.MonthItem(title: "1", config: .upcoming),
-            DayPage.Calendar.ViewState.MonthItem(title: "2", config: .upcoming),
-            DayPage.Calendar.ViewState.MonthItem(title: "3", config: .upcoming),
-            DayPage.Calendar.ViewState.MonthItem(title: "4", config: .upcoming),
-            DayPage.Calendar.ViewState.MonthItem(title: "5", config: .upcoming)
+        let tableItems: [DayPage.Calendar.ViewState.TableItem] = [
+            DayPage.Calendar.ViewState.TableItem(title: "30", config: .previuos),
+            DayPage.Calendar.ViewState.TableItem(title: "31", config: .previuos),
+            DayPage.Calendar.ViewState.TableItem(title: "1", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "2", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "3", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "4", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "5", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "6", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "7", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "8", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "9", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "10", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "11", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "12", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "13", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "14", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "15", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "16", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "17", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "18", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "19", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "20", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "21", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "22", config: .today),
+            DayPage.Calendar.ViewState.TableItem(title: "23", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "24", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "25", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "26", config: .currentSelected),
+            DayPage.Calendar.ViewState.TableItem(title: "27", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "28", config: .current),
+            DayPage.Calendar.ViewState.TableItem(title: "1", config: .upcoming),
+            DayPage.Calendar.ViewState.TableItem(title: "2", config: .upcoming),
+            DayPage.Calendar.ViewState.TableItem(title: "3", config: .upcoming),
+            DayPage.Calendar.ViewState.TableItem(title: "4", config: .upcoming),
+            DayPage.Calendar.ViewState.TableItem(title: "5", config: .upcoming)
         ]
         
-        return DayPage.Calendar.ViewState(weekDays: weekDays, monthItems: monthItems)
+        return DayPage.Calendar.ViewState(headerItems: headerItems, tableItems: tableItems)
     }
     
     private func createBodyViewState() -> Body.ViewState {

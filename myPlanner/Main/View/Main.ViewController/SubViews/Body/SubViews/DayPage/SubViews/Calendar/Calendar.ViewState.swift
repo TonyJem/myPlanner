@@ -21,6 +21,10 @@ extension DayPage.Calendar {
         
     }
     
+}
+
+extension DayPage.Calendar {
+    
     struct ViewState {
         
         enum Configuration {
@@ -32,13 +36,17 @@ extension DayPage.Calendar {
             case upcoming
         }
         
-        struct MonthItem: Hashable {
+        struct HeaderItem: Hashable {
+            let title: String
+        }
+        
+        struct TableItem: Hashable {
             let title: String
             let config: Configuration
         }
         
-        let weekDays: [String]
-        let monthItems: [MonthItem]
+        let headerItems: [HeaderItem]
+        let tableItems: [TableItem]
     }
     
 }
