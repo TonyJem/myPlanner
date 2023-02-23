@@ -147,7 +147,7 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sat"),
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
-        let tableItems = provider.createItems(for: selectedDate)
+        let tableItems = provider.getItems(for: selectedDate)
         return DayPage.Calendar.ViewState(sections: [
             Section(type: .header, items: headerItems),
             Section(type: .table, items: tableItems)

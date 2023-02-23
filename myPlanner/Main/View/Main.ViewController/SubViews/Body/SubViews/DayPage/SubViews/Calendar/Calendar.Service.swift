@@ -17,7 +17,7 @@ protocol CalendarServiceProtocol {
     /// Defines monthTab type for `date` and returns it as a `MonthTabType`
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
-    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
     
 }
 
@@ -125,25 +125,36 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
     
 }
 
+// MARK: - Create Calendar Items
+
+// TODO: Refactor getItems logic and make it more clear and readable
 extension DayPage.Calendar.Service {
     
-    func createItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         
-        let daysInMonth = daysInMonth(date: date)
+        let daysInCurrentMonth = daysInMonth(date: date)
         let firstDayOfMonth = firstOfMonth(date: date)
         // TODO: - Rename it for more clear name
         let startingSpaces = weekDay(date: firstDayOfMonth)
+        
+        let prevMonth = minusMonth(date: date)
+        
+        let daysInPreviuoseMonth = daysInMonth(date: prevMonth)
         
         var items: [DayPage.Calendar.CollectionViewCell.ViewState] = []
         
         var count: Int = 1
         
+        // TODO: Change maximal count from 35 to 42 autoamatically in order to show all current month correctly
+        // Sometimes it should be 35 sometimes even 42
+        // Item size should be adapted automaticaly
         while(count <= 35) {
             let item: DayPage.Calendar.CollectionViewCell.ViewState
             if count <= startingSpaces {
-                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count)", config: .previuos)
-            } else if count - startingSpaces > daysInMonth {
-                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInMonth)", config: .upcoming)
+                let monthDay = daysInPreviuoseMonth - startingSpaces + count
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(monthDay)", config: .previuos)
+            } else if count - startingSpaces > daysInCurrentMonth {
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInCurrentMonth)", config: .upcoming)
             } else {
                 item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
             }
@@ -169,6 +180,10 @@ extension DayPage.Calendar.Service {
     private func weekDay(date: Date) -> Int {
         let components = calendar.dateComponents([.weekday], from: date)
         return components.weekday! - 2
+    }
+    
+    private func minusMonth(date: Date) -> Date {
+        return calendar.date(byAdding: .month, value: -1, to: date)!
     }
     
 }
