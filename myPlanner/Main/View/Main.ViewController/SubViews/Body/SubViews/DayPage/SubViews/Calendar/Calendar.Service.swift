@@ -131,28 +131,24 @@ extension DayPage.Calendar.Service {
         
         let daysInMonth = daysInMonth(date: date)
         let firstDayOfMonth = firstOfMonth(date: date)
+        // TODO: - Rename it for more clear name
         let startingSpaces = weekDay(date: firstDayOfMonth)
         
         var items: [DayPage.Calendar.CollectionViewCell.ViewState] = []
         
         var count: Int = 1
         
-        while(count <= 42)
-        {
+        while(count <= 35) {
+            let item: DayPage.Calendar.CollectionViewCell.ViewState
+            if count <= startingSpaces {
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count)", config: .previuos)
+            } else if count - startingSpaces > daysInMonth {
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInMonth)", config: .upcoming)
+            } else {
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
+            }
             
-            if (count <= startingSpaces || count - startingSpaces > daysInMonth)
-            {
-                let item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count)", config: .previuos)
-                
-                items.append(item)
-            }
-            else
-            {
-                
-                let item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
-                
-                items.append(item)
-            }
+            items.append(item)
             count += 1
         }
         
