@@ -3,7 +3,7 @@ import Foundation
 protocol CalendarServiceProtocol {
     
     /// Creates a `Date` value initialized to the current date and time
-    func dateNow() -> Date
+    func localDateNow() -> Date
     
     /// Converts `Date` value and returns Month as a `String`
     func monthString(date: Date) -> String
@@ -33,7 +33,7 @@ extension DayPage.Calendar {
 
 extension DayPage.Calendar.Service: CalendarServiceProtocol {
     
-    func dateNow() -> Date {
+    func localDateNow() -> Date {
         let date = Date.now.localDate()
         return date
     }
@@ -85,8 +85,8 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         // Need to find out how it should be in order Users in all world could use thei local time that they have on their devices
         components.hour = 2
         components.day = 1
-        components.year = dateNow().get(.year)
-        return Calendar.current.date(from: components) ?? dateNow()
+        components.year = localDateNow().get(.year)
+        return Calendar.current.date(from: components) ?? localDateNow()
     }
     
     // TODO: Refactor to have only "calendar.component(.month" as
@@ -132,6 +132,12 @@ extension DayPage.Calendar.Service {
     
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         
+        let selectedDayOfMonth = dayOfMonth(date: date)
+        print("🟢 selectedDayOfMonth: \(selectedDayOfMonth)")
+        
+        let dayNow = dayOfMonth(date: localDateNow())
+        print("🟢🟢 todaysDay: \(dayNow)")
+        
         let daysInCurrentMonth = daysInMonth(date: date)
         let firstDayOfMonth = firstOfMonth(date: date)
         // TODO: - Rename it for more clear name
@@ -159,7 +165,19 @@ extension DayPage.Calendar.Service {
                 item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInCurrentMonth)", config: .upcoming)
                 
             } else {
-                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
+                
+                if count - startingSpaces == dayNow && count - startingSpaces == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .todaySelected)
+                    
+                } else if count - startingSpaces == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .currentSelected)
+                    
+                } else if count - startingSpaces == dayNow {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .today)
+                    
+                } else {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
+                }
             }
             
             items.append(item)
@@ -187,6 +205,11 @@ extension DayPage.Calendar.Service {
     
     private func minusMonth(date: Date) -> Date {
         return calendar.date(byAdding: .month, value: -1, to: date)!
+    }
+    
+    private func dayOfMonth(date: Date) -> Int {
+        let components = calendar.dateComponents([.day], from: date)
+        return components.day!
     }
     
 }

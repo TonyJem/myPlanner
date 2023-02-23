@@ -35,7 +35,7 @@ extension Main {
 extension Main.Provider: MainProviderProtocol {
     
     func dateNow() -> Date {
-        return calendarService.dateNow()
+        return calendarService.localDateNow()
     }
     
     func monthString(date: Date) -> String {
