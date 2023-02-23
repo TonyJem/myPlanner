@@ -4,13 +4,13 @@ protocol MainProviderProtocol {
     
     func dateNow() -> Date
     
-    func monthString(date: Date) -> String
+    func getMonthString(date: Date) -> String
     
-    func yearString(date: Date) -> String
+    func getYearString(date: Date) -> String
     
-    func date(for monthTab: Footer.MonthTab.MonthTabType) -> Date
+    func getDate(for monthTab: Footer.MonthTab.MonthTabType) -> Date
     
-    func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
+    func getMonthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
     
@@ -38,19 +38,19 @@ extension Main.Provider: MainProviderProtocol {
         return calendarService.localDateNow()
     }
     
-    func monthString(date: Date) -> String {
+    func getMonthString(date: Date) -> String {
         return calendarService.monthString(date: date)
     }
     
-    func yearString(date: Date) -> String {
+    func getYearString(date: Date) -> String {
         return calendarService.yearString(date: date)
     }
     
-    func date(for monthTab: Footer.MonthTab.MonthTabType) -> Date {
+    func getDate(for monthTab: Footer.MonthTab.MonthTabType) -> Date {
         return calendarService.date(for: monthTab)
     }
     
-    func monthTab(for date: Date) -> Footer.MonthTab.MonthTabType {
+    func getMonthTab(for date: Date) -> Footer.MonthTab.MonthTabType {
         return calendarService.monthTab(for: date)
     }
     

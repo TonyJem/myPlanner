@@ -40,7 +40,7 @@ extension Main {
         ) {
             self.provider = provider
             selectedDate = provider.dateNow()
-            activeMonth = provider.monthTab(for: selectedDate)
+            activeMonth = provider.getMonthTab(for: selectedDate)
         }
         
         // MARK: - Private Methods
@@ -52,17 +52,23 @@ extension Main {
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
-            
-            
-            selectedDate = provider.date(for: month)
+            selectedDate = provider.getDate(for: month)
             updateMainView()
         }
         
         private func handleTodayButtonAction() {
             selectedDate = provider.dateNow()
-            activeMonth = provider.monthTab(for: selectedDate)
+            activeMonth = provider.getMonthTab(for: selectedDate)
             updateMainView()
         }
+        
+        private func handleCalendarCellTapAction() {
+            selectedDate = provider.dateNow()
+            activeMonth = provider.getMonthTab(for: selectedDate)
+            updateMainView()
+        }
+        
+        
         
         private func updateMainView() {
             let container = createViewStateContainer()
@@ -114,8 +120,8 @@ extension Main.Presenter {
         let tabBarViewState = Header.PageTabBar.ViewState(type: .top, tabs: tabs)
         
         let headerViewState = Header.ViewState(
-            month: provider.monthString(date: selectedDate),
-            year: provider.yearString(date: selectedDate),
+            month: provider.getMonthString(date: selectedDate),
+            year: provider.getYearString(date: selectedDate),
             tabBarViewState: tabBarViewState
         )
         
