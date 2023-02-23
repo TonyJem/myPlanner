@@ -1,5 +1,7 @@
 import Foundation
 
+// TODO: Need to read and learn about `Date` type
+// and ivestigate what could be relevant and usefull for us in this app
 protocol CalendarServiceProtocol {
     
     /// Creates a `Date` value initialized to the current date and time

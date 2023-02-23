@@ -57,6 +57,8 @@ extension DayPage.Calendar {
             
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
             collectionView.collectionViewLayout.invalidateLayout()
+            
+            collectionView.delegate = self
         }
         
         private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -77,6 +79,22 @@ extension DayPage.Calendar {
             }
             return layout
         }
+        
+    }
+    
+}
+
+// MARK: - CollectionView Delegate
+
+extension DayPage.Calendar.CollectionContainerView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("🟢 didDeselectItemAt section: \(indexPath.section) item: \(indexPath.item)")
+        
+        let cellViewState = collectionViewDataSource.sections[indexPath.section].items[indexPath.item]
+        
+        print("🟢🟢 Cell Title: \(cellViewState.title)")
         
     }
     
