@@ -24,7 +24,7 @@ extension Main {
         // when I have localy 2023-02-20 Mon 00:08
         private var selectedDate: Date {
             didSet {
-                print("🟢 SelectedDate: \(selectedDate)")
+                print("🟢 SelectedDate: \(selectedDate.localDate())")
             }
         }
         
