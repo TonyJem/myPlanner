@@ -31,7 +31,7 @@ extension Main {
         private var activePage: Header.PageTab.PageTabType = .day
         
         // TODO: Think if we need this parameter, may is ebought to have just only "selectedDate"
-        private var activeMonth: Footer.MonthTab.MonthTabType = .january
+        private var activeMonthTab: Footer.MonthTab.MonthTabType = .january
         
         // MARK: - Init
         
@@ -40,7 +40,7 @@ extension Main {
         ) {
             self.provider = provider
             selectedDate = provider.dateNow()
-            activeMonth = provider.getMonthTab(for: selectedDate)
+            activeMonthTab = provider.getMonthTab(for: selectedDate)
         }
         
         // MARK: - Private Methods
@@ -51,20 +51,20 @@ extension Main {
         }
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
-            activeMonth = month
+            activeMonthTab = month
             selectedDate = provider.getDate(for: month)
             updateMainView()
         }
         
         private func handleTodayButtonAction() {
             selectedDate = provider.dateNow()
-            activeMonth = provider.getMonthTab(for: selectedDate)
+            activeMonthTab = provider.getMonthTab(for: selectedDate)
             updateMainView()
         }
         
-        private func handleCalendarCellTapAction() {
-            selectedDate = provider.dateNow()
-            activeMonth = provider.getMonthTab(for: selectedDate)
+        private func handleCalendarCellTapAction(date: Date) {
+            selectedDate = date
+            activeMonthTab = provider.getMonthTab(for: date)
             updateMainView()
         }
         
@@ -188,7 +188,7 @@ extension Main.Presenter {
             .november,
             .december
         ]
-        let tabs = createMonthTabs(months: months, activeMonth: activeMonth, action: handleMonthTabAction )
+        let tabs = createMonthTabs(months: months, activeMonth: activeMonthTab, action: handleMonthTabAction )
         let tabBarViewState = Footer.MonthTabBar.ViewState(type: .bottom, tabs: tabs)
         let footerViewState = Footer.ViewState(
             tabBarViewState: tabBarViewState,
