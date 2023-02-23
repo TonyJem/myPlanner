@@ -150,11 +150,14 @@ extension DayPage.Calendar.Service {
         // Item size should be adapted automaticaly
         while(count <= 35) {
             let item: DayPage.Calendar.CollectionViewCell.ViewState
+            
             if count <= startingSpaces {
                 let monthDay = daysInPreviuoseMonth - startingSpaces + count
                 item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(monthDay)", config: .previuos)
+                
             } else if count - startingSpaces > daysInCurrentMonth {
                 item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInCurrentMonth)", config: .upcoming)
+                
             } else {
                 item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
             }
