@@ -3,7 +3,7 @@ import Foundation
 protocol CalendarServiceProtocol {
     
     /// Creates a `Date` value initialized to the current date and time
-    func dateNow() -> Date
+    func localDateNow() -> Date
     
     /// Converts `Date` value and returns Month as a `String`
     func monthString(date: Date) -> String
@@ -17,11 +17,15 @@ protocol CalendarServiceProtocol {
     /// Defines monthTab type for `date` and returns it as a `MonthTabType`
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
+    
 }
 
 extension DayPage.Calendar {
     
     final class Service {
+        
+        let calendar = Calendar.current
         
     }
     
@@ -29,7 +33,7 @@ extension DayPage.Calendar {
 
 extension DayPage.Calendar.Service: CalendarServiceProtocol {
     
-    func dateNow() -> Date {
+    func localDateNow() -> Date {
         let date = Date.now.localDate()
         return date
     }
@@ -80,9 +84,15 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         // TODO: Find out WHY do I need to set hour and day ? Without it I get always 2 hours offset from local
         // Need to find out how it should be in order Users in all world could use thei local time that they have on their devices
         components.hour = 2
-        components.day = 1
-        components.year = dateNow().get(.year)
-        return Calendar.current.date(from: components) ?? dateNow()
+        
+        if components.month == localDateNow().get(.month) {
+            components.day = localDateNow().get(.day)
+        } else {
+            components.day = 1
+        }
+        
+        components.year = localDateNow().get(.year)
+        return Calendar.current.date(from: components) ?? localDateNow()
     }
     
     // TODO: Refactor to have only "calendar.component(.month" as
@@ -117,6 +127,103 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         default:
             return .january
         }
+    }
+    
+}
+
+// MARK: - Create Calendar Items
+
+// TODO: Refactor getItems logic and make it more clear and readable
+extension DayPage.Calendar.Service {
+    
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
+        
+        let selectedDayOfMonth = dayOfMonth(date: date)
+        
+        let dayNow = dayOfMonth(date: localDateNow())
+        
+        let daysInCurrentMonth = daysInMonth(date: date)
+        
+        let firstDayOfMonth = firstOfMonth(date: date)
+        // TODO: - Rename it for more clear name
+        let startingSpaces = weekDay(date: firstDayOfMonth)
+        
+        let prevMonth = minusMonth(date: date)
+        
+        let daysInPreviuoseMonth = daysInMonth(date: prevMonth)
+        
+        var items: [DayPage.Calendar.CollectionViewCell.ViewState] = []
+        
+        var count: Int = 1
+        
+        // TODO: Change maximal count from 35 to 42 autoamatically in order to show all current month correctly
+        // Sometimes it should be 35 sometimes even 42
+        // Item size should be adapted automaticaly
+        while(count <= 35) {
+            let item: DayPage.Calendar.CollectionViewCell.ViewState
+            
+            if count <= startingSpaces {
+                let monthDay = daysInPreviuoseMonth - startingSpaces + count
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(monthDay)", config: .previuos)
+                
+            } else if count - startingSpaces > daysInCurrentMonth {
+                item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces - daysInCurrentMonth)", config: .upcoming)
+                
+            } else {
+                
+                if count - startingSpaces == dayNow && count - startingSpaces == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .todaySelected)
+                    
+                } else if count - startingSpaces == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .currentSelected)
+                    
+                } else if count - startingSpaces == dayNow && date.get(.month) == localDateNow().get(.month) {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .today)
+                    
+                } else {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .current)
+                }
+            }
+            
+            items.append(item)
+            count += 1
+        }
+        
+        return items
+    }
+    
+    // TODO: Avoid force unwrapping in all code of project
+    private func daysInMonth(date: Date) -> Int {
+        let range = calendar.range(of: .day, in: .month, for: date)!
+        return range.count
+    }
+    
+    private func firstOfMonth(date: Date) -> Date {
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return calendar.date(from: components)!
+    }
+    
+    private func weekDay(date: Date) -> Int {
+        let components = calendar.dateComponents([.weekday], from: date)
+        return components.weekday! - 2
+    }
+    
+    private func plusMonth(date: Date) -> Date {
+        return calendar.date(byAdding: .month, value: 1, to: date)!
+    }
+    
+    private func minusMonth(date: Date) -> Date {
+        return calendar.date(byAdding: .month, value: -1, to: date)!
+    }
+    
+    private func dayOfMonth(date: Date) -> Int {
+        let components = calendar.dateComponents([.day], from: date)
+        return components.day!
+    }
+    
+    private func monthOf(date: Date) -> Int {
+        let components = calendar.dateComponents([.month], from: date)
+        return components.month!
     }
     
 }

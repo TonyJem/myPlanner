@@ -12,6 +12,8 @@ protocol MainProviderProtocol {
     
     func monthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
+    
 }
 
 extension Main {
@@ -33,7 +35,7 @@ extension Main {
 extension Main.Provider: MainProviderProtocol {
     
     func dateNow() -> Date {
-        return calendarService.dateNow()
+        return calendarService.localDateNow()
     }
     
     func monthString(date: Date) -> String {
@@ -50,6 +52,10 @@ extension Main.Provider: MainProviderProtocol {
     
     func monthTab(for date: Date) -> Footer.MonthTab.MonthTabType {
         return calendarService.monthTab(for: date)
+    }
+    
+    func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
+        calendarService.getItems(for: date)
     }
     
 }

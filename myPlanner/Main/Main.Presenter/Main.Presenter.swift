@@ -10,6 +10,8 @@ extension Main {
     
     class Presenter {
         
+        typealias Section = DayPage.Calendar.Section
+        
         // MARK: - Properties
         
         private let provider: MainProviderProtocol
@@ -22,7 +24,7 @@ extension Main {
         // when I have localy 2023-02-20 Mon 00:08
         private var selectedDate: Date {
             didSet {
-                print("🟢 SelectedDate: \(selectedDate)")
+                print("🟢 SelectedDate: \(selectedDate.localDate())")
             }
         }
         
@@ -50,6 +52,8 @@ extension Main {
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
+            
+            
             selectedDate = provider.date(for: month)
             updateMainView()
         }
@@ -135,8 +139,7 @@ extension Main.Presenter {
     // TODO: Make sure we can put same numbers but each should be unic anyway!
     // otherwise we will get crash!
     // Need to insert some validation and check before if it is hasshable
-    private func createDayPageCalendarViewStateMock() -> DayPage.Calendar.ViewState {
-        
+    private func createCalendarViewState() -> DayPage.Calendar.ViewState {
         let headerItems: [DayPage.Calendar.CollectionViewCell.ViewState] = [
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Mon"),
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Tue"),
@@ -146,56 +149,17 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sat"),
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
-        
-        let headerSection = DayPage.Calendar.Section(type: .header, items: headerItems)
-        
-        let tableItems: [DayPage.Calendar.CollectionViewCell.ViewState] = [
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "30", config: .previuos),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "31", config: .previuos),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "1", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "2", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "3", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "4", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "5", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "6", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "7", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "8", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "9", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "10", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "11", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "12", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "13", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "14", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "15", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "16", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "17", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "18", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "19", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "20", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "21", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "22", config: .today),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "23", config: .todaySelected),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "24", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "25", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "26", config: .currentSelected),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "27", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "28", config: .current),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "1", config: .upcoming),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "2", config: .upcoming),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "3", config: .upcoming),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "4", config: .upcoming),
-            DayPage.Calendar.CollectionViewCell.ViewState(title: "5", config: .upcoming)
-        ]
-        
-        let tableSection = DayPage.Calendar.Section(type: .table, items: tableItems)
-        let sections: [DayPage.Calendar.Section] = [headerSection, tableSection]
-        return DayPage.Calendar.ViewState(sections: sections)
+        let tableItems = provider.getItems(for: selectedDate)
+        return DayPage.Calendar.ViewState(sections: [
+            Section(type: .header, items: headerItems),
+            Section(type: .table, items: tableItems)
+        ])
     }
     
     private func createBodyViewState() -> Body.ViewState {
         
         let dayPageViewState = DayPage.ViewState(
-            calendarState: createDayPageCalendarViewStateMock()
+            calendarState: createCalendarViewState()
         )
         return Body.ViewState(
             activePage: activePage,
