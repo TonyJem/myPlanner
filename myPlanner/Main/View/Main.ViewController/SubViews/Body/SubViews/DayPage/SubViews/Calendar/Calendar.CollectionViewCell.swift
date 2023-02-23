@@ -16,10 +16,12 @@ extension DayPage.Calendar {
         
         struct ViewState: Hashable {
             
+            let date: Date
             let title: String
             let config: Configuration?
             
-            init(title: String, config: Configuration? = nil) {
+            init(date: Date = Date(), title: String, config: Configuration? = nil) {
+                self.date = date
                 self.title = title
                 self.config = config
             }
