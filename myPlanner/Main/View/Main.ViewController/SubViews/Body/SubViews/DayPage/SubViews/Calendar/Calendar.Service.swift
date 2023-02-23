@@ -139,12 +139,11 @@ extension DayPage.Calendar.Service {
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         
         let selectedDayOfMonth = dayOfMonth(date: date)
-        print("🟢 selectedDayOfMonth: \(selectedDayOfMonth)")
         
         let dayNow = dayOfMonth(date: localDateNow())
-        print("🟢🟢 todaysDay: \(dayNow)")
         
         let daysInCurrentMonth = daysInMonth(date: date)
+        
         let firstDayOfMonth = firstOfMonth(date: date)
         // TODO: - Rename it for more clear name
         let startingSpaces = weekDay(date: firstDayOfMonth)
@@ -178,7 +177,7 @@ extension DayPage.Calendar.Service {
                 } else if count - startingSpaces == selectedDayOfMonth {
                     item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .currentSelected)
                     
-                } else if count - startingSpaces == dayNow {
+                } else if count - startingSpaces == dayNow && date.get(.month) == localDateNow().get(.month) {
                     item = DayPage.Calendar.CollectionViewCell.ViewState(title: "\(count - startingSpaces)", config: .today)
                     
                 } else {
@@ -207,6 +206,10 @@ extension DayPage.Calendar.Service {
     private func weekDay(date: Date) -> Int {
         let components = calendar.dateComponents([.weekday], from: date)
         return components.weekday! - 2
+    }
+    
+    private func plusMonth(date: Date) -> Date {
+        return calendar.date(byAdding: .month, value: 1, to: date)!
     }
     
     private func minusMonth(date: Date) -> Date {
