@@ -20,6 +20,8 @@ extension DayPage.Calendar {
                 collectionViewLayout: UICollectionViewLayout()
             ).autolayout()
             
+            collectionView.isScrollEnabled = false
+            
             // TODO: - Check if we really need it and
             // learn what 'contentInsetAdjustmentBehavior' is doing
             collectionView.contentInsetAdjustmentBehavior = .always
