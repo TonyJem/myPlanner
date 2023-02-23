@@ -24,7 +24,7 @@ extension Main {
         // when I have localy 2023-02-20 Mon 00:08
         private var selectedDate: Date {
             didSet {
-                print("🟢 SelectedDate: \(selectedDate.localDate())")
+                print("🟢 SelectedDate: \(selectedDate)")
             }
         }
         
@@ -63,12 +63,11 @@ extension Main {
         }
         
         private func handleCalendarCellTapAction(date: Date) {
+            print("🟢🟢🟢 HandleCalendarCellTapAction in Presenter")
             selectedDate = date
             activeMonthTab = provider.getMonthTab(for: date)
             updateMainView()
         }
-        
-        
         
         private func updateMainView() {
             let container = createViewStateContainer()
@@ -156,10 +155,13 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
         let tableItems = provider.getItems(for: selectedDate)
-        return DayPage.Calendar.ViewState(sections: [
-            Section(type: .header, items: headerItems),
-            Section(type: .table, items: tableItems)
-        ])
+        return DayPage.Calendar.ViewState(
+            sections: [
+                Section(type: .header, items: headerItems),
+                Section(type: .table, items: tableItems)
+            ],
+            itemSelectedAction: handleCalendarCellTapAction
+        )
     }
     
     private func createBodyViewState() -> Body.ViewState {

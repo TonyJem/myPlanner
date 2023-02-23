@@ -6,6 +6,8 @@ extension DayPage.Calendar {
         
         let sections: [DayPage.Calendar.Section]
         
+        let itemSelectedAction: ((Date) -> Void)
+        
     }
     
 }
