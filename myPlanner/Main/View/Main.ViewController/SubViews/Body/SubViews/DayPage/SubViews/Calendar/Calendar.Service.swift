@@ -152,6 +152,8 @@ extension DayPage.Calendar.Service {
         
         let prevMonth = minusMonth(date: date)
         
+        let nextMonth = plusMonth(date: date)
+        
         let daysInPreviuoseMonth = daysInMonth(date: prevMonth)
         
         var items: [DayPage.Calendar.CollectionViewCell.ViewState] = []
@@ -166,24 +168,49 @@ extension DayPage.Calendar.Service {
             
             if count <= startingSpaces {
                 let monthDay = daysInPreviuoseMonth - startingSpaces + count
-                item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(monthDay)", config: .previuos)
+                item = DayPage.Calendar.CollectionViewCell.ViewState(
+                    date: provideDate(for: prevMonth.get(.month), day: monthDay),
+                    title: "\(monthDay)",
+                    config: .previuos
+                )
                 
             } else if count - startingSpaces > daysInCurrentMonth {
-                item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(count - startingSpaces - daysInCurrentMonth)", config: .upcoming)
+                let monthDay = count - startingSpaces - daysInCurrentMonth
+                item = DayPage.Calendar.CollectionViewCell.ViewState(
+                    date: provideDate(for: nextMonth.get(.month), day: monthDay),
+                    title: "\(monthDay)",
+                    config: .upcoming
+                )
                 
             } else {
-                
-                if count - startingSpaces == dayNow && count - startingSpaces == selectedDayOfMonth {
-                    item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(count - startingSpaces)", config: .todaySelected)
+                let monthDay = count - startingSpaces
+                if monthDay == dayNow && monthDay == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(
+                        date: provideDate(for: date.get(.month), day: monthDay),
+                        title: "\(monthDay)",
+                        config: .todaySelected
+                    )
                     
-                } else if count - startingSpaces == selectedDayOfMonth {
-                    item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(count - startingSpaces)", config: .currentSelected)
+                } else if monthDay == selectedDayOfMonth {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(
+                        date: provideDate(for: date.get(.month), day: monthDay),
+                        title: "\(monthDay)",
+                        config: .currentSelected
+                    )
                     
-                } else if count - startingSpaces == dayNow && date.get(.month) == localDateNow().get(.month) {
-                    item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(count - startingSpaces)", config: .today)
+                } else if monthDay == dayNow && date.get(.month) == localDateNow().get(.month) {
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(
+                        date: provideDate(for: date.get(.month), day: monthDay),
+                        title: "\(monthDay)",
+                        config: .today
+                    )
                     
                 } else {
-                    item = DayPage.Calendar.CollectionViewCell.ViewState(date: Date(), title: "\(count - startingSpaces)", config: .current)
+                    item = DayPage.Calendar.CollectionViewCell.ViewState(
+                        date: provideDate(for: date.get(.month), day: monthDay),
+                        title: "\(monthDay)",
+                        config: .current
+                    )
                 }
             }
             
@@ -194,13 +221,13 @@ extension DayPage.Calendar.Service {
         return items
     }
     
-//    private func previuosMonthDate(for day: Int) -> Date {
-//        var components = DateComponents()
-//        components.month = 1
-//        components.day = day
-//        components.year = Date().get(.year)
-//        return Calendar.current.date(from: components) ?? localDateNow()
-//    }
+    private func provideDate(for month: Int, day: Int) -> Date {
+        var components = DateComponents()
+        components.year = 2023
+        components.month = month
+        components.day = day
+        return Calendar.current.date(from: components) ?? localDateNow()
+    }
     
     // TODO: Avoid force unwrapping in all code of project
     private func daysInMonth(date: Date) -> Int {

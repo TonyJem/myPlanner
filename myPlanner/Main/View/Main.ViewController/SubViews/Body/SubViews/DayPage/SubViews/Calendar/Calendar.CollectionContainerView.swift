@@ -102,7 +102,7 @@ extension DayPage.Calendar.CollectionContainerView: UICollectionViewDelegate {
         
         print("🟢🟢 Cell Title: \(cellViewState.title)")
         
-        onItemSelected?(Date())
+        onItemSelected?(cellViewState.date)
         
     }
     
