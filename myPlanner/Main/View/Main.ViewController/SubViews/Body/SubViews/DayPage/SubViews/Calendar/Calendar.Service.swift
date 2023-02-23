@@ -84,7 +84,13 @@ extension DayPage.Calendar.Service: CalendarServiceProtocol {
         // TODO: Find out WHY do I need to set hour and day ? Without it I get always 2 hours offset from local
         // Need to find out how it should be in order Users in all world could use thei local time that they have on their devices
         components.hour = 2
-        components.day = 1
+        
+        if components.month == localDateNow().get(.month) {
+            components.day = localDateNow().get(.day)
+        } else {
+            components.day = 1
+        }
+        
         components.year = localDateNow().get(.year)
         return Calendar.current.date(from: components) ?? localDateNow()
     }
@@ -210,6 +216,11 @@ extension DayPage.Calendar.Service {
     private func dayOfMonth(date: Date) -> Int {
         let components = calendar.dateComponents([.day], from: date)
         return components.day!
+    }
+    
+    private func monthOf(date: Date) -> Int {
+        let components = calendar.dateComponents([.month], from: date)
+        return components.month!
     }
     
 }

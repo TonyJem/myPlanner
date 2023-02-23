@@ -52,6 +52,8 @@ extension Main {
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
             activeMonth = month
+            
+            
             selectedDate = provider.date(for: month)
             updateMainView()
         }
