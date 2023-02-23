@@ -24,14 +24,14 @@ extension Main {
         // when I have localy 2023-02-20 Mon 00:08
         private var selectedDate: Date {
             didSet {
-                print("🟢 SelectedDate: \(selectedDate.localDate())")
+                print("🟢 SelectedDate: \(selectedDate)")
             }
         }
         
         private var activePage: Header.PageTab.PageTabType = .day
         
         // TODO: Think if we need this parameter, may is ebought to have just only "selectedDate"
-        private var activeMonth: Footer.MonthTab.MonthTabType = .january
+        private var activeMonthTab: Footer.MonthTab.MonthTabType = .january
         
         // MARK: - Init
         
@@ -40,7 +40,7 @@ extension Main {
         ) {
             self.provider = provider
             selectedDate = provider.dateNow()
-            activeMonth = provider.monthTab(for: selectedDate)
+            activeMonthTab = provider.getMonthTab(for: selectedDate)
         }
         
         // MARK: - Private Methods
@@ -51,16 +51,21 @@ extension Main {
         }
         
         private func handleMonthTabAction(month: Footer.MonthTab.MonthTabType) {
-            activeMonth = month
-            
-            
-            selectedDate = provider.date(for: month)
+            activeMonthTab = month
+            selectedDate = provider.getDate(for: month)
             updateMainView()
         }
         
         private func handleTodayButtonAction() {
             selectedDate = provider.dateNow()
-            activeMonth = provider.monthTab(for: selectedDate)
+            activeMonthTab = provider.getMonthTab(for: selectedDate)
+            updateMainView()
+        }
+        
+        private func handleCalendarCellTapAction(date: Date) {
+            print("🟢🟢🟢 HandleCalendarCellTapAction in Presenter")
+            selectedDate = date
+            activeMonthTab = provider.getMonthTab(for: date)
             updateMainView()
         }
         
@@ -114,8 +119,8 @@ extension Main.Presenter {
         let tabBarViewState = Header.PageTabBar.ViewState(type: .top, tabs: tabs)
         
         let headerViewState = Header.ViewState(
-            month: provider.monthString(date: selectedDate),
-            year: provider.yearString(date: selectedDate),
+            month: provider.getMonthString(date: selectedDate),
+            year: provider.getYearString(date: selectedDate),
             tabBarViewState: tabBarViewState
         )
         
@@ -150,10 +155,13 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
         let tableItems = provider.getItems(for: selectedDate)
-        return DayPage.Calendar.ViewState(sections: [
-            Section(type: .header, items: headerItems),
-            Section(type: .table, items: tableItems)
-        ])
+        return DayPage.Calendar.ViewState(
+            sections: [
+                Section(type: .header, items: headerItems),
+                Section(type: .table, items: tableItems)
+            ],
+            itemSelectedAction: handleCalendarCellTapAction
+        )
     }
     
     private func createBodyViewState() -> Body.ViewState {
@@ -182,7 +190,7 @@ extension Main.Presenter {
             .november,
             .december
         ]
-        let tabs = createMonthTabs(months: months, activeMonth: activeMonth, action: handleMonthTabAction )
+        let tabs = createMonthTabs(months: months, activeMonth: activeMonthTab, action: handleMonthTabAction )
         let tabBarViewState = Footer.MonthTabBar.ViewState(type: .bottom, tabs: tabs)
         let footerViewState = Footer.ViewState(
             tabBarViewState: tabBarViewState,

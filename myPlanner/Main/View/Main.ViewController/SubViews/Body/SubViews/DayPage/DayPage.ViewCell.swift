@@ -125,6 +125,7 @@ extension DayPage.ViewCell {
         // such as missing viewState or may be use FatalError...?
         guard let viewState = viewState else { return }
         calendarContainer.collectionViewDataSource.update(viewState.calendarState.sections, animated: false)
+        calendarContainer.onItemSelected = viewState.calendarState.itemSelectedAction
     }
     
 }
