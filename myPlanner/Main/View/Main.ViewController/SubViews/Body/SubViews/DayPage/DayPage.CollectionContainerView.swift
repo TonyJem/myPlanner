@@ -59,13 +59,8 @@ extension DayPage {
                 collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-            
             collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-            
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
-            
-            
-            
             collectionView.collectionViewLayout.invalidateLayout()
             
             // TODO: Use it when need to use delegate methods
