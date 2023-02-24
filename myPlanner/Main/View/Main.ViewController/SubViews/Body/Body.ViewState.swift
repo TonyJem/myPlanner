@@ -6,7 +6,7 @@ extension Body {
         
         let activePage: Header.PageTab.PageTabType
         
-        let dayPageViewState: DayPage.ViewState
+        let dayPageCollectionViewCellViewStates: [DayPage.CollectionViewCell.ViewState]
         
     }
     
