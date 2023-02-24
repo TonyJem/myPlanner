@@ -4,6 +4,7 @@ extension DayPage.Calendar {
     
     // TODO: Check all classes and make sure all relevant classes are final
     // Learn differences about final and not final classes
+    // Create short conspect - quick reminder for me, in order when I need to look at it later
     final class CollectionContainerView: UIView {
         
         // MARK: - Properties
