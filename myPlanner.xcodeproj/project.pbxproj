@@ -435,14 +435,14 @@
 			children = (
 				3A5D20982989A5AD0029408A /* SubViews */,
 				3A5D20992989A60F0029408A /* DayPage.swift */,
+				3ACA4D6A29A237B200C7DCC6 /* DayPage.ViewState.swift */,
 				3A6DB56429A8B7A600BFD689 /* DayPage.CollectionContainerView.swift */,
 				3A6DB56629A8B89300BFD689 /* DayPage.CollectionViewDataSource.swift */,
 				3A6DB56A29A8C21100BFD689 /* DayPage.CollectionViewCell.swift */,
 				3A6DB56829A8B97600BFD689 /* DayPage.CollectionViewCell.ViewState.swift */,
-				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
 				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
-				3ACA4D6A29A237B200C7DCC6 /* DayPage.ViewState.swift */,
 				3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */,
+				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
 			);
 			path = DayPage;
 			sourceTree = "<group>";
@@ -598,14 +598,14 @@
 			isa = PBXGroup;
 			children = (
 				3ACA4D6229A226EC00C7DCC6 /* Calendar.swift */,
+				3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */,
 				3A4732C329A4DBB600C6BB33 /* Calendar.CollectionContainerView.swift */,
 				3A4732C529A4DFA500C6BB33 /* Calendar.CollectionViewDataSource.swift */,
-				3ACA4D6629A2294D00C7DCC6 /* Calendar.ViewState.swift */,
 				3A6DB56029A6C05800BFD689 /* Calendar.Section.swift */,
-				3A36032929A26D39002A8796 /* Calendar.Service.swift */,
 				3A6DB56229A6C09500BFD689 /* Calendar.CollectionViewCell.swift */,
 				3A4732BD29A4B8DB00C6BB33 /* Calendar.HeaderCell.swift */,
 				3A4732B729A35D6500C6BB33 /* Calendar.TableCell.swift */,
+				3A36032929A26D39002A8796 /* Calendar.Service.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
