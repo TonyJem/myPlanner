@@ -23,9 +23,9 @@ extension DayPage {
                 collectionView: collectionView,
                 cellProvider: { (collectionView, indexPath, itemViewState) -> UICollectionViewCell? in
                     
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewCell.identifier, for: indexPath) as? ViewCell
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell
                     
-//                    cell?.viewState = itemViewState
+                    cell?.viewState = itemViewState
                     
                     return cell
                     
