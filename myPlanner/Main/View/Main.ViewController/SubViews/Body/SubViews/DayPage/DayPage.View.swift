@@ -74,6 +74,7 @@ extension DayPage.View: UICollectionViewDataSource {
     // TODO: Change force unwrapping "as!" with guard, check for sollution in PaulHadson, RW tutorial or our project
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DayPage.ViewCell.identifier, for: indexPath) as! DayPage.ViewCell
+        
         let title = "Day: \(indexPath.row)"
         let date = "\(indexPath.row)"
         let subtitle = "\(indexPath.row)TH DAY, 337 LEFT, WEEK 4"
@@ -85,6 +86,7 @@ extension DayPage.View: UICollectionViewDataSource {
         cell.renderDate(viewState: dateViewState)
         
         guard let viewState = viewState else { return cell }
+        
         cell.viewState = DayPage.ViewCell.ViewState(
             calendarState: viewState.calendarState
         )

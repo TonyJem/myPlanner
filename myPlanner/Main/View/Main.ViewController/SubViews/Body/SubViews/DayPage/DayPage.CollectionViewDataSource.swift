@@ -25,6 +25,21 @@ extension DayPage {
                     
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell
                     
+                    
+                    // TODO: Refactor or delete it when be creating real DateView
+                    // The START of MockedData for DateView
+                    let title = "Day: \(indexPath.item)"
+                    let date = "\(indexPath.item)"
+                    let subtitle = "\(indexPath.item)TH DAY, 337 LEFT, WEEK 4"
+                    let dateViewState = DayPage.DateView.ViewState(
+                        title: title,
+                        date: date,
+                        subtitle: subtitle
+                    )
+                    cell?.renderDate(viewState: dateViewState)
+                    // The END of MockedData for DateView
+                    
+                    
                     cell?.viewState = itemViewState
                     
                     return cell
