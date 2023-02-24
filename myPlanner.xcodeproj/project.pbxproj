@@ -441,8 +441,8 @@
 				3A6DB56A29A8C21100BFD689 /* DayPage.CollectionViewCell.swift */,
 				3A6DB56829A8B97600BFD689 /* DayPage.CollectionViewCell.ViewState.swift */,
 				3A5D20A32989A6CF0029408A /* DayPage.View.swift */,
-				3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */,
 				3AD34AB429A0B887001FD558 /* DayPage.ViewCell.swift */,
+				3ACA4D6829A2321700C7DCC6 /* DayPage.ViewCell.ViewState.swift */,
 			);
 			path = DayPage;
 			sourceTree = "<group>";
