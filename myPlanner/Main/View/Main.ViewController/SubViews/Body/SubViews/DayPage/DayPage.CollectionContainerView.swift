@@ -18,7 +18,9 @@ extension DayPage {
                 collectionViewLayout: UICollectionViewLayout()
             ).autolayout()
             
-            collectionView.isScrollEnabled = false
+            collectionView.isPagingEnabled = true
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.showsHorizontalScrollIndicator = false
             
             // TODO: - Check if we really need it and
             // learn what 'contentInsetAdjustmentBehavior' is doing
@@ -61,6 +63,9 @@ extension DayPage {
             collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
             
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
+            
+            
+            
             collectionView.collectionViewLayout.invalidateLayout()
             
             // TODO: Use it when need to use delegate methods
@@ -68,7 +73,9 @@ extension DayPage {
         }
         
         private func createCompositionalLayout() -> UICollectionViewLayout {
-            let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            let configuration = UICollectionViewCompositionalLayoutConfiguration()
+            configuration.scrollDirection = .horizontal
+            let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
                 let itemSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1)
@@ -83,7 +90,7 @@ extension DayPage {
                 
                 let section = NSCollectionLayoutSection(group: group)
                 return section
-            }
+            }, configuration: configuration)
             return layout
         }
         
