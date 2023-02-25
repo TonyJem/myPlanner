@@ -166,12 +166,15 @@ extension Main.Presenter {
     
     private func createBodyViewState() -> Body.ViewState {
         
-        let dayPageViewState = DayPage.ViewState(
-            calendarState: createCalendarViewState()
-        )
+        let dayPageCollectionViewCellViewStates = [
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState()),
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState()),
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState())
+            ]
+        
         return Body.ViewState(
             activePage: activePage,
-            dayPageViewState: dayPageViewState
+            dayPageCollectionViewCellViewStates: dayPageCollectionViewCellViewStates
         )
     }
     

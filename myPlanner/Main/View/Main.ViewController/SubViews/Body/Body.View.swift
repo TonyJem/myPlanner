@@ -22,10 +22,26 @@ extension Body {
         
         // MARK: - SubViews
         
-        private lazy var dayPage: DayPageViewProtocol = {
-            let view = DayPage.View().autolayout()
+        /*
+         private lazy var calendarContainer: DayPage.Calendar.CollectionContainerView = {
+             let view = DayPage.Calendar.CollectionContainerView.create(
+                 dataSource: DayPage.Calendar.CollectionViewDataSource()
+             ).autolayout()
+             return view
+         }()
+         */
+        
+        private lazy var dayPage: DayPage.CollectionContainerView = {
+            let view = DayPage.CollectionContainerView.create(
+                dataSource: DayPage.CollectionViewDataSource()
+            ).autolayout()
             return view
         }()
+        
+//        private lazy var dayPage: DayPageViewProtocol = {
+//            let view = DayPage.View().autolayout()
+//            return view
+//        }()
         
         private lazy var weekPage = WeekPage.View().autolayout()
         private lazy var monthPage = MonthPage.View().autolayout()
@@ -102,7 +118,7 @@ extension Body.View: BodyViewProtocol {
         guard let viewState = viewState else { return }
         switch viewState.activePage {
         case .day:
-            dayPage.viewState = viewState.dayPageViewState
+            dayPage.collectionViewDataSource.update(viewState.dayPageCollectionViewCellViewStates, animated: false)
             showDayPage()
         case .week:
             showWeekPage()

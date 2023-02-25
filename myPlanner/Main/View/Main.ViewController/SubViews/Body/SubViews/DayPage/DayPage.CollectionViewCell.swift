@@ -2,7 +2,7 @@ import UIKit
 
 extension DayPage {
     
-    final class ViewCell: UICollectionViewCell {
+    final class CollectionViewCell: UICollectionViewCell {
         
         enum Constants {
             
@@ -13,7 +13,7 @@ extension DayPage {
         
         // MARK: - Properties
         
-        static let identifier = String(describing: ViewCell.self)
+        static let identifier = String(describing: CollectionViewCell.self)
         
         var viewState: ViewState? {
             didSet {
@@ -118,9 +118,9 @@ extension DayPage {
     
 }
 
-extension DayPage.ViewCell {
+extension DayPage.CollectionViewCell {
     
-    private func render(viewState: DayPage.ViewCell.ViewState?) {
+    private func render(viewState: DayPage.CollectionViewCell.ViewState?) {
         // TODO: Think if we should handle errors in all viewStates unwraping places
         // such as missing viewState or may be use FatalError...?
         guard let viewState = viewState else { return }
@@ -129,3 +129,4 @@ extension DayPage.ViewCell {
     }
     
 }
+

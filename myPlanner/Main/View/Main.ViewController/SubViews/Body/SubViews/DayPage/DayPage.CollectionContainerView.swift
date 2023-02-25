@@ -1,10 +1,7 @@
 import UIKit
 
-extension DayPage.Calendar {
+extension DayPage {
     
-    // TODO: Check all classes and make sure all relevant classes are final
-    // Learn differences about final and not final classes
-    // Create short conspect - quick reminder for me, in order when I need to look at it later
     final class CollectionContainerView: UIView {
         
         // MARK: - Properties
@@ -21,7 +18,9 @@ extension DayPage.Calendar {
                 collectionViewLayout: UICollectionViewLayout()
             ).autolayout()
             
-            collectionView.isScrollEnabled = false
+            collectionView.isPagingEnabled = true
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.showsHorizontalScrollIndicator = false
             
             // TODO: - Check if we really need it and
             // learn what 'contentInsetAdjustmentBehavior' is doing
@@ -60,52 +59,35 @@ extension DayPage.Calendar {
                 collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-            
-            collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
-            collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: HeaderCell.identifier)
-            
+            collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
             collectionView.setCollectionViewLayout(createCompositionalLayout(), animated: false)
             collectionView.collectionViewLayout.invalidateLayout()
             
-            collectionView.delegate = self
+            // TODO: Use it when need to use delegate methods
+//            collectionView.delegate = self
         }
         
         private func createCompositionalLayout() -> UICollectionViewLayout {
-            let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            let configuration = UICollectionViewCompositionalLayoutConfiguration()
+            configuration.scrollDirection = .horizontal
+            let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
                 let itemSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1/7),
+                    widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1)
                 )
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0.5, leading: 0.5, bottom: 0.5, trailing: 0.5)
+                
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalHeight(1/6)
+                    heightDimension: .fractionalHeight(1)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
                 let section = NSCollectionLayoutSection(group: group)
                 return section
-            }
+            }, configuration: configuration)
             return layout
         }
-        
-    }
-    
-}
-
-// MARK: - CollectionView Delegate
-
-extension DayPage.Calendar.CollectionContainerView: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print("🟢 didDeselectItemAt section: \(indexPath.section) item: \(indexPath.item)")
-        
-        let cellViewState = collectionViewDataSource.sections[indexPath.section].items[indexPath.item]
-        
-        print("🟢🟢 Cell Title: \(cellViewState.title)")
-        
-        onItemSelected?(cellViewState.date)
         
     }
     

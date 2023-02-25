@@ -1,3 +1,5 @@
+// TODO: Add swiftLint to project and configurate it in a manner we need for this project
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
