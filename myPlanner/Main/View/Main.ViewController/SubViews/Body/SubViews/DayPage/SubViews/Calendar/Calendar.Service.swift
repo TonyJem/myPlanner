@@ -1,5 +1,8 @@
 import Foundation
 
+// TODO: Rename all methods in Servidce to start from get what this func is doing
+// TODO: Decide which order should go functions on protocol and in implementation
+// may be it should be named in ABC order ?
 // TODO: Need to read and learn about `Date` type
 // and ivestigate what could be relevant and usefull for us in this app
 protocol CalendarServiceProtocol {
@@ -21,6 +24,10 @@ protocol CalendarServiceProtocol {
     
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
     
+    func prevoiuseDate(for date: Date) -> Date
+    
+    func nextDate(for date: Date) -> Date
+    
 }
 
 extension DayPage.Calendar {
@@ -34,6 +41,14 @@ extension DayPage.Calendar {
 }
 
 extension DayPage.Calendar.Service: CalendarServiceProtocol {
+    
+    func prevoiuseDate(for date: Date) -> Date {
+        return calendar.date(byAdding: .day, value: -1, to: date)!
+    }
+    
+    func nextDate(for date: Date) -> Date {
+        return calendar.date(byAdding: .day, value: 1, to: date)!
+    }
     
     func localDateNow() -> Date {
         let date = Date.now.localDate()

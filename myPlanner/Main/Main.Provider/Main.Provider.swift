@@ -1,5 +1,8 @@
 import Foundation
 
+// TODO: Rename all methods in Provider to start from get
+// TODO: Decide which order should go functions
+// may be it should be named in ABC order ?
 protocol MainProviderProtocol {
     
     func dateNow() -> Date
@@ -13,6 +16,10 @@ protocol MainProviderProtocol {
     func getMonthTab(for date: Date ) -> Footer.MonthTab.MonthTabType
     
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState]
+    
+    func getPrevoiuseDate(for date: Date) -> Date
+    
+    func getNextDate(for date: Date) -> Date
     
 }
 
@@ -56,6 +63,14 @@ extension Main.Provider: MainProviderProtocol {
     
     func getItems(for date: Date) -> [DayPage.Calendar.CollectionViewCell.ViewState] {
         calendarService.getItems(for: date)
+    }
+    
+    func getPrevoiuseDate(for date: Date) -> Date {
+        calendarService.prevoiuseDate(for: date)
+    }
+    
+    func getNextDate(for date: Date) -> Date {
+        calendarService.nextDate(for: date)
     }
     
 }
