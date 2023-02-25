@@ -144,7 +144,7 @@ extension Main.Presenter {
     // TODO: Make sure we can put same numbers but each should be unic anyway!
     // otherwise we will get crash!
     // Need to insert some validation and check before if it is hasshable
-    private func createCalendarViewState() -> DayPage.Calendar.ViewState {
+    private func createCalendarViewState(for date: Date) -> DayPage.Calendar.ViewState {
         let headerItems: [DayPage.Calendar.CollectionViewCell.ViewState] = [
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Mon"),
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Tue"),
@@ -154,7 +154,7 @@ extension Main.Presenter {
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sat"),
             DayPage.Calendar.CollectionViewCell.ViewState(title: "Sun")
         ]
-        let tableItems = provider.getItems(for: selectedDate)
+        let tableItems = provider.getItems(for: date)
         return DayPage.Calendar.ViewState(
             sections: [
                 Section(type: .header, items: headerItems),
@@ -166,10 +166,13 @@ extension Main.Presenter {
     
     private func createBodyViewState() -> Body.ViewState {
         
+        let previouseDate = provider.getPrevoiuseDate(for: selectedDate)
+        let nextDate = provider.getNextDate(for: selectedDate)
+        
         let dayPageCollectionViewCellViewStates = [
-            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState()),
-            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState()),
-            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState())
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState(for: previouseDate)),
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState(for: selectedDate)),
+            DayPage.CollectionViewCell.ViewState(calendarState: createCalendarViewState(for: nextDate))
             ]
         
         return Body.ViewState(
