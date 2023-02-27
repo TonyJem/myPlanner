@@ -4,12 +4,12 @@ extension Footer.MonthTabBar {
     
     struct ViewState {
         
-        enum TabBarViewType {
+        enum TabBarViewPosition {
             case top
             case bottom
         }
         
-        let type: TabBarViewType
+        let position: TabBarViewPosition
         let tabs: [Footer.MonthTab]
         
     }

@@ -59,12 +59,12 @@ extension MonthTabButton {
     
     struct ViewState {
         
-        enum TabButtonType {
+        enum TabButtonPosition {
             case top
             case bottom
         }
         
-        let type: TabButtonType
+        let position: TabButtonPosition
         let monthTabType: Footer.MonthTab.MonthTabType
         let title: String
         let color: UIColor
@@ -73,7 +73,7 @@ extension MonthTabButton {
         let tabAction: ((Footer.MonthTab.MonthTabType) -> Void)
         
         init(
-            type: TabButtonType,
+            position: TabButtonPosition,
             monthTabType: Footer.MonthTab.MonthTabType,
             title: String,
             color: UIColor,
@@ -81,7 +81,7 @@ extension MonthTabButton {
             isActive: Bool = false,
             tabAction: @escaping ((Footer.MonthTab.MonthTabType) -> Void)
         ) {
-            self.type = type
+            self.position = position
             self.monthTabType = monthTabType
             self.title = title
             self.color = color
@@ -105,7 +105,7 @@ extension MonthTabButton {
         let alignmentAngle: CGFloat = Constants.tabAlignmentAngle * .pi / 180
         
         // Selects `TabButton` shape's drawing method depending on type of `TabButton`:
-        switch viewState.type {
+        switch viewState.position {
         case .top:
             drawTopTabButton(viewState: viewState, angle: alignmentAngle, size: rect.size)
         case .bottom:

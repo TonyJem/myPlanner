@@ -47,7 +47,7 @@ extension Header.PageTabBar {
             
             removeAllArrangedSubviews()
             
-            let type: TabButton.ViewState.TabButtonType
+            let type: TabButton.ViewState.TabButtonPosition
             switch viewState.type {
             case .top:
                 type = .top
@@ -56,7 +56,7 @@ extension Header.PageTabBar {
             }
             
             for tab in viewState.tabs {
-                let tabButtonViewState = createTabButtonViewState(type: type, for: tab)
+                let tabButtonViewState = createTabButtonViewState(position: type, for: tab)
                 let tabButton: TabButtonProtocol = TabButton()
                 tabButton.viewState = tabButtonViewState
                 addArrangedSubview(tabButton)
@@ -64,10 +64,10 @@ extension Header.PageTabBar {
             
         }
         
-        private func createTabButtonViewState(type: TabButton.ViewState.TabButtonType, for tab: Header.PageTab) -> TabButton.ViewState {
+        private func createTabButtonViewState(position: TabButton.ViewState.TabButtonPosition, for tab: Header.PageTab) -> TabButton.ViewState {
             
             return .init(
-                type: type,
+                position: position,
                 pageTabType: tab.type,
                 title: tab.type.tabTitle,
                 color: tab.type.tabColor,

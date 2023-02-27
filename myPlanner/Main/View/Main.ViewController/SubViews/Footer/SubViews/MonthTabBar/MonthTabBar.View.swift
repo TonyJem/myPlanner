@@ -47,16 +47,16 @@ extension Footer.MonthTabBar {
             
             removeAllArrangedSubviews()
             
-            let type: MonthTabButton.ViewState.TabButtonType
-            switch viewState.type {
+            let position: MonthTabButton.ViewState.TabButtonPosition
+            switch viewState.position {
             case .top:
-                type = .top
+                position = .top
             case .bottom:
-                type = .bottom
+                position = .bottom
             }
             
             for tab in viewState.tabs {
-                let tabButtonViewState = createTabButtonViewState(type: type, for: tab)
+                let tabButtonViewState = createTabButtonViewState(position: position, for: tab)
                 let tabButton: MonthTabButtonProtocol = MonthTabButton()
                 tabButton.viewState = tabButtonViewState
                 addArrangedSubview(tabButton)
@@ -64,10 +64,10 @@ extension Footer.MonthTabBar {
             
         }
         
-        private func createTabButtonViewState(type: MonthTabButton.ViewState.TabButtonType, for tab: Footer.MonthTab) -> MonthTabButton.ViewState {
+        private func createTabButtonViewState(position: MonthTabButton.ViewState.TabButtonPosition, for tab: Footer.MonthTab) -> MonthTabButton.ViewState {
             
             return MonthTabButton.ViewState(
-                type: type,
+                position: position,
                 monthTabType: tab.type,
                 title: tab.type.tabTitle,
                 color: tab.type.tabColor,

@@ -68,13 +68,12 @@ extension TabButton {
     
     struct ViewState {
         
-        enum TabButtonType {
+        enum TabButtonPosition {
             case top
             case bottom
         }
         
-//    TODO: rename type to position or alignement or etc.... but not type anymore
-        let type: TabButtonType
+        let position: TabButtonPosition
         
         //    TODO: May be make it somehow generic, or tab should tell to presenter it self which button was tapped
         let pageTabType: Header.PageTab.PageTabType
@@ -85,7 +84,7 @@ extension TabButton {
         let tabAction: ((Header.PageTab.PageTabType) -> Void)
         
         init(
-            type: TabButtonType,
+            position: TabButtonPosition,
             pageTabType: Header.PageTab.PageTabType,
             title: String,
             color: UIColor,
@@ -93,7 +92,7 @@ extension TabButton {
             isActive: Bool = false,
             tabAction: @escaping ((Header.PageTab.PageTabType) -> Void)
         ) {
-            self.type = type
+            self.position =             position
             self.pageTabType = pageTabType
             self.title = title
             self.color = color
@@ -117,7 +116,7 @@ extension TabButton {
         let alignmentAngle: CGFloat = Constants.tabAlignmentAngle * .pi / 180
         
         // Selects `TabButton` shape's drawing method depending on type of `TabButton`:
-        switch viewState.type {
+        switch viewState.position {
         case .top:
             drawTopTabButton(viewState: viewState, angle: alignmentAngle, size: rect.size)
         case .bottom:
